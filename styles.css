@@ -1,3 +1,58 @@
-body{
+header{
+    background-color: blue;
+    margin: 0;
+    color: white;
+    font-size: 70px;
+}
+
+header p{
+    margin: 0;
+    text-align: center;
+}
+
+nav li{
+    list-style: none;
+    font-size: 30px;
+}
+
+
+nav a:visited{
+    color: white;
+}
+
+nav a:active{
     color: blue;
+}
+
+nav a:hover{
+    color: yellow;
+    
+}
+
+nav a:link{
+    color: green;
+    text-decoration: none;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+a:link{
+    color:blue;
+}
+
+a:visited{
+    color: green;
+    text-decoration: none;
+}
+
+a:hover{
+    color:purple;
+    text-decoration: none;
+}
+
+a:active{
+    color:brown;
 }
