@@ -5,6 +5,7 @@
 
 .dropDownMenu p{
     min-width: 100px;
+    text-align: right;
 }
 
 .dropDownMenu a{
