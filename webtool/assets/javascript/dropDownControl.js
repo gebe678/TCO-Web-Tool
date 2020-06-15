@@ -8,6 +8,7 @@ const vElements = document.querySelector(".bodyElements");
 const pElements = document.querySelector(".powerTrainElements");
 const rElements = document.querySelector(".regionalityElements");
 const listElements = document.querySelectorAll(".elements");
+const specificElements = [document.querySelector(".bodyElements"), document.querySelector(".powerTrainElements"), document.querySelector(".regionalityElements")];
 
 // elements for the text displayed in the box
 const vText = document.querySelector(".vehicleText");
@@ -19,6 +20,8 @@ const rText = document.querySelector(".regionalityText");
 
 function toggleElementView(toggle, target)
 {
+    removeLists(toggle);
+
     if(toggle.style.display === "none")
     {
         toggle.style.display = "initial";
@@ -51,10 +54,11 @@ function changeText(boxText, elementText)
    boxText.innerHTML = text;
 }
 
-function removeLists()
+function removeLists(target)
 {
-    for(let i = 0; i < listElements.length; i++)
+    for(let i = 0; i < specificElements.length; i++)
     {
+        if(target !== specificElements[i])
         listElements[i].style.display = "none";
     }
 }
@@ -63,6 +67,4 @@ removeLists();
 vBody.addEventListener("click", function(){toggleElementView(vElements, vText);});
 pTrain.addEventListener("click", function(){toggleElementView(pElements, pText);});
 region.addEventListener("click", function(){toggleElementView(rElements, rText);});
-
-
 
