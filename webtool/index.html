@@ -5,8 +5,17 @@
     <meta name="description" content="caluclate the total cost of operation for a vehicle">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/dropDownStyles.css">
+    <link rel="stylesheet" href="assets/css/imageOverlayStyles.css">
     <script src="assets/javascript/dropDownControl.js" defer></script>
+
+    <style>
+        p{
+            font-family: sans-serif;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
     <header>
@@ -17,6 +26,8 @@
     </header>
 
     <main>
+
+        <!--drop down menu for the vehicle body-->
         <div class="dropDownMenu bodyMenu">
                 <p>Vehicle Body: </p>
                 <div class="body vehicleBody">
@@ -31,6 +42,7 @@
                 </div>
         </div>
 
+        <!--drop down menu for the powertrain-->
         <div class="dropDownMenu powerTrainMenu">
             <p>Powertrain: </p>
             <div class="body powerTrainBody">
@@ -45,6 +57,7 @@
             </div>
         </div>
 
+        <!--drop down menu for the regionality-->
         <div class="dropDownMenu regionalityMenu">
             <p>Regionality: </p>
             <div class="body regionalityBody">
@@ -55,9 +68,19 @@
                     <a href="#">New Mexico</a>
                     <a href="#">Maine</a>
                     <a href="#">Florida</a>
+                    <a href="#">Maryland</a>
                 </div>
             </div>
         </div>
+        <!--sample image for overlay-->
+        <div class="imageContainer">
+                <img src="assets/pictures/redCarNBC.png" alt="A red car" class="redCar">
+                <div class="overlayedColors"></div>
+        </div>
+
+        <p>
+             <span style="color:blue;">vehicle body - blue</span>, <span style="color:green;">Powertrain - green</span>, <span style="color:rgb(163, 163, 56);">Regionality - yellow</span>.
+        </p>
     </main>
 
     <footer>

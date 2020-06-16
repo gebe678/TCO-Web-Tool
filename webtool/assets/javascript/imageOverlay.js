@@ -1,0 +1,1 @@
+// this script is going to create the values for when the colors will transition from one to another

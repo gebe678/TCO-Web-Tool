@@ -2,6 +2,7 @@
 const vBody = document.querySelector(".vehicleBody");
 const pTrain = document.querySelector(".powerTrainBody");
 const region = document.querySelector(".regionalityBody");
+const allBodies = document.querySelectorAll(".body");
 
 // grab elements for the document selection
 const vElements = document.querySelector(".bodyElements");
@@ -67,4 +68,3 @@ removeLists();
 vBody.addEventListener("click", function(){toggleElementView(vElements, vText);});
 pTrain.addEventListener("click", function(){toggleElementView(pElements, pText);});
 region.addEventListener("click", function(){toggleElementView(rElements, rText);});
-

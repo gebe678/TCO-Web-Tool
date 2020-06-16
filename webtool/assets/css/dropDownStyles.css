@@ -6,6 +6,7 @@
 .dropDownMenu p{
     min-width: 100px;
     text-align: right;
+    font-family: sans-serif;
 }
 
 .dropDownMenu a{
@@ -27,8 +28,8 @@
 }
 
 .box{
-    height: 25px;
-    width: 500px;
+    min-height: 25px;
+    min-width: 500px;
     border: 2px solid #aeb6bf;
     border-radius: 5px;
 }
