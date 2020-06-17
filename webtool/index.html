@@ -8,14 +8,13 @@
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/imageOverlayStyles.css">
     <script src="assets/javascript/dropDownControl.js" defer></script>
-
+    <script src="assets/javascript/imageOverlay.js" defer></script>
     <style>
         p{
             font-family: sans-serif;
             text-align: center;
         }
     </style>
-
 </head>
 <body>
     <header>
@@ -73,14 +72,9 @@
             </div>
         </div>
         <!--sample image for overlay-->
-        <div class="imageContainer">
-                <img src="assets/pictures/redCarNBC.png" alt="A red car" class="redCar">
-                <div class="overlayedColors"></div>
-        </div>
-
-        <p>
-             <span style="color:blue;">vehicle body - blue</span>, <span style="color:green;">Powertrain - green</span>, <span style="color:rgb(163, 163, 56);">Regionality - yellow</span>.
-        </p>
+        <canvas id="vehicleGraph">
+            <img src="assets/pictures/pickup-truck.jpg">
+        </canvas>
     </main>
 
     <footer>
