@@ -14,6 +14,7 @@ function main()
     // source file for the image to be loaded
     img.src = "assets/pictures/pickup-truck-rotated.jpg";
     img.className = "canvasPic";
+    img.crossOrigin = "Anonymous";
 
     // code run after the image is loaded into the script
     img.onload = function(){
@@ -152,9 +153,11 @@ function partitionImage(canvas, ctx, startRow, percentage, red, green, blue)
 
 function colorImage(canvas, ctx, startRow, img)
 {   
-    let st = partitionImage(canvas, ctx, startRow[0], .4, 0, 0, 255);
-    let st2 = partitionImage(canvas, ctx, st, .2, 255, 0, 0);
-    partitionImage(canvas, ctx, st2, .4, 0, 255, 0);
+    let st = partitionImage(canvas, ctx, startRow[0], .1, 16, 100, 210);
+    let st2 = partitionImage(canvas, ctx, st, .1, 238, 99, 29);
+    let st3 = partitionImage(canvas, ctx, st2, .40, 36, 162, 17);
+    let st4 = partitionImage(canvas, ctx, st3, .05, 141, 32, 223);
+    let st5 = partitionImage(canvas, ctx, st4, .35, 250, 182, 65);
 }
 
 // run the canvas code after the window has loaded
