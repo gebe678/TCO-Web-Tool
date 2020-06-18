@@ -8,26 +8,47 @@ function main()
     let ctx = canvas.getContext("2d");
 
     // image variable that is going to be added to the canvas
-    let img = new Image();   
+    let img = new Image();
+    let secondImg = new Image();
+
+    // source file for the image to be loaded
+    img.src = "assets/pictures/pickup-truck-rotated.jpg";
+    img.className = "canvasPic";
 
     // code run after the image is loaded into the script
     img.onload = function(){
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        //resize the canvas to the picture size
+        resetCanvasSize(img.width, img.height, canvas);  
+        
+        ctx.drawImage(img, 0, 0);
+
         let startValue = totalAreaCovered(canvas, ctx);
-        
-        let st = partitionImage(canvas, ctx, startValue[0], .3, 0, 0, 255);
-        let st2 = partitionImage(canvas, ctx, st, .3, 255, 0, 0);
-        partitionImage(canvas, ctx, st2, .4, 0, 255, 0);
-        
-    }
-    
-    // srouce file for the image to be loaded
-    img.src = "assets/pictures/pickup-truck.jpg";
+        colorImage(canvas, ctx, startValue, img);
 
-    //resize the canvas to the picture size
-    resetCanvasSize(img.width, img.height, canvas);
+        let tempCanvas = document.createElement("canvas");
+        let tempCtx = tempCanvas.getContext("2d");
+
+        tempCanvas.width = canvas.width;
+        tempCanvas.height = canvas.height;
+
+        tempCtx.drawImage(canvas, 0, 0);
+
+        let angle = 270 * Math.PI / 180;
+        canvas.width = img.height;
+        canvas.height = img.width;
+
+        let imageWidth = img.width;
+        let imageHeight = img.height;
+
+        ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
+        ctx.rotate(angle);
+        ctx.translate(-img.width / 2, -img.height / 2);
+        ctx.drawImage(tempCanvas, 0, 0);
+
+        tempCtx.clearRect(0, 0, canvas.width, canvas.height);
+    };
 }
-
 // resets the size of the canvas
 function resetCanvasSize(cWidth, cHeight, canvas)
 {
@@ -119,7 +140,7 @@ function partitionImage(canvas, ctx, startRow, percentage, red, green, blue)
 
     // startValue for the changeColor
     let start = ((startRow - 1) * w) + 4;
-
+  
     // last row to cover in the percentage
     let endRow = Math.ceil(percentage * totalRows) + startRow;
     let end = endRow * w;
@@ -129,7 +150,14 @@ function partitionImage(canvas, ctx, startRow, percentage, red, green, blue)
     return endRow;
 }
 
-// run the canvas code after the window has loaded
-window.onload = function(){
-    main();
+function colorImage(canvas, ctx, startRow, img)
+{   
+    let st = partitionImage(canvas, ctx, startRow[0], .4, 0, 0, 255);
+    let st2 = partitionImage(canvas, ctx, st, .2, 255, 0, 0);
+    partitionImage(canvas, ctx, st2, .4, 0, 255, 0);
 }
+
+// run the canvas code after the window has loaded
+window.addEventListener("DOMContentLoaded", function(){
+    main();
+})
