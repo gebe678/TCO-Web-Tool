@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
-    <link rel="stylesheet" href="assets/css/imageOverlayStyles.css">
+    <link rel="stylesheet" href="assets/css/pageStyles.css">
     <script src="assets/javascript/dropDownControl.js" defer></script>
     <script src="assets/javascript/imageOverlay.js" defer></script>
     <style>
@@ -17,14 +17,15 @@
 </head>
 <body>
     <header>
-        
+        <h1>This is the title of the web page</h1>
         <nav>
-             
+            <!--navigation bar to go between the pages of the site easily-->
+            <div class="navBar">
+                <a href = "detailedView.html">DETAILED VIEW</a>
+            </div>
         </nav>
     </header>
-
     <main>
-
         <!--drop down menu for the vehicle body-->
         <div class="dropDownMenu bodyMenu">
                 <p>Vehicle Body: </p>
@@ -35,7 +36,6 @@
                         <a href="#">compact LDV</a>
                         <a href="#">midsize HDV</a>
                         <a href="#">Long Haul Trucks</a>
-                        <a href="#">Another Option</a>
                     </div>
                 </div>
         </div>
@@ -72,7 +72,7 @@
         </div>
         <!--canvas id for overlaying the image uses the imageOverlay.js file-->
         <div class="canvasContainer">
-            <canvas id="vehicleGraph">canvas not working in your browser</canvas>
+            <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
         </div>
 
     </main>

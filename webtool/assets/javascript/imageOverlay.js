@@ -10,10 +10,6 @@ function main()
     // image variable that is going to be added to the canvas
     let img = new Image();
     let secondImg = new Image();
-
-    // source file for the image to be loaded
-    img.src = "assets/pictures/pickup-truck-rotated.jpg";
-    img.className = "canvasPic";
     img.crossOrigin = "Anonymous";
 
     // code run after the image is loaded into the script
@@ -49,6 +45,9 @@ function main()
 
         tempCtx.clearRect(0, 0, canvas.width, canvas.height);
     };
+
+    // source file for the image to be loaded
+    img.src = "assets/pictures/pickup-truck-rotated.jpg";
 }
 // resets the size of the canvas
 function resetCanvasSize(cWidth, cHeight, canvas)

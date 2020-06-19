@@ -1,0 +1,52 @@
+/* styling for the slider element */
+
+/* makes the slider invisible across all browsers so that custom styling can be applied after */
+.slider{
+    -webkit-appearance: none;
+    background: transparent;
+    width: 250px;
+}
+
+.slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+}
+
+.slider:focus{
+    outline: none;
+}
+
+.slider::-ms-track{
+    width: 100%;
+    cursor: pointer;
+
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+/* styles for the thumb - circle that you click to move along the track */
+.slider::-webkit-slider-thumb{
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.slider::-ms-thumb{
+    border: 1px solid black;
+    height: 15px;
+    width: 15px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* Styles for the track of the thumb */
+.slider::-webkit-slider-runnable-track{
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.slider::-ms-track{
+    background-color: blue;
+}

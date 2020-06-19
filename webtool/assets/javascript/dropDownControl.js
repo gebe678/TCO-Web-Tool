@@ -21,31 +21,38 @@ const rText = document.querySelector(".regionalityText");
 
 function toggleElementView(toggle, target)
 {
-    removeLists(toggle);
+    try
+    {
+        removeLists(toggle);
 
-    if(toggle.style.display === "none")
-    {
-        toggle.style.display = "initial";
-        toggle.style.display = "block";
-    }
-    else
-    {
-        toggle.style.display = "none";
-    }
-
-    let links;
-    let dropDown;
-    for(let i = 0 ; i < listElements.length; i++)
-    {
-        if(listElements[i].style.display === "block")
+        if(toggle.style.display === "none")
         {
-            links = listElements[i].getElementsByTagName("a");
+            toggle.style.display = "initial";
+           toggle.style.display = "block";
+        }
+        else
+        {
+            toggle.style.display = "none";
+        }
+
+        let links;
+        let dropDown;
+        for(let i = 0 ; i < listElements.length; i++)
+        {
+            if(listElements[i].style.display === "block")
+            {
+               links = listElements[i].getElementsByTagName("a");
+            }
+        }
+
+        for(let i = 0; i < links.length; i++)
+        {
+             links[i].addEventListener("click", function(){changeText(target, links[i]);});
         }
     }
-
-    for(let i = 0; i < links.length; i++)
-    {
-         links[i].addEventListener("click", function(){changeText(target, links[i]);});
+    catch(e)
+    {   
+    
     }
 }
 
