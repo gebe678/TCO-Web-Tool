@@ -1,10 +1,35 @@
 /* styling for the slider element */
 
+/* styling for the container with all of the slider and text information*/
+.sliderContainer{
+    display: flex;
+    text-align: right;
+    margin-left: 129px;
+    margin-top: 15px;
+}
+
+.textContainer{
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+
+.textBlock{
+    display: block;
+    margin-top: 14px;
+}
+
 /* makes the slider invisible across all browsers so that custom styling can be applied after */
 .slider{
     -webkit-appearance: none;
     background: transparent;
     width: 250px;
+    margin-top: 10px;
+}
+
+.inputContainer{
+    display: block;
+    margin-left: 20px;
+    background-color: rgb(219, 219, 219);
 }
 
 .slider::-webkit-slider-thumb{
