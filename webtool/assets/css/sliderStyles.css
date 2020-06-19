@@ -2,14 +2,13 @@
 
 /* styling for the container with all of the slider and text information*/
 .sliderContainer{
-    display: flex;
-    margin-left: 210px;
+    margin-left: 20px;
     margin-top: 15px;
+    display: flex;
+    display: inline-block;
 }
 
 .textBlock{
-    display: block;
-    text-align: center;
     font-family: sans-serif;
     font-weight: bold;
 }
@@ -20,6 +19,7 @@
     background: transparent;
     width: 350px;
     margin-top: 10px;
+    margin-left: 5px;
 }
 
 .inputContainer{
