@@ -38,8 +38,7 @@ function lineElements(textBlock)
 
         for(let j = 0; j < diff; j++)
         {
-            // find an invisible character that will move everything onward
-            textBlock[i].innerHTML = textBlock[i].innerHTML + "\r";
+            textBlock[i].innerHTML = textBlock[i].innerHTML + "";
         }
     }
 }   
