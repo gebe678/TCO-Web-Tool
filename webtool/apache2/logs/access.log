@@ -1,0 +1,14 @@
+::1 - - [22/Jun/2020:15:10:46 -0400] "GET / HTTP/1.1" 200 3231
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET / HTTP/1.1" 200 3231
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET /assets/css/dropDownStyles.css HTTP/1.1" 200 1069
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET /assets/css/pageStyles.css HTTP/1.1" 200 474
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET /assets/javascript/dropDownControl.js HTTP/1.1" 200 2439
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 5024
+::1 - - [22/Jun/2020:15:12:42 -0400] "GET /assets/pictures/utility-van-rotated.jpg HTTP/1.1" 200 22284
+::1 - - [22/Jun/2020:15:13:03 -0400] "GET / HTTP/1.1" 200 3231
+::1 - - [22/Jun/2020:15:13:03 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 5025
+::1 - - [22/Jun/2020:15:13:03 -0400] "GET /assets/pictures/pickup-truck-rotated.jpg HTTP/1.1" 200 28188
+::1 - - [22/Jun/2020:15:15:50 -0400] "GET / HTTP/1.1" 200 3231
+::1 - - [22/Jun/2020:15:15:50 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 5380
+::1 - - [22/Jun/2020:15:16:08 -0400] "GET / HTTP/1.1" 200 3231
+::1 - - [22/Jun/2020:15:16:08 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 5379

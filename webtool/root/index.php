@@ -21,7 +21,7 @@
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
-                <a href = "detailedView.html">DETAILED VIEW</a>
+                <a href = "detailedView.php">DETAILED VIEW</a>
             </div>
         </nav>
     </header>

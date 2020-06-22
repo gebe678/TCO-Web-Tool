@@ -20,6 +20,8 @@ function main()
         
         ctx.drawImage(img, 0, 0);
 
+        turnWhite(canvas, ctx);
+
         let startValue = totalAreaCovered(canvas, ctx);
         colorImage(canvas, ctx, startValue, img);
 
@@ -67,6 +69,24 @@ function isWhite(number)
         }
     }
     return false;
+}
+
+function turnWhite(canvas, ctx)
+{
+    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let pixels = imgData.data;
+
+    for(let i = 0; i < pixels.length; i += 4)
+    {
+        if((isWhite(pixels[i]) && isWhite(pixels[i + 1]) && isWhite(pixels[i + 2])))
+        {
+            pixels[i] = 255;
+            pixels[i + 1] = 255;
+            pixels[i + 2] = 255;
+        }
+    }
+
+    ctx.putImageData(imgData, 0, 0);
 }
 
 // finds and returns the first and last column with a pixel part of the car image
@@ -122,7 +142,7 @@ function changeColor(canvas, ctx, startValue, endValue, red, green, blue)
             pixels[i] = red;
             pixels[i + 1] = green;
             pixels[i + 2] = blue;
-        } 
+        }
     }
 
     ctx.putImageData(imgData, 0, 0);
