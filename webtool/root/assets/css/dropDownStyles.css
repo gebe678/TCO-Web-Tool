@@ -1,0 +1,64 @@
+.dropDownMenu{
+    display: flex;
+    margin-left: 40px;
+}
+
+.dropDownMenu p{
+    min-width: 100px;
+    text-align: right;
+    font-family: sans-serif;
+}
+
+.dropDownMenu a{
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    text-transform: capitalize;
+}
+
+.dropDownMenu a:hover{
+    background-color: #cacfd2;
+}
+
+.body{
+   position: relative;
+   margin-left: 25px;
+   margin-top: 12px;
+}
+
+.box{
+    min-height: 25px;
+    min-width: 500px;
+    border: 2px solid #aeb6bf;
+    border-radius: 5px;
+}
+
+.arrow{
+    border: solid #283747;
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    margin-right: 7px;
+    margin-top: 7px;
+    float: right;
+}
+
+.box:hover{
+    border-color: #283747;
+}
+
+.box .boxText{
+    font-family: sans-serif;
+    text-transform: capitalize;
+    line-height: 25px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.elements{
+   position: absolute;
+   background-color: #f2f3f4;
+   min-width: 500px;
+   z-index: 1;
+}
