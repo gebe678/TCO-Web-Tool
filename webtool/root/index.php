@@ -16,6 +16,31 @@
     </style>
 </head>
 <body>
+	<?php 
+		$user_name = "root";
+		$password = "usbw";
+		$database = "tco_vehicle_information";
+		$server = "127.0.0.1";
+
+		$connection = new mysqli($server, $user_name, $password, $database);
+
+		if($connection->connect_error)
+		{
+			echo("no connection");
+		}
+
+		$sql = "SELECT Vehicle_ID, Financing FROM cost_components WHERE Vehicle_ID = 1";
+        $result = $connection->query($sql);
+        if($result-> num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                echo "Financing: " . $row["Vehicle_ID"]. " " . $row["Financing"] . "<br>";
+            }
+        }
+        
+	?>
+
     <header>
         <h1>This Is The Title Of The Webpage</h1>
         <nav>
@@ -28,14 +53,15 @@
     <main>
         <!--drop down menu for the vehicle body-->
         <div class="dropDownMenu bodyMenu">
-                <p>Vehicle Body: </p>
+                <p>Vehicle Size: </p>
                 <div class="body vehicleBody">
-                    <div class="box"><span class="boxText vehicleText"></span><span class="arrow"></span></div>
+                    <div class="box"><span class="boxText vehicleText">Compact Sedan</span><span class="arrow"></span></div>
                     <div class="elements bodyElements">
-                        <a href="#">&nbsp</a>
-                        <a href="#">compact LDV</a>
-                        <a href="#">midsize HDV</a>
-                        <a href="#">Long Haul Trucks</a>
+                        <a href="#">Compact Sedan</a>
+                        <a href="#">Midsize Sedan</a>
+                        <a href="#">Small SUV</a>
+						<a href="#">Medium SUV</a>
+						<a href="#">Pickup</a>
                     </div>
                 </div>
         </div>
@@ -44,13 +70,14 @@
         <div class="dropDownMenu powerTrainMenu">
             <p>Powertrain: </p>
             <div class="body powerTrainBody">
-                <div class="box"><span class = "boxText powerText"></span><span class="arrow"></span></div>
+                <div class="box"><span class = "boxText powerText">ICE-SI</span><span class="arrow"></span></div>
                 <div class="elements powerTrainElements">
-                    <a href="#">&nbsp</a>
-                    <a href="#">ICE</a>
-                    <a href="#">HEV</a>
-                    <a href="#">FCEV</a>
-                    <a href="#">BEV</a>
+                    <a href="#">ICE-SI</a>
+                    <a href="#">ICE-CI</a>
+                    <a href="#">HEV-SI</a>
+                    <a href="#">PHEV</a>
+					<a href="#">FCEV</a>
+					<a href="#">BEV</a>
                 </div>
             </div>
         </div>
@@ -59,9 +86,8 @@
         <div class="dropDownMenu regionalityMenu">
             <p>Regionality: </p>
             <div class="body regionalityBody">
-                <div class="box"><span class="boxText regionalityText"></span><span class="arrow"></span></div>
+                <div class="box"><span class="boxText regionalityText">California</span><span class="arrow"></span></div>
                 <div class="elements regionalityElements">
-                    <a href="#">&nbsp</a>
                     <a href="#">California</a>
                     <a href="#">New Mexico</a>
                     <a href="#">Maine</a>
