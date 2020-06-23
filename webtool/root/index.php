@@ -96,6 +96,9 @@
                 </div>
             </div>
         </div>
+
+        <!--Button that will start the query into the database for the vehicle information decided by the dropdown parameters-->
+        <button class="queryButton">Calculate</button>
         <!--canvas id for overlaying the image uses the imageOverlay.js file-->
         <div class="canvasContainer">
             <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>

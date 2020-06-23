@@ -30,3 +30,10 @@ nav a:hover{
     text-decoration: underline;
 }
 
+.queryButton{
+    background-color: rgb(100, 100, 226);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-left: 590px;
+}
