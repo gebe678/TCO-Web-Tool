@@ -25,85 +25,103 @@
 
         <main>
         <!--drop down menu for the vehicle body-->
-        <div class="dropDownMenu bodyMenu">
-            <p>Vehicle Body: </p>
-            <div class="body vehicleBody">
-                <div class="box"><span class="boxText vehicleText"></span><span class="arrow"></span></div>
-                <div class="elements bodyElements">
-                    <a href="#">&nbsp</a>
-                    <a href="#">compact LDV</a>
-                    <a href="#">midsize HDV</a>
-                    <a href="#">Long Haul Trucks</a>
+        <form action="http://localhost:8080/assets/PHP/getDataBaseInfo.php" method="GET">
+
+            <div class="dropDownMenu">
+                <div class="label">
+                    <label for="vehicleBody">Vehicle Body:</label>
+                </div>
+                <div class="border">
+                    <select name="vehicleBody" class="selectMenu">
+                        <option value="Compact Sedan">Compact Sedan</option>
+                        <option value="Midsize Sedan">Midsize Sedan</option>
+                        <option value="Small SUV">Small SUV</option>
+                        <option value="Medium SUV">Medium SUV</option>
+                        <option value="Pickup">Pickup</option>
+                        <option value="Luxury Compact">Luxury Compact</option>
+                        <option value="Luxury Midsize">Luxury Midsize</option>
+                        <option value="Luxury Small SUV">Luxury Small SUV</option>
+                        <option value="Luxury Medium SUV">Luxury Medium SUV</option>
+                        <option value="Luxury Pickup">Luxury Pickup</option>
+                        <option value="Tractor Sleeper">Tractor Sleeper</option>
+                        <option value="Tractor Day Cab">Tractor Day Cab</option>
+                        <option value="Class 8 Vocational">Class 8 Vocational</option>
+                        <option value="Class 6 Pickup Delivery">Class 6 Pickup Delivery</option>
+                        <option value="Class 3 Pickup Delivery">Class 3 Pickup Delivery</option>
+                        <option value="Class 8 Bus">Class 8 Bus</option>
+                        <option value="Class 8 Refuse">Class 8 Refuse</option>
+                    </select>
                 </div>
             </div>
-    </div>
 
-    <!--drop down menu for the powertrain-->
-    <div class="dropDownMenu powerTrainMenu">
-        <p>Powertrain: </p>
-        <div class="body powerTrainBody">
-            <div class="box"><span class = "boxText powerText"></span><span class="arrow"></span></div>
-            <div class="elements powerTrainElements">
-                <a href="#">&nbsp</a>
-                <a href="#">ICE</a>
-                <a href="#">HEV</a>
-                <a href="#">FCEV</a>
-                <a href="#">BEV</a>
+            <div class="dropDownMenu">
+                <div class="label">
+                    <label for="powertrain">Powertrain:</label>
+                </div>
+                <div class="border">
+                    <select name="powertrain" class="selectMenu">
+                        <option value="ICE-SI">ICE-SI</option>
+                        <option value="ICE-CI">ICE-CI</option>
+                        <option value="HEV-SI">HEV-SI</option>
+                        <option value="PHEV">PHEV</option>
+                        <option value="FCEV">FCEV</option>
+                        <option value="BEV">BEV</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </div>
-    
-    <!--drop down menu for the regionality-->
-    <div class="dropDownMenu regionalityMenu">
-        <p>Regionality: </p>
-        <div class="body regionalityBody">
-            <div class="box"><span class="boxText regionalityText"></span><span class="arrow"></span></div>
-            <div class="elements regionalityElements">
-                <a href="#">&nbsp</a>
-                <a href="#">California</a>
-                <a href="#">New Mexico</a>
-                <a href="#">Maine</a>
-                <a href="#">Florida</a>
-                <a href="#">Maryland</a>
+
+            <div class="dropDownMenu">
+                <div class="label">
+                    <label for="regionality">Regionality:</label>
+                </div>
+                <div class="border">
+                    <select name="regionality" class="selectMenu">
+                        <option value="California">California</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Florida">Florida</option>
+                    </select>
+                </div>
             </div>
-        </div>
-    </div>
+
+            <input type="submit">
+        </form>
 
     <!--range slider for additional modification to the initial options-->
     <div class="sliderContainer">
 
         <div class="inputContainer">
-            <span class="textBlock">Analysis Window:</span>
+            <div class="textBlock">Analysis Window:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
 
         <div class="inputContainer">
-            <span class="textBlock">Annual Maintenance:</span>
+            <div class="textBlock">Annual Maintenance:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
 
         <div class="inputContainer">
-            <span class="textBlock">Annual VMT:</span>
+            <div class="textBlock">Annual VMT:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
 
         <div class="inputContainer">
-            <span class="textBlock">Purchase Price:</span>
+            <div class="textBlock">Purchase Price:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
 
         <div class="inputContainer">
-            <span class="textBlock">Discount Rate:</span>
+            <div class="textBlock">Discount Rate:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
 
         <div class="inputContainer">
-            <span class="textBlock">Taxes & Fees:</span>
+            <div class="textBlock">Taxes & Fees:</div>
             <input type="range" min="1" max="100" value="1" class="slider">
             <input type="number" class="outputText" value="1" min="1" max="100">
         </div>
