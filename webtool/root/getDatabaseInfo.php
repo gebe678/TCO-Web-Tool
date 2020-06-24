@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="assets/css/dropDownStyles.css">
         <link rel="stylesheet" href="assets/css/pageStyles.css">
+        <script src="assets/javascript/test.js" defer></script>
         <script src="assets/javascript/imageOverlay.js" defer></script>
     </head>
     <body>
@@ -27,18 +28,20 @@
            <?php
                 include "assets/PHP/costComponentData.php";
 
-                for($i = 0; $i < 5; $i++)
-                {
-                    echo "Year: " . getYearData($i) . "<br>";
-                    echo "Vehicle Cost: " . getVehicleData($i) . "<br>";
-                    echo "Financing: " . getFinancingData($i) . "<br>";
-                    echo "Annual Fuel Cost: " . getAnnualFuelCostData($i) . "<br>";
-                    echo "Insurance: " . getInsuranceData($i) . "<br>";
-                    echo "Taxes and Fees: " . getTaxesAndFeesData($i) . "<br>";
-                    echo "Maintenance Cost: " . getMaintenanceData($i) . "<br>";
-                    echo "Repair Cost: " . getRepairData($i) . "<br>";
-                    echo "<br> <br>";
-                }
+                // for($i = 0; $i < 5; $i++)
+                // {
+                //     echo "Year: " . getYearData($i) . "<br>";
+                //     echo "Vehicle Cost: " . getVehicleData($i) . "<br>";
+                //     echo "Financing: " . getFinancingData($i) . "<br>";
+                //     echo "Annual Fuel Cost: " . getAnnualFuelCostData($i) . "<br>";
+                //     echo "Insurance: " . getInsuranceData($i) . "<br>";
+                //     echo "Taxes and Fees: " . getTaxesAndFeesData($i) . "<br>";
+                //     echo "Maintenance Cost: " . getMaintenanceData($i) . "<br>";
+                //     echo "Repair Cost: " . getRepairData($i) . "<br>";
+                //     echo "<br> <br>";
+                // }
+
+                print '<p class="test">' . getYearData(0) . '</p>'
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
