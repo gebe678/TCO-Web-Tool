@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>TCO Web Tool</title>
     <meta name="author" content="Griffin Lehrer">
@@ -8,12 +9,6 @@
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles.css">
     <script src="assets/javascript/imageOverlay.js" defer></script>
-        
-    <style>
-        p{
-            font-family: sans-serif;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -27,7 +22,7 @@
     </header>
     <main>
 
-        <form action="http://localhost:8080/assets/PHP/getDataBaseInfo.php" method="GET">
+        <form action="getDataBaseInfo.php" method="GET">
 
             <div class="dropDownMenu">
                 <div class="label">
@@ -98,3 +93,4 @@
     <footer>
     </footer>
 </body>
+</html>
