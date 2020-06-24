@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles.css">
-    <script src="assets/javascript/imageOverlay.js" defer></script>
 </head>
 <body>
     <header>
@@ -83,11 +82,6 @@
 
             <input type="submit" class="submitButton">
         </form>
-        
-        <!--canvas id for overlaying the image uses the imageOverlay.js file-->
-        <div class="canvasContainer">
-            <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
-        </div>
     </main>
 
     <footer>

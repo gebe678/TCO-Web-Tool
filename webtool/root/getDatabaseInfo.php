@@ -22,6 +22,25 @@
         </header>
 
         <main>
+
+            <!--php code to get the informattion from the database-->
+           <?php
+                include "assets/PHP/costComponentData.php";
+
+                for($i = 0; $i < 5; $i++)
+                {
+                    echo "Year: " . getYearData($i) . "<br>";
+                    echo "Vehicle Cost: " . getVehicleData($i) . "<br>";
+                    echo "Financing: " . getFinancingData($i) . "<br>";
+                    echo "Annual Fuel Cost: " . getAnnualFuelCostData($i) . "<br>";
+                    echo "Insurance: " . getInsuranceData($i) . "<br>";
+                    echo "Taxes and Fees: " . getTaxesAndFeesData($i) . "<br>";
+                    echo "Maintenance Cost: " . getMaintenanceData($i) . "<br>";
+                    echo "Repair Cost: " . getRepairData($i) . "<br>";
+                    echo "<br> <br>";
+                }
+            ?>
+
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
             <div class="canvasContainer">
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
@@ -29,31 +48,3 @@
         </main>
     </body>
 </html>
-
-
-<?php
-    function main()
-    {
-        include "assets/PHP/connectDatabase.php";
-
-        $vehicleBody = $_GET["vehicleBody"];
-        $powertrain = $_GET["powertrain"];
-        $regionality = $_GET["regionality"];
-        
-        $vehicleQuery = "SELECT Size_ID FROM vehicle_size WHERE Size LIKE '$vehicleBody'";
-        $powertrainQuery = "SELECT Powertrain_ID FROM powertrain WHERE Powertrain LIKE '$powertrain'";
-
-        $sizeID = $connect->query($vehicleQuery); $sizeID = $sizeID->fetch_assoc(); $sizeID = $sizeID["Size_ID"];
-        $powertrainID = $connect->query($powertrainQuery); $powertrainID = $powertrainID->fetch_assoc(); $powertrainID = $powertrainID["Powertrain_ID"];
-
-        $costComponentQuery = "SELECT * FROM cost_components WHERE Size_ID LIKE $sizeID AND powertrain_ID LIKE $powertrainID";
-        $result = $connect->query($costComponentQuery);
-
-        while($row = $result->fetch_assoc())
-        {
-            echo "Year " . $row["Year"] . "<br>" . " Vehicle " . $row["Vehicle"] . "<br>" . " Financing " . $row["Financing"] . "<br>" . " Annual Fuel Cost " . $row["Annual Fuel Cost"] . "<br>";
-        }
-    }
-
-    main();
-?>
