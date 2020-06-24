@@ -172,11 +172,36 @@ function partitionImage(canvas, ctx, startRow, percentage, red, green, blue)
 
 function colorImage(canvas, ctx, startRow, img)
 {   
-    let st = partitionImage(canvas, ctx, startRow[0], .1, 16, 100, 210);
-    let st2 = partitionImage(canvas, ctx, st, .1, 238, 99, 29);
-    let st3 = partitionImage(canvas, ctx, st2, .40, 36, 162, 17);
-    let st4 = partitionImage(canvas, ctx, st3, .05, 141, 32, 223);
-    let st5 = partitionImage(canvas, ctx, st4, .35, 250, 182, 65);
+    let components = document.querySelectorAll(".costComponent");
+
+    let vehicleCost = parseInt(components[0].innerHTML);
+    let financingCost = parseInt(components[1].innerHTML);
+    let annualFuelCost = parseInt(components[2].innerHTML);
+    let insurance = parseInt(components[3].innerHTML);
+    let taxes = parseInt(components[4].innerHTML);
+    let maintenance = parseInt(components[5].innerHTML);
+    let repairCost = parseInt(components[6].innerHTML);
+    
+    let total = vehicleCost + financingCost + annualFuelCost + insurance + taxes + maintenance + repairCost;
+
+    console.log("total cost is: " + total);
+
+
+    let st = partitionImage(canvas, ctx, startRow[0], vehicleCost / total, 16, 100, 210);
+    let st2 = partitionImage(canvas, ctx, st, financingCost / total, 238, 99, 29);
+    let st3 = partitionImage(canvas, ctx, st2, annualFuelCost / total, 36, 162, 17);
+    let st4 = partitionImage(canvas, ctx, st3, insurance / total, 141, 32, 223);
+    let st5 = partitionImage(canvas, ctx, st4, taxes / total, 250, 182, 65);
+    let st6 = partitionImage(canvas, ctx, st5, maintenance / total, 40, 100, 50);
+    let st7 = partitionImage(canvas, ctx, st6, repairCost / total, 255, 30 , 34);
+
+    console.log("vehicle percentage: " + vehicleCost / total);
+    console.log("finance percentage: " + financingCost / total);
+    console.log("fuel percentage: " + annualFuelCost / total);
+    console.log("insurance percentage: " + insurance / total);
+    console.log("tax percentage: " + taxes / total);
+    console.log("maintenance percentage: " + maintenance / total);
+    console.log("repair percentage: " + repairCost / total);
 }
 
 // run the canvas code after the window has loaded

@@ -9,7 +9,6 @@
         <link rel="stylesheet" href="assets/css/pageStyles.css">
         <link rel="stylesheet" href="assets/css/dropDownStyles.css">
         <link rel="stylesheet" href="assets/css/sliderStyles.css">
-        <script src="assets/javascript/dropDownControl.js" defer></script>
         <script src="assets/javascript/sliderControl.js"></script>
     </head>
     <body>
@@ -25,7 +24,7 @@
 
         <main>
         <!--drop down menu for the vehicle body-->
-        <form action="http://localhost:8080/assets/PHP/getDataBaseInfo.php" method="GET">
+        <form action="getDataBaseInfo.php" method="GET">
 
             <div class="dropDownMenu">
                 <div class="label">
@@ -84,7 +83,7 @@
                 </div>
             </div>
 
-            <input type="submit">
+            <input type="submit" class="submitButton">
         </form>
 
     <!--range slider for additional modification to the initial options-->
