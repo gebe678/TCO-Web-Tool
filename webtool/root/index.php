@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles.css">
-    <script src="assets/javascript/dropDownControl.js" defer></script>
     <script src="assets/javascript/imageOverlay.js" defer></script>
+        
     <style>
         p{
             font-family: sans-serif;
@@ -16,31 +16,6 @@
     </style>
 </head>
 <body>
-	<?php 
-		$user_name = "root";
-		$password = "usbw";
-		$database = "tco_vehicle_information";
-		$server = "127.0.0.1";
-
-		$connection = new mysqli($server, $user_name, $password, $database);
-
-		if($connection->connect_error)
-		{
-			echo("no connection");
-		}
-
-		$sql = "SELECT Vehicle_ID, Financing FROM cost_components WHERE Vehicle_ID = 1";
-        $result = $connection->query($sql);
-        if($result-> num_rows > 0)
-        {
-            while($row = $result->fetch_assoc())
-            {
-                echo "Financing: " . $row["Vehicle_ID"]. " " . $row["Financing"] . "<br>";
-            }
-        }
-        
-	?>
-
     <header>
         <h1>This Is The Title Of The Webpage</h1>
         <nav>
@@ -51,62 +26,56 @@
         </nav>
     </header>
     <main>
-        <!--drop down menu for the vehicle body-->
-        <div class="dropDownMenu bodyMenu">
-                <p>Vehicle Size: </p>
-                <div class="body vehicleBody">
-                    <div class="box"><span class="boxText vehicleText">Compact Sedan</span><span class="arrow"></span></div>
-                    <div class="elements bodyElements">
-                        <a href="#">Compact Sedan</a>
-                        <a href="#">Midsize Sedan</a>
-                        <a href="#">Small SUV</a>
-						<a href="#">Medium SUV</a>
-						<a href="#">Pickup</a>
-                    </div>
-                </div>
-        </div>
 
-        <!--drop down menu for the powertrain-->
-        <div class="dropDownMenu powerTrainMenu">
-            <p>Powertrain: </p>
-            <div class="body powerTrainBody">
-                <div class="box"><span class = "boxText powerText">ICE-SI</span><span class="arrow"></span></div>
-                <div class="elements powerTrainElements">
-                    <a href="#">ICE-SI</a>
-                    <a href="#">ICE-CI</a>
-                    <a href="#">HEV-SI</a>
-                    <a href="#">PHEV</a>
-					<a href="#">FCEV</a>
-					<a href="#">BEV</a>
-                </div>
-            </div>
-        </div>
+        <form action="http://localhost:8080/assets/PHP/getDataBaseInfo.php" method="GET">
+            <label for="vehicleBody">Vehicle Body:</label>
+            <select name="vehicleBody">
+                <option value="Compact Sedan">Compact Sedan</option>
+                <option value="Midsize Sedan">Midsize Sedan</option>
+                <option value="Small SUV">Small SUV</option>
+                <option value="Medium SUV">Medium SUV</option>
+                <option value="Pickup">Pickup</option>
+                <option value="Luxury Compact">Luxury Compact</option>
+                <option value="Luxury Midsize">Luxury Midsize</option>
+                <option value="Luxury Small SUV">Luxury Small SUV</option>
+                <option value="Luxury Medium SUV">Luxury Medium SUV</option>
+                <option value="Luxury Pickup">Luxury Pickup</option>
+                <option value="Tractor Sleeper">Tractor Sleeper</option>
+                <option value="Tractor Day Cab">Tractor Day Cab</option>
+                <option value="Class 8 Vocational">Class 8 Vocational</option>
+                <option value="Class 6 Pickup Delivery">Class 6 Pickup Delivery</option>
+                <option value="Class 3 Pickup Delivery">Class 3 Pickup Delivery</option>
+                <option value="Class 8 Bus">Class 8 Bus</option>
+                <option value="Class 8 Refuse">Class 8 Refuse</option>
+            </select>
+
+            <label for="powertrain">Powertrain:</label>
+            <select name="powertrain">
+                <option value="ICE-SI">ICE-SI</option>
+                <option value="ICE-CI">ICE-CI</option>
+                <option value="HEV-SI">HEV-SI</option>
+                <option value="PHEV">PHEV</option>
+                <option value="FCEV">FCEV</option>
+                <option value="BEV">BEV</option>
+            </select>
+
+            <label for="regionality">Regionality:</label>
+            <select name="regionality">
+                <option value="California">California</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="Maine">Maine</option>
+                <option value="Florida">Florida</option>
+            </select>
+
+            <input type="submit">
+        </form>
         
-        <!--drop down menu for the regionality-->
-        <div class="dropDownMenu regionalityMenu">
-            <p>Regionality: </p>
-            <div class="body regionalityBody">
-                <div class="box"><span class="boxText regionalityText">California</span><span class="arrow"></span></div>
-                <div class="elements regionalityElements">
-                    <a href="#">California</a>
-                    <a href="#">New Mexico</a>
-                    <a href="#">Maine</a>
-                    <a href="#">Florida</a>
-                    <a href="#">Maryland</a>
-                </div>
-            </div>
-        </div>
-
-        <!--Button that will start the query into the database for the vehicle information decided by the dropdown parameters-->
-        <button class="queryButton">Calculate</button>
         <!--canvas id for overlaying the image uses the imageOverlay.js file-->
         <div class="canvasContainer">
             <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
         </div>
-
     </main>
 
     <footer>
-
     </footer>
 </body>
