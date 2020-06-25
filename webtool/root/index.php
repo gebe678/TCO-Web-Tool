@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles.css">
+    <link rel="stylesheet" href="assets/css/sliderStyles.css">
+    <link rel="stylesheet" href="assets/css/tabStyles.css">
+    <script src="assets/javascript/tabControl.js" defer></script>
+    <script src="assets/javascript/sliderControl.js" defer> </script>
 </head>
 <body>
     <header>
@@ -15,12 +19,12 @@
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
-                <a href = "detailedView.php">DETAILED VIEW</a>
+                <button class="simplifiedTab tabButton">Simplified View</button>
+                <button class="detailedTab tabButton">Detailed View</button>
             </div>
         </nav>
     </header>
     <main>
-
         <form action="getDataBaseInfo.php" method="GET">
 
             <div class="dropDownMenu">
@@ -77,6 +81,44 @@
                         <option value="Maine">Maine</option>
                         <option value="Florida">Florida</option>
                 </select>
+                </div>
+            </div>
+
+            <div class="detailedView">
+                <div class="inputContainer">
+                    <div class="textBlock">Analysis Window:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Annual Maintenance:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Annual VMT:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Purchase Price:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Discount Rate:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Taxes & Fees:</div>
+                    <input type="range" min="1" max="100" value="1" class="slider">
+                    <input type="number" class="outputText" value="1" min="1" max="100">
                 </div>
             </div>
 
