@@ -6,6 +6,7 @@ function main()
     let detailedView = document.querySelector(".detailedView");
 
     simpleButton.addEventListener("click", function(){
+        simpleButton.style.background_color = "red";
         detailedView.style.display = "none";
     });
 
