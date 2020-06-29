@@ -9,7 +9,9 @@
     // fuel price data
     $annualFuelPriceIncrease = $_GET["annualFuelPriceIncrease"];
     $biofuelCost = $_GET["biofuelCost"];
+    $biofuelPremium = $_GET["biofuelPremium"];
     $hydrogenCost = $_GET["hydrogenCost"];
+    $hydrogenPremium = $_GET["hydrogenPremium"];
 
     // cost component query data
     $vehicleQuery = "SELECT Size_ID FROM vehicle_size WHERE Size LIKE '$vehicleBody'";

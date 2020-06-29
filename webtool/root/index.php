@@ -86,60 +86,36 @@
 
             <div class="detailedView">
                 <div class="inputContainer">
-                    <div class="textBlock">Analysis Window:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
-                    <div class="textBlock">Annual Maintenance:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
-                    <div class="textBlock">Annual VMT:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
-                    <div class="textBlock">Purchase Price:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
-                    <div class="textBlock">Discount Rate:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
-                    <div class="textBlock">Taxes & Fees:</div>
-                    <input type="range" min="1" max="100" value="1" class="slider">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
-                </div>
-
-                <div class="inputContainer">
                     <div class="textBlock">Annual Fuel Price Increase</div>
                     <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease">
-                    <input type="number" class="outputText" value="0" min="-100" max="100">
+                    <input type="number" min="-100" max="100" value="0" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Biofuel Cost Parity</div>
-                    <input type="range" min="1" max="100" value="1" class="slider" name="biofuelCost">
-                    <input type="number" class="outputText" value="1" min="1" max="100">
+                    <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost">
+                    <input type="number" min="1" max="30" value="15" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Biofuel Premium Cost</div>
+                    <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium">
+                    <input type="number" min="1" max="10" value="1" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Hydrogen to $5kg</div>
-                    <input type="range" min="1" max="11" value="1" class="slider" name="hydrogenCost">
-                    <input type="number" class="outputText" value="1" min="1" max="12">
+                    <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost">
+                    <input type="number" min="1" max="30" value="15" class="outputText">
                 </div>
 
+                <div class="inputContainer">
+                <div class="textBlock">Hydrogen Premium Cost</div>
+                <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium">
+                <input type="number" min="1" max="10" value="5" class="outputText">
+                </div>
             </div>
+
             <input type="submit" class="submitButton">
         </form>
     </main>
