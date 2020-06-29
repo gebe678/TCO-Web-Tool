@@ -27,6 +27,7 @@
             <!--php code to get the informattion from the database-->
            <?php
                 include "assets/PHP/costComponentData.php";
+                include "assets/PHP/getFuelCostData.php";
 
                 $totalVehicleCost = 0;
                 $totalFinancingCost = 0;
@@ -62,6 +63,34 @@
                     }
 
                     return $returnNumber;
+                }
+
+                function calculateBiofuelCost()
+                {
+                    include "assets/PHP/getID.php";
+
+                    $totalCost;
+                    $min;
+
+                    for($i = 0; $i < 12; $i++)
+                    {
+                        $fuelData = $biofuelCost;
+                        $yearInfo = getFuelID($i);
+
+                        if($yearInfo <= $fuelData)
+                        {
+                            $min = $yearInfo;
+                        }
+                        else if($fuelData < $yearInfo)
+                        {
+                            $min = $fuelData;
+                        }
+                        $totalCost[$i] = getGasolineData(0) + 1 * ($biofuelCost - $min) / $biofuelCost;
+
+                        echo "Biofuel Cost = " . floor($totalCost[$i] * 100) / 100 . "<br>";
+                    }
+
+                    return $totalCost;
                 }
 
                 for($i = 0; $i < 5; $i++)
@@ -103,6 +132,15 @@
                 '<p style="color: rgb(40, 100, 50);">Total Maintenance Cost: $'.$totalMaintenanceCost.'</p>'.
                 '<p style="color: rgb(255, 30, 34);">Repair Cost: $'.$totalRepairCost.'</p>'.
                 '</div>';
+
+                // echo "<br>" . "this is a test" . "<br>";
+                // echo getFuelYearData(0) . "<br>";
+                // echo getGasolineData(0) . "<br>";
+                // echo getDieselData(0) . "<br>";
+                // echo getCNGData(0) . "<br>";
+                // echo getElectricData(0) . "<br>";
+                // echo getGasElectricData(2) . "<br>";
+                calculateBiofuelCost();
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
