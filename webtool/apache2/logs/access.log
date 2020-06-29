@@ -282,3 +282,4 @@
 ::1 - - [29/Jun/2020:17:03:02 -0400] "GET /getDataBaseInfo.php?vehicleBody=Compact+Sedan&powertrain=ICE-SI&regionality=California&annualFuelPriceIncrease=0&biofuelCost=15&biofuelPremium=1&hydrogenCost=15&hydrogenPremium=5 HTTP/1.1" 200 2132
 ::1 - - [29/Jun/2020:17:03:24 -0400] "GET /getDataBaseInfo.php?vehicleBody=Compact+Sedan&powertrain=ICE-SI&regionality=California&annualFuelPriceIncrease=0&biofuelCost=15&biofuelPremium=1&hydrogenCost=15&hydrogenPremium=5 HTTP/1.1" 200 6649
 ::1 - - [29/Jun/2020:17:03:25 -0400] "GET /assets/pictures/pickup-truck-rotated.jpg HTTP/1.1" 304 -
+::1 - - [29/Jun/2020:17:05:13 -0400] "GET /index.php HTTP/1.1" 200 6148
