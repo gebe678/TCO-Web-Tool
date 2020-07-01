@@ -74,6 +74,7 @@
                 <div class="label">
                     <label name="modelYear">Model Year:</label>
                 </div>
+                <div class="border">
                     <select name="modelYear" class="selectMenu">
                         <option value="2020">2020</option>
                         <option value="2025">2025</option>
