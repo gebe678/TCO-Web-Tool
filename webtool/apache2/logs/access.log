@@ -630,3 +630,13 @@
 ::1 - - [30/Jun/2020:23:15:17 -0400] "GET /phpmyadmin/db_structure.php?server=1&db=tco_vehicle_information&token=d860166397a851de355d297aab0ff04c&ajax_request=true&ajax_page_request=true&menuHashes=5c0dc434-510924d4-36b1cc7b&_nocache=1593573317509562569 HTTP/1.1" 200 24582
 ::1 - - [30/Jun/2020:23:15:22 -0400] "GET /phpmyadmin/sql.php?db=tco_vehicle_information&token=d860166397a851de355d297aab0ff04c&goto=db_structure.php&table=cost_components&pos=0&ajax_request=true&ajax_page_request=true&menuHashes=5c0dc434-510924d4-36b1cc7b&_nocache=1593573322103397289 HTTP/1.1" 200 138548
 ::1 - - [30/Jun/2020:23:15:22 -0400] "GET /phpmyadmin/index.php?ajax_request=1&recent_table=1&token=d860166397a851de355d297aab0ff04c HTTP/1.1" 200 1224
+::1 - - [30/Jun/2020:23:49:51 -0400] "GET / HTTP/1.1" 200 6732
+::1 - - [30/Jun/2020:23:49:51 -0400] "GET /assets/css/pageStyles.css HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:51 -0400] "GET /assets/css/sliderStyles.css HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:51 -0400] "GET /assets/css/dropDownStyles.css HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:51 -0400] "GET /assets/css/tabStyles.css HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:52 -0400] "GET /assets/javascript/sliderControl.js HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:52 -0400] "GET /assets/javascript/tabControl.js HTTP/1.1" 304 -
+::1 - - [30/Jun/2020:23:49:59 -0400] "GET / HTTP/1.1" 200 6732
+::1 - - [30/Jun/2020:23:50:27 -0400] "GET / HTTP/1.1" 200 6756
+::1 - - [30/Jun/2020:23:51:38 -0400] "GET / HTTP/1.1" 200 6757
