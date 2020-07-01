@@ -72,6 +72,20 @@
 
             <div class="dropDownMenu">
                 <div class="label">
+                    <label name="modelYear">Model Year:</label>
+                </div>
+                    <select name="modelYear" class="selectMenu">
+                        <option value="2020">2020</option>
+                        <option value="2025">2025</option>
+                        <option value="2030">2030</option>
+                        <option value="2035">2035</option>
+                        <option value="2050">2050</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="dropDownMenu">
+                <div class="label">
                     <label for="regionality">Regionality:</label>
                 </div>
                 <div class="border">

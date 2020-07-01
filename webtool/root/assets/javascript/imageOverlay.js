@@ -49,7 +49,8 @@ function main()
     };
 
     // source file for the image to be loaded
-    img.src = "assets/pictures/pickup-truck-rotated.jpg";
+    let bodyType = document.querySelector(".bodyType");
+    img.src = "assets/pictures/" + bodyType.innerHTML + ".jpg";
 }
 // resets the size of the canvas
 function resetCanvasSize(cWidth, cHeight, canvas)

@@ -26,7 +26,7 @@
     {
         include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
-
+    
         $costComponentQuery = "SELECT Vehicle FROM cost_components WHERE Size_ID LIKE $sizeID AND powertrain_ID LIKE $powertrainID";
         $result = $connect->query($costComponentQuery);
         $output;

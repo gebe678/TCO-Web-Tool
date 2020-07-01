@@ -26,6 +26,7 @@
 
             <!--php code to get the informattion from the database-->
            <?php
+                include "assets/PHP/getID.php";
                 include "assets/PHP/costComponentData.php";
                 include "assets/PHP/getFuelCostData.php";
                 include "assets/PHP/fuelPriceCalculations.php";
@@ -77,8 +78,6 @@
                     $totalRepairCost = $totalRepairCost + getRepairData($i);
                 }
 
-                
-
                 $totalVehicleCost = round(($totalVehicleCost / 5) / roundNumber($totalVehicleCost)) * roundNumber($totalVehicleCost);
                 $totalFinancingCost = round(($totalFinancingCost / 5) / roundNumber($totalFinancingCost)) * roundNumber($totalFinancingCost);
                 $totalAnnualFuelCost = round(($totalAnnualFuelCost / 5) / roundNumber($totalAnnualFuelCost)) * roundNumber($totalAnnualFuelCost);
@@ -94,6 +93,7 @@
                 echo "<p class='costComponent'>$totalTaxesCost</p>";
                 echo "<p class='costComponent'>$totalMaintenanceCost</p>";
                 echo "<p class='costComponent'>$totalRepairCost</p>";
+                echo "<p class='costComponent bodyType'>$vehicleBody</p>";
                 
 
                 echo '<div class="costComponentInfo">' .
