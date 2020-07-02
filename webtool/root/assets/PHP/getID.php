@@ -5,6 +5,7 @@
     $vehicleBody = $_GET["vehicleBody"];
     $powertrain = $_GET["powertrain"];
     $regionality = $_GET["regionality"];
+    $modelYear = $_GET["modelYear"];
 
     // fuel price data
     $annualFuelPriceIncrease = $_GET["annualFuelPriceIncrease"];
