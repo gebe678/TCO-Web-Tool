@@ -1,0 +1,14 @@
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET / HTTP/1.1" 200 6795
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/css/sliderStyles.css HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/css/tabStyles.css HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/css/pageStyles.css HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/css/dropDownStyles.css HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/javascript/tabControl.js HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:45 -0400] "GET /assets/javascript/sliderControl.js HTTP/1.1" 304 -
+::1 - - [02/Jul/2020:11:20:46 -0400] "GET /favicon.ico HTTP/1.1" 404 209
+::1 - - [02/Jul/2020:11:20:52 -0400] "GET /phpmyadmin HTTP/1.1" 301 241
+::1 - - [02/Jul/2020:11:20:52 -0400] "GET /phpmyadmin/ HTTP/1.1" 200 7945
+::1 - - [02/Jul/2020:11:20:54 -0400] "GET /phpmyadmin/js/get_scripts.js.php?scripts[]=jquery/jquery-1.8.3.js&scripts[]=ajax.js&scripts[]=keyhandler.js&scripts[]=jquery/jquery-ui-1.9.2.custom.js&scripts[]=jquery/jquery.sprintf.js&scripts[]=jquery/jquery.cookie.js&scripts[]=jquery/jquery.mousewheel.js&scripts[]=jquery/jquery.event.drag-2.2.js&scripts[]=jquery/jquery-ui-timepicker-addon.js&scripts[]=jquery/jquery.ba-hashchange-1.3.js&scripts[]=jquery/jquery.debounce-1.0.5.js&scripts[]=jquery/jquery.menuResizer-1.0.js&scripts[]=rte.js&scripts[]=functions.js&scripts[]=navigation.js&scripts[]=indexes.js&scripts[]=common.js&scripts[]=codemirror/lib/codemirror.js&scripts[]=codemirror/mode/mysql/mysql.js HTTP/1.1" 200 578562
+::1 - - [02/Jul/2020:11:20:54 -0400] "GET /phpmyadmin/phpmyadmin.css.php?server=1&token=3ac7835ba05b50b00e20827f3a753e80&nocache=4778542377ltr HTTP/1.1" 200 88608
+::1 - - [02/Jul/2020:11:20:54 -0400] "GET /phpmyadmin/js/messages.php?lang=en&db=&server=0&token=c97cf3fb7b2fd7bd06d0d0ab864d607c HTTP/1.1" 200 16674
+::1 - - [02/Jul/2020:11:20:54 -0400] "GET /phpmyadmin/js/get_image.js.php?theme=pmahomme HTTP/1.1" 200 6263
