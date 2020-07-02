@@ -154,4 +154,25 @@
         return -1;
     }
 
+    function getFuelData($index, $fuelType)
+    {
+        include "assets/PHP/connectDatabase.php";
+        include "assets/PHP/getID.php";
+    
+        $costComponentQuery = "SELECT $fuelType FROM aeo_fuel_prices";
+        $result = $connect->query($costComponentQuery);
+        $output;
+        $i = 0;
+        while($row = $result->fetch_assoc())
+        {
+            $output[$i] = $row[$fuelType];
+            $i++;
+        }
+                        
+        if($index < count($output) && $index >= 0)
+        {
+            return $output[$index];
+        }
+        return -1;
+    }
 ?>

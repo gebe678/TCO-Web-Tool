@@ -1,6 +1,6 @@
 <?php 
 
-    function calculateBiofuelCost()
+    function calculateBiofuelCost($index)
     {
         include "getID.php";
 
@@ -23,10 +23,10 @@
             $totalCost[$i] = getGasolineData(0) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
             $totalCost[$i] = floor($totalCost[$i] * 100) / 100;
         }
-        return $totalCost;
+        return $totalCost[$index];
     }
 
-    function calculateHydrogenCost()
+    function calculateHydrogenCost($index)
     {
         include "getID.php";
 
@@ -48,7 +48,7 @@
             $totalCost[$i] = 5 + $hydrogenPremium * ($hydrogenCost - $min) / $hydrogenCost;
             $totalCost[$i] = floor($totalCost[$i] * 100) / 100;
         }
-        return $totalCost;
+        return $totalCost[$index];
     }
 
     function caluclatePercentageIncrease()
@@ -63,5 +63,27 @@
             $totalCost[$i] = $totalCost[$i];
         }
         return $totalCost;
+    }
+
+    function calculateAnnualFuelCost($fuelType)
+    {
+        include "getID.php";
+
+        $fuelPrice = 0;
+
+        if($fuelType == "Biofuel")
+        {
+            $fuelPrice = calculateBiofuelCost(0);
+        }
+        else if($fuelType == "Hydrogen")
+        {
+            $fuelPrice = calculateHydrogenCost(0);
+        }
+        else
+        {
+            $fuelPrice = getFuelData(0, $fuelType);
+        }
+
+        
     }
 ?>

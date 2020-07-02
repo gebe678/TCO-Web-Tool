@@ -13,6 +13,7 @@
     $biofuelPremium = $_GET["biofuelPremium"];
     $hydrogenCost = $_GET["hydrogenCost"];
     $hydrogenPremium = $_GET["hydrogenPremium"];
+    $fuelType = $_GET["fuel"];
 
     // cost component query data
     $vehicleQuery = "SELECT Size_ID FROM vehicle_size WHERE Size LIKE '$vehicleBody'";

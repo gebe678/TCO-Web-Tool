@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/tabStyles.css">
     <script src="assets/javascript/tabControl.js" defer></script>
     <script src="assets/javascript/sliderControl.js" defer> </script>
+    <script src="assets/javascript/dropDownControl.js" defer> </script>
 </head>
 <body>
     <header>
@@ -59,7 +60,7 @@
                     <label for="powertrain">Powertrain:</label>
                 </div>
                 <div class="border">
-                    <select name="powertrain" class="selectMenu">
+                    <select name="powertrain" class="selectMenu" id="powertrainMenu">
                         <option value="ICE-SI">ICE-SI</option>
                         <option value="ICE-CI">ICE-CI</option>
                         <option value="HEV-SI">HEV-SI</option>
@@ -78,7 +79,7 @@
                     <select name="modelYear" class="selectMenu">
                         <option value="2020">2020</option>
                         <option value="2025">2025</option>
-                        <option value="2030">2030</option>
+                        <option value="2030" selected>2030</option>
                         <option value="2035">2035</option>
                         <option value="2050">2050</option>
                     </select>
@@ -100,6 +101,24 @@
             </div>
 
             <div class="detailedView">
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="Fuel">Fuel:</label>
+                    </div>
+                    <div class="border">
+                        <select name="fuel" class="selectMenu" id="fuelTypes">
+                            <option value="Gasoline">Gasoline</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                            <option value="Biofuel">Biofuel</option>
+                            <option value="Hydrogen">Hydrogen</option>
+                            <option value="Electric">Electric</option>
+                            <option value="Gas-Electric">Gas-Electric</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="inputContainer">
                     <div class="textBlock">Annual Fuel Price Increase</div>
                     <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease">

@@ -107,14 +107,10 @@
                 '</div>';
 
 
-                $biofuel = calculateBiofuelCost();
-                $hydrogen = calculateHydrogenCost();
+                $biofuel = calculateBiofuelCost(0);
+                $hydrogen = calculateHydrogenCost(0);
                 $annualFuel = caluclatePercentageIncrease();
-
-                for($i = 0; $i < 30; $i++)
-                {
-                    echo "Biofuel Cost: " . $biofuel[$i] . " &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Hydrogen Cost: " . $hydrogen[$i] . "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Variable Fuel Costs: ". round($annualFuel[$i], 2) . "<br>";
-                }
+                calculateAnnualFuelCost($fuelType);
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
