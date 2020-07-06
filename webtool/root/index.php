@@ -114,7 +114,7 @@
                             <option value="Biofuel">Biofuel</option>
                             <option value="Hydrogen">Hydrogen</option>
                             <option value="Electric">Electric</option>
-                            <option value="Gas-Electric">Gas-Electric</option>
+                            <option value="Gas_Electric">Gas-Electric</option>
                         </select>
                     </div>
                 </div>
@@ -140,6 +140,35 @@
                             <option value="200">200</option>
                             <option value="300">300</option>
                             <option value="400">400</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="vmt">VMT:</label>
+                    </div>
+                    <div class="border">
+                        <select name="vmt" class="selectMenu">
+                            <option value="EPA_TAR_2016_Car">EPA_TAR_2016_Car</option>
+                            <option value="EPA_TAR_2016_Trucks">EPA_TAR_2016_Trucks</option>
+                            <option value="NHTSA_2006_Cars">NHTSA_2006_Cars</option>
+                            <option value="NHTSA_2006_Trucks">NHTSA_2006_Trucks</option>
+                            <option value="Luxury_Car">Luxury_Car</option>
+                            <option value="Luxury_Light_Truck">Luxury_Light_Truck</option>
+                            <option value="Taxi">Taxi</option>
+                            <option value="BEV_200_Car">BEV_200_Car</option>
+                            <option value="Single_Unit_Service_Truck_General">Single_Unit_Service_Truck_General</option>
+                            <option value="Single_Unit_Service_Truck_HHD">Single_Unit_Service_Truck_HHD</option>
+                            <option value="Single_Unit_Service_Truck_MHD">Single_Unit_Service_Truck_MHD</option>
+                            <option value="Single_Unit_Service_Truck_LHD">Single_Unit_Service_Truck_LHD</option>
+                            <option value="Single_Unit_Multipurpose_Truck">Single_Unit_Multipurpose_Truck</option>
+                            <option value="Tractor_Sleeper_Cab">Tractor_Sleeper_Cab</option>
+                            <option value="Tractor_Day_Cab">Tractor_Day_Cab</option>
+                            <option value="Tractor_Long_Haul">Tractor_Long_Haul</option>
+                            <option value="Tractor_Regional">Tractor_Regional</option>
+                            <option value="Tractor_Local">Tractor_Local</option>
+                            <option value="Bus">Bus</option>
                         </select>
                     </div>
                 </div>

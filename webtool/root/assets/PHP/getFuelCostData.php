@@ -154,7 +154,7 @@
         return -1;
     }
 
-    function getFuelData($index, $fuelType)
+    function getFuelData($index)
     {
         include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";

@@ -65,28 +65,36 @@
         return $totalCost;
     }
 
-    function calculateAnnualFuelCost($fuelType)
+    function calculateAnnualFuelCost()
     {
         include "getID.php";
 
         $fuelPrice = 0;
-        $fuelPricePerMile = $fuelMPG;
-
-        if($fuelType == "Biofuel")
+        $MPGCost;
+        if($powertrain === "BEV")
         {
-            $fuelPrice = calculateBiofuelCost(0);
-        }
-        else if($fuelType == "Hydrogen")
-        {
-            $fuelPrice = calculateHydrogenCost(0);
+            $MPGCost = $bevMPG;
         }
         else
         {
-            $fuelPrice = getFuelData(0, $fuelType);
+            $MPGCost = $fuelMPG;
+        }
+        $fuelPricePerMile = $MPGCost * (1 - .001);
+
+        if($fuelType == "Biofuel")
+        {
+            $fuelPrice = calculateBiofuelCost(1);
+        }
+        else if($fuelType == "Hydrogen")
+        {
+            $fuelPrice = calculateHydrogenCost(1);
+        }
+        else
+        {
+            $fuelPrice = getFuelData(1);
         }
 
-        $fuelPricePerMile = ($fuelPrice / $fuelMPG) * 13843;
-
-        echo $fuelPricePerMile;
+        $fuelPricePerMile = ($fuelPrice / $fuelMPG) * $annualVmt;
+        return $fuelPricePerMile;
     }
 ?>

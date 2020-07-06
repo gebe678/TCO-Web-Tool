@@ -110,7 +110,8 @@
                 $biofuel = calculateBiofuelCost(0);
                 $hydrogen = calculateHydrogenCost(0);
                 $annualFuel = caluclatePercentageIncrease();
-                calculateAnnualFuelCost($fuelType);
+                $annualFuelCost = calculateAnnualFuelCost();
+                echo $annualFuelCost;
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
