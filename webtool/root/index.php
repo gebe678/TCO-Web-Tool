@@ -119,6 +119,31 @@
                     </div>
                 </div>
 
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="technology">Technology:</label>
+                    </div>
+                    <div class="border">
+                        <select name="technology" class="selectMenu">
+                            <option value="low">low</option>
+                            <option value="high">high</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="bevRange">Bev Range:</label>
+                    </div>
+                    <div class="border">
+                        <select name="bevRange" class="selectMenu">
+                            <option value="200">200</option>
+                            <option value="300">300</option>
+                            <option value="400">400</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="inputContainer">
                     <div class="textBlock">Annual Fuel Price Increase</div>
                     <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease">

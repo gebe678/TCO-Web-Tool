@@ -70,6 +70,7 @@
         include "getID.php";
 
         $fuelPrice = 0;
+        $fuelPricePerMile = $fuelMPG;
 
         if($fuelType == "Biofuel")
         {
@@ -84,6 +85,8 @@
             $fuelPrice = getFuelData(0, $fuelType);
         }
 
-        
+        $fuelPricePerMile = ($fuelPrice / $fuelMPG) * 13843;
+
+        echo $fuelPricePerMile;
     }
 ?>
