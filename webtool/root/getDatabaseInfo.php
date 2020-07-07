@@ -30,6 +30,7 @@
                 include "assets/PHP/costComponentData.php";
                 include "assets/PHP/getFuelCostData.php";
                 include "assets/PHP/fuelPriceCalculations.php";
+                include "assets/PHP/maintenancePriceCalculations.php";
 
                 $totalVehicleCost = 0;
                 $totalFinancingCost = 0;
@@ -111,7 +112,9 @@
                 $hydrogen = calculateHydrogenCost(0);
                 $annualFuel = caluclatePercentageIncrease();
                 $annualFuelCost = calculateAnnualFuelCost();
-                echo $annualFuelCost;
+                echo "annual fuel cost: " . $annualFuelCost . "<br>";
+
+                calculateOilCost();
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
