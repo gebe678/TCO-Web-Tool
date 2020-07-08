@@ -95,6 +95,8 @@
         }
 
         $fuelPricePerMile = ($fuelPrice / $fuelMPG) * $annualVmt;
+        $fuelPricePerMile = floor($fuelPricePerMile * 100) / 100;
+        
         return $fuelPricePerMile;
     }
 ?>

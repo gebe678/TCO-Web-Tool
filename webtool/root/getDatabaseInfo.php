@@ -31,6 +31,7 @@
                 include "assets/PHP/getFuelCostData.php";
                 include "assets/PHP/fuelPriceCalculations.php";
                 include "assets/PHP/maintenancePriceCalculations.php";
+                include "assets/PHP/vehicleCalculations.php";
 
                 $totalVehicleCost = 0;
                 $totalFinancingCost = 0;
@@ -114,7 +115,10 @@
                 $annualFuelCost = calculateAnnualFuelCost();
                 echo "annual fuel cost: " . $annualFuelCost . "<br>";
 
-                calculateOilCost();
+                calculateMaintenanceCost(0);
+                echo "<br><br><br>";
+                calculateRepairCost(0);
+                calculateSimpleDepreciation();
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->
