@@ -32,6 +32,8 @@
                 include "assets/PHP/fuelPriceCalculations.php";
                 include "assets/PHP/maintenancePriceCalculations.php";
                 include "assets/PHP/vehicleCalculations.php";
+                include "assets/PHP/insuranceCalculations.php";
+                include "assets/PHP/taxesAndFeesCalculations.php";
 
                 $totalVehicleCost = 0;
                 $totalFinancingCost = 0;
@@ -107,18 +109,27 @@
                 '<p style="color: rgb(40, 100, 50);">Total Maintenance Cost: $'.$totalMaintenanceCost.'</p>'.
                 '<p style="color: rgb(255, 30, 34);">Repair Cost: $'.$totalRepairCost.'</p>'.
                 '</div>';
+                
 
+                // This is where I will put the important vehicle information
+                $vehicleBodyCost = calculateSimpleDepreciation(30);
+                $annualFuelCost = calculateAnnualFuelcost();
+                $insuranceCost = calculateInsurancecost(30);
+                $taxesAndFees = calculateTaxesAndFees(30);
+                $maintenance = calculateMaintenanceCost(0, 30);
+                $repair = calculateRepairCost(0, 30);
 
-                $biofuel = calculateBiofuelCost(0);
-                $hydrogen = calculateHydrogenCost(0);
-                $annualFuel = caluclatePercentageIncrease();
-                $annualFuelCost = calculateAnnualFuelCost();
-                echo "annual fuel cost: " . $annualFuelCost . "<br>";
-
-                calculateMaintenanceCost(0);
-                echo "<br><br><br>";
-                calculateRepairCost(0);
-                calculateSimpleDepreciation();
+                for($i = 0; $i < 30; $i++)
+                {
+                    echo "Year " . $i . "<br>";
+                    echo "Body Cost is: ". $vehicleBodyCost[$i] . "<br>";
+                    echo "annual Fuel Cost Is: ". $annualFuelCost . "<br>";
+                    echo "Insurance Cost is : ". $insuranceCost[$i] . "<br>";
+                    echo "Taxes and Fees are: ". $taxesAndFees[$i] . "<br>";
+                    echo "Maintenance is: ". $maintenance[$i] . "<br>";
+                    echo "Repair cost is: ". $repair[$i] . "<br>";
+                    echo "<br><br>";
+                }                
             ?>
 
             <!--canvas id for overlaying the image uses the imageOverlay.js file-->

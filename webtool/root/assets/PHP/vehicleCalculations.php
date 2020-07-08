@@ -1,33 +1,62 @@
 <?php
 
-    function calculateSimpleDepreciation()
+    function calculateSimpleDepreciation($numYears)
     {
         include "getID.php";
 
-        $depreciationRate = .9;
-        $markupFactor = 1.5;
+        $bodyCost;
+        $bodyCost[0] = $vehicleBodyCost * $markupFactor;
+        $oldCost = $bodyCost[0];
 
-        $bodyCost = $vehicleBodyCost * $markupFactor;
-
-        for($i = 0; $i < 30; $i++)
+        for($i = 0; $i < $numYears; $i++)
         {
-            $bodyCost = $bodyCost * $depreciationRate;
+            $bodyCost[$i] = $oldCost * $depreciationRate;
+            $oldCost = $oldCost - $bodyCost[$i];
         }
+
+        return $bodyCost;
     }
 
-    function caluclateAdvancedDepreciation()
+    function calculateBodyDepreciation($numYears)
     {
-        $vehicleWriteOff = 10;
-        $year = 0;
-        $bodyCost = $vehicleBodyCost * $markupFactor;
+        include "getID.php";
 
-        if($year <= $vehicleWriteOff)
+        $bodyCost;
+        $depreciation = calculateSimpleDepreciation($numYears);
+        $previousCost = $vehicleBodyCost * $markupFactor;
+        $bodyCost[0] = $previousCost;
+
+        for($i = 1; $i < $numYears; $i++)
         {
-            $bodyCost = $bodyCost / $markupFactor;
+            $bodyCost[$i] = $previousCost - $depreciation[$i - 1];
+            $previousCost = $bodyCost[$i];
         }
-        else
+
+        return $bodyCost;
+    }
+
+    function calculateAdvancedDepreciation($numYears)
+    {
+        include "getID.php";
+
+        $year = 1;
+        $bodyCost = $vehicleBodyCost * $markupFactor;
+        $rate;
+        $rate[0] = 0;
+        echo "<br>";
+        for($i = 0; $i < $numYears; $i++)
         {
-            $bodyCost = 0;
+            if($year <= $writeOff)
+            {
+                $rate[$i] = $bodyCost / $writeOff;
+            }
+            else
+            {
+                $rate[$i] = 0;
+            }
+            $year++;
         }
+
+        return $rate;
     }
 ?>

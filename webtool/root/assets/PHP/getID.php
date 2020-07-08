@@ -19,6 +19,15 @@
     $vmtType = $_GET["vmt"];
     $bevMPGRange = "BEV_" . $bevRange . "_MPG";
 
+    // vehicle body data
+    $markupFactor = $_GET["markupFactor"];
+    $depreciationRate = $_GET["depreciationRate"];
+    $writeOff = $_GET["writeOff"];
+
+    // insurance data
+    $insuranceFixed = $_GET["insuranceFixed"];
+    $insuranceProportional = $_GET["insuranceProportional"];
+
     // fuel mpg query
     $fuelMPGQuery = "SELECT MPG FROM vehicle_mpg WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
     $bevMPGQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE $modelYear";

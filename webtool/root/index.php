@@ -174,6 +174,36 @@
                 </div>
 
                 <div class="inputContainer">
+                    <div class="textBlock">Insurance Fixed Rate</div>
+                    <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed">
+                    <input type="number" min="100" max="500" value="400" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Insurance Proportional Rate</div>
+                    <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional">
+                    <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Automotive LDV RPE Markup Factor</div>
+                    <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor">
+                    <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Simple Depreciation Rate</div>
+                    <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate">
+                    <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Vehicle Write Off</div>
+                    <input type="range" min="1" max="30" value="10" class="slider" name="writeOff">
+                    <input type="number" min="1" max="30" value="10" class="outputText">
+                </div>
+
+                <div class="inputContainer">
                     <div class="textBlock">Annual Fuel Price Increase</div>
                     <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease">
                     <input type="number" min="-100" max="100" value="0" class="outputText">

@@ -1,6 +1,6 @@
 <?php 
 
-    function calculateMaintenanceCost($index)
+    function calculateMaintenanceCost($component, $numYears)
     {
         include "getID.php";
 
@@ -9,29 +9,27 @@
         $flag;
         $componentCost;
 
-        for($i = 0; $i < 20; $i++)
+        for($i = 0; $i < $numYears; $i++)
         {
-            if(calculateCumulativeVmt($i) < $firstServiceResults[$index] + $repeatServiceResults[$index] And $previousNum + 0 == 0)
+            if(calculateCumulativeVmt($i) < $firstServiceResults[$component] + $repeatServiceResults[$component] And $previousNum + 0 == 0)
             {
-                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstServiceResults[$index]);
+                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstServiceResults[$component]);
                 $flag[$i] = round($flag[$i]);
                 $previousNum += $flag[$i];
             }
             else
             {
-                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstServiceResults[$index] - ($previousNum - 1) * $repeatServiceResults[$index]) / $repeatServiceResults[$index]);
+                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstServiceResults[$component] - ($previousNum - 1) * $repeatServiceResults[$component]) / $repeatServiceResults[$component]);
                 $previousNum += $flag[$i];
             }
 
-            $componentCost[$i] = $flag[$i] * $costDataResults[$index] * $scalingFactorResults[$index];
-
-            echo $componentCost[$i] . "<br>";
+            $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];
         }
 
         return $componentCost;
     }
 
-    function calculateRepairCost($index)
+    function calculateRepairCost($component, $numYears)
     {
         include "getID.php";
 
@@ -40,23 +38,21 @@
         $flag;
         $componentCost;
 
-        for($i = 0; $i < 20; $i++)
+        for($i = 0; $i < $numYears; $i++)
         {
-            if(calculateCumulativeVmt($i) < $firstRepairServiceResults[$index] + $repeatRepairServiceResults[$index] And $previousNum + 0 == 0)
+            if(calculateCumulativeVmt($i) < $firstRepairServiceResults[$component] + $repeatRepairServiceResults[$component] And $previousNum + 0 == 0)
             {
-                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstRepairServiceResults[$index]);
+                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstRepairServiceResults[$component]);
                 $flag[$i] = round($flag[$i]);
                 $previousNum += $flag[$i];
             }
             else
             {
-                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstRepairServiceResults[$index] - ($previousNum - 1) * $repeatRepairServiceResults[$index]) / $repeatRepairServiceResults[$index]);
+                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstRepairServiceResults[$component] - ($previousNum - 1) * $repeatRepairServiceResults[$component]) / $repeatRepairServiceResults[$component]);
                 $previousNum += $flag[$i];
             }
 
-            $componentCost[$i] = $flag[$i] * $repairCostDataResults[$index] * $scalingRepairFactorResults[$index];
-
-            echo $componentCost[$i] . "<br>";
+            $componentCost[$i] = $flag[$i] * $repairCostDataResults[$component] * $scalingRepairFactorResults[$component];
         }
 
         return $componentCost;
