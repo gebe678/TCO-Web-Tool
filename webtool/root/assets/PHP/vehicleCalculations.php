@@ -5,7 +5,18 @@
         include "getID.php";
 
         $bodyCost;
-        $bodyCost[0] = $vehicleBodyCost * $markupFactor;
+        $bodyType = $vehicleBody;
+        $vBodyCost;
+
+        if($bodyType = "BEV")
+        {
+            $vBodyCost = $bevCostResult;
+        }
+        else
+        {
+            $vBodyCost = $vehcileBodyCost;
+        }
+        $bodyCost[0] = $vBodyCost * $markupFactor;
         $oldCost = $bodyCost[0];
 
         for($i = 0; $i < $numYears; $i++)
@@ -21,9 +32,20 @@
     {
         include "getID.php";
 
+        $vBodyCost;
+
+        if($vehicleBody = "BEV")
+        {
+            $vBodyCost = $bevCostResult;
+        }
+        else
+        {
+            $vBodyCost = $vehicleBodyCost;
+        }
+
         $bodyCost;
         $depreciation = calculateSimpleDepreciation($numYears);
-        $previousCost = $vehicleBodyCost * $markupFactor;
+        $previousCost = $vBodyCost * $markupFactor;
         $bodyCost[0] = $previousCost;
 
         for($i = 1; $i < $numYears; $i++)

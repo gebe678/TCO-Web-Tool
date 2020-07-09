@@ -7,7 +7,7 @@
         $totalCost;
         $min;
 
-        for($i = 0; $i < 30; $i++)
+        for($i = 0; $i < $numYears + 1; $i++)
         {
             $fuelData = $biofuelCost;
             $yearInfo = getFuelID($i);
@@ -20,7 +20,8 @@
             {
                 $min = $fuelData;
             }
-            $totalCost[$i] = getGasolineData(0) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
+            $totalCost[$i] = getGasolineData($i) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
+            $totalCost[$i] = round($totalCost[$i], 2);
         }
         return $totalCost;
     }
@@ -32,7 +33,7 @@
         $totalCost;
         $min;
 
-        for($i = 0; $i < $numYears; $i++)
+        for($i = 0; $i < $numYears + 1; $i++)
         {
             $yearInfo = getFuelID($i);
 
@@ -92,7 +93,7 @@
         }
         else
         {
-            for($i = 0; $i < $numYears; $i++)
+            for($i = 0; $i < $numYears + 1; $i++)
             {
                 $fuelPrice[$i] = getFuelData($i);
             }
@@ -101,10 +102,7 @@
         for($i = 0; $i < $numYears; $i++)
         {
             $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
-            $fuelPricePerMile[$i] = getFuelData($i + 1) / $MPGCost;
-            //echo "for year: " . $i . " " . $fuelPrice[$i] . " is the fuel price per mile<br>";
-            //echo "for year: " . $i . " " . $MPGCost . " is the MPG cost per mile<br>";
-            //echo "for year: " . $i . " " . $fuelPricePerMile[$i] . " is the fuel price per mile<br>";
+            $fuelPricePerMile[$i] = $fuelPrice[$i + 1] / $MPGCost;
         }
         
         for($i = 0; $i < $numYears; $i++)

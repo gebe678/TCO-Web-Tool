@@ -3,10 +3,19 @@
     {
         include "getID.php";
 
+        $vBodyCost;
+        if($bodyType = "BEV")
+        {
+            $vBodyCost = $bevCostResult;
+        }
+        else
+        {
+            $vBodyCost = $vehicleBodyCost;
+        }
         $financeTerm = 5;
         $year = 1;
         $markupFactor = 1.5;
-        $vehicleCost = $vehicleBodyCost * $markupFactor;
+        $vehicleCost = $vBodyCost * $markupFactor;
         $financeRate = .045;
         $downPaymentPercentage = .15;
         $loanPayment[0] = $vehicleCost * (1 - .15);
