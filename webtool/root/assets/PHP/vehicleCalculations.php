@@ -5,16 +5,16 @@
         include "getID.php";
 
         $bodyCost;
-        $bodyType = $vehicleBody;
+        $bodyType = $powertrain;
         $vBodyCost;
 
-        if($bodyType = "BEV")
+        if($bodyType === "BEV")
         {
             $vBodyCost = $bevCostResult;
         }
         else
         {
-            $vBodyCost = $vehcileBodyCost;
+            $vBodyCost = $vehicleBodyCost;
         }
         $bodyCost[0] = $vBodyCost * $markupFactor;
         $oldCost = $bodyCost[0];
@@ -34,7 +34,7 @@
 
         $vBodyCost;
 
-        if($vehicleBody = "BEV")
+        if($powertrain === "BEV")
         {
             $vBodyCost = $bevCostResult;
         }

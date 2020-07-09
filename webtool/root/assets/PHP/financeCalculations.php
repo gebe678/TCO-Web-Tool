@@ -4,7 +4,7 @@
         include "getID.php";
 
         $vBodyCost;
-        if($bodyType = "BEV")
+        if($powertrain == "BEV")
         {
             $vBodyCost = $bevCostResult;
         }
@@ -12,6 +12,7 @@
         {
             $vBodyCost = $vehicleBodyCost;
         }
+        
         $financeTerm = 5;
         $year = 1;
         $markupFactor = 1.5;
