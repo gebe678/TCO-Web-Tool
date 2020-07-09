@@ -54,12 +54,11 @@
     {
         include "getID.php";
 
-        $totalCost[0] = getGasolineData(0);
+        $totalCost[0] = getFuelData(0);
 
         for($i = 1; $i < $numYears; $i++)
         {
             $totalCost[$i] = $totalCost[$i - 1] * (1 + ($annualFuelPriceIncrease * .01));
-            $totalCost[$i] = $totalCost[$i];
         }
         return $totalCost;
     }
