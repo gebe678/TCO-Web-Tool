@@ -2,7 +2,6 @@
 
     function getFuelID($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Fuel_ID FROM aeo_fuel_prices";
@@ -24,7 +23,6 @@
 
     function getFuelYearData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Year FROM aeo_fuel_prices";
@@ -46,7 +44,6 @@
 
     function getGasolineData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Gasoline FROM aeo_fuel_prices";
@@ -68,7 +65,6 @@
 
     function getDieselData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Diesel FROM aeo_fuel_prices";
@@ -90,7 +86,6 @@
 
     function getCNGData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT CNG FROM aeo_fuel_prices";
@@ -112,7 +107,6 @@
 
     function getElectricData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Electric FROM aeo_fuel_prices";
@@ -134,7 +128,6 @@
 
     function getGasElectricData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT Gas_Electric FROM aeo_fuel_prices";
@@ -156,7 +149,6 @@
 
     function getFuelData($index)
     {
-        include "assets/PHP/connectDatabase.php";
         include "assets/PHP/getID.php";
     
         $costComponentQuery = "SELECT $fuelType FROM aeo_fuel_prices";

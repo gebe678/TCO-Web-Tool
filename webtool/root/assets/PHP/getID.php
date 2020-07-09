@@ -1,7 +1,7 @@
 <?php 
     include "assets/PHP/connectDatabase.php";
 
-    // cost component variables
+    // // cost component variables
     $vehicleBody = $_GET["vehicleBody"];
     $powertrain = $_GET["powertrain"];
     $regionality = $_GET["regionality"];
@@ -76,17 +76,18 @@
     }
 
     // Maintenance Query
-    $i = 0;
+    
     $firstService = $connect->query($firstServiceQuery);
     $repeatService = $connect->query($repeatServiceQuery);
     $costData = $connect->query($costDataQuery);
     $scalingFactor = $connect->query($scalingFactorQuery);
 
+    $i = 0;
     while($firstServiceResult = $firstService->fetch_assoc())
     {
         $firstServiceResults[$i] = $firstServiceResult["First_Service_VMT"];
         $i++;
-    }
+    } 
 
     $i = 0;
     while($repeatServiceResult = $repeatService->fetch_assoc())

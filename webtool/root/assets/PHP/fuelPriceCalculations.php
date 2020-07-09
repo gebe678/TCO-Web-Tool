@@ -101,7 +101,10 @@
         for($i = 0; $i < $numYears; $i++)
         {
             $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
-            $fuelPricePerMile[$i] = getFuelData($i) / $MPGCost;
+            $fuelPricePerMile[$i] = getFuelData($i + 1) / $MPGCost;
+            //echo "for year: " . $i . " " . $fuelPrice[$i] . " is the fuel price per mile<br>";
+            //echo "for year: " . $i . " " . $MPGCost . " is the MPG cost per mile<br>";
+            //echo "for year: " . $i . " " . $fuelPricePerMile[$i] . " is the fuel price per mile<br>";
         }
         
         for($i = 0; $i < $numYears; $i++)
