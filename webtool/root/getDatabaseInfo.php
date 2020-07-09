@@ -34,6 +34,7 @@
                 include "assets/PHP/vehicleCalculations.php";
                 include "assets/PHP/insuranceCalculations.php";
                 include "assets/PHP/taxesAndFeesCalculations.php";
+                include "assets/PHP/financeCalculations.php";
 
                 $totalVehicleCost = 0;
                 $totalFinancingCost = 0;
@@ -113,21 +114,23 @@
 
                 // This is where I will put the important vehicle information
                 $vehicleBodyCost = calculateSimpleDepreciation(30);
-                $annualFuelCost = calculateAnnualFuelcost();
+                $financeCost = calculateInterestPayment(30);
+                $annualFuelCost = calculateAnnualFuelcost(30);
                 $insuranceCost = calculateInsurancecost(30);
                 $taxesAndFees = calculateTaxesAndFees(30);
-                $maintenance = calculateMaintenanceCost(0, 30);
-                $repair = calculateRepairCost(0, 30);
+                $maintenance = calculateTotalMaintenance(30);
+                $repair = calculateTotalRepair(30);
 
                 for($i = 0; $i < 30; $i++)
                 {
-                    echo "Year " . $i . "<br>";
-                    echo "Body Cost is: ". $vehicleBodyCost[$i] . "<br>";
-                    echo "annual Fuel Cost Is: ". $annualFuelCost . "<br>";
-                    echo "Insurance Cost is : ". $insuranceCost[$i] . "<br>";
-                    echo "Taxes and Fees are: ". $taxesAndFees[$i] . "<br>";
-                    echo "Maintenance is: ". $maintenance[$i] . "<br>";
-                    echo "Repair cost is: ". $repair[$i] . "<br>";
+                    echo "Year " . ($i + 1) . "<br>";
+                    echo "Body Cost is: ". round($vehicleBodyCost[$i], 0) . "<br>";
+                    echo "Finance Cost is: " . round($financeCost[$i], 0) . "<br>";
+                    echo "annual Fuel Cost Is: ". round($annualFuelCost[$i], 0) . "<br>";
+                    echo "Insurance Cost is : ". round($insuranceCost[$i], 0) . "<br>";
+                    echo "Taxes and Fees are: ". round($taxesAndFees[$i], 0) . "<br>";
+                    echo "Maintenance is: ". round($maintenance[$i], 0) . "<br>";
+                    echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
                     echo "<br><br>";
                 }                
             ?>

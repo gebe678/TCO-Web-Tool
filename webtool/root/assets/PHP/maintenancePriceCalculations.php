@@ -29,6 +29,25 @@
         return $componentCost;
     }
 
+    function calculateTotalMaintenance($numYears)
+    {
+        $maintenanceCost;
+        $oilCost = calculateMaintenanceCost(0, $numYears);
+        $tireCost = calculateMaintenanceCost(1, $numYears);
+        $airFilterCost = calculateMaintenanceCost(2, $numYears);
+        $batteryCost = calculateMaintenanceCost(3, $numYears);
+        $fluidCost = calculateMaintenanceCost(4, $numYears);
+        $brakes1Cost = calculateMaintenanceCost(5, $numYears);
+        $beltsAndHosesCost = calculateMaintenanceCost(6, $numYears);
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $maintenanceCost[$i] = $oilCost[$i] + $tireCost[$i] + $airFilterCost[$i] + $batteryCost[$i] + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i];
+        }
+
+        return $maintenanceCost;
+    }
+
     function calculateRepairCost($component, $numYears)
     {
         include "getID.php";
@@ -56,6 +75,26 @@
         }
 
         return $componentCost;
+    }
+
+    function calculatetotalRepair($numYears)
+    {
+        include "getID.php";
+
+        $repairCost;
+        $brakes2Cost = calculateRepairCost(0, $numYears);
+        $transmissionCost = calculateRepairCost(1, $numYears);
+        $engineCost = calculateRepairCost(2, $numYears);
+        $hvBatteryCost = calculateRepairCost(3, $numYears);
+        $fcStack = calculateRepairCost(4, $numYears);
+        $bodyCost = calculateRepairCost(5, $numYears);
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $repairCost[$i] = $brakes2Cost[$i] + $transmissionCost[$i] + $engineCost[$i] + $hvBatteryCost[$i] + $fcStack[$i] + $bodyCost[$i];
+        }
+
+        return $repairCost;
     }
 
     function calculateCumulativeVmt($numYears)

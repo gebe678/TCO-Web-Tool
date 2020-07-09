@@ -1,6 +1,6 @@
 <?php 
 
-    function calculateBiofuelCost($index)
+    function calculateBiofuelCost($numYears)
     {
         include "getID.php";
 
@@ -21,19 +21,18 @@
                 $min = $fuelData;
             }
             $totalCost[$i] = getGasolineData(0) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
-            $totalCost[$i] = floor($totalCost[$i] * 100) / 100;
         }
-        return $totalCost[$index];
+        return $totalCost;
     }
 
-    function calculateHydrogenCost($index)
+    function calculateHydrogenCost($numYears)
     {
         include "getID.php";
 
         $totalCost;
         $min;
 
-        for($i = 0; $i < 30; $i++)
+        for($i = 0; $i < $numYears; $i++)
         {
             $yearInfo = getFuelID($i);
 
@@ -46,18 +45,17 @@
                 $min = $hydrogenCost;
             }
             $totalCost[$i] = 5 + $hydrogenPremium * ($hydrogenCost - $min) / $hydrogenCost;
-            $totalCost[$i] = floor($totalCost[$i] * 100) / 100;
         }
-        return $totalCost[$index];
+        return $totalCost;
     }
 
-    function caluclatePercentageIncrease()
+    function caluclatePercentageIncrease($numYears)
     {
         include "getID.php";
 
         $totalCost[0] = getGasolineData(0);
 
-        for($i = 1; $i < 30; $i++)
+        for($i = 1; $i < $numYears; $i++)
         {
             $totalCost[$i] = $totalCost[$i - 1] * (1 + ($annualFuelPriceIncrease * .01));
             $totalCost[$i] = $totalCost[$i];
@@ -65,12 +63,16 @@
         return $totalCost;
     }
 
-    function calculateAnnualFuelCost()
+    function calculateAnnualFuelCost($numYears)
     {
         include "getID.php";
 
-        $fuelPrice = 0;
+        $fuelPrice;
         $MPGCost;
+        $fuelPricePerMile;
+        $annualFuelPrice;
+        $mpgYearDegradation = .001;
+
         if($powertrain === "BEV")
         {
             $MPGCost = $bevMPG;
@@ -79,24 +81,34 @@
         {
             $MPGCost = $fuelMPG;
         }
-        $fuelPricePerMile = $MPGCost * (1 - .001);
-
+        
         if($fuelType == "Biofuel")
         {
-            $fuelPrice = calculateBiofuelCost(1);
+            $fuelPrice = calculateBiofuelCost($numYears);
         }
         else if($fuelType == "Hydrogen")
         {
-            $fuelPrice = calculateHydrogenCost(1);
+            $fuelPrice = calculateHydrogenCost($numYears);
         }
         else
         {
-            $fuelPrice = getFuelData(1);
-        }
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $fuelPrice[$i] = getFuelData($i);
+            }
+        } 
 
-        $fuelPricePerMile = ($fuelPrice / $fuelMPG) * $annualVmt;
-        $fuelPricePerMile = floor($fuelPricePerMile * 100) / 100;
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
+            $fuelPricePerMile[$i] = getFuelData($i) / $MPGCost;
+        }
         
-        return $fuelPricePerMile;
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
+        }
+       
+        return $annualFuelPrice;
     }
 ?>
