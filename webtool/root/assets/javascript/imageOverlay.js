@@ -206,6 +206,4 @@ function colorImage(canvas, ctx, startRow, img)
 }
 
 // run the canvas code after the window has loaded
-window.addEventListener("DOMContentLoaded", function(){
-    main();
-})
+main();

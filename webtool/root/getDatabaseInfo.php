@@ -9,8 +9,9 @@
         <link rel="stylesheet" href="assets/css/dropDownStyles.css">
         <link rel="stylesheet" href="assets/css/pageStyles.css">
         <link rel="stylesheet" href="assets/css/tabStyles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+        <script src="assets/javascript/vehicleGraph.js" defer></script>
         <script src="assets/javascript/imageOverlay.js" defer></script>
-        
     </head>
     <body>
         <header>
@@ -111,19 +112,46 @@
 
                 for($i = 0; $i < 30; $i++)
                 {
-                    echo "Year " . ($i + 1) . "<br>";
-                    echo "Body Cost is: ". round($vehicleBodyCost[$i], 0) . "<br>";
-                    echo "Finance Cost is: " . round($financeCost[$i], 0) . "<br>";
-                    echo "annual Fuel Cost Is: ". round($annualFuelCost[$i], 0) . "<br>";
-                    echo "Insurance Cost is : ". round($insuranceCost[$i], 0) . "<br>";
-                    echo "Taxes and Fees are: ". round($taxesAndFees[$i], 0) . "<br>";
-                    echo "Maintenance is: ". round($maintenance[$i], 0) . "<br>";
-                    echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
-                    echo "<br><br>";
-                }                
+                    $year = $i + 1;
+                    echo "<p class='costComponents year'>$year</p>";
+
+                    $vehicleBodyCost[$i] = round($vehicleBodyCost[$i], 0);
+                    echo "<p class='costComponents vehicleBody'>$vehicleBodyCost[$i]</p>"; 
+
+                    $financeCost[$i] = round($financeCost[$i], 0);
+                    echo "<p class='costComponents financeCost'>$financeCost[$i]</p>";
+
+                    $annualFuelCost[$i] = round($annualFuelCost[$i], 0);
+                    echo "<p class='costComponents annualFuelCost'>$annualFuelCost[$i]</p>";
+
+                    $insuranceCost[$i] = round($insuranceCost[$i], 0);
+                    echo "<p class='costComponents insuranceCost'>$insuranceCost[$i]</p>";
+
+                    $taxesAndFees[$i] = round($taxesAndFees[$i], 0);
+                    echo "<p class='costComponents taxesAndFees'>$taxesAndFees[$i]</p>";
+
+                    $maintenance[$i] = round($maintenance[$i], 0);
+                    echo "<p class='costComponents maintenance'>$maintenance[$i]</p>";
+
+                    $repair[$i] = round($repair[$i], 0);
+                    echo "<p class='costComponents repair'>$repair[$i]</p>";
+                }
+
+                // for($i = 0; $i < 30; $i++)
+                // {
+                //     echo "Year " . ($i + 1) . "<br>";
+                //     echo "Body Cost is: ". round($vehicleBodyCost[$i], 0) . "<br>";
+                //     echo "Finance Cost is: " . round($financeCost[$i], 0) . "<br>";
+                //     echo "annual Fuel Cost Is: ". round($annualFuelCost[$i], 0) . "<br>";
+                //     echo "Insurance Cost is : ". round($insuranceCost[$i], 0) . "<br>";
+                //     echo "Taxes and Fees are: ". round($taxesAndFees[$i], 0) . "<br>";
+                //     echo "Maintenance is: ". round($maintenance[$i], 0) . "<br>";
+                //     echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
+                //     echo "<br><br>";
+                // }                
             ?>
 
-            <!--canvas id for overlaying the image uses the imageOverlay.js file-->
+            <!--canvas id's for showing the data from the vehicle cost visually-->
             <div class="canvasContainer">
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
                 <canvas id="acualVehicleGraph">canvas is not supported in you browser</canvas>
