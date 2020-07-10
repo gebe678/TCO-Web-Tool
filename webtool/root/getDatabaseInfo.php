@@ -93,13 +93,12 @@
                     $totalRepairCost = $totalRepairCost + $repair[$i];
                 }
 
-                $totalVehicleBodyCost = round(($totalVehicleBodyCost / 5) / roundNumber($totalVehicleBodyCost)) * roundNumber($totalVehicleBodyCost);
-                 $totalFinanceCost = round(($totalFinanceCost / 5) / roundNumber($totalFinanceCost)) * roundNumber($totalFinanceCost);
-                 $totalAnnualFuelCost = round(($totalAnnualFuelCost / 5) / roundNumber($totalAnnualFuelCost)) * roundNumber($totalAnnualFuelCost);
-                 $totalInsuranceCost = round(($totalInsuranceCost / 5) / roundNumber($totalInsuranceCost)) * roundNumber($totalInsuranceCost);
-                 $totalTaxesCost = round(($totalTaxesCost / 5) / roundNumber($totalTaxesCost)) * roundNumber($totalTaxesCost);
-                 $totalMaintenanceCost = round(($totalMaintenanceCost / 5) / roundNumber($totalMaintenanceCost)) * roundNumber($totalMaintenanceCost);
-                 $totalRepairCost = round(($totalRepairCost / 5) / roundNumber($totalRepairCost)) * roundNumber($totalRepairCost);
+                //  $totalVehicleBodyCost = round($totalVehicleBodyCost / 5);
+                //  $totalFinanceCost = round($totalFinanceCost / 5);
+                //  $totalAnnualFuelCost = round($totalAnnualFuelCost / 5);
+                //  $totalInsuranceCost = round($totalInsuranceCost / 5);
+                //  $totalTaxesCost = round($totalTaxesCost / 5);
+                //  $totalRepairCost = round($totalRepairCost / 5);
 
                 echo "<p class='costComponent'>$totalVehicleBodyCost</p>";
                 echo "<p class='costComponent'>$totalFinanceCost</p>";

@@ -1,28 +1,9 @@
 function main()
 {
     let canvas = document.getElementById("acualVehicleGraph");
-    //let ctx = canvas.getContext("2d");
 
-    var years = [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050];
-    // For drawing the lines
-    var africa = [86,114,106,106,107,111,133,221,783,2478];
-    var asia = [282,350,411,502,635,809,947,1402,3700,5267];
-    var europe = [168,170,178,190,203,276,408,547,675,734];
-    var latinAmerica = [40,20,10,16,24,38,74,167,508,784];
-    var northAmerica = [6,3,2,2,7,26,82,172,312,433];
-
-    var ctx = document.getElementById("acualVehicleGraph");
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: years,
-    datasets: [
-      { 
-        data: africa
-      }
-    ]
-  }
-});
+    let years = document.querySelectorAll(".costComponents.year");
+    let year = [];
 
     let vehicleBodyCost = document.querySelectorAll(".costComponents.vehicleBody");
     let vehicleBodyCosts = [];
@@ -37,7 +18,7 @@ var myChart = new Chart(ctx, {
     let insuranceCosts = [];
 
     let taxesAndFees = document.querySelectorAll(".costComponents.taxesAndFees");
-    let taxesAndFeesCost = [];
+    let taxesAndFeesCosts = [];
 
     let maintenance = document.querySelectorAll(".costComponents.maintenance");
     let maintenanceCosts = [];
@@ -45,19 +26,80 @@ var myChart = new Chart(ctx, {
     let repair = document.querySelectorAll(".costComponents.repair");
     let repairCosts = [];
 
+    let totalCostOwnership = [];
+
     for(let i = 0; i < 30; i++)
     {
+        year[i] = parseInt(years[i].innerHTML);
         vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i].innerHTML);
         financeCosts[i] = parseInt(financeCost[i].innerHTML);
         annualFuelCosts[i] = parseInt(annualFuelCost[i].innerHTML);
         insuranceCosts[i] = parseInt(insuranceCost[i].innerHTML);
-        taxesAndFeesCost[i] = parseInt(taxesAndFees[i].innerHTML);
+        taxesAndFeesCosts[i] = parseInt(taxesAndFees[i].innerHTML);
         maintenanceCosts[i] = parseInt(maintenance[i].innerHTML);
         repairCosts[i] = parseInt(repair[i].innerHTML);
+        totalCostOwnership[i] = vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i];
 
         console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
-        " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCost[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i]);
+        " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
+        " \nTCO " + totalCostOwnership[i]);
     }
+
+    let vehicleGraph = new Chart(canvas, {
+      type: "bar",
+      data: 
+      {
+        labels: year,
+        datasets:
+        [
+          {
+            data: vehicleBodyCosts,
+            label: "Vehicle Body",
+            backgroundColor: "#1064D2"
+
+          },
+          {
+            data: financeCosts,
+            label: "Finance Cost",
+            backgroundColor: "#EE631D"
+          },
+          {
+            data: annualFuelCosts,
+            label: "Annual Fuel Cost",
+            backgroundColor: "#24A211"
+          },
+          {
+            data: insuranceCosts,
+            label: "Insurance Cost",
+            backgroundColor: "#8D20DF"
+          },
+          {
+            data: taxesAndFeesCosts,
+            label: "Taxes And Fees",
+            backgroundColor: "#FAB641"
+          },
+          {
+            data: maintenanceCosts,
+            label: "Maintenance Cost",
+            backgroundColor: "#286432"
+          },
+          {
+            data: repairCosts,
+            label: "Repair Cost",
+            backgroundColor: "#FF1E22"
+          }
+        ]
+      },
+
+      options: 
+      {
+          scales:
+          {
+            xAxes: [{stacked: true}],
+            yAxes: [{stacked: true}]
+          }
+      }
+    });
    
 }
 

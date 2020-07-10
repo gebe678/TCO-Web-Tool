@@ -25,27 +25,27 @@ function main()
         let startValue = totalAreaCovered(canvas, ctx);
         colorImage(canvas, ctx, startValue, img);
 
-        let tempCanvas = document.createElement("canvas");
-        let tempCtx = tempCanvas.getContext("2d");
+        // let tempCanvas = document.createElement("canvas");
+        // let tempCtx = tempCanvas.getContext("2d");
 
-        tempCanvas.width = canvas.width;
-        tempCanvas.height = canvas.height;
+        // tempCanvas.width = canvas.width;
+        // tempCanvas.height = canvas.height;
 
-        tempCtx.drawImage(canvas, 0, 0);
+        // tempCtx.drawImage(canvas, 0, 0);
 
-        let angle = 270 * Math.PI / 180;
-        canvas.width = img.height;
-        canvas.height = img.width;
+        // let angle = 270 * Math.PI / 180;
+        // canvas.width = img.height;
+        // canvas.height = img.width;
 
-        let imageWidth = img.width;
-        let imageHeight = img.height;
+        // let imageWidth = img.width;
+        // let imageHeight = img.height;
 
-        ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
-        ctx.rotate(angle);
-        ctx.translate(-img.width / 2, -img.height / 2);
-        ctx.drawImage(tempCanvas, 0, 0);
+        // ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
+        // ctx.rotate(angle);
+        // ctx.translate(-img.width / 2, -img.height / 2);
+        // ctx.drawImage(tempCanvas, 0, 0);
 
-        tempCtx.clearRect(0, 0, canvas.width, canvas.height);
+        // tempCtx.clearRect(0, 0, canvas.width, canvas.height);
     };
 
     // source file for the image to be loaded
@@ -185,24 +185,27 @@ function colorImage(canvas, ctx, startRow, img)
     
     let total = vehicleCost + financingCost + annualFuelCost + insurance + taxes + maintenance + repairCost;
 
-    console.log("total cost is: " + total);
+    let st = partitionImage(canvas, ctx, startRow[0], Math.round((vehicleCost / total) * 100) / 100, 16, 100, 210);
+    let st2 = partitionImage(canvas, ctx, st, Math.round((financingCost / total) * 100) / 100, 238, 99, 29);
+    let st3 = partitionImage(canvas, ctx, st2, Math.round((annualFuelCost / total) * 100) / 100, 36, 162, 17);
+    let st4 = partitionImage(canvas, ctx, st3, Math.round((insurance / total) * 100) / 100, 141, 32, 223);
+    let st5 = partitionImage(canvas, ctx, st4, Math.round((taxes / total) * 100) / 100, 250, 182, 65);
+    let st6 = partitionImage(canvas, ctx, st5, Math.round((maintenance / total) * 100 ) / 100, 40, 100, 50);
+    let st7 = partitionImage(canvas, ctx, st6, Math.round((repairCost / total) * 100) / 100, 255, 30 , 34);
 
+    ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(300, 150);
+ctx.stroke();
+    //ctx.fillText("Number 1", 50, st);
 
-    let st = partitionImage(canvas, ctx, startRow[0], vehicleCost / total, 16, 100, 210);
-    let st2 = partitionImage(canvas, ctx, st, financingCost / total, 238, 99, 29);
-    let st3 = partitionImage(canvas, ctx, st2, annualFuelCost / total, 36, 162, 17);
-    let st4 = partitionImage(canvas, ctx, st3, insurance / total, 141, 32, 223);
-    let st5 = partitionImage(canvas, ctx, st4, taxes / total, 250, 182, 65);
-    let st6 = partitionImage(canvas, ctx, st5, maintenance / total, 40, 100, 50);
-    let st7 = partitionImage(canvas, ctx, st6, repairCost / total, 255, 30 , 34);
-
-    console.log("vehicle percentage: " + vehicleCost / total);
-    console.log("finance percentage: " + financingCost / total);
-    console.log("fuel percentage: " + annualFuelCost / total);
-    console.log("insurance percentage: " + insurance / total);
-    console.log("tax percentage: " + taxes / total);
-    console.log("maintenance percentage: " + maintenance / total);
-    console.log("repair percentage: " + repairCost / total);
+    console.log("vehicle percentage: " + Math.round((vehicleCost / total) * 100) / 100);
+    console.log("finance percentage: " + Math.round((financingCost / total) * 100) / 100);
+    console.log("fuel percentage: " + Math.round((annualFuelCost / total) * 100) / 100);
+    console.log("insurance percentage: " + Math.round((insurance / total) * 100) / 100);
+    console.log("tax percentage: " + Math.round((taxes / total) * 100) / 100);
+    console.log("maintenance percentage: " + Math.round((maintenance / total) * 100 ) / 100);
+    console.log("repair percentage: " + Math.round((repairCost / total) * 100) / 100);
 }
 
 // run the canvas code after the window has loaded
