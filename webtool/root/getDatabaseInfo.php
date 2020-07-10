@@ -82,7 +82,7 @@
                 $totalMaintenanceCost = 0;
                 $totalRepairCost = 0;
 
-                for($i = 0; $i < 5; $i++)
+                for($i = 0; $i < 10; $i++)
                 {
                     $totalVehicleBodyCost = $vehicleBodyCost[$i] + $totalVehicleBodyCost;
                     $totalFinanceCost = $totalFinanceCost + $financeCost[$i];

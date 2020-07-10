@@ -1,5 +1,23 @@
 // this script is for changing the iamge of the car on the canvas object for the web-tool
 
+// variables that hold the starting place for a picutre
+let st = 0;
+let st2 = 0;
+let st3 = 0;
+let st4 = 0;
+let st5 = 0;
+let st6 = 0;
+let st7 = 0;
+
+// variables for the percentage of each cost component
+    let vehiclePercentage = 0;
+    let financePercentage = 0;
+    let fuelPercentage = 0;
+    let insurancePercentage = 0;
+    let taxPercentage = 0;
+    let maintenancePercentage = 0;
+    let repairPercentage = 0;
+
 // main function everything will be called from here
 function main()
 {
@@ -25,27 +43,57 @@ function main()
         let startValue = totalAreaCovered(canvas, ctx);
         colorImage(canvas, ctx, startValue, img);
 
-        // let tempCanvas = document.createElement("canvas");
-        // let tempCtx = tempCanvas.getContext("2d");
+        let tempCanvas = document.createElement("canvas");
+        let tempCtx = tempCanvas.getContext("2d");
 
-        // tempCanvas.width = canvas.width;
-        // tempCanvas.height = canvas.height;
+        tempCanvas.width = canvas.width;
+        tempCanvas.height = canvas.height;
 
-        // tempCtx.drawImage(canvas, 0, 0);
+        tempCtx.drawImage(canvas, 0, 0);
 
-        // let angle = 270 * Math.PI / 180;
-        // canvas.width = img.height;
-        // canvas.height = img.width;
+        let angle = 270 * Math.PI / 180;
+        canvas.width = img.height;
+        canvas.height = img.width;
 
-        // let imageWidth = img.width;
-        // let imageHeight = img.height;
+        let imageWidth = img.width;
+        let imageHeight = img.height;
 
-        // ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
-        // ctx.rotate(angle);
-        // ctx.translate(-img.width / 2, -img.height / 2);
-        // ctx.drawImage(tempCanvas, 0, 0);
+        ctx.save();
 
-        // tempCtx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
+        ctx.rotate(angle);
+        ctx.translate(-img.width / 2, -img.height / 2);
+        ctx.drawImage(tempCanvas, 0, 0);
+
+        tempCtx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.restore();
+
+        ctx.font = "15px Arial";
+        ctx.beginPath();
+        ctx.moveTo(st / 2 + 7, 100);
+        ctx.lineTo(st / 2 + 7, 35);
+        ctx.moveTo(st + 7, 100);
+        ctx.lineTo(st + 7, 30);
+        ctx.moveTo(st2 + 7, 100);
+        ctx.lineTo(st2 + 7, 35);
+        ctx.moveTo(st3 + 7, 100);
+        ctx.lineTo(st3 + 7, 30);
+        ctx.moveTo(st4 + 7, 100);
+        ctx.lineTo(st4 + 7, 35);
+        ctx.moveTo(st5 + 7, 100);
+        ctx.lineTo(st5 + 7, 60);
+        ctx.moveTo(st6 + 7, 100);
+        ctx.lineTo(st6 + 7, 35);
+        ctx.stroke();
+    
+        ctx.fillText((vehiclePercentage * 100) + "%", st / 2, 15);
+        ctx.fillText((financePercentage * 100) + "%", st , 15);
+        ctx.fillText((fuelPercentage * 100) + "%", st2, 15);
+        ctx.fillText((insurancePercentage * 100) + "%", st3, 15);
+        ctx.fillText((taxPercentage * 100) + "%", st4, 15);
+        ctx.fillText((maintenancePercentage * 100) + "%", st5, 15);
+        ctx.fillText((repairPercentage * 100) + "%", st6, 15);
     };
 
     // source file for the image to be loaded
@@ -185,19 +233,21 @@ function colorImage(canvas, ctx, startRow, img)
     
     let total = vehicleCost + financingCost + annualFuelCost + insurance + taxes + maintenance + repairCost;
 
-    let st = partitionImage(canvas, ctx, startRow[0], Math.round((vehicleCost / total) * 100) / 100, 16, 100, 210);
-    let st2 = partitionImage(canvas, ctx, st, Math.round((financingCost / total) * 100) / 100, 238, 99, 29);
-    let st3 = partitionImage(canvas, ctx, st2, Math.round((annualFuelCost / total) * 100) / 100, 36, 162, 17);
-    let st4 = partitionImage(canvas, ctx, st3, Math.round((insurance / total) * 100) / 100, 141, 32, 223);
-    let st5 = partitionImage(canvas, ctx, st4, Math.round((taxes / total) * 100) / 100, 250, 182, 65);
-    let st6 = partitionImage(canvas, ctx, st5, Math.round((maintenance / total) * 100 ) / 100, 40, 100, 50);
-    let st7 = partitionImage(canvas, ctx, st6, Math.round((repairCost / total) * 100) / 100, 255, 30 , 34);
+    vehiclePercentage = Math.round((vehicleCost / total) * 100) / 100;
+    financePercentage = Math.round((financingCost / total) * 100) / 100;
+    fuelPercentage = Math.round((annualFuelCost / total) * 100) / 100;
+    insurancePercentage = Math.round((insurance / total) * 100) / 100;
+    taxPercentage = Math.round((taxes / total) * 100) / 100;
+    maintenancePercentage = Math.round((maintenance / total) * 100 ) / 100;
+    repairPercentage = Math.round((repairCost / total) * 100) / 100;
 
-    ctx.beginPath();
-ctx.moveTo(0, 0);
-ctx.lineTo(300, 150);
-ctx.stroke();
-    //ctx.fillText("Number 1", 50, st);
+    st = partitionImage(canvas, ctx, startRow[0], vehiclePercentage, 16, 100, 210);
+    st2 = partitionImage(canvas, ctx, st, financePercentage, 238, 99, 29);
+    st3 = partitionImage(canvas, ctx, st2, fuelPercentage, 36, 162, 17);
+    st4 = partitionImage(canvas, ctx, st3, insurancePercentage, 141, 32, 223);
+    st5 = partitionImage(canvas, ctx, st4, taxPercentage, 250, 182, 65);
+    st6 = partitionImage(canvas, ctx, st5, maintenancePercentage, 40, 100, 50);
+    st7 = partitionImage(canvas, ctx, st6, repairPercentage, 255, 30 , 34);
 
     console.log("vehicle percentage: " + Math.round((vehicleCost / total) * 100) / 100);
     console.log("finance percentage: " + Math.round((financingCost / total) * 100) / 100);

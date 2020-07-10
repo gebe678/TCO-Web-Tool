@@ -13,7 +13,7 @@
             $vBodyCost = $vehicleBodyCost;
         }
         
-        $financeTerm = 5;
+        $financeTerm = 30;
         $year = 1;
         $markupFactor = 1.5;
         $vehicleCost = $vBodyCost * $markupFactor;
