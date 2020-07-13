@@ -2,12 +2,16 @@
 
     function calculateMaintenanceCost($component, $numYears)
     {
-        include "getID.php";
+        include_once "getMaintenanceData.php";
 
         $previousNum = 0;
         $totalCost;
         $flag;
         $componentCost;
+        $firstServiceResults = getMaintenanceFirstService();
+        $repeatServiceResults = getMaintenanceRepeatService();
+        $costDataResults = getMaintenanceCostDataResults();
+        $scalingFactorResults = getMaintenanceScalingFactor();
 
         for($i = 0; $i < $numYears; $i++)
         {
@@ -50,12 +54,16 @@
 
     function calculateRepairCost($component, $numYears)
     {
-        include "getID.php";
+        include_once "getRepairData.php";
 
         $previousNum = 0;
         $totalCost;
         $flag;
         $componentCost;
+        $firstRepairServiceResults = getRepairFirstService();
+        $repeatRepairServiceResults = getRepairRepeatService();
+        $repairCostDataResults = getRepairCostDataResults();
+        $scalingRepairFactorResults = getRepairScalingFactor();
 
         for($i = 0; $i < $numYears; $i++)
         {
@@ -79,8 +87,6 @@
 
     function calculatetotalRepair($numYears)
     {
-        include "getID.php";
-
         $repairCost;
         $brakes2Cost = calculateRepairCost(0, $numYears);
         $transmissionCost = calculateRepairCost(1, $numYears);
@@ -99,7 +105,18 @@
 
     function calculateCumulativeVmt($numYears)
     {
-        include "getID.php";
+        include "connectDatabase.php";
+        
+        $vmtType = $_GET["vmt"];
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+
+        $i = 0;
+        $h = $connect->query($vmtQuery);
+        while($vmtYear = $h->fetch_assoc())
+        {
+            $annualVmtYears[$i] = $vmtYear[$vmtType];
+            $i++;
+        }
         
         $totalVMT = 0;
 
