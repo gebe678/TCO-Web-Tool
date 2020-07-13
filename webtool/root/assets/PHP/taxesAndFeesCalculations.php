@@ -1,9 +1,9 @@
 <?php 
     function calculateTaxesAndFees($numYears)
     {
-        $purchaceCost = 20000;
-        $salesTaxAndTitle = .05;
-        $annualRegistration = 100;
+        $purchaceCost = $_GET["purchaseCost"];
+        $salesTaxAndTitle = $_GET["salesTax"];
+        $annualRegistration = $_GET["annualRegistration"];
         $totalCost;
 
         for($i = 0; $i < $numYears; $i++)

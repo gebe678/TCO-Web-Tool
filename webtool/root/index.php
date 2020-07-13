@@ -174,6 +174,24 @@
                 </div>
 
                 <div class="inputContainer">
+                    <div class="textBlock">Annual Registration</div>
+                    <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration">
+                    <input type="number" min="100" max="100" value="100" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Sales Tax & Title</div>
+                    <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax">
+                    <input type="number" min=".05" max=".05" step=".01" value=".05" class="outputText">
+                </div>
+
+                <div class="inputContainer">
+                    <div class="textBlock">Purchase Cost</div>
+                    <input type="range" min="20000" max="100000" value="20000" class="slider" name="purchaseCost">
+                    <input type="number" min="20000" max="100000" value="20000" class="outputText">
+                </div>
+
+                <div class="inputContainer">
                     <div class="textBlock">Insurance Fixed Rate</div>
                     <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed">
                     <input type="number" min="100" max="500" value="400" class="outputText">
