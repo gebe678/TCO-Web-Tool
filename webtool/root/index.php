@@ -40,7 +40,7 @@
                         <option value="Medium SUV">Medium SUV</option>
                         <option value="Pickup">Pickup</option>
                         <option value="Luxury Compact">Luxury Compact</option>
-                        <option value="Luxury Midsize">Luxury Midsize</option>
+                        <option value="Luxury Midsize Car">Luxury Midsize Car</option>
                         <option value="Luxury Small SUV">Luxury Small SUV</option>
                         <option value="Luxury Medium SUV">Luxury Medium SUV</option>
                         <option value="Luxury Pickup">Luxury Pickup</option>
@@ -79,7 +79,7 @@
                     <select name="modelYear" class="selectMenu">
                         <option value="2020">2020</option>
                         <option value="2025">2025</option>
-                        <option value="2030" selected>2030</option>
+                        <option value="2030">2030</option>
                         <option value="2035">2035</option>
                         <option value="2050">2050</option>
                     </select>
