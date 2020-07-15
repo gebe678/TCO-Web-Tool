@@ -1,4 +1,48 @@
-function main()
+
+function powertrainMenuModifier()
+{
+    let powertrainMenu = document.getElementById("powertrainMenu");
+    let vehicleBodyMenu = document.getElementById("vehicleBodyMenu");
+
+    vehicleBodyMenu.addEventListener("click", function(){
+        switch(vehicleBodyMenu.selectedIndex)
+        {
+            case 10:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 11:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 12:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 13:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 14:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 15:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            case 16:
+                powertrainMenu.options[0].disabled = true;
+                powertrainMenu.options[1].selected = true;
+                break;
+            default:
+                powertrainMenu.options[0].disabled = false;
+                powertrainMenu.options[0].selected = true;
+        }
+    });
+}
+
+function fuelMenuModifier()
 {
     let powertrainMenu = document.getElementById("powertrainMenu");
     let fuelMenu = document.getElementById("fuelTypes");
@@ -79,6 +123,12 @@ function main()
         }
     });
 
+}
+
+function main()
+{
+    powertrainMenuModifier();
+    fuelMenuModifier();
 }
 
 main();
