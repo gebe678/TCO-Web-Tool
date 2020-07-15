@@ -81,6 +81,11 @@
         {
             $MPGCost = $fuelMPG;
         }
+
+        if($MPGCost == 0)
+        {
+            $MPGCost = $_GET["mpgPlugin"];
+        }
         
         if($fuelType == "Biofuel")
         {

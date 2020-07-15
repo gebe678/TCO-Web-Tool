@@ -16,6 +16,12 @@
         {
             $vBodyCost = $vehicleBodyCost;
         }
+
+        if($vBodyCost == 0)
+        {
+            $vBodyCost = $_GET["bodyCostPlugin"];
+        }
+
         $bodyCost[0] = $vBodyCost * $markupFactor;
         $oldCost = $bodyCost[0];
 

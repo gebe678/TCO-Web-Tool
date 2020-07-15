@@ -12,6 +12,11 @@
         {
             $vBodyCost = $vehicleBodyCost;
         }
+
+        if($vBodyCost == 0)
+        {
+            $vBodyCost = $_GET["bodyCostPlugin"];
+        }
         
         $financeTerm = 30;
         $year = 1;
