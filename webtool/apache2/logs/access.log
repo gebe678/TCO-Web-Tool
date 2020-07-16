@@ -642,3 +642,12 @@
 ::1 - - [15/Jul/2020:22:44:23 -0400] "POST / HTTP/1.1" 200 34972
 ::1 - - [15/Jul/2020:22:44:24 -0400] "POST / HTTP/1.1" 200 35528
 ::1 - - [15/Jul/2020:22:44:30 -0400] "POST /index.php HTTP/1.1" 200 18874
+::1 - - [15/Jul/2020:22:45:53 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 200 2533
+::1 - - [15/Jul/2020:22:45:53 -0400] "POST / HTTP/1.1" 200 35528
+::1 - - [15/Jul/2020:22:46:00 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [15/Jul/2020:22:46:00 -0400] "POST / HTTP/1.1" 200 35528
+::1 - - [15/Jul/2020:22:46:54 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [15/Jul/2020:22:46:54 -0400] "POST / HTTP/1.1" 200 29779
+::1 - - [15/Jul/2020:22:47:11 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [15/Jul/2020:22:47:11 -0400] "POST / HTTP/1.1" 200 29789
+::1 - - [15/Jul/2020:22:47:16 -0400] "GET /assets/pictures/Midsize%20Sedan.jpg HTTP/1.1" 200 15432
