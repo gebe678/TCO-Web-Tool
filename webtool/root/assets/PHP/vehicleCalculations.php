@@ -19,7 +19,7 @@
 
         if($vBodyCost == 0)
         {
-            $vBodyCost = $_GET["bodyCostPlugin"];
+            $vBodyCost = $_POST["bodyCostPlugin"];
         }
 
         $bodyCost[0] = $vBodyCost * $markupFactor;

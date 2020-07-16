@@ -84,7 +84,7 @@
 
         if($MPGCost == 0)
         {
-            $MPGCost = $_GET["mpgPlugin"];
+            $MPGCost = $_POST["mpgPlugin"];
         }
         
         if($fuelType == "Biofuel")

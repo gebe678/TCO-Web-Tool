@@ -1,33 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Information Results</title>
-        <meta name="author" content="Griffin Lehrer">
-        <meta name="description" content="caluclate the total cost of operation for a vehicle">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/dropDownStyles.css">
-        <link rel="stylesheet" href="assets/css/pageStyles.css">
-        <link rel="stylesheet" href="assets/css/tabStyles.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
-        <script src="assets/javascript/vehicleGraph.js" defer></script>
-        <script src="assets/javascript/imageOverlay.js" defer></script>
-    </head>
-    <body>
-        <header>
-            <h1>This Is The Title Of The Webpage</h1>
-            <nav>
-                <!--navigation bar to go between the pages of the site easily-->
-                <div class="navBar">
-                    <a href = "../../index.php"><button class="tabButton">Return To Main Page</button></a>
-                </div>
-            </nav>
-        </header>
-
-        <main>
-
-            <!--php code to get the informattion from the database-->
-           <?php
+<!--php code to get the information from the database-->
+<?php
                 include "assets/PHP/getID.php";
                 include "assets/PHP/getFuelCostData.php";
                 include "assets/PHP/fuelPriceCalculations.php";
@@ -148,13 +120,4 @@
                 //     echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
                 //     echo "<br><br>";
                 // }                
-            ?>
-
-            <!--canvas id's for showing the data from the vehicle cost visually-->
-            <div class="canvasContainer">
-                <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
-                <canvas id="acualVehicleGraph">canvas is not supported in you browser</canvas>
-            </div>
-        </main>
-    </body>
-</html>
+            ?>           

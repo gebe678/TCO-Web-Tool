@@ -15,7 +15,7 @@
 
         if($vBodyCost == 0)
         {
-            $vBodyCost = $_GET["bodyCostPlugin"];
+            $vBodyCost = $_POST["bodyCostPlugin"];
         }
         
         $financeTerm = 30;

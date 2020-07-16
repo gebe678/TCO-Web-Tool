@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="assets/css/pageStyles.css">
     <link rel="stylesheet" href="assets/css/sliderStyles.css">
     <link rel="stylesheet" href="assets/css/tabStyles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
     <script src="assets/javascript/tabControl.js" defer></script>
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
-    <script src="assets/javascript/formControl.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
     <script src="assets/javascript/imageOverlay.js" defer></script>
+    <script src="assets/javascript/formControl.js" defer></script>
 </head>
 <body>
     <header>
@@ -30,7 +30,7 @@
         </nav>
     </header>
     <main>
-        <form action="" method="GET" name="vehicleInfo">
+        <form action="" method="POST" name="vehicleInfo" id="vehicleInfoForm">
 
             <div class="dropDownMenu">
                 <div class="label">
@@ -80,7 +80,7 @@
                     <label name="modelYear">Model Year:</label>
                 </div>
                 <div class="border">
-                    <select name="modelYear" class="selectMenu">
+                    <select name="modelYear" class="selectMenu" id="modelYearMenu">
                         <option value="2020">2020</option>
                         <option value="2025">2025</option>
                         <option value="2030">2030</option>
@@ -95,7 +95,7 @@
                     <label for="regionality">Regionality:</label>
                 </div>
                 <div class="border">
-                    <select name="regionality" class="selectMenu">
+                    <select name="regionality" class="selectMenu" id="regionalityMenu">
                         <option value="Alabama">Alabama</option>
                         <option value="Alaska">Alaska</option>
                         <option value="Arizona">Arizona</option>
@@ -174,7 +174,7 @@
                         <label for="technology">Technology:</label>
                     </div>
                     <div class="border">
-                        <select name="technology" class="selectMenu">
+                        <select name="technology" class="selectMenu" id="technologyMenu">
                             <option value="low">low</option>
                             <option value="high">high</option>
                         </select>
@@ -186,7 +186,7 @@
                         <label for="bevRange">Bev Range:</label>
                     </div>
                     <div class="border">
-                        <select name="bevRange" class="selectMenu">
+                        <select name="bevRange" class="selectMenu" id="bevRangeMenu">
                             <option value="200">200</option>
                             <option value="300">300</option>
                             <option value="400">400</option>
@@ -199,7 +199,7 @@
                         <label for="vmt">VMT:</label>
                     </div>
                     <div class="border">
-                        <select name="vmt" class="selectMenu">
+                        <select name="vmt" class="selectMenu" id="vmtMenu">
                             <option value="EPA_TAR_2016_Car">EPA_TAR_2016_Car</option>
                             <option value="EPA_TAR_2016_Trucks">EPA_TAR_2016_Trucks</option>
                             <option value="NHTSA_2006_Cars">NHTSA_2006_Cars</option>
@@ -225,100 +225,100 @@
 
                 <div class="inputContainer">
                     <div class="textBlock">Annual Registration</div>
-                    <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration">
+                    <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration" id="annualRegistration">
                     <input type="number" min="100" max="100" value="100" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Sales Tax & Title</div>
-                    <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax">
+                    <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax" id="salesTax">
                     <input type="number" min=".05" max=".05" step=".01" value=".05" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Purchase Cost</div>
-                    <input type="range" min="20000" max="100000" value="20000" class="slider" name="purchaseCost">
+                    <input type="range" min="20000" max="100000" value="20000" class="slider" name="purchaseCost" id="purchaseCost">
                     <input type="number" min="20000" max="100000" value="20000" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Insurance Fixed Rate</div>
-                    <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed">
+                    <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed" id="insuranceFixed">
                     <input type="number" min="100" max="500" value="400" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Insurance Proportional Rate</div>
-                    <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional">
+                    <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional" id="insuranceProportional">
                     <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Automotive LDV RPE Markup Factor</div>
-                    <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor">
+                    <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
                     <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Simple Depreciation Rate</div>
-                    <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate">
+                    <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate" id="depreciationRate">
                     <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Vehicle Write Off</div>
-                    <input type="range" min="1" max="30" value="10" class="slider" name="writeOff">
+                    <input type="range" min="1" max="30" value="10" class="slider" name="writeOff" id="writeOff">
                     <input type="number" min="1" max="30" value="10" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Annual Fuel Price Increase</div>
-                    <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease">
+                    <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
                     <input type="number" min="-100" max="100" value="0" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Biofuel Cost Parity</div>
-                    <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost">
+                    <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost" id="biofuelCost">
                     <input type="number" min="1" max="30" value="15" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Biofuel Premium Cost</div>
-                    <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium">
+                    <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium" id="biofuelPremium">
                     <input type="number" min="1" max="10" value="1" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                     <div class="textBlock">Hydrogen to $5kg</div>
-                    <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost">
+                    <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost" id="hydrogenCost">
                     <input type="number" min="1" max="30" value="15" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                 <div class="textBlock">Hydrogen Premium Cost</div>
-                <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium">
+                <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
                 <input type="number" min="1" max="10" value="5" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                 <div class="textBlock">Vehicle MPG Plugin</div>
-                <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin">
+                <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin" id="mpgPlugin">
                 <input type="number" min="1" max="100" step=".00000001" value="16.12332967" class="outputText">
                 </div>
 
                 <div class="inputContainer">
                 <div class="textBlock">Vehicle Body Cost Plugin</div>
-                <input type="range" min="5000" max="100000" step=".0001" value="15000.4398" class="slider" name="bodyCostPlugin">
+                <input type="range" min="5000" max="100000" step=".0001" value="15000.4398" class="slider" name="bodyCostPlugin" id="bodyCostPlugin">
                 <input type="number" min="5000" max="100000" step=".0001" value="15000.4398" class="outputText">
                 </div> 
             </div>
 
-            <input type="submit" class="submitButton" name="submit">
+            <input type="submit" class="submitButton" name="submit" id="submit">
         </form>
 
         <?php
-            if(isset($_GET["submit"]))
+            if(isset($_POST["submit"]))
             {
                 include "assets/PHP/getID.php";
                 include "assets/PHP/getFuelCostData.php";
@@ -385,13 +385,6 @@
                     $totalRepairCost = $totalRepairCost + $repair[$i];
                 }
 
-                //  $totalVehicleBodyCost = round($totalVehicleBodyCost / 5);
-                //  $totalFinanceCost = round($totalFinanceCost / 5);
-                //  $totalAnnualFuelCost = round($totalAnnualFuelCost / 5);
-                //  $totalInsuranceCost = round($totalInsuranceCost / 5);
-                //  $totalTaxesCost = round($totalTaxesCost / 5);
-                //  $totalRepairCost = round($totalRepairCost / 5);
-
                 echo "<p class='costComponent'>$totalVehicleBodyCost</p>";
                 echo "<p class='costComponent'>$totalFinanceCost</p>";
                 echo "<p class='costComponent'>$totalAnnualFuelCost</p>";
@@ -440,7 +433,7 @@
                 //     echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
                 //     echo "<br><br>";
                 // }  
-            }             
+            }          
         ?>
 
             <!--canvas id's for showing the data from the vehicle cost visually-->

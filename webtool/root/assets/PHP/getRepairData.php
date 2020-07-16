@@ -54,7 +54,7 @@
         {
             include "connectDatabase.php";
 
-            $powertrain = $_GET["powertrain"];
+            $powertrain = $_POST["powertrain"];
             $scalingRepairFactorPowertrain = $powertrain . "_Scaling_Factor";
             $scalingRepairFactorPowertrain = str_replace("-", "_", $scalingRepairFactorPowertrain);
 

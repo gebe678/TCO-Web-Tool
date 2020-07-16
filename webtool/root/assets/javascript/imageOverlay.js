@@ -19,7 +19,7 @@ let st7 = 0;
     let repairPercentage = 0;
 
 // main function everything will be called from here
-function main()
+function imageOverlayMain()
 {
     // variable that points to the canvas element in the index html
     let canvas = document.getElementById("vehicleGraph");
@@ -278,14 +278,11 @@ function colorImage(canvas, ctx, startRow, img)
     st6 = partitionImage(canvas, ctx, st5, maintenancePercentage, 40, 100, 50);
     st7 = partitionImage(canvas, ctx, st6, repairPercentage, 255, 30 , 34);
 
-    console.log("vehicle percentage: " + Math.round((vehicleCost / total) * 100) / 100);
-    console.log("finance percentage: " + Math.round((financingCost / total) * 100) / 100);
-    console.log("fuel percentage: " + Math.round((annualFuelCost / total) * 100) / 100);
-    console.log("insurance percentage: " + Math.round((insurance / total) * 100) / 100);
-    console.log("tax percentage: " + Math.round((taxes / total) * 100) / 100);
-    console.log("maintenance percentage: " + Math.round((maintenance / total) * 100 ) / 100);
-    console.log("repair percentage: " + Math.round((repairCost / total) * 100) / 100);
+    // console.log("vehicle percentage: " + Math.round((vehicleCost / total) * 100) / 100);
+    // console.log("finance percentage: " + Math.round((financingCost / total) * 100) / 100);
+    // console.log("fuel percentage: " + Math.round((annualFuelCost / total) * 100) / 100);
+    // console.log("insurance percentage: " + Math.round((insurance / total) * 100) / 100);
+    // console.log("tax percentage: " + Math.round((taxes / total) * 100) / 100);
+    // console.log("maintenance percentage: " + Math.round((maintenance / total) * 100 ) / 100);
+    // console.log("repair percentage: " + Math.round((repairCost / total) * 100) / 100);
 }
-
-// run the canvas code after the window has loaded
-main();

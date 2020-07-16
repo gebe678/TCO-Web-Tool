@@ -1,4 +1,4 @@
-function main()
+function vehicleGraphMain()
 {
     let canvas = document.getElementById("acualVehicleGraph");
 
@@ -40,9 +40,9 @@ function main()
         repairCosts[i] = parseInt(repair[i].innerHTML);
         totalCostOwnership[i] = vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i];
 
-        console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
-        " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
-        " \nTCO " + totalCostOwnership[i]);
+        // console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
+        // " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
+        // " \nTCO " + totalCostOwnership[i]);
     }
 
     let vehicleGraph = new Chart(canvas, {
@@ -102,5 +102,3 @@ function main()
     });
    
 }
-
-main();

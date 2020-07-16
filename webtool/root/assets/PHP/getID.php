@@ -2,32 +2,32 @@
     include "assets/PHP/connectDatabase.php";
 
     // // cost component variables
-    $vehicleBody = $_GET["vehicleBody"];
-    $powertrain = $_GET["powertrain"];
-    $regionality = $_GET["regionality"];
-    $modelYear = $_GET["modelYear"];
+    $vehicleBody = $_POST["vehicleBody"];
+    $powertrain = $_POST["powertrain"];
+    $regionality = $_POST["regionality"];
+    $modelYear = $_POST["modelYear"];
 
     // fuel price data
-    $annualFuelPriceIncrease = $_GET["annualFuelPriceIncrease"];
-    $biofuelCost = $_GET["biofuelCost"];
-    $biofuelPremium = $_GET["biofuelPremium"];
-    $hydrogenCost = $_GET["hydrogenCost"];
-    $hydrogenPremium = $_GET["hydrogenPremium"];
-    $fuelType = $_GET["fuel"];
-    $technology = $_GET["technology"];
-    $bevRange = $_GET["bevRange"];
-    $vmtType = $_GET["vmt"];
+    $annualFuelPriceIncrease = $_POST["annualFuelPriceIncrease"];
+    $biofuelCost = $_POST["biofuelCost"];
+    $biofuelPremium = $_POST["biofuelPremium"];
+    $hydrogenCost = $_POST["hydrogenCost"];
+    $hydrogenPremium = $_POST["hydrogenPremium"];
+    $fuelType = $_POST["fuel"];
+    $technology = $_POST["technology"];
+    $bevRange = $_POST["bevRange"];
+    $vmtType = $_POST["vmt"];
     $bevMPGRange = "BEV_" . $bevRange . "_MPG";
     $bevCost = "BEV_" . $bevRange;
 
     // vehicle body data
-    $markupFactor = $_GET["markupFactor"];
-    $depreciationRate = $_GET["depreciationRate"];
-    $writeOff = $_GET["writeOff"];
+    $markupFactor = $_POST["markupFactor"];
+    $depreciationRate = $_POST["depreciationRate"];
+    $writeOff = $_POST["writeOff"];
 
     // insurance data
-    $insuranceFixed = $_GET["insuranceFixed"];
-    $insuranceProportional = $_GET["insuranceProportional"];
+    $insuranceFixed = $_POST["insuranceFixed"];
+    $insuranceProportional = $_POST["insuranceProportional"];
 
     // fuel mpg query
     $fuelMPGQuery = "SELECT MPG FROM vehicle_mpg WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";

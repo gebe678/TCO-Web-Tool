@@ -107,7 +107,7 @@
     {
         include "connectDatabase.php";
         
-        $vmtType = $_GET["vmt"];
+        $vmtType = $_POST["vmt"];
         $vmtQuery = "SELECT $vmtType FROM annual_vmt";
 
         $i = 0;
