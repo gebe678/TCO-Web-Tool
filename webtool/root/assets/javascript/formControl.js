@@ -42,8 +42,7 @@ function submittedForm()
     
         request.onload = function()
         {
-            imageOverlayMain();
-            vehicleGraphMain();
+            console.log(this.responseText);
         };
     
         request.send(data);

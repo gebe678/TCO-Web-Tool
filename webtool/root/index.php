@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/dropDownStyles.css">
     <link rel="stylesheet" href="assets/css/pageStyles.css">
     <link rel="stylesheet" href="assets/css/sliderStyles.css">
-    <link rel="stylesheet" href="assets/css/tabStyles.css">
+    <link rel="stylesheet" href="assets/css/tabStyles.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
     <script src="assets/javascript/tabControl.js" defer></script>
     <script src="assets/javascript/sliderControl.js" defer> </script>
@@ -17,6 +17,7 @@
     <script src="assets/javascript/vehicleGraph.js" defer></script>
     <script src="assets/javascript/imageOverlay.js" defer></script>
     <script src="assets/javascript/formControl.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -321,7 +322,6 @@
             if(isset($_POST["submit"]))
             {
                 include "assets/PHP/getID.php";
-                include "assets/PHP/getFuelCostData.php";
                 include "assets/PHP/fuelPriceCalculations.php";
                 include "assets/PHP/maintenancePriceCalculations.php";
                 include "assets/PHP/vehicleCalculations.php";

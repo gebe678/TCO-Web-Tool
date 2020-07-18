@@ -127,7 +127,7 @@ function imageOverlayMain()
 
     // source file for the image to be loaded
     let bodyType = document.querySelector(".bodyType");
-    img.src = "assets/pictures/" + bodyType.innerHTML + ".jpg";
+    img.src = "assets/sillouette_pictures/" + bodyType.innerHTML + ".jpg";
 }
 // resets the size of the canvas
 function resetCanvasSize(cWidth, cHeight, canvas)

@@ -66,6 +66,7 @@
     function calculateAnnualFuelCost($numYears)
     {
         include "getID.php";
+        include "getFuelCostData.php";
 
         $fuelPrice;
         $MPGCost;
