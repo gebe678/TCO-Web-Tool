@@ -149,7 +149,7 @@
 
     function getFuelData($index)
     {
-        include "assets/PHP/getID.php";
+        include "getID.php";
     
         $costComponentQuery = "SELECT $fuelType FROM aeo_fuel_prices";
         $result = $connect->query($costComponentQuery);

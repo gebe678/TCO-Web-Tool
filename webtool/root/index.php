@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/sliderStyles.css">
     <link rel="stylesheet" href="assets/css/tabStyles.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/javascript/tabControl.js" defer></script>
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
@@ -31,7 +32,7 @@
         </nav>
     </header>
     <main>
-        <form action="" method="POST" name="vehicleInfo" id="vehicleInfoForm">
+        <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
 
             <div class="dropDownMenu">
                 <div class="label">
@@ -267,6 +268,12 @@
                 </div>
 
                 <div class="inputContainer">
+                    <div class="textBlock">Finance Term</div>
+                    <input type="range" min="1" max="30"  value="5" class="slider" name="financeTerm" id="financeTerm">
+                    <input type="number" min="1" max="30"  value="5" class="outputText">
+                </div>
+
+                <div class="inputContainer">
                     <div class="textBlock">Vehicle Write Off</div>
                     <input type="range" min="1" max="30" value="10" class="slider" name="writeOff" id="writeOff">
                     <input type="number" min="1" max="30" value="10" class="outputText">
@@ -365,6 +372,10 @@
                 $taxesAndFees = calculateTaxesAndFees(30);
                 $maintenance = calculateTotalMaintenance(30);
                 $repair = calculateTotalRepair(30);
+
+                $vehicleInformation = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair);
+
+                json_encode($vehicleInformation);
 
                 $totalVehicleBodyCost = 0;
                 $totalFinanceCost = 0;

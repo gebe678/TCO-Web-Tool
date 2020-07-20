@@ -1,5 +1,5 @@
 <?php 
-    include "assets/PHP/connectDatabase.php";
+    include "connectDatabase.php";
 
     // // cost component variables
     $vehicleBody = $_POST["vehicleBody"];

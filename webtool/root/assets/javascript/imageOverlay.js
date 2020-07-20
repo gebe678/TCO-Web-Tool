@@ -10,17 +10,29 @@ let st6 = 0;
 let st7 = 0;
 
 // variables for the percentage of each cost component
-    let vehiclePercentage = 0;
-    let financePercentage = 0;
-    let fuelPercentage = 0;
-    let insurancePercentage = 0;
-    let taxPercentage = 0;
-    let maintenancePercentage = 0;
-    let repairPercentage = 0;
+let vehiclePercentage = 0;
+let financePercentage = 0;
+let fuelPercentage = 0;
+let insurancePercentage = 0;
+let taxPercentage = 0;
+let maintenancePercentage = 0;
+let repairPercentage = 0;
+
+// variales for the true cost of each component
+let vehicleCost = 0;
+let financingCost = 0;
+let annualFuelCost = 0;
+let insurance = 0;
+let taxes = 0;
+let maintenance = 0;
+let repairCost = 0;
 
 // main function everything will be called from here
-function imageOverlayMain()
+function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCost, maintenanceCost, repair, imageType)
 {
+    // set cost component data from user when the form is submitted
+    setVehicleInformation(vehicle, financing, annualFuel, insuranceCost, taxesCost, maintenanceCost, repair);
+
     // variable that points to the canvas element in the index html
     let canvas = document.getElementById("vehicleGraph");
     let ctx = canvas.getContext("2d");
@@ -127,8 +139,26 @@ function imageOverlayMain()
 
     // source file for the image to be loaded
     let bodyType = document.querySelector(".bodyType");
-    img.src = "assets/sillouette_pictures/" + bodyType.innerHTML + ".jpg";
+    img.src = "assets/sillouette_pictures/" + imageType + ".jpg";
 }
+
+// sets the global vehicle variables for the function
+function setVehicleInformation(vehicle, financing, annualFuel, insuranceCost, taxesCost, maintenanceCost, repair)
+{
+    for(let i = 0; i < 10; i++)
+    {
+        vehicleCost = vehicleCost + vehicle[i];
+        financingCost = financingCost + financing[i];
+        annualFuelCost = annualFuelCost + annualFuel[i];
+        insurance = insurance + insuranceCost[i];
+        taxes = taxes + taxesCost[i];
+        maintenance = maintenance + maintenanceCost[i];
+        repairCost = repairCost + repair[i];
+
+        
+    }
+}
+
 // resets the size of the canvas
 function resetCanvasSize(cWidth, cHeight, canvas)
 {
@@ -248,18 +278,26 @@ function partitionImage(canvas, ctx, startRow, percentage, red, green, blue)
     return endRow;
 }
 
+function calculateYearCost(numYears)
+{
+    for(let i = 0; i < numYears; i++)
+    {
+
+    }
+}
+
 function colorImage(canvas, ctx, startRow, img)
 {   
-    let components = document.querySelectorAll(".costComponent");
+    // let components = document.querySelectorAll(".costComponent");
 
-    let vehicleCost = parseInt(components[0].innerHTML);
-    let financingCost = parseInt(components[1].innerHTML);
-    let annualFuelCost = parseInt(components[2].innerHTML);
-    let insurance = parseInt(components[3].innerHTML);
-    let taxes = parseInt(components[4].innerHTML);
-    let maintenance = parseInt(components[5].innerHTML);
-    let repairCost = parseInt(components[6].innerHTML);
-    
+    // let vehicleCost = parseInt(components[0].innerHTML);
+    // let financingCost = parseInt(components[1].innerHTML);
+    // let annualFuelCost = parseInt(components[2].innerHTML);
+    // let insurance = parseInt(components[3].innerHTML);
+    // let taxes = parseInt(components[4].innerHTML);
+    // let maintenance = parseInt(components[5].innerHTML);
+    // let repairCost = parseInt(components[6].innerHTML);
+
     let total = vehicleCost + financingCost + annualFuelCost + insurance + taxes + maintenance + repairCost;
 
     vehiclePercentage = Math.round((vehicleCost / total) * 100) / 100;

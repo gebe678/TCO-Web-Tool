@@ -1,43 +1,43 @@
-function vehicleGraphMain()
+function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair)
 {
     let canvas = document.getElementById("acualVehicleGraph");
 
-    let years = document.querySelectorAll(".costComponents.year");
+    // let years = document.querySelectorAll(".costComponents.year");
     let year = [];
 
-    let vehicleBodyCost = document.querySelectorAll(".costComponents.vehicleBody");
+    // let vehicleBodyCost = document.querySelectorAll(".costComponents.vehicleBody");
     let vehicleBodyCosts = [];
 
-    let financeCost = document.querySelectorAll(".costComponents.financeCost");
+    // let financeCost = document.querySelectorAll(".costComponents.financeCost");
     let financeCosts = [];
 
-    let annualFuelCost = document.querySelectorAll(".costComponents.annualFuelCost");
+    // let annualFuelCost = document.querySelectorAll(".costComponents.annualFuelCost");
     let annualFuelCosts = [];
 
-    let insuranceCost = document.querySelectorAll(".costComponents.insuranceCost");
+    // let insuranceCost = document.querySelectorAll(".costComponents.insuranceCost");
     let insuranceCosts = [];
 
-    let taxesAndFees = document.querySelectorAll(".costComponents.taxesAndFees");
+    // let taxesAndFees = document.querySelectorAll(".costComponents.taxesAndFees");
     let taxesAndFeesCosts = [];
 
-    let maintenance = document.querySelectorAll(".costComponents.maintenance");
+    // let maintenance = document.querySelectorAll(".costComponents.maintenance");
     let maintenanceCosts = [];
 
-    let repair = document.querySelectorAll(".costComponents.repair");
+    // let repair = document.querySelectorAll(".costComponents.repair");
     let repairCosts = [];
 
     let totalCostOwnership = [];
 
     for(let i = 0; i < 30; i++)
     {
-        year[i] = parseInt(years[i].innerHTML);
-        vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i].innerHTML);
-        financeCosts[i] = parseInt(financeCost[i].innerHTML);
-        annualFuelCosts[i] = parseInt(annualFuelCost[i].innerHTML);
-        insuranceCosts[i] = parseInt(insuranceCost[i].innerHTML);
-        taxesAndFeesCosts[i] = parseInt(taxesAndFees[i].innerHTML);
-        maintenanceCosts[i] = parseInt(maintenance[i].innerHTML);
-        repairCosts[i] = parseInt(repair[i].innerHTML);
+        year[i] = i + 1;
+        vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i]); //parseInt(vehicleBodyCost[i].innerHTML);
+        financeCosts[i] = parseInt(financeCost[i]); //parseInt(financeCost[i].innerHTML);
+        annualFuelCosts[i] = parseInt(annualFuelCost[i]); //parseInt(annualFuelCost[i].innerHTML);
+        insuranceCosts[i] = parseInt(insuranceCost[i]); //parseInt(insuranceCost[i].innerHTML);
+        taxesAndFeesCosts[i] = parseInt(taxesAndFees[i]); //parseInt(taxesAndFees[i].innerHTML);
+        maintenanceCosts[i] = parseInt(maintenance[i]); //parseInt(maintenance[i].innerHTML);
+        repairCosts[i] = parseInt(repair[i]); //parseInt(repair[i].innerHTML);
         totalCostOwnership[i] = vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i];
 
         // console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
