@@ -308,13 +308,13 @@ function colorImage(canvas, ctx, startRow, img)
     maintenancePercentage = Math.round((maintenance / total) * 100 ) / 100;
     repairPercentage = Math.round((repairCost / total) * 100) / 100;
 
-    st = partitionImage(canvas, ctx, startRow[0], vehiclePercentage, 16, 100, 210);
-    st2 = partitionImage(canvas, ctx, st, financePercentage, 238, 99, 29);
-    st3 = partitionImage(canvas, ctx, st2, fuelPercentage, 36, 162, 17);
-    st4 = partitionImage(canvas, ctx, st3, insurancePercentage, 141, 32, 223);
-    st5 = partitionImage(canvas, ctx, st4, taxPercentage, 250, 182, 65);
-    st6 = partitionImage(canvas, ctx, st5, maintenancePercentage, 40, 100, 50);
-    st7 = partitionImage(canvas, ctx, st6, repairPercentage, 255, 30 , 34);
+    st = partitionImage(canvas, ctx, startRow[0], vehiclePercentage, 153, 77, 0);
+    st2 = partitionImage(canvas, ctx, st, financePercentage, 255, 0, 0);
+    st3 = partitionImage(canvas, ctx, st2, fuelPercentage, 255, 170, 0);
+    st4 = partitionImage(canvas, ctx, st3, insurancePercentage, 148, 148, 184);
+    st5 = partitionImage(canvas, ctx, st4, taxPercentage, 194, 194, 214);
+    st6 = partitionImage(canvas, ctx, st5, maintenancePercentage, 51, 51, 255);
+    st7 = partitionImage(canvas, ctx, st6, repairPercentage, 102, 163 , 255);
 
     // console.log("vehicle percentage: " + Math.round((vehicleCost / total) * 100) / 100);
     // console.log("finance percentage: " + Math.round((financingCost / total) * 100) / 100);

@@ -45,7 +45,7 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
         // " \nTCO " + totalCostOwnership[i]);
     }
 
-    let vehicleGraph = new Chart(canvas, {
+      vehicleGraph = new Chart(canvas, {
       type: "bar",
       data: 
       {
@@ -55,38 +55,38 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
           {
             data: vehicleBodyCosts,
             label: "Vehicle Body",
-            backgroundColor: "#1064D2"
+            backgroundColor: "#994d00"
 
           },
           {
             data: financeCosts,
             label: "Finance Cost",
-            backgroundColor: "#EE631D"
+            backgroundColor: "#ff0000"
           },
           {
             data: annualFuelCosts,
             label: "Annual Fuel Cost",
-            backgroundColor: "#24A211"
+            backgroundColor: "#ffaa00"
           },
           {
             data: insuranceCosts,
             label: "Insurance Cost",
-            backgroundColor: "#8D20DF"
+            backgroundColor: "#9494b8"
           },
           {
             data: taxesAndFeesCosts,
             label: "Taxes And Fees",
-            backgroundColor: "#FAB641"
+            backgroundColor: "#e1e1ea"
           },
           {
             data: maintenanceCosts,
             label: "Maintenance Cost",
-            backgroundColor: "#286432"
+            backgroundColor: "#3333ff"
           },
           {
             data: repairCosts,
             label: "Repair Cost",
-            backgroundColor: "#FF1E22"
+            backgroundColor: "#66a3ff"
           }
         ]
       },
@@ -100,5 +100,9 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
           }
       }
     });
-   
+}
+
+function destroyChart(canvas)
+{
+
 }
