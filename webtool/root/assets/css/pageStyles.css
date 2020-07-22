@@ -30,27 +30,17 @@ p{
     display: none;
 }
 
-.vehicleGroup{
-    background-color: #da944e;
+.technologyGroup{
     width: 550px;
+    background-color: rgb(70, 202, 241);
 }
 
-.fuelGroup{
-    background-color: #ffaa00;
+.economicGroup{
     width: 550px;
+    background-color: rgb(133, 235, 75);
 }
 
-.insuranceGroup{
-    background-color: #9494b8;
+.behavioralGroup{
     width: 550px;
-}
-
-.maintenanceGroup{
-    background-color: #3333ff;
-    width: 550px;
-}
-
-.taxGroup{
-    background-color: #e1e1ea;
-    width: 550px;
+    background-color: rgb(190, 169, 137);
 }

@@ -34,171 +34,274 @@
     <main>
         <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
 
-            <div class="dropDownMenu">
-                <div class="label">
-                    <label for="vehicleBody">Vehicle Body:</label>
+            <div class="technologyGroup">
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="vehicleBody">Vehicle Body:</label>
+                    </div>
+                    <div class="border">
+                        <select name="vehicleBody" class="selectMenu" id="vehicleBodyMenu">
+                            <option value="Compact Sedan">Compact Sedan</option>
+                            <option value="Midsize Sedan">Midsize Sedan</option>
+                            <option value="Small SUV">Small SUV</option>
+                            <option value="Medium SUV">Medium SUV</option>
+                            <option value="Pickup">Pickup</option>
+                            <option value="Luxury Compact">Luxury Compact</option>
+                            <option value="Luxury Midsize Car">Luxury Midsize Car</option>
+                            <option value="Luxury Small SUV">Luxury Small SUV</option>
+                            <option value="Luxury Medium SUV">Luxury Medium SUV</option>
+                            <option value="Luxury Pickup">Luxury Pickup</option>
+                            <option value="Tractor Sleeper">Tractor Sleeper</option>
+                            <option value="Tractor Day Cab">Tractor Day Cab</option>
+                            <option value="Class 8 Vocational">Class 8 Vocational</option>
+                            <option value="Class 6 Pickup Delivery">Class 6 Pickup Delivery</option>
+                            <option value="Class 3 Pickup Delivery">Class 3 Pickup Delivery</option>
+                            <option value="Class 8 Bus">Class 8 Bus</option>
+                            <option value="Class 8 Refuse">Class 8 Refuse</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="border">
-                    <select name="vehicleBody" class="selectMenu" id="vehicleBodyMenu">
-                        <option value="Compact Sedan">Compact Sedan</option>
-                        <option value="Midsize Sedan">Midsize Sedan</option>
-                        <option value="Small SUV">Small SUV</option>
-                        <option value="Medium SUV">Medium SUV</option>
-                        <option value="Pickup">Pickup</option>
-                        <option value="Luxury Compact">Luxury Compact</option>
-                        <option value="Luxury Midsize Car">Luxury Midsize Car</option>
-                        <option value="Luxury Small SUV">Luxury Small SUV</option>
-                        <option value="Luxury Medium SUV">Luxury Medium SUV</option>
-                        <option value="Luxury Pickup">Luxury Pickup</option>
-                        <option value="Tractor Sleeper">Tractor Sleeper</option>
-                        <option value="Tractor Day Cab">Tractor Day Cab</option>
-                        <option value="Class 8 Vocational">Class 8 Vocational</option>
-                        <option value="Class 6 Pickup Delivery">Class 6 Pickup Delivery</option>
-                        <option value="Class 3 Pickup Delivery">Class 3 Pickup Delivery</option>
-                        <option value="Class 8 Bus">Class 8 Bus</option>
-                        <option value="Class 8 Refuse">Class 8 Refuse</option>
-                    </select>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="powertrain">Powertrain:</label>
+                    </div>
+                    <div class="border">
+                        <select name="powertrain" class="selectMenu" id="powertrainMenu">
+                            <option value="ICE-SI">ICE-SI</option>
+                            <option value="ICE-CI">ICE-CI</option>
+                            <option value="HEV-SI">HEV-SI</option>
+                            <option value="PHEV">PHEV</option>
+                            <option value="FCEV">FCEV</option>
+                            <option value="BEV">BEV</option>
+                        </select>
+                    </div>
                 </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label name="modelYear">Model Year:</label>
+                    </div>
+                    <div class="border">
+                        <select name="modelYear" class="selectMenu" id="modelYearMenu">
+                            <option value="2020">2020</option>
+                            <option value="2025">2025</option>
+                            <option value="2030">2030</option>
+                            <option value="2035">2035</option>
+                            <option value="2050">2050</option>
+                        </select>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div class="dropDownMenu">
-                <div class="label">
-                    <label for="powertrain">Powertrain:</label>
+            <div class="economicGroup">
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="regionality">Regionality:</label>
+                    </div>
+                    <div class="border">
+                        <select name="regionality" class="selectMenu" id="regionalityMenu">
+                            <option value="Alabama">Alabama</option>
+                            <option value="Alaska">Alaska</option>
+                            <option value="Arizona">Arizona</option>
+                            <option value="Arkansas">Arkansas</option>
+                            <option value="California">California</option>
+                            <option value="Colorado">Colorado</option>
+                            <option value="Connecticut">Connecticut</option>
+                            <option value="Delaware">Delaware</option>
+                            <option value="Florida">Florida</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Hawaii">Hawaii</option>
+                            <option value="Idaho">Idaho</option>
+                            <option value="Illinois">Illinois</option>
+                            <option value="Indiana">Indiana</option>
+                            <option value="Iowa">Iowa</option>
+                            <option value="Kansas">Kansas</option>
+                            <option value="Kentucy">Kentucy</option>
+                            <option value="Louisiana">Louisiana</option>
+                            <option value="Maine">Maine</option>
+                            <option value="Maryland">Maryland</option>
+                            <option value="Massachusetts">Massachusetts</option>
+                            <option value="Michigan">Michigan</option>
+                            <option value="Minnesota">Minnesota</option>
+                            <option value="Mississippi">Mississippi</option>
+                            <option value="Missouri">Missouri</option>
+                            <option value="Montana">Montana</option>
+                            <option value="Nebraska">Nebraska</option>
+                            <option value="Nevada">Nevada</option>
+                            <option value="New Hampshire">New Hampshire</option>
+                            <option value="New Jersey">New Jersey</option>
+                            <option value="New Mexico">New Mexico</option>
+                            <option value="New York">New York</option>
+                            <option value="North Carolina">North Carolina</option>
+                            <option value="North Dakota">North Dakota</option>
+                            <option value="Ohio">Ohio</option>
+                            <option value="Oklahoma">Oklahoma</option>
+                            <option value="Oregon">Oregon</option>
+                            <option value="Pennsylvania">Pennsylvania</option>
+                            <option value="Rhode Island">Rhode Island</option>
+                            <option value="South Carolina">South Carolina</option>
+                            <option value="South Dakota">South Dakota</option>
+                            <option value="Tennessee">Tennessee</option>
+                            <option value="Texas">Texas</option>
+                            <option value="Utah">Utah</option>
+                            <option value="Vermont">Vermont</option>
+                            <option value="Virginia">Virginia</option>
+                            <option value="Washington">Washington</option>
+                            <option value="West Virginia">West Virginia</option>
+                            <option value="Wisconsin">Wisconsin</option>
+                            <option value="Wyoming">Wyoming</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="border">
-                    <select name="powertrain" class="selectMenu" id="powertrainMenu">
-                        <option value="ICE-SI">ICE-SI</option>
-                        <option value="ICE-CI">ICE-CI</option>
-                        <option value="HEV-SI">HEV-SI</option>
-                        <option value="PHEV">PHEV</option>
-                        <option value="FCEV">FCEV</option>
-                        <option value="BEV">BEV</option>
-                    </select>
-                </div>
+
             </div>
 
-            <div class="dropDownMenu">
-                <div class="label">
-                    <label name="modelYear">Model Year:</label>
-                </div>
-                <div class="border">
-                    <select name="modelYear" class="selectMenu" id="modelYearMenu">
-                        <option value="2020">2020</option>
-                        <option value="2025">2025</option>
-                        <option value="2030">2030</option>
-                        <option value="2035">2035</option>
-                        <option value="2050">2050</option>
-                    </select>
-                </div>
+            <div class="behavioralGroup">
             </div>
 
-            <div class="dropDownMenu">
-                <div class="label">
-                    <label for="regionality">Regionality:</label>
-                </div>
-                <div class="border">
-                    <select name="regionality" class="selectMenu" id="regionalityMenu">
-                        <option value="Alabama">Alabama</option>
-                        <option value="Alaska">Alaska</option>
-                        <option value="Arizona">Arizona</option>
-                        <option value="Arkansas">Arkansas</option>
-                        <option value="California">California</option>
-                        <option value="Colorado">Colorado</option>
-                        <option value="Connecticut">Connecticut</option>
-                        <option value="Delaware">Delaware</option>
-                        <option value="Florida">Florida</option>
-                        <option value="Georgia">Georgia</option>
-                        <option value="Hawaii">Hawaii</option>
-                        <option value="Idaho">Idaho</option>
-                        <option value="Illinois">Illinois</option>
-                        <option value="Indiana">Indiana</option>
-                        <option value="Iowa">Iowa</option>
-                        <option value="Kansas">Kansas</option>
-                        <option value="Kentucy">Kentucy</option>
-                        <option value="Louisiana">Louisiana</option>
-                        <option value="Maine">Maine</option>
-                        <option value="Maryland">Maryland</option>
-                        <option value="Massachusetts">Massachusetts</option>
-                        <option value="Michigan">Michigan</option>
-                        <option value="Minnesota">Minnesota</option>
-                        <option value="Mississippi">Mississippi</option>
-                        <option value="Missouri">Missouri</option>
-                        <option value="Montana">Montana</option>
-                        <option value="Nebraska">Nebraska</option>
-                        <option value="Nevada">Nevada</option>
-                        <option value="New Hampshire">New Hampshire</option>
-                        <option value="New Jersey">New Jersey</option>
-                        <option value="New Mexico">New Mexico</option>
-                        <option value="New York">New York</option>
-                        <option value="North Carolina">North Carolina</option>
-                        <option value="North Dakota">North Dakota</option>
-                        <option value="Ohio">Ohio</option>
-                        <option value="Oklahoma">Oklahoma</option>
-                        <option value="Oregon">Oregon</option>
-                        <option value="Pennsylvania">Pennsylvania</option>
-                        <option value="Rhode Island">Rhode Island</option>
-                        <option value="South Carolina">South Carolina</option>
-                        <option value="South Dakota">South Dakota</option>
-                        <option value="Tennessee">Tennessee</option>
-                        <option value="Texas">Texas</option>
-                        <option value="Utah">Utah</option>
-                        <option value="Vermont">Vermont</option>
-                        <option value="Virginia">Virginia</option>
-                        <option value="Washington">Washington</option>
-                        <option value="West Virginia">West Virginia</option>
-                        <option value="Wisconsin">Wisconsin</option>
-                        <option value="Wyoming">Wyoming</option>
-                </select>
-                </div>
-            </div>
+
+
 
             <div class="detailedView">
 
-                <div class="dropDownMenu">
-                    <div class="label">
-                        <label for="Fuel">Fuel:</label>
-                    </div>
-                    <div class="border">
-                        <select name="fuel" class="selectMenu" id="fuelTypes">
-                            <option value="Gasoline">Gasoline</option>
-                            <option value="Diesel">Diesel</option>
-                            <option value="CNG">CNG</option>
-                            <option value="Biofuel">Biofuel</option>
-                            <option value="Hydrogen">Hydrogen</option>
-                            <option value="Electric">Electric</option>
-                            <option value="Gas_Electric">Gas-Electric</option>
-                            <option value="Diesel_Electric">Diesel-Electric</option>
-                        </select>
-                    </div>
+                <div class="inputContainer">
+                    <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
+                    <input type="range" min="1" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
+                    <input type="number" min="1" max="30" value="30" class="outputText">
                 </div>
 
-                <div class="dropDownMenu">
-                    <div class="label">
-                        <label for="technology">Technology Progress:</label>
+                <div class="technologyGroup">
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="Fuel">Fuel:</label>
+                        </div>
+                        <div class="border">
+                            <select name="fuel" class="selectMenu" id="fuelTypes">
+                                <option value="Gasoline">Gasoline</option>
+                                <option value="Diesel">Diesel</option>
+                                <option value="CNG">CNG</option>
+                                <option value="Biofuel">Biofuel</option>
+                                <option value="Hydrogen">Hydrogen</option>
+                                <option value="Electric">Electric</option>
+                                <option value="Gas_Electric">Gas-Electric</option>
+                                <option value="Diesel_Electric">Diesel-Electric</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="border">
-                        <select name="technology" class="selectMenu" id="technologyMenu">
-                            <option value="low">low</option>
-                            <option value="high">high</option>
-                        </select>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="technology">Technology Progress:</label>
+                        </div>
+                        <div class="border">
+                            <select name="technology" class="selectMenu" id="technologyMenu">
+                                <option value="low">low</option>
+                                <option value="high">high</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <div class="inputContainer">
+                        <label for="insuranceProportional" class="sliderLabel">Insurance Proportional Rate</label>
+                        <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional" id="insuranceProportional">
+                        <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="markupFactor" class="sliderLabel">Purchase Price Markup Factor</label>
+                        <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
+                        <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="depreciationRate" class="sliderLabel">Simple Depreciation Rate</label>
+                        <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate" id="depreciationRate">
+                        <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="writeOff" class="sliderLabel">Vehicle Write Off</label>
+                        <input type="range" min="1" max="30" value="10" class="slider" name="writeOff" id="writeOff">
+                        <input type="number" min="1" max="30" value="10" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="annualFuelPriceIncrease" class="sliderLabel">Incremental Annual Fuel Price Change</label>
+                        <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
+                        <input type="number" min="-100" max="100" value="0" class="outputText" id="annualFuelPriceIncreaseRange">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="biofuelCost" class="sliderLabel">Biofuel Cost Parity</label>
+                        <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost" id="biofuelCost">
+                        <input type="number" min="1" max="30" value="15" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="biofuelPremium" class="sliderLabel">Biofuel Premium Cost</label>
+                        <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium" id="biofuelPremium">
+                        <input type="number" min="1" max="10" value="1" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="hydrogenCost" class="sliderLabel">Hydrogen to $5kg</label>
+                        <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost" id="hydrogenCost">
+                        <input type="number" min="1" max="30" value="15" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="hydrogenPremium" class="sliderLabel">Hydrogen Premium Cost</label>
+                        <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
+                        <input type="number" min="1" max="10" value="5" class="outputText">
+                    </div>
+
                 </div>
 
-                <div class="dropDownMenu">
-                    <div class="label">
-                        <label for="bevRange">Bev Range:</label>
+                <div class="economicGroup">
+
+                    <div class="inputContainer">
+                        <label for="annualRegistration" class="sliderLabel">Annual Registration Fee</label>
+                        <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration" id="annualRegistration">
+                        <input type="number" min="100" max="100" value="100" class="outputText">
                     </div>
-                    <div class="border">
-                        <select name="bevRange" class="selectMenu" id="bevRangeMenu">
-                            <option value="0">BEV Powertrain Not Selected</option>
-                            <option value="200">200</option>
-                            <option value="300">300</option>
-                            <option value="400">400</option>
-                        </select>
+
+                    <div class="inputContainer">
+                        <label for="salesTax" class="sliderLabel">Sales Tax & Title</label>
+                        <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax" id="salesTax">
+                        <input type="number" min=".05" max=".05" step=".01" value=".05" class="outputText">
                     </div>
+
+                    <div class="inputContainer">
+                        <label for="insuranceFixed" class="sliderLabel">Insurance Fixed Rate</label>
+                        <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed" id="insuranceFixed">
+                        <input type="number" min="100" max="500" value="400" class="outputText">
+                    </div>
+
                 </div>
 
-                <div class="dropDownMenu">
+                <div class="behavioralGroup">
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="bevRange">Bev Range:</label>
+                        </div>
+                        <div class="border">
+                            <select name="bevRange" class="selectMenu" id="bevRangeMenu">
+                                <option value="0">BEV Powertrain Not Selected</option>
+                                <option value="200">200</option>
+                                <option value="300">300</option>
+                                <option value="400">400</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dropDownMenu">
                     <div class="label">
                         <label for="vmt">VMT:</label>
                     </div>
@@ -229,7 +332,14 @@
                             <option value="Bus">Bus</option>
                         </select>
                     </div>
+                    
                 </div>
+
+                </div>
+
+
+
+
 
                 <div class="dropDownMenu">
                     <div class="label">
@@ -269,25 +379,7 @@
                     </div>
                 </div>
 
-                <div class="inputContainer">
-                    <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
-                    <input type="range" min="1" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
-                    <input type="number" min="1" max="30" value="30" class="outputText">
-                </div>
 
-                <div class="vehicleGroup">
-
-                    <div class="inputContainer">
-                        <label for="markupFactor" class="sliderLabel">Purchase Price Markup Factor</label>
-                        <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
-                        <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="depreciationRate" class="sliderLabel">Simple Depreciation Rate</label>
-                        <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate" id="depreciationRate">
-                        <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
-                    </div>
 
                     <div class="inputContainer">
                         <label for="financeTerm" class="sliderLabel">Finance Term</label>
@@ -296,88 +388,10 @@
                     </div>
 
                     <div class="inputContainer">
-                        <label for="writeOff" class="sliderLabel">Vehicle Write Off</label>
-                        <input type="range" min="1" max="30" value="10" class="slider" name="writeOff" id="writeOff">
-                        <input type="number" min="1" max="30" value="10" class="outputText">
-                    </div>
-
-                </div>
-
-                <div class="fuelGroup">
-
-                    <div class="inputContainer">
-                        <label for="annualFuelPriceIncrease" class="sliderLabel">Incremental Annual Fuel Price Change</label>
-                        <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
-                        <input type="number" min="-100" max="100" value="0" class="outputText" id="annualFuelPriceIncreaseRange">
-                    </div>
-
-                    
-                    <div class="inputContainer">
-                        <label for="biofuelCost" class="sliderLabel">Biofuel Cost Parity</label>
-                        <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost" id="biofuelCost">
-                        <input type="number" min="1" max="30" value="15" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="biofuelPremium" class="sliderLabel">Biofuel Premium Cost</label>
-                        <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium" id="biofuelPremium">
-                        <input type="number" min="1" max="10" value="1" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="hydrogenCost" class="sliderLabel">Hydrogen to $5kg</label>
-                        <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost" id="hydrogenCost">
-                        <input type="number" min="1" max="30" value="15" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="hydrogenPremium" class="sliderLabel">Hydrogen Premium Cost</label>
-                        <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
-                        <input type="number" min="1" max="10" value="5" class="outputText">
-                    </div>
-
-                </div>
-
-                <div class="insuranceGroup">
-                    
-                    <div class="inputContainer">
-                        <label for="insuranceFixed" class="sliderLabel">Insurance Fixed Rate</label>
-                        <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed" id="insuranceFixed">
-                        <input type="number" min="100" max="500" value="400" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="insuranceProportional" class="sliderLabel">Insurance Proportional Rate</label>
-                        <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional" id="insuranceProportional">
-                        <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
-                    </div>
-
-                </div>
-
-                <div class="maintenanceGroup">
-                </div>
-
-                <div class="taxGroup">
-
-                    <div class="inputContainer">
-                        <label for="annualRegistration" class="sliderLabel">Annual Registration Fee</label>
-                        <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration" id="annualRegistration">
-                        <input type="number" min="100" max="100" value="100" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
-                        <label for="salesTax" class="sliderLabel">Sales Tax & Title</label>
-                        <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax" id="salesTax">
-                        <input type="number" min=".05" max=".05" step=".01" value=".05" class="outputText">
-                    </div>
-
-                    <div class="inputContainer">
                         <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
                         <input type="range" min="20000" max="100000" value="20000" class="slider" name="purchaseCost" id="purchaseCost">
                         <input type="number" min="20000" max="100000" value="20000" class="outputText">
                     </div>
-
-                </div>
 
                 <div class="inputContainer">
                     <label for="mpgPlugin" class="sliderLabel">Vehicle MPG Plugin</label>
