@@ -43,10 +43,11 @@
         $fluidCost = calculateMaintenanceCost(4, $numYears);
         $brakes1Cost = calculateMaintenanceCost(5, $numYears);
         $beltsAndHosesCost = calculateMaintenanceCost(6, $numYears);
+        $pumpsCost = calculateMaintenanceCost(7, $numYears);
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $maintenanceCost[$i] = $oilCost[$i] + $tireCost[$i] + $airFilterCost[$i] + $batteryCost[$i] + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i];
+            $maintenanceCost[$i] = $oilCost[$i] + $tireCost[$i] + $airFilterCost[$i]  + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i] + $pumpsCost[$i];
         }
 
         return $maintenanceCost;
