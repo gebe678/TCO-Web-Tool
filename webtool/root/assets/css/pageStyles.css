@@ -29,3 +29,28 @@ p{
 .costComponents{
     display: none;
 }
+
+.vehicleGroup{
+    background-color: #da944e;
+    width: 550px;
+}
+
+.fuelGroup{
+    background-color: #ffaa00;
+    width: 550px;
+}
+
+.insuranceGroup{
+    background-color: #9494b8;
+    width: 550px;
+}
+
+.maintenanceGroup{
+    background-color: #3333ff;
+    width: 550px;
+}
+
+.taxGroup{
+    background-color: #e1e1ea;
+    width: 550px;
+}
