@@ -44,7 +44,7 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
         // " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
         // " \nTCO " + totalCostOwnership[i]);
     }
-
+      Chart.defaults.global.defaultFontSize = 15;
       vehicleGraph = new Chart(canvas, {
       type: "bar",
       data: 
@@ -55,8 +55,7 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
           {
             data: vehicleBodyCosts,
             label: "Vehicle Body",
-            backgroundColor: "#994d00"
-
+            backgroundColor: "#994d00",
           },
           {
             data: financeCosts,
@@ -95,14 +94,9 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
       {
           scales:
           {
-            xAxes: [{stacked: true}],
-            yAxes: [{stacked: true}]
+            xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}}]
           }
       }
     });
-}
-
-function destroyChart(canvas)
-{
-
 }

@@ -46,7 +46,9 @@
                 $min = $hydrogenCost;
             }
             $totalCost[$i] = 5 + $hydrogenPremium * ($hydrogenCost - $min) / $hydrogenCost;
+            $totalCost[$i] = round($totalCost[$i], 2);
         }
+
         return $totalCost;
     }
 
@@ -54,12 +56,26 @@
     {
         include "getID.php";
 
-        $totalCost[0] = getFuelData(0);
+        if($fuelType == "Biofuel")
+        {
+            $bioCost = calculateBiofuelCost(1);
+            $totalCost[0] = $bioCost[0];
+        }
+        else if($fuelType == "Hydrogen")
+        {
+            $hydroCost = calculateHydrogenCost(1);
+            $totalCost[0] = $hydroCost[0];
+        }
+        else
+        {
+            $totalCost[0] = getFuelData(0);
+        }
 
         for($i = 1; $i < $numYears; $i++)
         {
             $totalCost[$i] = $totalCost[$i - 1] * (1 + ($annualFuelPriceIncrease * .01));
         }
+
         return $totalCost;
     }
 
@@ -73,6 +89,7 @@
         $fuelPricePerMile;
         $annualFuelPrice;
         $mpgYearDegradation = .001;
+        $fuelPriceType = $_POST["fuelPriceMethod"];
 
         if($powertrain === "BEV")
         {
@@ -88,21 +105,28 @@
             $MPGCost = $_POST["mpgPlugin"];
         }
         
-        if($fuelType == "Biofuel")
+        if($fuelPriceType == "defined")
         {
-            $fuelPrice = calculateBiofuelCost($numYears);
-        }
-        else if($fuelType == "Hydrogen")
-        {
-            $fuelPrice = calculateHydrogenCost($numYears);
-        }
-        else
-        {
-            for($i = 0; $i < $numYears + 1; $i++)
+            if($fuelType == "Biofuel")
             {
-                $fuelPrice[$i] = getFuelData($i);
+                $fuelPrice = calculateBiofuelCost($numYears);
             }
-        } 
+            else if($fuelType == "Hydrogen")
+            {
+                $fuelPrice = calculateHydrogenCost($numYears);
+            }
+            else
+            {
+                for($i = 0; $i < $numYears + 1; $i++)
+                {
+                    $fuelPrice[$i] = getFuelData($i);
+                }
+            } 
+        }
+        else if($fuelPriceType == "increase")
+        {
+            $fuelPrice = caluclatePercentageIncrease($numYears + 1);
+        }
 
         for($i = 0; $i < $numYears; $i++)
         {

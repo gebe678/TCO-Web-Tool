@@ -34,35 +34,6 @@
         return $bodyCost;
     }
 
-    function calculateBodyDepreciation($numYears)
-    {
-        include "getID.php";
-
-        $vBodyCost;
-
-        if($powertrain === "BEV")
-        {
-            $vBodyCost = $bevCostResult;
-        }
-        else
-        {
-            $vBodyCost = $vehicleBodyCost;
-        }
-
-        $bodyCost;
-        $depreciation = calculateSimpleDepreciation($numYears);
-        $previousCost = $vBodyCost * $markupFactor;
-        $bodyCost[0] = $previousCost;
-
-        for($i = 1; $i < $numYears; $i++)
-        {
-            $bodyCost[$i] = $previousCost - $depreciation[$i - 1];
-            $previousCost = $bodyCost[$i];
-        }
-
-        return $bodyCost;
-    }
-
     function calculateAdvancedDepreciation($numYears)
     {
         include "getID.php";
@@ -71,7 +42,6 @@
         $bodyCost = $vehicleBodyCost * $markupFactor;
         $rate;
         $rate[0] = 0;
-        echo "<br>";
         for($i = 0; $i < $numYears; $i++)
         {
             if($year <= $writeOff)
@@ -86,5 +56,55 @@
         }
 
         return $rate;
+    }
+
+    function calculateDepreciation($numYears)
+    {
+        $depreciationType = $_POST["depreciation"];
+        $depreciation;
+
+        if($depreciationType == "simple")
+        {
+            $depreciation = calculateSimpleDepreciation($numYears);
+        }
+        else if($depreciationType == "advanced")
+        {
+            $depreciation = calculateAdvancedDepreciation($numYears);
+        }
+
+        return $depreciation;
+    }
+
+    function calculateBodyDepreciation($numYears)
+    {
+        include "getID.php";
+
+        $vBodyCost;
+
+        $depreciationType = $_POST["depreciation"];
+
+        if($powertrain === "BEV")
+        {
+            $vBodyCost = $bevCostResult;
+        }
+        else
+        {
+            $vBodyCost = $vehicleBodyCost;
+        }
+
+        $bodyCost;
+
+        $depreciation = calculateSimpleDepreciation($numYears);
+
+        $previousCost = $vBodyCost * $markupFactor;
+        $bodyCost[0] = $previousCost;
+
+        for($i = 1; $i < $numYears; $i++)
+        {
+            $bodyCost[$i] = $previousCost - $depreciation[$i - 1];
+            $previousCost = $bodyCost[$i];
+        }
+
+        return $bodyCost;
     }
 ?>

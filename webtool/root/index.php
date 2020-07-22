@@ -167,13 +167,14 @@
                             <option value="Hydrogen">Hydrogen</option>
                             <option value="Electric">Electric</option>
                             <option value="Gas_Electric">Gas-Electric</option>
+                            <option value="Diesel_Electric">Diesel-Electric</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="dropDownMenu">
                     <div class="label">
-                        <label for="technology">Technology:</label>
+                        <label for="technology">Technology Progress:</label>
                     </div>
                     <div class="border">
                         <select name="technology" class="selectMenu" id="technologyMenu">
@@ -214,6 +215,10 @@
                             <option value="Single_Unit_Service_Truck_HHD">Single_Unit_Service_Truck_HHD</option>
                             <option value="Single_Unit_Service_Truck_MHD">Single_Unit_Service_Truck_MHD</option>
                             <option value="Single_Unit_Service_Truck_LHD">Single_Unit_Service_Truck_LHD</option>
+                            <option value="Single_Unit_Freight_Truck_General">Single_Unit_Freight_Truck_General</option>
+                            <option value="Single_Unit_Freight_Truck_HHD">Single_Unit_Freight_Truck_HHD</option>
+                            <option value="Single_Unit_Freight_Truck_MHD">Single_Unit_Freight_Truck_MHD</option>
+                            <option value="Single_Unit_Freight_Truck_LHD">Single_Unit_Freight_Truck_LHD</option>
                             <option value="Single_Unit_Multipurpose_Truck">Single_Unit_Multipurpose_Truck</option>
                             <option value="Tractor_Sleeper_Cab">Tractor_Sleeper_Cab</option>
                             <option value="Tractor_Day_Cab">Tractor_Day_Cab</option>
@@ -225,101 +230,145 @@
                     </div>
                 </div>
 
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="depreciation">Depreciation:</label>
+                    </div>
+                    <div class="border">
+                        <select name="depreciation" class="selectMenu" id="depreciationMenu">
+                            <option value="simple">Simple</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="fuelPriceMethod">Fuel Price Method:</label>
+                    </div>
+                    <div class="border">
+                        <select name="fuelPriceMethod" class="selectMenu" id="fuelPriceMethod">
+                            <option value="defined">Defined for all years</option>
+                            <option value="increase">Fuel Price Increase Method</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="salvageValue">Salvage Value</label>
+                    </div>
+                    <div class="border">
+                        <select name="salvageValue" class="selectMenu" id="salvageValue">
+                            <option value="incurred">Cost Incurred In Year 0</option>
+                            <option value="averaged">Cost Averaged Across Lifetime</option>
+                            <option value="none">Cost Never Incurred</option>
+                            <option value="final">Cost Incurred In Final Year</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div class="inputContainer">
-                    <div class="textBlock">Annual Registration</div>
+                    <label for="annualRegistration" class="sliderLabel">Annual Registration Fee</label>
                     <input type="range" min="100" max="100" value="100" class="slider" name="annualRegistration" id="annualRegistration">
                     <input type="number" min="100" max="100" value="100" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Sales Tax & Title</div>
+                    <label for="salesTax" class="sliderLabel">Sales Tax & Title</label>
                     <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider" name="salesTax" id="salesTax">
                     <input type="number" min=".05" max=".05" step=".01" value=".05" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Purchase Cost</div>
+                    <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
                     <input type="range" min="20000" max="100000" value="20000" class="slider" name="purchaseCost" id="purchaseCost">
                     <input type="number" min="20000" max="100000" value="20000" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Insurance Fixed Rate</div>
+                    <label for="insuranceFixed" class="sliderLabel">Insurance Fixed Rate</label>
                     <input type="range" min="100" max="500"  value="400" class="slider" name="insuranceFixed" id="insuranceFixed">
                     <input type="number" min="100" max="500" value="400" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Insurance Proportional Rate</div>
+                    <label for="insuranceProportional" class="sliderLabel">Insurance Proportional Rate</label>
                     <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional" id="insuranceProportional">
                     <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Automotive LDV RPE Markup Factor</div>
+                    <label for="markupFactor" class="sliderLabel">Purchase Price Markup Factor</label>
                     <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
                     <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Simple Depreciation Rate</div>
+                    <label for="depreciationRate" class="sliderLabel">Simple Depreciation Rate</label>
                     <input type="range" min="0" max="1" step=".01" value="0.09" class="slider" name="depreciationRate" id="depreciationRate">
                     <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Finance Term</div>
+                    <label for="financeTerm" class="sliderLabel">Finance Term</label>
                     <input type="range" min="1" max="30"  value="5" class="slider" name="financeTerm" id="financeTerm">
                     <input type="number" min="1" max="30"  value="5" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Vehicle Write Off</div>
+                    <label for="writeOff" class="sliderLabel">Vehicle Write Off</label>
                     <input type="range" min="1" max="30" value="10" class="slider" name="writeOff" id="writeOff">
                     <input type="number" min="1" max="30" value="10" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Annual Fuel Price Increase</div>
+                    <label for="annualFuelPriceIncrease" class="sliderLabel">Incremental Annual Fuel Price Change</label>
                     <input type="range" min="-100" max="100" value="0" class="slider" name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
-                    <input type="number" min="-100" max="100" value="0" class="outputText">
+                    <input type="number" min="-100" max="100" value="0" class="outputText" id="annualFuelPriceIncreaseRange">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Biofuel Cost Parity</div>
+                    <label for="biofuelCost" class="sliderLabel">Biofuel Cost Parity</label>
                     <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost" id="biofuelCost">
                     <input type="number" min="1" max="30" value="15" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Biofuel Premium Cost</div>
+                    <label for="biofuelPremium" class="sliderLabel">Biofuel Premium Cost</label>
                     <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium" id="biofuelPremium">
                     <input type="number" min="1" max="10" value="1" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                    <div class="textBlock">Hydrogen to $5kg</div>
+                    <label for="hydrogenCost" class="sliderLabel">Hydrogen to $5kg</label>
                     <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost" id="hydrogenCost">
                     <input type="number" min="1" max="30" value="15" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                <div class="textBlock">Hydrogen Premium Cost</div>
-                <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
-                <input type="number" min="1" max="10" value="5" class="outputText">
+                    <label for="hydrogenPremium" class="sliderLabel">Hydrogen Premium Cost</label>
+                    <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
+                    <input type="number" min="1" max="10" value="5" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                <div class="textBlock">Vehicle MPG Plugin</div>
-                <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin" id="mpgPlugin">
-                <input type="number" min="1" max="100" step=".00000001" value="16.12332967" class="outputText">
+                    <label for="mpgPlugin" class="sliderLabel">Vehicle MPG Plugin</label>
+                    <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin" id="mpgPlugin">
+                    <input type="number" min="1" max="100" step=".00000001" value="16.12332967" class="outputText">
                 </div>
 
                 <div class="inputContainer">
-                <div class="textBlock">Vehicle Body Cost Plugin</div>
-                <input type="range" min="5000" max="100000" step=".0001" value="15000.4398" class="slider" name="bodyCostPlugin" id="bodyCostPlugin">
-                <input type="number" min="5000" max="100000" step=".0001" value="15000.4398" class="outputText">
+                    <label for="bodyCostPlugin" class="sliderLabel">Vehicle Body Cost Plugin</label>
+                    <input type="range" min="5000" max="100000" step=".0001" value="15000.4398" class="slider" name="bodyCostPlugin" id="bodyCostPlugin">
+                    <input type="number" min="5000" max="100000" step=".0001" value="15000.4398" class="outputText">
                 </div> 
+
+                <div class="inputContainer">
+                    <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
+                    <input type="range" min="1" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
+                    <input type="number" min="1" max="30" value="30" class="outputText">
+                </div>
             </div>
 
             <input type="submit" class="submitButton" name="submit" id="submit">

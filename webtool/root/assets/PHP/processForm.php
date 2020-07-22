@@ -6,13 +6,15 @@
     include "taxesAndFeesCalculations.php";
     include "financeCalculations.php";
 
-    $vehicleBodyCost = calculateSimpleDepreciation(30);
-    $financeCost = calculateInterestPayment(30);
-    $annualFuelCost = calculateAnnualFuelcost(30);
-    $insuranceCost = calculateInsurancecost(30);
-    $taxesAndFees = calculateTaxesAndFees(30);
-    $maintenance = calculateTotalMaintenance(30);
-    $repair = calculateTotalRepair(30);
+    $analysisWindow = $_POST["analysisWindow"];
+
+    $vehicleBodyCost = calculateDepreciation($analysisWindow);
+    $financeCost = calculateInterestPayment($analysisWindow);
+    $annualFuelCost = calculateAnnualFuelcost($analysisWindow);
+    $insuranceCost = calculateInsurancecost($analysisWindow);
+    $taxesAndFees = calculateTaxesAndFees($analysisWindow);
+    $maintenance = calculateTotalMaintenance($analysisWindow);
+    $repair = calculateTotalRepair($analysisWindow);
 
     $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair);
 

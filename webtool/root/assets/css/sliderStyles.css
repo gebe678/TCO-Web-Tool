@@ -7,9 +7,9 @@
     display: inline-block;
 }
 
-.textBlock{
-    font-family: sans-serif;
-    font-weight: bold;
+.sliderLabel{
+    display: block;
+    font-size: 20px;
 }
 
 /* makes the slider invisible across all browsers so that custom styling can be applied after */
@@ -22,7 +22,7 @@
 }
 
 .inputContainer{
-    margin-left: 20px;
+    margin-left: 50px;
     padding: 5px;
 }
 
