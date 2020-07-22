@@ -451,7 +451,7 @@ function main()
     powertrainMenuModifier();
     fuelMenuModifier();
     vmtMenuModifier();
-    //bevMenuModifier();
+    bevMenuModifier();
     //incrementalAnnualFuelModifier();
 }
 

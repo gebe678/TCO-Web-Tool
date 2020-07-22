@@ -190,6 +190,7 @@
                     </div>
                     <div class="border">
                         <select name="bevRange" class="selectMenu" id="bevRangeMenu">
+                            <option value="0">BEV Powertrain Not Selected</option>
                             <option value="200">200</option>
                             <option value="300">300</option>
                             <option value="400">400</option>
