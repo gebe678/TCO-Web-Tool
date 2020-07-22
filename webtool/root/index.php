@@ -534,7 +534,7 @@
             <!--canvas id's for showing the data from the vehicle cost visually-->
             <div class="canvasContainer">
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
-                <canvas id="acualVehicleGraph">canvas is not supported in you browser</canvas>
+                <canvas id="acualVehicleGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
 

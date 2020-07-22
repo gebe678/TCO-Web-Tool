@@ -147,7 +147,7 @@ function vmtMenuModifier()
             case 9:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 0 || i == 2 || i == 4)
+                    if(i == 1 || i == 3 || i == 5)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -156,7 +156,7 @@ function vmtMenuModifier()
                         vmt.options[i].disabled = true;
                     }
                 }
-                vmt.options[0].selected = true;
+                vmt.options[1].selected = true;
                 break;
             case 10:
                 for(let i = 0; i < vmt.options.length; i++)

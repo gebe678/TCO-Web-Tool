@@ -1,5 +1,9 @@
 function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair)
 {
+
+    $("#acualVehicleGraph").remove();
+    $(".canvasContainer").append('<canvas id="acualVehicleGraph">canvas is not supported in your browser</canvas');
+
     let canvas = document.getElementById("acualVehicleGraph");
 
     // let years = document.querySelectorAll(".costComponents.year");
