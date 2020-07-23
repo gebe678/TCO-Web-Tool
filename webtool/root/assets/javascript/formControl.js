@@ -1,6 +1,6 @@
 function main()
 {
-    submittedAjaxForm();
+    //submittedAjaxForm();
 }
 
 function submittedAjaxForm()

@@ -175,6 +175,12 @@
                     <input type="number" min="1" max="30" value="30" class="outputText">
                 </div>
 
+                <div class="inputContainer">
+                    <label for="discountRate" class="sliderLabel">Discount Rate</label>
+                    <input type="range" min=".0" max="1" step=".00001" value="0" class="slider" name="discountRate" id="discountRate">
+                    <input type="number" min=".0" max="1" step=".00001" value="0" class="outputText">
+                </div>
+
                 <div class="technologyGroup">
 
                     <div class="dropDownMenu">
@@ -379,7 +385,17 @@
                     </div>
                 </div>
 
-
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="maintenanceMethod">Maintenance Method</label>
+                    </div>
+                    <div class="border">
+                        <select name="maintenanceMethod" class="selectMenu" id="maintenanceMethod">
+                            <option value="smoothed">Smoothed</option>
+                            <option value="defined">Defined</option>
+                        </select>
+                    </div>
+                </div>
 
                     <div class="inputContainer">
                         <label for="financeTerm" class="sliderLabel">Finance Term</label>

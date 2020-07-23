@@ -52,6 +52,20 @@
         return $totalCost;
     }
 
+    function calculateDieselElectricCost($numYears)
+    {
+        include "getID.php";
+        $PHEVUtilityFactor = 0.3;
+        $totalCost;
+
+        for($i = 0; $i < $numYears + 1; $i++)
+        {
+            $totalCost[$i] = getDieselData($i) * (1 - $PHEVUtilityFactor) + getElectricData($i) * $PHEVUtilityFactor;
+        }
+
+        return $totalCost;
+    }
+
     function caluclatePercentageIncrease($numYears)
     {
         include "getID.php";
@@ -65,6 +79,11 @@
         {
             $hydroCost = calculateHydrogenCost(1);
             $totalCost[0] = $hydroCost[0];
+        }
+        else if($fuelType == "Diesel_Electric")
+        {
+            $dieselElec = calculateDieselElectricCost($numYears);
+            $totalCost[0] = $dieselElec[0];
         }
         else
         {
@@ -114,6 +133,10 @@
             else if($fuelType == "Hydrogen")
             {
                 $fuelPrice = calculateHydrogenCost($numYears);
+            }
+            else if($fuelType == "Diesel_Electric")
+            {
+                $fuelPrice = calculateDieselElectricCost($numYears);
             }
             else
             {

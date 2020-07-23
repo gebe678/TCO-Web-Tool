@@ -366,6 +366,7 @@ function fuelMenuModifier()
 {
     let powertrainMenu = document.getElementById("powertrainMenu");
     let fuelMenu = document.getElementById("fuelTypes");
+    let vehicleBodyMenu = document.getElementById("vehicleBodyMenu");
 
     fuelMenu.options[0].disabled = false;
     fuelMenu.options[1].disabled = true;
@@ -418,8 +419,20 @@ function fuelMenuModifier()
                 fuelMenu.options[3].disabled = true;
                 fuelMenu.options[4].disabled = true;
                 fuelMenu.options[5].disabled = true;
-                fuelMenu.options[6].disabled = false;
-                fuelMenu.options[6].selected = true;
+                
+                if(vehicleBodyMenu.selectedIndex <= 9)
+                {
+                    fuelMenu.options[6].disabled = false;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[6].selected = true;
+                }
+                else
+                {
+                    fuelMenu.options[6].disabled = true;
+                    fuelMenu.options[7].disabled = false;
+                    fuelMenu.options[7].selected = true;
+                }
+ 
                 break;
             case 4:
                 fuelMenu.options[0].disabled = true;
