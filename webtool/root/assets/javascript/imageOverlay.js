@@ -34,7 +34,7 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
     setVehicleInformation(vehicle, financing, annualFuel, insuranceCost, taxesCost, maintenanceCost, repair);
 
     // variable that points to the canvas element in the index html
-    let canvas = document.getElementById("vehicleGraph");
+    let canvas = document.getElementById("imageOverlay");
     let ctx = canvas.getContext("2d");
 
     // image variable that is going to be added to the canvas
@@ -96,15 +96,15 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
         ctx.moveTo((st + st2) / 2, 150);
         ctx.lineTo((st + st2) / 2, 35);
         ctx.moveTo((st2 + st3) / 2, 150);
-        ctx.lineTo((st2 + st3) / 2, 20);
+        ctx.lineTo((st2 + st3) / 2, 35);
         ctx.moveTo((st3 + st4) / 2, 150);
         ctx.lineTo((st3 + st4) / 2, 35);
         ctx.moveTo((st4 + st5) / 2, 150);
-        ctx.lineTo((st4 + st5) / 2, 20);
+        ctx.lineTo((st4 + st5) / 2, 35);
         ctx.moveTo((st5 + st6) / 2, 150);
         ctx.lineTo((st5 + st6) / 2, 35);
         ctx.moveTo((st6 + st7) / 2, 150);
-        ctx.lineTo((st6 + st7) / 2, 20);
+        ctx.lineTo((st6 + st7) / 2, 35);
         ctx.stroke();
         
         ctx.font = "15px Arial";

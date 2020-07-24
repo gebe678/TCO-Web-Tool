@@ -550,14 +550,14 @@
 
             <!--canvas id's for showing the data from the vehicle cost visually-->
             <div class="canvasContainer">
+                <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
-                <canvas id="acualVehicleGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
 </div>
     <footer>   
-        <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. <a href="#">Link to documentation for calculations</a></p>
-        
+        <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a></p>
+        <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers">
     </footer>
 </body>
 </html>
