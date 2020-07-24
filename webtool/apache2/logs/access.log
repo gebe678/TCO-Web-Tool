@@ -330,3 +330,6 @@
 ::1 - - [23/Jul/2020:18:36:23 -0400] "GET /3 HTTP/1.1" 404 199
 ::1 - - [23/Jul/2020:18:36:23 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
 ::1 - - [23/Jul/2020:18:36:35 -0400] "GET / HTTP/1.1" 200 25333
+::1 - - [23/Jul/2020:22:01:38 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 1979
+::1 - - [23/Jul/2020:22:02:05 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 1959
+::1 - - [23/Jul/2020:22:02:09 -0400] "GET /assets/sillouette_pictures/Luxury%20Pickup.jpg HTTP/1.1" 200 33136
