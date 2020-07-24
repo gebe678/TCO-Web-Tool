@@ -1,11 +1,13 @@
 function main()
 {
-    //submittedAjaxForm();
+    submittedAjaxForm();
 }
 
 function submittedAjaxForm()
 {
     let form = document.getElementById("vehicleInfoForm");
+    let canvas = document.querySelector(".canvasContainer");
+
     let vehicleData = [];
     let financingData = [];
     let annualFuelData = [];
@@ -13,6 +15,8 @@ function submittedAjaxForm()
     let taxData = [];
     let maintenanceData = [];
     let repairData = [];
+
+    canvas.style.display = "none";
 
     form.onsubmit = function()
     {
@@ -38,6 +42,8 @@ function submittedAjaxForm()
                 maintenanceData[i] = vehicleInformation[5][i];
                 repairData[i] = vehicleInformation[6][i];
             }
+
+            canvas.style.display = "block";
 
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData);

@@ -21,8 +21,9 @@
 
 </head>
 <body>
+<div class="content">
     <header>
-        <h1>This Is The Title Of The Webpage</h1>
+            <img src="assets/page_pictures/banner_cropped.jpg" class="bannerPicture">
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
@@ -553,8 +554,10 @@
                 <canvas id="acualVehicleGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
-
-    <footer>
+</div>
+    <footer>   
+        <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. <a href="#">Link to documentation for calculations</a></p>
+        
     </footer>
 </body>
 </html>

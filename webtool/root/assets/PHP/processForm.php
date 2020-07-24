@@ -27,8 +27,6 @@
         $taxesAndFees[$i] = $taxesAndFees[$i] / pow((1 + $discountRate), $year);
         $maintenance[$i] = $maintenance[$i] / pow((1 + $discountRate), $year);
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
-
-        echo $vehicleBodyCost[$i] . " body cost for year " . ($i + 1) . "<br>";
     }
 
     $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair);
