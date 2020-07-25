@@ -19,6 +19,35 @@ nav{
     margin-bottom: 15px;
 }
 
+.toggleLabel{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background-color: rgb(114, 114, 114);
+    border-radius: 20px;
+}
+
+.toggleLabel::after{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3;
+}
+
+.toggleSwitch + .toggleLabel::after{
+    left: 20px;
+}
+
+.toggleSwitch:checked + .toggleLabel{
+    background-color: #7983ff;
+}
+
 p{
     font-family: sans-serif;
 }
@@ -58,3 +87,4 @@ p{
 footer{
     height: 50px;
 }
+

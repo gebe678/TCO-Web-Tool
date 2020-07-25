@@ -29,6 +29,8 @@
             <div class="navBar">
                 <button class="simplifiedTab tabButton">Simplified View</button>
                 <button class="detailedTab tabButton">Detailed View</button>
+                <input type="checkbox" id="toggleButton" class="toggleSwitch">
+                <label for="toggleButton" class="toggleLabel"></label>
             </div>
         </nav>
     </header>

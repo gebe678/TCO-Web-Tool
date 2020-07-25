@@ -39,7 +39,6 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
 
     // image variable that is going to be added to the canvas
     let img = new Image();
-    let secondImg = new Image();
     img.crossOrigin = "Anonymous";
 
     // code run after the image is loaded into the script
@@ -145,7 +144,7 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
 // sets the global vehicle variables for the function
 function setVehicleInformation(vehicle, financing, annualFuel, insuranceCost, taxesCost, maintenanceCost, repair)
 {
-    for(let i = 0; i < 10; i++)
+    for(let i = 0; i < 5; i++)
     {
         vehicleCost = vehicleCost + vehicle[i];
         financingCost = financingCost + financing[i];
