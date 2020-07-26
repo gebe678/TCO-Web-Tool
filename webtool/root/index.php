@@ -27,10 +27,8 @@
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
-                <button class="simplifiedTab tabButton">Simplified View</button>
-                <button class="detailedTab tabButton">Detailed View</button>
                 <input type="checkbox" id="toggleButton" class="toggleSwitch">
-                <label for="toggleButton" class="toggleLabel"></label>
+                <label for="toggleButton" class="toggleLabel"><span class="labelText">Simplified View</span></label>
             </div>
         </nav>
     </header>
@@ -174,8 +172,8 @@
 
                 <div class="inputContainer">
                     <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
-                    <input type="range" min="1" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
-                    <input type="number" min="1" max="30" value="30" class="outputText">
+                    <input type="range" min="5" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
+                    <input type="number" min="5" max="30" value="30" class="outputText">
                 </div>
 
                 <div class="inputContainer">

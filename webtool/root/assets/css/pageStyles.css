@@ -22,10 +22,11 @@ nav{
 .toggleLabel{
     position: relative;
     display: inline-block;
-    width: 40px;
+    width: 150px;
     height: 20px;
-    background-color: rgb(114, 114, 114);
+    background-color: rgb(121, 121, 121);
     border-radius: 20px;
+    color: white;
 }
 
 .toggleLabel::after{
@@ -40,12 +41,22 @@ nav{
     transition: all 0.3;
 }
 
-.toggleSwitch + .toggleLabel::after{
-    left: 20px;
+.toggleSwitch:checked + .toggleLabel::after{
+    left: 130px;
 }
 
 .toggleSwitch:checked + .toggleLabel{
-    background-color: #7983ff;
+    background-color: #6de747;
+    color: black;
+}
+
+.toggleSwitch{
+    display: none;
+}
+
+.toggleLabel .labelText{
+    float: right;
+    margin-right: 20px;
 }
 
 p{
