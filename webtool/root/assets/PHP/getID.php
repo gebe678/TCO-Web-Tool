@@ -55,7 +55,7 @@
         $bevMPG = $connect->query($bevMPGQuery); $bevMPG = $bevMPG->fetch_assoc(); $bevMPG = $bevMPG[$bevMPGRange];
         $bevCostResult = $connect->query($bevCostQuery); $bevCostResult = $bevCostResult->fetch_assoc(); $bevCostResult = $bevCostResult[$bevCost];
     }
-    $annualVmt = $connect->query($vmtQuery); $annualVmt = $annualVmt->fetch_assoc(); $annualVmt = $annualVmt[$vmtType];
+    //$annualVmt = $connect->query($vmtQuery); $annualVmt = $annualVmt->fetch_assoc(); $annualVmt = $annualVmt[$vmtType];
 
 
     $i = 0;

@@ -15,6 +15,7 @@ function submittedAjaxForm()
     let taxData = [];
     let maintenanceData = [];
     let repairData = [];
+    let vmtData = [];
 
     canvas.style.display = "none";
 
@@ -41,12 +42,13 @@ function submittedAjaxForm()
                 taxData[i] = parseFloat(vehicleInformation[4][i]);
                 maintenanceData[i] = vehicleInformation[5][i];
                 repairData[i] = vehicleInformation[6][i];
+                vmtData[i] = vehicleInformation[7][i];
             }
 
             canvas.style.display = "block";
 
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
-            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData);
+            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
         });
     }
 }

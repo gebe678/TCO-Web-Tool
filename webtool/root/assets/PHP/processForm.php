@@ -16,6 +16,7 @@
     $taxesAndFees = calculateTaxesAndFees($analysisWindow);
     $maintenance = calculateTotalMaintenance($analysisWindow);
     $repair = calculateTotalRepair($analysisWindow);
+    $vehicleVmt = getVmtData();
 
     for($i = 0; $i < $analysisWindow; $i++)
     {
@@ -29,7 +30,14 @@
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
     }
 
-    $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair);
+    $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt);
 
     echo json_encode($TCO_information);
+
+    function getVmtData()
+    {
+        include "getID.php";
+
+        return $annualVmtYears;
+    }
 ?>

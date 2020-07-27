@@ -552,6 +552,8 @@
             <div class="canvasContainer">
                 <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
+                <canvas id="perMileGraph">canvas is not supported in your browser</canvas>
+                <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
 </div>
