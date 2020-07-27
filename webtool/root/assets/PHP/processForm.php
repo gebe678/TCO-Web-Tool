@@ -5,14 +5,15 @@
     include "insuranceCalculations.php";
     include "taxesAndFeesCalculations.php";
     include "financeCalculations.php";
+    include "getID.php";
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
 
     $vehicleBodyCost = calculateDepreciation($analysisWindow);
     $financeCost = calculateInterestPayment($analysisWindow);
-    $annualFuelCost = calculateAnnualFuelcost($analysisWindow);
-    $insuranceCost = calculateInsurancecost($analysisWindow);
+    $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
+    $insuranceCost = calculateInsuranceCost($analysisWindow);
     $taxesAndFees = calculateTaxesAndFees($analysisWindow);
     $maintenance = calculateTotalMaintenance($analysisWindow);
     $repair = calculateTotalRepair($analysisWindow);

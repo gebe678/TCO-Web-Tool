@@ -207,6 +207,11 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         });
 }
 
+function powertrainGraph()
+{
+  
+}
+
 function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, vmt)
 {
     $("#vehicleGraph").remove();
