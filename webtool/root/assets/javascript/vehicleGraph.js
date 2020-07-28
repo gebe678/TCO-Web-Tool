@@ -98,7 +98,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           title:
           {
             display: true,
-            text: "Annual TCO Comparison Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+            text: "Annual TCO Comparison Over Years Of Ownership " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
             fontFamily: "sans-serif",
             fontColor: "black",
             fontSize: 20,
@@ -213,7 +213,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             title:
             {
               display: true,
-              text: "Annual TCO Costs Per Mile Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+              text: "Annual TCO Costs Per Mile Over Years Of Ownership " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
               fontFamily: "sans-serif",
               fontColor: "black",
               fontSize: 20,
@@ -327,7 +327,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
           }
       }
     });

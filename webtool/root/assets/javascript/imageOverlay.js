@@ -92,7 +92,7 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
         ctx.restore();
 
         ctx.font = "bold 20px sans-serif";
-        ctx.fillText("5 Year TCO For " +  bTitleName.options[bTitleName.selectedIndex].text + " " + pTitleName.options[pTitleName.selectedIndex].text, startValue[0], 20);
+        ctx.fillText("5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text, startValue[0], 20);
 
         ctx.beginPath();
         ctx.moveTo((startValue[0] + st) / 2, 150);
