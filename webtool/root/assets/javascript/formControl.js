@@ -74,13 +74,13 @@ function submittedAjaxForm()
 
             canvas.style.display = "block";
 
-            imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
-            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
-
             if(showPowertrainGraph.checked)
             {
                 powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
+
+            imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
+            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
         });
     }
 }

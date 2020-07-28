@@ -24,7 +24,7 @@
 <div class="content">
     <header>
             <div class="banner">
-                <img src="assets/page_pictures/VTO_home_monuments_highways_cropped.jpg" class="bannerPicture">
+                <img src="assets/page_pictures/banner_final_fullsize.jpg" class="bannerPicture">
             </div>
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
@@ -558,10 +558,10 @@
 
             <!--canvas id's for showing the data from the vehicle cost visually-->
             <div class="canvasContainer">
-                <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
+                <canvas id="imageOverlay" style="display: inline-block;">canvas is not supported in your browser</canvas>
+                <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
                 <canvas id="perMileGraph">canvas is not supported in your browser</canvas>
-                <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
 </div>
