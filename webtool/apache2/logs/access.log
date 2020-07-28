@@ -233,3 +233,8 @@
 ::1 - - [28/Jul/2020:19:19:11 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 11698
 ::1 - - [28/Jul/2020:19:19:21 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2226
 ::1 - - [28/Jul/2020:19:19:29 -0400] "GET /assets/sillouette_pictures/Midsize%20Sedan.jpg HTTP/1.1" 200 37617
+::1 - - [28/Jul/2020:19:20:17 -0400] "GET / HTTP/1.1" 200 26167
+::1 - - [28/Jul/2020:19:20:18 -0400] "GET /assets/javascript/vehicleGraph.js HTTP/1.1" 304 -
+::1 - - [28/Jul/2020:19:20:18 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 200 11699
+::1 - - [28/Jul/2020:19:20:20 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2226
+::1 - - [28/Jul/2020:19:20:38 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2634
