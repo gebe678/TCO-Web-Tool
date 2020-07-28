@@ -98,7 +98,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           title:
           {
             display: true,
-            text: "Anual TCO Comparison Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+            text: "Annual TCO Comparison Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
             fontFamily: "sans-serif",
             fontColor: "black",
             fontSize: 20,
@@ -213,7 +213,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             title:
             {
               display: true,
-              text: "Anual TCO Costs Per Mile Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+              text: "Annual TCO Costs Per Mile Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
               fontFamily: "sans-serif",
               fontColor: "black",
               fontSize: 20,

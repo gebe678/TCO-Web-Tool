@@ -23,7 +23,9 @@
 <body>
 <div class="content">
     <header>
-            <img src="assets/page_pictures/banner_updated.jpg" class="bannerPicture">
+            <div class="banner">
+                <img src="assets/page_pictures/VTO_home_monuments_highways_cropped.jpg" class="bannerPicture">
+            </div>
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
