@@ -431,7 +431,7 @@
                 <label for="powertrainComparison" class="togglePowertrainLabel"></label>
             </div>
 
-            <input type="submit" class="submitButton" name="submit" id="submit">
+            <!--<input type="submit" class="submitButton" name="submit" id="submit">-->
         </form>
 
         <?php
