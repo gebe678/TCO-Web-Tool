@@ -423,6 +423,18 @@
                 </div> 
             </div>
 
+            <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="showPowertrainGraph">Powertrain Graph</label>
+                    </div>
+                    <div class="border">
+                        <select name="showPowertrainGraph" class="selectMenu" id="showPowertrainGraph">
+                            <option value="yes">Show Graph</option>
+                            <option value="no">Hide Graph</option>
+                        </select>
+                    </div>
+                </div>
+
             <input type="submit" class="submitButton" name="submit" id="submit">
         </form>
 

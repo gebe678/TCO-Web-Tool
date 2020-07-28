@@ -17,6 +17,13 @@ function submittedAjaxForm()
     let repairData = [];
     let vmtData = [];
 
+    let icesi = [];
+    let iceci = [];
+    let hevsi = [];
+    let phev = [];
+    let fcev = [];
+    let bev = [];
+
     canvas.style.display = "none";
 
     form.onsubmit = function()
@@ -24,6 +31,7 @@ function submittedAjaxForm()
         event.preventDefault();
         let dataForm = $(this).serialize();
         let bodyType = document.getElementById("vehicleBodyMenu");
+        let showPowertrainGraph = document.getElementById("showPowertrainGraph");
 
         $.ajax({
             type: 'POST',
@@ -45,10 +53,40 @@ function submittedAjaxForm()
                 vmtData[i] = vehicleInformation[7][i];
             }
 
+            if(showPowertrainGraph.value == "yes")
+            {
+                let body = [];
+                let finance = [];
+                let fuel = [];
+                let insurance = [];
+                let tax = [];
+                let maintenance = [];
+                let repair = [];
+
+                for(let i = 0; i < 7; i++)
+                {
+                    icesi[i] = vehicleInformation[8][i];
+                    iceci[i] = vehicleInformation[9][i];
+                    hevsi[i] = vehicleInformation[10][i];
+                    phev[i] = vehicleInformation[11][i];
+                    fcev[i] = vehicleInformation[12][i];
+                    bev[i] = vehicleInformation[13][i];
+                }
+            }
+            else
+            {
+                $("#powertrainGraph").remove();
+            }
+
             canvas.style.display = "block";
 
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
+
+            if(showPowertrainGraph.value == "yes")
+            {
+                powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev);
+            }
         });
     }
 }

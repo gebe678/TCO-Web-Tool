@@ -1,7 +1,7 @@
 <?php 
     function calculateTaxesAndFees($numYears)
     {
-        $purchaceCost = $_POST["purchaseCost"];
+        $purchaseCost = $_POST["purchaseCost"];
         $salesTaxAndTitle = $_POST["salesTax"];
         $annualRegistration = $_POST["annualRegistration"];
         $totalCost;
@@ -10,7 +10,7 @@
         {
             if($i == 0)
             {
-                $totalCost[$i] = $purchaceCost * $salesTaxAndTitle + $annualRegistration;
+                $totalCost[$i] = $purchaseCost * $salesTaxAndTitle + $annualRegistration;
             }
             else
             {

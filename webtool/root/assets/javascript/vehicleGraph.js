@@ -207,9 +207,95 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         });
 }
 
-function powertrainGraph()
+function powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev)
 {
-  
+    $("#powertrainGraph").remove();
+    $(".canvasContainer").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
+
+    canvas = document.getElementById("powertrainGraph");
+
+    powertrain = [];
+    icesiCosts = [];
+    iceciCosts = [];
+    hevsiCosts = [];
+    phevCosts = [];
+    fcevCosts = [];
+    bevCosts = [];
+    totalCost = [];
+
+    for(let i = 0; i < 7; i++)
+    {
+      icesiCosts[i] = parseInt(icesi[i]);
+      iceciCosts[i] = parseInt(iceci[i]);
+      hevsiCosts[i] = parseInt(hevsi[i]);
+      phevCosts[i] = parseInt(phev[i]);
+      fcevCosts[i] = parseInt(fcev[i]);
+      bevCosts[i] = parseInt(bev[i]);
+
+      totalCost[i] = icesiCosts[i] + iceciCosts[i] + hevsiCosts[i] + phevCosts[i] + fcevCosts[i] + bevCosts[i];
+    }
+
+    powertrain[0] = "ICE-SI";
+    powertrain[1] = "ICE-CI";
+    powertrain[2] = "HEV-SI";
+    powertrain[3] = "PHEV";
+    powertrain[4] = "FCEV";
+    powertrain[5] = "BEV";
+
+    Chart.defaults.global.defaultFontSize = 15;
+    powertrain = new Chart(canvas, {
+      type: "bar",
+      data:
+      {
+        labels: powertrain,
+        datasets:
+        [
+          {
+              data: icesiCosts,
+              label: "Vehicle Body",
+              backgroundColor: "#994d00",
+          },
+          {
+            data: iceciCosts,
+            label: "Finance Cost",
+            backgroundColor: "#ff0000"
+          },
+          {
+            data: hevsiCosts,
+            label: "Annual Fuel Cost",
+            backgroundColor: "#ffaa00"
+          },
+          {
+            data: phevCosts,
+            label: "Insurance Cost",
+            backgroundColor: "#9494b8"
+          },
+          {
+            data: fcevCosts,
+            label: "Taxes And Fees",
+            backgroundColor: "#e1e1ea"
+          },
+          {
+            data: bevCosts,
+            label: "Maintenance Cost",
+            backgroundColor: "#3333ff"
+          }//,
+          // {
+          //   data: repairCosts,
+          //   label: "Repair Cost",
+          //   backgroundColor: "#66a3ff"
+          // }
+        ]
+      },
+      options: 
+      {
+          scales:
+          {
+            xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"}}]
+          }
+      }
+    });
 }
 
 function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, vmt)

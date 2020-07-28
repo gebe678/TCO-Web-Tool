@@ -9,6 +9,7 @@
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
+    $showPowertrainGraph = $_POST["showPowertrainGraph"];
 
     $vehicleBodyCost = calculateDepreciation($analysisWindow);
     $financeCost = calculateInterestPayment($analysisWindow);
@@ -31,7 +32,23 @@
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
     }
 
-    $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt);
+    runPowertrainGraph("ICE-SI");
+
+    if($showPowertrainGraph == "no")
+    {
+        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt);
+    }
+    else if($showPowertrainGraph == "yes")
+    {
+        $icesi = runPowertrainGraph("ICE-SI");
+        $iceci = runPowertrainGraph("ICE-CI");
+        $hevsi = runPowertrainGraph("HEV-SI");
+        $phev = runPowertrainGraph("PHEV");
+        $fcev = runPowertrainGraph("FCEV");
+        $bev = runPowertrainGraph("BEV");
+
+        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt, $icesi, $iceci, $hevsi, $phev, $fcev, $bev);
+    }
 
     echo json_encode($TCO_information);
 
@@ -40,5 +57,20 @@
         include "getID.php";
 
         return $annualVmtYears;
+    }
+
+    function runPowertrainGraph($powertrainType)
+    {
+        include_once "powertrainData.php";
+
+        $powertrainComponent[0] = calculateBodyCost($powertrainType);
+        $powertrainComponent[1] = calculateFinancingCost($powertrainType);
+        $powertrainComponent[2] = calculateFuelCost($powertrainType);
+        $powertrainComponent[3] = calculateInsruance($powertrainType);
+        $powertrainComponent[4] = calculateTaxes();
+        $powertrainComponent[5] = calculateMaintenance($powertrainType);
+        $powertrainComponent[6] = calculateRepair($powertrainType);
+
+        return $powertrainComponent;
     }
 ?>
