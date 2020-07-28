@@ -9,7 +9,6 @@
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
-    $showPowertrainGraph = $_POST["showPowertrainGraph"];
 
     $vehicleBodyCost = calculateDepreciation($analysisWindow);
     $financeCost = calculateInterestPayment($analysisWindow);
@@ -32,22 +31,21 @@
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
     }
 
-    runPowertrainGraph("ICE-SI");
-
-    if($showPowertrainGraph == "no")
+    if(empty($_POST["showPowertrainGraph"]))
     {
         $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt);
     }
-    else if($showPowertrainGraph == "yes")
+    else if(!empty($_POST["showPowertrainGraph"]))
     {
-        $icesi = runPowertrainGraph("ICE-SI");
-        $iceci = runPowertrainGraph("ICE-CI");
-        $hevsi = runPowertrainGraph("HEV-SI");
-        $phev = runPowertrainGraph("PHEV");
-        $fcev = runPowertrainGraph("FCEV");
-        $bev = runPowertrainGraph("BEV");
+        $pBody = calculatePowertrainBody("ICE-SI");
+        $pFinance = calculatePowerTrainFinance("ICE-CI");
+        $pFuel = calculatePowertrainFUel("HEV-SI");
+        $pInsurance = calculatePowertrainInsurance("PHEV");
+        $pTaxes = calculatePowertrainTaxes("FCEV");
+        $pMaintenance = calculatePowertrainMaintenance("BEV");
+        $pRepair = calculatePowertrainRepair();
 
-        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt, $icesi, $iceci, $hevsi, $phev, $fcev, $bev);
+        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair);
     }
 
     echo json_encode($TCO_information);
@@ -59,18 +57,101 @@
         return $annualVmtYears;
     }
 
-    function runPowertrainGraph($powertrainType)
+    function calculatePowertrainBody()
     {
         include_once "powertrainData.php";
 
-        $powertrainComponent[0] = calculateBodyCost($powertrainType);
-        $powertrainComponent[1] = calculateFinancingCost($powertrainType);
-        $powertrainComponent[2] = calculateFuelCost($powertrainType);
-        $powertrainComponent[3] = calculateInsruance($powertrainType);
-        $powertrainComponent[4] = calculateTaxes();
-        $powertrainComponent[5] = calculateMaintenance($powertrainType);
-        $powertrainComponent[6] = calculateRepair($powertrainType);
+        $powertrainBody[0] = calculateBodyCost("ICE-SI");
+        $powertrainBody[1] = calculateBodyCost("ICE-CI");
+        $powertrainBody[2] = calculateBodyCost("HEV-SI");
+        $powertrainBody[3] = calculateBodyCost("PHEV");
+        $powertrainBody[4] = calculateBodyCost("FCEV");
+        $powertrainBody[5] = calculateBodyCost("BEV");
 
-        return $powertrainComponent;
+        return $powertrainBody;
+    }
+
+    function calculatePowerTrainFinance()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainFinance[0] = calculateFinancingCost("ICE-SI");
+        $powertrainFinance[1] = calculateFinancingCost("ICE-CI");
+        $powertrainFinance[2] = calculateFinancingCost("HEV-SI");
+        $powertrainFinance[3] = calculateFinancingCost("PHEV");
+        $powertrainFinance[4] = calculateFinancingCost("FCEV");
+        $powertrainFinance[5] = calculateFinancingCost("BEV");
+
+        return $powertrainFinance;
+    }
+
+    function calculatePowertrainFuel()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainFuel[0] = calculateFuelCost("ICE-SI");
+        $powertrainFuel[1] = calculateFuelCost("ICE-CI");
+        $powertrainFuel[2] = calculateFuelCost("HEV-SI");
+        $powertrainFuel[3] = calculateFuelCost("PHEV");
+        $powertrainFuel[4] = calculateFuelCost("FCEV");
+        $powertrainFuel[5] = calculateFuelCost("BEV");
+
+        return $powertrainFuel;
+    }
+
+    function calculatePowertrainInsurance()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainInsurance[0] = calculateInsruance("ICE-SI");
+        $powertrainInsurance[1] = calculateInsruance("ICE-CI");
+        $powertrainInsurance[2] = calculateInsruance("HEV-SI");
+        $powertrainInsurance[3] = calculateInsruance("PHEV");
+        $powertrainInsurance[4] = calculateInsruance("FCEV");
+        $powertrainInsurance[5] = calculateInsruance("BEV");
+
+        return $powertrainInsurance;
+    }
+
+    function calculatePowertrainTaxes()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainTaxes[0] = calculateTaxes();
+        $powertrainTaxes[1] = calculateTaxes();
+        $powertrainTaxes[2] = calculateTaxes();
+        $powertrainTaxes[3] = calculateTaxes();
+        $powertrainTaxes[4] = calculateTaxes();
+        $powertrainTaxes[5] = calculateTaxes();
+
+        return $powertrainTaxes;
+    }
+
+    function calculatePowertrainMaintenance()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainMaintenance[0] = calculateMaintenance("ICE-SI");
+        $powertrainMaintenance[1] = calculateMaintenance("ICE-CI");
+        $powertrainMaintenance[2] = calculateMaintenance("HEV-SI");
+        $powertrainMaintenance[3] = calculateMaintenance("PHEV");
+        $powertrainMaintenance[4] = calculateMaintenance("FCEV");
+        $powertrainMaintenance[5] = calculateMaintenance("BEV");
+
+        return $powertrainMaintenance;
+    }
+
+    function calculatePowertrainRepair()
+    {
+        include_once "powertrainData.php";
+
+        $powertrainRepair[0] = calculateRepair("ICE-SI");
+        $powertrainRepair[1] = calculateRepair("ICE-CI");
+        $powertrainRepair[2] = calculateRepair("HEV-SI");
+        $powertrainRepair[3] = calculateRepair("PHEV");
+        $powertrainRepair[4] = calculateRepair("FCEV");
+        $powertrainRepair[5] = calculateRepair("BEV");
+
+        return $powertrainRepair;
     }
 ?>

@@ -1,3 +1,6 @@
+let bodyName = document.getElementById("vehicleBodyMenu");
+let powertrainName = document.getElementById("powertrainMenu");
+
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair)
 {
     let canvas = document.getElementById("vehicleGraph");
@@ -92,6 +95,15 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
 
       options: 
       {
+          title:
+          {
+            display: true,
+            text: "Anual TCO Comparison Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+            fontFamily: "sans-serif",
+            fontColor: "black",
+            fontSize: 20,
+            position: 'top'
+          },
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
@@ -198,6 +210,15 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
     
           options: 
           {
+            title:
+            {
+              display: true,
+              text: "Anual TCO Costs Per Mile Over Years Of Ownership " + bodyName.options[bodyName.selectedIndex].text + " " + powertrainName.options[powertrainName.selectedIndex].text,
+              fontFamily: "sans-serif",
+              fontColor: "black",
+              fontSize: 20,
+              position: 'top'
+            },
               scales:
               {
                 xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
@@ -207,7 +228,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         });
 }
 
-function powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev)
+function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair)
 {
     $("#powertrainGraph").remove();
     $(".canvasContainer").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
@@ -215,24 +236,26 @@ function powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev)
     canvas = document.getElementById("powertrainGraph");
 
     powertrain = [];
-    icesiCosts = [];
-    iceciCosts = [];
-    hevsiCosts = [];
-    phevCosts = [];
-    fcevCosts = [];
-    bevCosts = [];
+    bodyCosts = [];
+    financeCosts = [];
+    fuelCosts = [];
+    insuranceCosts = [];
+    taxCosts = [];
+    maintenanceCosts = [];
+    repairCosts = [];
     totalCost = [];
 
     for(let i = 0; i < 7; i++)
     {
-      icesiCosts[i] = parseInt(icesi[i]);
-      iceciCosts[i] = parseInt(iceci[i]);
-      hevsiCosts[i] = parseInt(hevsi[i]);
-      phevCosts[i] = parseInt(phev[i]);
-      fcevCosts[i] = parseInt(fcev[i]);
-      bevCosts[i] = parseInt(bev[i]);
+      bodyCosts[i] = parseInt(body[i]);
+      financeCosts[i] = parseInt(finance[i]);
+      fuelCosts[i] = parseInt(fuel[i]);
+      insuranceCosts[i] = parseInt(insurance[i]);
+      taxCosts[i] = parseInt(tax[i]);
+      maintenanceCosts[i] = parseInt(maintenance[i]);
+      repairCosts[i] = parseInt(repair[i]);
 
-      totalCost[i] = icesiCosts[i] + iceciCosts[i] + hevsiCosts[i] + phevCosts[i] + fcevCosts[i] + bevCosts[i];
+      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i];
     }
 
     powertrain[0] = "ICE-SI";
@@ -241,6 +264,9 @@ function powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev)
     powertrain[3] = "PHEV";
     powertrain[4] = "FCEV";
     powertrain[5] = "BEV";
+
+    let ctx = canvas.getContext("2d");
+    ctx.canvas.width = 10;
 
     Chart.defaults.global.defaultFontSize = 15;
     powertrain = new Chart(canvas, {
@@ -251,44 +277,53 @@ function powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev)
         datasets:
         [
           {
-              data: icesiCosts,
+              data: bodyCosts,
               label: "Vehicle Body",
               backgroundColor: "#994d00",
           },
           {
-            data: iceciCosts,
+            data: financeCosts,
             label: "Finance Cost",
             backgroundColor: "#ff0000"
           },
           {
-            data: hevsiCosts,
+            data: fuelCosts,
             label: "Annual Fuel Cost",
             backgroundColor: "#ffaa00"
           },
           {
-            data: phevCosts,
+            data: insuranceCosts,
             label: "Insurance Cost",
             backgroundColor: "#9494b8"
           },
           {
-            data: fcevCosts,
+            data: taxCosts,
             label: "Taxes And Fees",
             backgroundColor: "#e1e1ea"
           },
           {
-            data: bevCosts,
+            data: maintenanceCosts,
             label: "Maintenance Cost",
             backgroundColor: "#3333ff"
-          }//,
-          // {
-          //   data: repairCosts,
-          //   label: "Repair Cost",
-          //   backgroundColor: "#66a3ff"
-          // }
+          },
+          {
+            data: repairCosts,
+            label: "Repair Cost",
+            backgroundColor: "#66a3ff"
+          }
         ]
       },
       options: 
       {
+        title:
+        {
+          display: true,
+          text: "TCO Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Powertrains",
+          fontFamily: "sans-serif",
+          fontColor: "black",
+          fontSize: 20,
+          position: 'top'
+        },
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],

@@ -54,6 +54,41 @@ nav{
     display: none;
 }
 
+.togglePowertrainLabel{
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 20px;
+    background-color: rgb(121, 121, 121);
+    border-radius: 20px;
+    color: white;
+}
+
+.togglePowertrainLabel::after{
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: white;
+    top: 1px;
+    left: 1px;
+    transition: all 0.3;
+}
+
+.togglePowertrain:checked + .togglePowertrainLabel::after{
+    left: 130px;
+}
+
+.togglePowertrain:checked + .togglePowertrainLabel{
+    background-color: #6de747;
+    color: black;
+}
+
+.togglePowertrain{
+    display: none;
+}
+
 .toggleLabel .labelText{
     float: right;
     margin-right: 20px;
@@ -89,6 +124,11 @@ p{
 .bannerPicture{
     max-width: 100%;
     margin: 0px;
+}
+
+.canvasContainer{
+    position: relative;
+    width: 1500px;
 }
 
 .content{

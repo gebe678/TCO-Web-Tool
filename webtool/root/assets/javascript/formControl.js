@@ -17,12 +17,13 @@ function submittedAjaxForm()
     let repairData = [];
     let vmtData = [];
 
-    let icesi = [];
-    let iceci = [];
-    let hevsi = [];
-    let phev = [];
-    let fcev = [];
-    let bev = [];
+    let body = [];
+    let finance = [];
+    let fuel = [];
+    let insurance = [];
+    let tax = [];
+    let maintenance = [];
+    let repair = [];
 
     canvas.style.display = "none";
 
@@ -31,7 +32,7 @@ function submittedAjaxForm()
         event.preventDefault();
         let dataForm = $(this).serialize();
         let bodyType = document.getElementById("vehicleBodyMenu");
-        let showPowertrainGraph = document.getElementById("showPowertrainGraph");
+        let showPowertrainGraph = document.getElementById("powertrainComparison");
 
         $.ajax({
             type: 'POST',
@@ -53,24 +54,17 @@ function submittedAjaxForm()
                 vmtData[i] = vehicleInformation[7][i];
             }
 
-            if(showPowertrainGraph.value == "yes")
+            if(showPowertrainGraph.checked)
             {
-                let body = [];
-                let finance = [];
-                let fuel = [];
-                let insurance = [];
-                let tax = [];
-                let maintenance = [];
-                let repair = [];
-
                 for(let i = 0; i < 7; i++)
                 {
-                    icesi[i] = vehicleInformation[8][i];
-                    iceci[i] = vehicleInformation[9][i];
-                    hevsi[i] = vehicleInformation[10][i];
-                    phev[i] = vehicleInformation[11][i];
-                    fcev[i] = vehicleInformation[12][i];
-                    bev[i] = vehicleInformation[13][i];
+                    body[i] = vehicleInformation[8][i];
+                    finance[i] = vehicleInformation[9][i];
+                    fuel[i] = vehicleInformation[10][i];
+                    insurance[i] = vehicleInformation[11][i];
+                    tax[i] = vehicleInformation[12][i];
+                    maintenance[i] = vehicleInformation[13][i];
+                    repair[i] = vehicleInformation[14][i];
                 }
             }
             else
@@ -83,9 +77,9 @@ function submittedAjaxForm()
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
 
-            if(showPowertrainGraph.value == "yes")
+            if(showPowertrainGraph.checked)
             {
-                powertrainGraph(icesi, iceci, hevsi, phev, fcev, bev);
+                powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
         });
     }

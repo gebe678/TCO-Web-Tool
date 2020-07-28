@@ -23,7 +23,7 @@
 <body>
 <div class="content">
     <header>
-            <img src="assets/page_pictures/banner_cropped.jpg" class="bannerPicture">
+            <img src="assets/page_pictures/banner_updated.jpg" class="bannerPicture">
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
@@ -423,17 +423,11 @@
                 </div> 
             </div>
 
-            <div class="dropDownMenu">
-                    <div class="label">
-                        <label for="showPowertrainGraph">Powertrain Graph</label>
-                    </div>
-                    <div class="border">
-                        <select name="showPowertrainGraph" class="selectMenu" id="showPowertrainGraph">
-                            <option value="yes">Show Graph</option>
-                            <option value="no">Hide Graph</option>
-                        </select>
-                    </div>
-                </div>
+            <div class="checkboxContainer">
+                <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>
+                <input type="checkbox" id="powertrainComparison" class="togglePowertrain" name="showPowertrainGraph">
+                <label for="powertrainComparison" class="togglePowertrainLabel"></label>
+            </div>
 
             <input type="submit" class="submitButton" name="submit" id="submit">
         </form>
