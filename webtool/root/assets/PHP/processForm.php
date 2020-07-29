@@ -29,6 +29,7 @@
         $taxesAndFees[$i] = $taxesAndFees[$i] / pow((1 + $discountRate), $year);
         $maintenance[$i] = $maintenance[$i] / pow((1 + $discountRate), $year);
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
+        $vehicleVmt[$i] = floatval($vehicleVmt[$i]);
     }
 
     if(empty($_POST["showPowertrainGraph"]))

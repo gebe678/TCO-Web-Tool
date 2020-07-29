@@ -1,6 +1,6 @@
 function main()
 {
-    submittedAjaxForm();
+   submittedAjaxForm();
 }
 
 function submittedAjaxForm()
@@ -27,7 +27,7 @@ function submittedAjaxForm()
 
     canvas.style.display = "none";
 
-    form.addEventListener("change", function()
+    /*form.addEventListener("change",*/ form.onsubmit =  function()
     {
         event.preventDefault();
         let dataForm = $(this).serialize();
@@ -37,10 +37,12 @@ function submittedAjaxForm()
         $.ajax({
             type: 'POST',
             url: "assets/PHP/processForm.php",
-            data: dataForm
+            data: dataForm,
+            dataType: 'text',
         }).done(function(data)
         {
             let vehicleInformation = jQuery.parseJSON(data);
+            console.log(data);
 
             for(let i = 0; i < 30; i++)
             {
@@ -82,7 +84,7 @@ function submittedAjaxForm()
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
         });
-    })
+    }//)
 }
 
 main();

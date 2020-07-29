@@ -113,7 +113,7 @@
         $technology = $_POST["technology"];
         $modelYear = $_POST["modelYear"];
         $vehicleBody = $_POST["vehicleBody"];
-        $fuelType = $_POST["fuel"];
+        $powertrainFuelType = $_POST["fuel"];
 
         $bevMPGQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE $modelYear";
         $bevMPG = $connect->query($bevMPGQuery); $bevMPG = $bevMPG->fetch_assoc(); $bevMPG = $bevMPG[$bevMPGRange];
@@ -136,7 +136,7 @@
         }
 
    
-        if($fuelType == "Biofuel")
+        if($powertrainFuelType == "Biofuel")
         {
             $costComponentQuery = "SELECT Gasoline FROM aeo_fuel_prices";
             $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["Gasoline"];
@@ -147,7 +147,7 @@
 
             $fuelPrice = $result + 1 * $biofuelPremium * ($fuelData - 1) / $fuelData;
         }
-        else if($fuelType == "Hydrogen")
+        else if($powertrainFuelType == "Hydrogen")
         {
             $hydrogenCost = $_POST["hydrogenCost"];
             $hydrogenPremium = $_POST["hydrogenPremium"];
@@ -155,7 +155,7 @@
 
             $fuelPrice = 5 + $hydrogenPremium * ($hydrogenCost - $yearInfo) / $hydrogenCost;
         }
-        else if($fuelType == "Diesel_Electric")
+        else if($powertrainFuelType == "Diesel_Electric")
         {
             $costComponentQuery = "SELECT Diesel FROM aeo_fuel_prices";
             $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["Diesel"];
@@ -168,8 +168,8 @@
         }
         else
         {
-            $costComponentQuery = "SELECT $fuelType FROM aeo_fuel_prices";
-            $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result[$fuelType];
+            $costComponentQuery = "SELECT $powertrainFuelType FROM aeo_fuel_prices";
+            $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result[$powertrainFuelType];
             $fuelPrice = $result;
         }
 
