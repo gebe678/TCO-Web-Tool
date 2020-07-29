@@ -355,3 +355,11 @@
 ::1 - - [29/Jul/2020:14:03:44 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2171
 ::1 - - [29/Jul/2020:14:03:48 -0400] "GET /assets/sillouette_pictures/Compact%20Sedan.jpg HTTP/1.1" 200 33526
 ::1 - - [29/Jul/2020:14:03:55 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2154
+::1 - - [29/Jul/2020:14:04:46 -0400] "GET / HTTP/1.1" 200 26160
+::1 - - [29/Jul/2020:14:04:47 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [29/Jul/2020:14:04:54 -0400] "GET / HTTP/1.1" 200 26160
+::1 - - [29/Jul/2020:14:04:59 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2154
+::1 - - [29/Jul/2020:14:05:09 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 193
+::1 - - [29/Jul/2020:14:05:35 -0400] "GET / HTTP/1.1" 200 26160
+::1 - - [29/Jul/2020:14:05:35 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [29/Jul/2020:14:05:40 -0400] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2566
