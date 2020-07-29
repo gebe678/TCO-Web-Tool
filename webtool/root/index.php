@@ -302,7 +302,7 @@
                         </div>
                         <div class="border">
                             <select name="bevRange" class="selectMenu" id="bevRangeMenu">
-                                <option value="0">BEV Powertrain Not Selected</option>
+                                <option value="200">BEV Powertrain Not Selected</option>
                                 <option value="200">200</option>
                                 <option value="300">300</option>
                                 <option value="400">400</option>
@@ -431,7 +431,7 @@
                 <label for="powertrainComparison" class="togglePowertrainLabel"></label>
             </div>
 
-            <input type="submit" class="submitButton" name="submit" id="submit">
+            <!-- <input type="submit" class="submitButton"> -->
         </form>
 
         <?php
