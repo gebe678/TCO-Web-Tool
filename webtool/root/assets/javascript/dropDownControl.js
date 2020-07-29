@@ -360,6 +360,12 @@ function powertrainMenuModifier()
                 powertrainMenu.options[0].selected = true;
         }
     });
+
+    // vehicleBodyMenu.addEventListener("change", function()
+    // {
+    //     fuelMenuModifier();
+    //     bevMenuModifier();
+    // });
 }
 
 function fuelMenuModifier()

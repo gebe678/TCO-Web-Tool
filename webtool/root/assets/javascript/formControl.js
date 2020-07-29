@@ -1,10 +1,7 @@
 function main()
 {
     let form = document.getElementById("vehicleInfoForm");
-
-    form.addEventListener("change", function(){
         submittedAjaxForm();
-    });
 }
 
 function submittedAjaxForm()
@@ -31,7 +28,7 @@ function submittedAjaxForm()
 
     canvas.style.display = "none";
 
-    form.onsubmit = function()
+    form.addEventListener("change", function()
     {
         event.preventDefault();
         let dataForm = $(this).serialize();
@@ -86,9 +83,7 @@ function submittedAjaxForm()
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
         });
-    };
-
-    form.dispatchEvent(new Event("submit"));
+    });
 }
 
 main();
