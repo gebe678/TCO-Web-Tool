@@ -1,13 +1,16 @@
 function main()
 {
     let form = document.getElementById("vehicleInfoForm");
+    form.addEventListener("change", function(){
         submittedAjaxForm();
+    });
 }
 
 function submittedAjaxForm()
 {
     let form = document.getElementById("vehicleInfoForm");
     let canvas = document.querySelector(".canvasContainer");
+    let submitButton = document.getElementById("submitButton");
 
     let vehicleData = [];
     let financingData = [];
@@ -28,13 +31,15 @@ function submittedAjaxForm()
 
     canvas.style.display = "none";
 
-    form.addEventListener("change", function()
+    
+    form.addEventListener("submit", function()
     {
         event.preventDefault();
+
         let dataForm = $(this).serialize();
         let bodyType = document.getElementById("vehicleBodyMenu");
         let showPowertrainGraph = document.getElementById("powertrainComparison");
-
+        
         $.ajax({
             type: 'POST',
             url: "assets/PHP/processForm.php",
@@ -84,6 +89,8 @@ function submittedAjaxForm()
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
         });
     });
+
+    submitButton.click();
 }
 
 main();

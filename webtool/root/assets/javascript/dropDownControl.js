@@ -15,7 +15,7 @@ function vmtMenuModifier()
         }
     }
 
-    vehicleBody.addEventListener("click", function(){
+    vehicleBody.addEventListener("change", function(){
         switch(vehicleBody.selectedIndex)
         {
             case 0:
@@ -272,7 +272,7 @@ function incrementalAnnualFuelModifier()
     incAnnualFuelSlider.disabled = true;
     incAnnualFuelRange.disabled = true;
 
-    fuelPriceMethodMenu.addEventListener("click", function(){
+    fuelPriceMethodMenu.addEventListener("change", function(){
         switch(fuelPriceMethodMenu.selectedIndex)
         {
             case 1:
@@ -299,7 +299,7 @@ function bevMenuModifier()
     bevRange.options[2].disabled = true;
     bevRange.options[3].disabled = true;
 
-    powertrain.addEventListener("click", function(){
+    powertrain.addEventListener("change", function(){
         switch(powertrain.selectedIndex)
         {
             case 5:
@@ -324,7 +324,7 @@ function powertrainMenuModifier()
     let powertrainMenu = document.getElementById("powertrainMenu");
     let vehicleBodyMenu = document.getElementById("vehicleBodyMenu");
 
-    vehicleBodyMenu.addEventListener("click", function(){
+    vehicleBodyMenu.addEventListener("change", function(){
         switch(vehicleBodyMenu.selectedIndex)
         {
             case 10:
@@ -384,8 +384,86 @@ function fuelMenuModifier()
     fuelMenu.options[6].disabled = true;
     fuelMenu.options[7].disabled = true;
 
-    powertrainMenu.addEventListener("click", function()
+    powertrainMenu.addEventListener("change", function()
     {
+        switch(powertrainMenu.selectedIndex)
+        {
+            case 0:
+                fuelMenu.options[0].disabled = false;
+                fuelMenu.options[1].disabled = true;
+                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[3].disabled = false;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
+                fuelMenu.options[0].selected = true;
+                break;
+            case 1:
+                fuelMenu.options[0].disabled = true;
+                fuelMenu.options[1].disabled = false;
+                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[3].disabled = false;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
+                fuelMenu.options[1].selected = true;
+                break;
+            case 2:
+                fuelMenu.options[0].disabled = false;
+                fuelMenu.options[1].disabled = true;
+                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[3].disabled = false;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
+                fuelMenu.options[0].selected = true;
+                break;
+            case 3:
+                fuelMenu.options[0].disabled = true;
+                fuelMenu.options[1].disabled = true;
+                fuelMenu.options[2].disabled = true;
+                fuelMenu.options[3].disabled = true;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = true;
+                
+                if(vehicleBodyMenu.selectedIndex <= 9)
+                {
+                    fuelMenu.options[6].disabled = false;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[6].selected = true;
+                }
+                else
+                {
+                    fuelMenu.options[6].disabled = true;
+                    fuelMenu.options[7].disabled = false;
+                    fuelMenu.options[7].selected = true;
+                }
+ 
+                break;
+            case 4:
+                fuelMenu.options[0].disabled = true;
+                fuelMenu.options[1].disabled = true;
+                fuelMenu.options[2].disabled = true;
+                fuelMenu.options[3].disabled = true;
+                fuelMenu.options[4].disabled = false;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
+                fuelMenu.options[4].selected = true;
+                break;
+            case 5:
+                fuelMenu.options[0].disabled = true;
+                fuelMenu.options[1].disabled = true;
+                fuelMenu.options[2].disabled = true;
+                fuelMenu.options[3].disabled = true;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = false;
+                fuelMenu.options[6].disabled = true;
+                fuelMenu.options[5].selected = true;
+                break;
+        }
+    });
+
+    vehicleBodyMenu.addEventListener("change", function(){
         switch(powertrainMenu.selectedIndex)
         {
             case 0:
@@ -465,7 +543,7 @@ function fuelMenuModifier()
 
 }
 
-function main()
+function dropDownControlMain()
 {
     powertrainMenuModifier();
     fuelMenuModifier();
@@ -474,4 +552,4 @@ function main()
     //incrementalAnnualFuelModifier();
 }
 
-main();
+dropDownControlMain();
