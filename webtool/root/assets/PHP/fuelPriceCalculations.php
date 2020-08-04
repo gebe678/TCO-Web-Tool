@@ -66,34 +66,48 @@
         return $totalCost;
     }
 
+    function calculatePremiumGasolineCost($numYears)
+    {
+        include "getID.php";
+
+        $totalCost;
+
+        for($i = 0; $i < $numYears + 1; $i++)
+        {
+            $totalCost[$i] = getGasolineData($i) + $premiumGasMarkup;
+        }
+
+        return $totalCost;
+    }
+
     function caluclatePercentageIncrease($numYears)
     {
         include "getID.php";
 
-        if($fuelType == "Biofuel")
+        $fuelPriceType = $_POST["fuelPriceMethod"];
+        
+        if($fuelPriceType == "increase")
         {
-            $bioCost = calculateBiofuelCost(1);
-            $totalCost[0] = $bioCost[0];
+            if($fuelType == "Diesel_Electric")
+            {
+                $dieselElec = calculateDieselElectricCost($numYears);
+                $totalCost[0] = $dieselElec[0];
+            }
+            else
+            {
+                $totalCost[0] = getEnergyUseData();
+            }
         }
-        else if($fuelType == "Hydrogen")
+        else if($fuelPriceType == "userDefined")
         {
-            $hydroCost = calculateHydrogenCost(1);
-            $totalCost[0] = $hydroCost[0];
-        }
-        else if($fuelType == "Diesel_Electric")
-        {
-            $dieselElec = calculateDieselElectricCost($numYears);
-            $totalCost[0] = $dieselElec[0];
-        }
-        else
-        {
-            $totalCost[0] = getFuelData(0);
+            $totalCost[0] = $userDefinedFuel;
         }
 
         for($i = 1; $i < $numYears; $i++)
         {
             $totalCost[$i] = $totalCost[$i - 1] * (1 + ($annualFuelPriceIncrease * .01));
         }
+    
 
         return $totalCost;
     }
@@ -138,6 +152,10 @@
             {
                 $fuelPrice = calculateDieselElectricCost($numYears);
             }
+            else if($fuelType == "Premium_Gasoline")
+            {
+                $fuelPrice = calculatePremiumGasolineCost($numYears);
+            }
             else
             {
                 for($i = 0; $i < $numYears + 1; $i++)
@@ -148,6 +166,11 @@
         }
         else if($fuelPriceType == "increase")
         {
+            $fuelPrice = caluclatePercentageIncrease($numYears + 1);
+        }
+
+        else if($fuelPriceType == "userDefined")
+        {  
             $fuelPrice = caluclatePercentageIncrease($numYears + 1);
         }
 

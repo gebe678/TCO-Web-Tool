@@ -11,6 +11,7 @@
         $markupFactor = $_POST["markupFactor"];
         $depreciationRate = $_POST["depreciationRate"];
         $writeOff = $_POST["writeOff"];
+        $sum = 0;
 
         $bevCost = "BEV_" . 200;
 
@@ -22,10 +23,10 @@
 
         if($depreciationType == "simple")
         {
-            $bodyType = $powertrainType;
             $bodyCost;
+            $bodyType = $powertrainType;
             $vBodyCost;
-
+    
             if($bodyType === "BEV")
             {
                 $vBodyCost = $bevCostResult;
@@ -34,16 +35,23 @@
             {
                 $vBodyCost = $vehicleBodyCost;
             }
-
+    
             if($vBodyCost == 0)
             {
                 $vBodyCost = $_POST["bodyCostPlugin"];
             }
-
-            $bodyCost = $vBodyCost * $markupFactor;
-            $bodyCost = $bodyCost * $depreciationRate;
-
-            return $bodyCost;
+    
+            $bodyCost[0] = $vBodyCost * $markupFactor;
+            $oldCost = $bodyCost[0];
+    
+            for($i = 0; $i < 5; $i++)
+            {
+                $bodyCost[$i] = $oldCost * $depreciationRate;
+                $oldCost = $oldCost - $bodyCost[$i];
+                $sum += $bodyCost[$i];
+            }
+    
+            return $sum;
         }
 
         else if($depreciationType == "advanced")
@@ -51,7 +59,9 @@
             $bodyCost = $vehicleBodyCost * $markupFactor;
 
             $rate = $bodyCost / $writeOff;
-            return $rate;
+            $sum += $rate;
+
+            return $sum;
         }
     }
 
@@ -66,6 +76,7 @@
         $bevRange = $_POST["bevRange"];
         $markupFactor = $_POST["markupFactor"];
         $financeTerm = $_POST["financeTerm"];
+        $sum = 0;
 
         $bevCost = "BEV_" . 200;
 
@@ -92,96 +103,60 @@
         $vehicleCost = $vBodyCost * $markupFactor;
         $financeRate = .045;
         $downPaymentPercentage = .15;
-        $loanPayment = $vehicleCost * (1 - .15);
+        $loanPayment[0] = $vehicleCost * (1 - .15);
         $monthlyPayment = round($loanPayment[0] * ($financeRate / 12) * pow((1 + $financeRate / 12), $financeTerm * 12) / (pow((1 + $financeRate / 12), $financeTerm * 12) - 1), 7);
-        $financeCost = $financeRate * $loanPayment;
+        $fianceCost;
+        for($i = 1; $i < 5; $i++)
+        {
+            if($i < $financeTerm)
+            {
+                 $loanPayment[$i] = $loanPayment[$i - 1] - ($monthlyPayment * 12 - $loanPayment[$i - 1] * $financeRate);
+            }
+            else
+            {
+                $loanPayment[$i] = 0;
+            }
+        }
+
+        for($i = 0; $i < 5; $i++)
+        {
+            $financeCost[$i] = $financeRate * $loanPayment[$i];
+            $sum += $financeCost[$i];
+        }
         
-        return $financeCost;
+        return $sum;
     }
 
+    // Fix function to calculate the fuel type based on the powertrain!!!!
     function calculateFuelCost($powertrainType)
     {
         include "connectDatabase.php";
 
-        $fuelPrice;
-        $MPGCost;
-        $fuelPricePerMile;
-        $annualFuelPrice;
-        $mpgYearDegradation = .001;
-        $fuelPriceType = $_POST["fuelPriceMethod"];
-        $bevMPGRange = "BEV_" . 200 . "_MPG";
-        $technology = $_POST["technology"];
-        $modelYear = $_POST["modelYear"];
-        $vehicleBody = $_POST["vehicleBody"];
-        $powertrainFuelType = $_POST["fuel"];
-
-        $bevMPGQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE $modelYear";
-        $bevMPG = $connect->query($bevMPGQuery); $bevMPG = $bevMPG->fetch_assoc(); $bevMPG = $bevMPG[$bevMPGRange];
-
-        $fuelMPGQuery = "SELECT MPG FROM vehicle_mpg WHERE Powertrain LIKE '$powertrainType' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
-        $fuelMPG = $connect->query($fuelMPGQuery); $fuelMPG = $fuelMPG->fetch_assoc(); $fuelMPG = $fuelMPG["MPG"];
-
-        if($powertrainType == "BEV")
+        switch($powertrainType)
         {
-            $MPGCost = $bevMPG;
-        }
-        else
-        {
-            $MPGCost = $fuelMPG;
+            case "ICE-SI":
+                return 0;
+                break;
+            case "ICE-CI":
+                return 0;
+                break;
+            case "HEV-SI":
+                return 0;
+                break;
+            case "PHEV":
+                return 0;
+                break;
+            case "FCEV":
+                return 0;
+                break;
+            case "BEV":
+                return 0;
+                break;
+            default:
+                echo "invalid powertrain selected";
         }
 
-        if($MPGCost == 0)
-        {
-            $MPGCost = $_POST["mpgPlugin"];
-        }
-
-   
-        if($powertrainFuelType == "Biofuel")
-        {
-            $costComponentQuery = "SELECT Gasoline FROM aeo_fuel_prices";
-            $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["Gasoline"];
-                
-            $biofuelPremium = $_POST["biofuelPremium"];
-            $fuelData = $_POST["biofuelCost"];
-            $yearInfo = 0;
-
-            $fuelPrice = $result + 1 * $biofuelPremium * ($fuelData - 1) / $fuelData;
-        }
-        else if($powertrainFuelType == "Hydrogen")
-        {
-            $hydrogenCost = $_POST["hydrogenCost"];
-            $hydrogenPremium = $_POST["hydrogenPremium"];
-            $yearInfo = 0;
-
-            $fuelPrice = 5 + $hydrogenPremium * ($hydrogenCost - $yearInfo) / $hydrogenCost;
-        }
-        else if($powertrainFuelType == "Diesel_Electric")
-        {
-            $costComponentQuery = "SELECT Diesel FROM aeo_fuel_prices";
-            $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["Diesel"];
-            $electricQuery = "SELECT Electric FROM aeo_fuel_prices";
-            $electric = $connect->query($electricQuery); $electric = $electric->fetch_assoc(); $electric = $electric["Electric"];
-
-            $PHEVUtilityFactor = 0.3;
-
-            $fuelPrice = $result * (1 - $PHEVUtilityFactor) + $electric * $PHEVUtilityFactor;  
-        }
-        else
-        {
-            $costComponentQuery = "SELECT $powertrainFuelType FROM aeo_fuel_prices";
-            $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result[$powertrainFuelType];
-            $fuelPrice = $result;
-        }
-
-        $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
-        $fuelPricePerMile = $fuelPrice / $MPGCost;
-
-        $vmtType = $_POST["vmt"];
-        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
-        $vmt = $connect->query($vmtQuery); $vmt = $vmt->fetch_assoc(); $vmt = $vmt[$vmtType];
-        $annualFuelCost = $fuelPricePerMile * $vmt;
-
-        return $annualFuelCost;
+        return 0;
     }
 
     function calculateInsruance($powertrainType)

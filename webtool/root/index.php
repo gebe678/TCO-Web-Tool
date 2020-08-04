@@ -193,13 +193,14 @@
                         <div class="border">
                             <select name="fuel" class="selectMenu" id="fuelTypes">
                                 <option value="Gasoline">Gasoline</option>
+                                <option value="Premium_Gasoline">Premium Gasoline</option>
                                 <option value="Diesel">Diesel</option>
                                 <option value="CNG">CNG</option>
                                 <option value="Biofuel">Biofuel</option>
                                 <option value="Hydrogen">Hydrogen</option>
                                 <option value="Electric">Electric</option>
-                                <option value="Gas_Electric">Gas-Electric</option>
-                                <option value="Diesel_Electric">Diesel-Electric</option>
+                                <option value="Gas_Electric">Gas Electric</option>
+                                <option value="Diesel_Electric">Diesel Electric</option>
                             </select>
                         </div>
                     </div>
@@ -370,6 +371,45 @@
                         <select name="fuelPriceMethod" class="selectMenu" id="fuelPriceMethod">
                             <option value="defined">Defined for all years</option>
                             <option value="increase">Fuel Price Increase Method</option>
+                            <option value="userDefined">User Defined Increase Method</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="years">Fuel Starting Cost Year:</label>
+                    </div>
+                    <div class="border">
+                        <select name="fuelYear" class="selectMenu" id="fuelStartYear">
+                            <option value="2020">2020</option>
+                            <option value="2025">2025</option>
+                            <option value="2025">2025</option>
+                            <option value="2030">2030</option>
+                            <option value="2035">2035</option>
+                            <option value="2040">2040</option>
+                            <option value="2045">2045</option>
+                            <option value="2050">2050</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputContainer">
+                    <label for="premiumGasModifier" class="sliderLabel">Premium Markup</label>
+                    <input type="range" min="0" max="1" step=".01" value=".40" class="slider" name="premiumGasModifier" id="premiumGasModifier">
+                    <input type="number" min="0" max="1" step=".01" value=".40" class="outputText">
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="hydrogenSuccessFactor">Hydrogen Success:</label>
+                    </div>
+                    <div class="border">
+                        <select name="hydrogenSuccessFactor" class="selectMenu" id="hydrogenSuccessFactor">
+                            <option value="Success">Hydrogen Success</option>
+                            <option value="Failure">Hydrogen Failure</option>
                         </select>
                     </div>
                 </div>

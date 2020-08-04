@@ -376,13 +376,14 @@ function fuelMenuModifier()
 
     fuelMenu.options[0].disabled = false;
     fuelMenu.options[1].disabled = true;
-    fuelMenu.options[2].disabled = false;
+    fuelMenu.options[2].disabled = true;
     fuelMenu.options[3].disabled = false;
-    fuelMenu.options[4].disabled = true;
+    fuelMenu.options[4].disabled = false;
     fuelMenu.options[5].disabled = true;
     fuelMenu.options[0].selected = true;
     fuelMenu.options[6].disabled = true;
     fuelMenu.options[7].disabled = true;
+    fuelMenu.options[8].disabled = true;
 
     powertrainMenu.addEventListener("change", function()
     {
@@ -391,31 +392,40 @@ function fuelMenuModifier()
             case 0:
                 fuelMenu.options[0].disabled = false;
                 fuelMenu.options[1].disabled = true;
-                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
                 fuelMenu.options[0].selected = true;
                 break;
             case 1:
                 fuelMenu.options[0].disabled = true;
-                fuelMenu.options[1].disabled = false;
+                fuelMenu.options[1].disabled = true;
                 fuelMenu.options[2].disabled = false;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
-                fuelMenu.options[1].selected = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[2].selected = true;
                 break;
             case 2:
                 fuelMenu.options[0].disabled = false;
                 fuelMenu.options[1].disabled = true;
-                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
                 fuelMenu.options[0].selected = true;
                 break;
             case 3:
@@ -425,18 +435,19 @@ function fuelMenuModifier()
                 fuelMenu.options[3].disabled = true;
                 fuelMenu.options[4].disabled = true;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
                 
                 if(vehicleBodyMenu.selectedIndex <= 9)
                 {
-                    fuelMenu.options[6].disabled = false;
-                    fuelMenu.options[7].disabled = true;
-                    fuelMenu.options[6].selected = true;
+                    fuelMenu.options[7].disabled = false;
+                    fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[7].selected = true;
                 }
                 else
                 {
-                    fuelMenu.options[6].disabled = true;
-                    fuelMenu.options[7].disabled = false;
-                    fuelMenu.options[7].selected = true;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[8].disabled = false;
+                    fuelMenu.options[8].selected = true;
                 }
  
                 break;
@@ -445,10 +456,12 @@ function fuelMenuModifier()
                 fuelMenu.options[1].disabled = true;
                 fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = true;
-                fuelMenu.options[4].disabled = false;
-                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = false;
                 fuelMenu.options[6].disabled = true;
-                fuelMenu.options[4].selected = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[5].selected = true;
                 break;
             case 5:
                 fuelMenu.options[0].disabled = true;
@@ -456,9 +469,11 @@ function fuelMenuModifier()
                 fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = true;
                 fuelMenu.options[4].disabled = true;
-                fuelMenu.options[5].disabled = false;
-                fuelMenu.options[6].disabled = true;
-                fuelMenu.options[5].selected = true;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = false;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[6].selected = true;
                 break;
         }
     });
@@ -469,31 +484,40 @@ function fuelMenuModifier()
             case 0:
                 fuelMenu.options[0].disabled = false;
                 fuelMenu.options[1].disabled = true;
-                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
                 fuelMenu.options[0].selected = true;
                 break;
             case 1:
                 fuelMenu.options[0].disabled = true;
-                fuelMenu.options[1].disabled = false;
+                fuelMenu.options[1].disabled = true;
                 fuelMenu.options[2].disabled = false;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
-                fuelMenu.options[1].selected = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[2].selected = true;
                 break;
             case 2:
                 fuelMenu.options[0].disabled = false;
                 fuelMenu.options[1].disabled = true;
-                fuelMenu.options[2].disabled = false;
+                fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[4].disabled = false;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
                 fuelMenu.options[0].selected = true;
                 break;
             case 3:
@@ -503,18 +527,19 @@ function fuelMenuModifier()
                 fuelMenu.options[3].disabled = true;
                 fuelMenu.options[4].disabled = true;
                 fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = true;
                 
                 if(vehicleBodyMenu.selectedIndex <= 9)
                 {
-                    fuelMenu.options[6].disabled = false;
-                    fuelMenu.options[7].disabled = true;
-                    fuelMenu.options[6].selected = true;
+                    fuelMenu.options[7].disabled = false;
+                    fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[7].selected = true;
                 }
                 else
                 {
-                    fuelMenu.options[6].disabled = true;
-                    fuelMenu.options[7].disabled = false;
-                    fuelMenu.options[7].selected = true;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[8].disabled = false;
+                    fuelMenu.options[8].selected = true;
                 }
  
                 break;
@@ -523,10 +548,12 @@ function fuelMenuModifier()
                 fuelMenu.options[1].disabled = true;
                 fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = true;
-                fuelMenu.options[4].disabled = false;
-                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[4].disabled = true;
+                fuelMenu.options[5].disabled = false;
                 fuelMenu.options[6].disabled = true;
-                fuelMenu.options[4].selected = true;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[5].selected = true;
                 break;
             case 5:
                 fuelMenu.options[0].disabled = true;
@@ -534,13 +561,49 @@ function fuelMenuModifier()
                 fuelMenu.options[2].disabled = true;
                 fuelMenu.options[3].disabled = true;
                 fuelMenu.options[4].disabled = true;
-                fuelMenu.options[5].disabled = false;
-                fuelMenu.options[6].disabled = true;
-                fuelMenu.options[5].selected = true;
+                fuelMenu.options[5].disabled = true;
+                fuelMenu.options[6].disabled = false;
+                fuelMenu.options[7].disabled = true;
+                fuelMenu.options[8].disabled = true;
+                fuelMenu.options[6].selected = true;
+                break;
+        }
+
+        switch(vehicleBodyMenu.selectedIndex)
+        {
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                fuelMenu.options[0].disabled = true;
+                fuelMenu.options[1].disabled = false;
+                fuelMenu.options[1].selected = true;
                 break;
         }
     });
 
+}
+
+function definedFuel()
+{
+    let userDefinedFuel = document.getElementById("userDefinedFuel");
+    let fuelPriceMethod = document.getElementById("fuelPriceMethod");
+
+    fuelPriceMethod.addEventListener("change", function(){
+
+        if(fuelPriceMethod.selectedIndex == 2)
+        {
+            let value = prompt("please enter a starting fuel value", "2.50");
+
+            if(isNaN(value))
+            {
+                value = prompt("Input entered not a number", "2.50");
+            }
+
+            userDefinedFuel.value = value;
+        }
+    });
 }
 
 function dropDownControlMain()
@@ -549,6 +612,7 @@ function dropDownControlMain()
     fuelMenuModifier();
     vmtMenuModifier();
     bevMenuModifier();
+    definedFuel();
     //incrementalAnnualFuelModifier();
 }
 

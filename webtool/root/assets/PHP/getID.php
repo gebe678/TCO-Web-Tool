@@ -19,6 +19,10 @@
     $vmtType = $_POST["vmt"];
     $bevMPGRange = "BEV_" . $bevRange . "_MPG";
     $bevCost = "BEV_" . $bevRange;
+    $fuelYear = $_POST["fuelYear"];
+    $hydrogenSuccess = $_POST["hydrogenSuccessFactor"];
+    $userDefinedFuel = $_POST["userDefinedFuel"];
+    $premiumGasMarkup = $_POST["premiumGasModifier"];
 
     // vehicle body data
     $markupFactor = $_POST["markupFactor"];

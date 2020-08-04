@@ -167,4 +167,21 @@
         }
         return -1;
     }
+
+    function getEnergyUseData()
+    {
+        include "getID.php";
+
+        $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$fuelType' AND year LIKE $fuelYear";
+
+        if($fuelType == "Hydrogen")
+        {
+            $hydrogenType = $fuelType . "_" . $hydrogenSuccess;
+            $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$hydrogenType' AND year LIKE $fuelYear";
+        }
+
+        $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["price"];
+
+        return $result;
+    }
 ?>
