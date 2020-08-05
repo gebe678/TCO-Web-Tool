@@ -19,6 +19,7 @@ function submittedAjaxForm()
     let taxData = [];
     let maintenanceData = [];
     let repairData = [];
+    let laborData = [];
     let vmtData = [];
 
     let body = [];
@@ -57,7 +58,8 @@ function submittedAjaxForm()
                 taxData[i] = parseFloat(vehicleInformation[4][i]);
                 maintenanceData[i] = vehicleInformation[5][i];
                 repairData[i] = vehicleInformation[6][i];
-                vmtData[i] = vehicleInformation[7][i];
+                laborData[i] = vehicleInformation[7][i];
+                vmtData[i] = vehicleInformation[8][i];
             }
 
             if(showPowertrainGraph.checked)
@@ -85,8 +87,27 @@ function submittedAjaxForm()
                 powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
 
+            switch(bodyType.selectedIndex)
+            {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    for(let i = 0; i < 30; i++)
+                    {
+                        laborData[i] = 0;
+                    }
+                    break;
+            }
+
             imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
-            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, vmtData);
+            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData, vmtData);
         });
     });
 

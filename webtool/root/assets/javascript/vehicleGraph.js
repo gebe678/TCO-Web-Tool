@@ -1,7 +1,7 @@
 let bodyName = document.getElementById("vehicleBodyMenu");
 let powertrainName = document.getElementById("powertrainMenu");
 
-function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair)
+function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
 {
     let canvas = document.getElementById("vehicleGraph");
 
@@ -29,6 +29,8 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
     // let repair = document.querySelectorAll(".costComponents.repair");
     let repairCosts = [];
 
+    let laborCosts = [];
+
     let totalCostOwnership = [];
 
     for(let i = 0; i < 30; i++)
@@ -41,7 +43,8 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
         taxesAndFeesCosts[i] = parseInt(taxesAndFees[i]); //parseInt(taxesAndFees[i].innerHTML);
         maintenanceCosts[i] = parseInt(maintenance[i]); //parseInt(maintenance[i].innerHTML);
         repairCosts[i] = parseInt(repair[i]); //parseInt(repair[i].innerHTML);
-        totalCostOwnership[i] = vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i];
+        laborCosts[i] = parseInt(labor[i]);
+        totalCostOwnership[i] = vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i] + laborCosts[i];
 
         // console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
         // " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
@@ -89,6 +92,11 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
             data: repairCosts,
             label: "Repair Cost",
             backgroundColor: "#66a3ff"
+          },
+          {
+            data: laborCosts,
+            label: "Labor Cost",
+            backgroundColor: "#03fc3d"
           }
         ]
       },
@@ -113,7 +121,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
     });
 }
 
-function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, vmt)
+function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor, vmt)
 {
     let canvas = document.getElementById("perMileGraph");
 
@@ -141,14 +149,17 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         // let repair = document.querySelectorAll(".costComponents.repair");
         let repairCosts = [];
 
+        let laborCosts = [];
+
         // vmt data by year
-        let vmtCost = vmt;
+        let vmtCost = [];
     
         let totalCostOwnership = [];
     
         for(let i = 0; i < 30; i++)
         {
             year[i] = i + 1;
+            vmtCost[i] = vmt[i];
             vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i]) / vmtCost[i]; //parseInt(vehicleBodyCost[i].innerHTML);
             financeCosts[i] = parseInt(financeCost[i]) / vmtCost[i]; //parseInt(financeCost[i].innerHTML);
             annualFuelCosts[i] = parseInt(annualFuelCost[i]) / vmtCost[i]; //parseInt(annualFuelCost[i].innerHTML);
@@ -156,6 +167,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             taxesAndFeesCosts[i] = parseInt(taxesAndFees[i]) / vmtCost[i]; //parseInt(taxesAndFees[i].innerHTML);
             maintenanceCosts[i] = parseInt(maintenance[i]) / vmtCost[i]; //parseInt(maintenance[i].innerHTML);
             repairCosts[i] = parseInt(repair[i]) / vmtCost[i]; //parseInt(repair[i].innerHTML);
+            laborCosts[i] = parseInt(labor[i]) / vmtCost[i];
             totalCostOwnership[i] = (vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i]);
     
             // console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
@@ -204,6 +216,11 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
                 data: repairCosts,
                 label: "Repair Cost",
                 backgroundColor: "#66a3ff"
+              },
+              {
+                data: laborCosts,
+                label: "Labor Cost",
+                backgroundColor: "#03fc3d"
               }
             ]
           },
@@ -333,7 +350,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
     });
 }
 
-function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, vmt)
+function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor, vmt)
 {
     $("#vehicleGraph").remove();
     $(".canvasContainer").append('<canvas id="vehicleGraph">canvas is not supported in your browser</canvas>');
@@ -341,6 +358,6 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
     $("#perMileGraph").remove();
     $(".canvasContainer").append("<canvas id='perMileGraph'>canvas is not supported in your browser</canvas>");
 
-    costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair);
-    costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, vmt);
+    costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor);
+    costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor, vmt);
 }

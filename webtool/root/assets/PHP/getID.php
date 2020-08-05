@@ -24,6 +24,9 @@
     $userDefinedFuel = $_POST["userDefinedFuel"];
     $premiumGasMarkup = $_POST["premiumGasModifier"];
 
+    // Labour data
+    $laborCost = $_POST["laborCost"];
+
     // vehicle body data
     $markupFactor = $_POST["markupFactor"];
     $depreciationRate = $_POST["depreciationRate"];

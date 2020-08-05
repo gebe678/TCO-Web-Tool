@@ -452,6 +452,12 @@
                         <input type="number" min="20000" max="100000" value="20000" class="outputText">
                     </div>
 
+                    <div class="inputContainer">
+                        <label for="laborCost" class="sliderLabel">Labor Cost Per Mile</label>
+                        <input type="range" min="0" max="1" value=".6" step="0.01" class="slider" name="laborCost" id="laborCost">
+                        <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
+                    </div>
+
                 <div class="inputContainer">
                     <label for="mpgPlugin" class="sliderLabel">Vehicle MPG Plugin</label>
                     <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin" id="mpgPlugin">

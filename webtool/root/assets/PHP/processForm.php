@@ -5,6 +5,7 @@
     include "insuranceCalculations.php";
     include "taxesAndFeesCalculations.php";
     include "financeCalculations.php";
+    include "laborCalculations.php";
     include "getID.php";
 
     $analysisWindow = $_POST["analysisWindow"];
@@ -17,6 +18,7 @@
     $taxesAndFees = calculateTaxesAndFees($analysisWindow);
     $maintenance = calculateTotalMaintenance($analysisWindow);
     $repair = calculateTotalRepair($analysisWindow);
+    $labor = calculateLaborCost($analysisWindow);
     $vehicleVmt = getVmtData();
 
     for($i = 0; $i < $analysisWindow; $i++)
@@ -34,8 +36,9 @@
 
     if(empty($_POST["showPowertrainGraph"]))
     {
-        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $vehicleVmt);
+        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt);
     }
+    
     else if(!empty($_POST["showPowertrainGraph"]))
     {
         $pBody = calculatePowertrainBody("ICE-SI");

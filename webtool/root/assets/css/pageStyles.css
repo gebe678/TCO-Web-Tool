@@ -134,9 +134,9 @@ p{
     width: 1500px;
 }  */
 
-.submitButton{
+/* .submitButton{
     display: none;
-}
+} */
 
 .content{
     min-height: calc(100vh - 70px);
