@@ -1,0 +1,9 @@
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET / HTTP/1.1" 200 28803
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/css/pageStyles.css HTTP/1.1" 200 2400
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/css/dropDownStyles.css HTTP/1.1" 200 3049
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/page_pictures/banner_final_fullsize.jpg HTTP/1.1" 304 -
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/javascript/formControl.js HTTP/1.1" 304 -
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/javascript/imageOverlay.js HTTP/1.1" 304 -
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/javascript/vehicleGraph.js HTTP/1.1" 304 -
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /assets/javascript/dropDownControl.js HTTP/1.1" 304 -
+::1 - - [05/Aug/2020:11:25:55 -0400] "GET /favicon.ico HTTP/1.1" 404 209
