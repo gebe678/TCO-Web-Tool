@@ -10,11 +10,48 @@
 
         if($bodyType === "BEV")
         {
-            $vBodyCost = $bevCostResult;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $bevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $bevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $bevRealWorldResult;
+            }
+        }
+        else if($bodyType === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $phevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $phevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $phevRealWorldResult;
+            }
         }
         else
         {
-            $vBodyCost = $vehicleBodyCost;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $vehicleBodyCost;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $vehicleAeoCost;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $vehicleRealWorldCost;
+            }
         }
 
         if($vBodyCost == 0)
@@ -39,7 +76,55 @@
         include "getID.php";
 
         $year = 1;
-        $bodyCost = $vehicleBodyCost * $markupFactor;
+        $vBodyCost;
+
+        if($bodyType === "BEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $bevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $bevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $bevRealWorldResult;
+            }
+        }
+        else if($bodyType === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $phevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $phevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $phevRealWorldResult;
+            }
+        }
+        else
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $vehicleBodyCost;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $vehicleAeoCost;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $vehicleRealWorldCost;
+            }
+        }
+
+        $bodyCost = $vBodyCost * $markupFactor;
         $rate;
         $rate[0] = 0;
         for($i = 0; $i < $numYears; $i++)
@@ -85,11 +170,48 @@
 
         if($powertrain === "BEV")
         {
-            $vBodyCost = $bevCostResult;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $bevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $bevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $bevRealWorldResult;
+            }
+        }
+        else if($powertrain === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $phevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $phevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $phevRealWorldResult;
+            }
         }
         else
         {
-            $vBodyCost = $vehicleBodyCost;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $vehicleBodyCost;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $vehicleAeoCost;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $vehicleRealWorldCost;
+            }
         }
 
         $bodyCost;

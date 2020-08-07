@@ -126,11 +126,48 @@
 
         if($powertrain === "BEV")
         {
-            $MPGCost = $bevMPG;
+            if($vehicleInput == "autonomie")
+            {
+                $MPGCost = $bevMPG;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $MPGCost = $bevAeoMPG;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $MPGCost = $bevRealWorldMPG;
+            }
+        }
+        else if($powertrain === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $MPGCost = $phevMPG;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $MPGCost = $phevAeoMPG;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $MPGCost = $phevRealWorldMPG;
+            }
         }
         else
         {
-            $MPGCost = $fuelMPG;
+            if($vehicleInput == "autonomie")
+            {
+                $MPGCost = $fuelMPG;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $MPGCost = $fuelAeoMPG;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $MPGCost = $fuelRealWorldMPG;
+            }
         }
 
         if($MPGCost == 0)

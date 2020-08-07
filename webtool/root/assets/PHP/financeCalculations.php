@@ -4,13 +4,50 @@
         include "getID.php";
 
         $vBodyCost;
-        if($powertrain == "BEV")
+        if($powertrain === "BEV")
         {
-            $vBodyCost = $bevCostResult;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $bevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $bevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $bevRealWorldResult;
+            }
+        }
+        else if($powertrain === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $phevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $phevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $phevRealWorldResult;
+            }
         }
         else
         {
-            $vBodyCost = $vehicleBodyCost;
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $vehicleBodyCost;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $vehicleAeoCost;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $vehicleRealWorldCost;
+            }
         }
 
         if($vBodyCost == 0)

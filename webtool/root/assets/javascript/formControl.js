@@ -1,8 +1,19 @@
 function main()
 {
+    resetToDefault();
     let form = document.getElementById("vehicleInfoForm");
     form.addEventListener("change", function(){
-        submittedAjaxForm();
+        //submittedAjaxForm();
+    });
+}
+
+function resetToDefault()
+{
+    let form = document.getElementById("vehicleInfoForm");
+    let resetButton = document.getElementById("resetButton");
+
+    resetButton.addEventListener("click", function(){
+        form.reset();
     });
 }
 

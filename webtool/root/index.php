@@ -31,6 +31,7 @@
             <div class="navBar">
                 <input type="checkbox" id="toggleButton" class="toggleSwitch">
                 <label for="toggleButton" class="toggleLabel"><span class="labelText">Simplified View</span></label>
+                <button id="resetButton">Reset to default</button>
             </div>
         </nav>
     </header>
@@ -100,7 +101,13 @@
 
             </div>
 
-            <div class="economicGroup">
+            <div class="behavioralGroup">
+            </div>
+
+
+
+
+            <div class="detailedView">
 
                 <div class="dropDownMenu">
                     <div class="label">
@@ -161,16 +168,6 @@
                         </select>
                     </div>
                 </div>
-
-            </div>
-
-            <div class="behavioralGroup">
-            </div>
-
-
-
-
-            <div class="detailedView">
 
                 <div class="inputContainer">
                     <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
@@ -307,6 +304,19 @@
                                 <option value="200">200</option>
                                 <option value="300">300</option>
                                 <option value="400">400</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="phevRange">PHEV Range:</label>
+                        </div>
+                        <div class="border">
+                            <select name="phevRange" class="selectMenu" id="phevRangeMenu">
+                                <option value="20">PHEV Powertrain Not Selected</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
                             </select>
                         </div>
                     </div>
@@ -457,6 +467,19 @@
                         <input type="range" min="0" max="1" value=".6" step="0.01" class="slider" name="laborCost" id="laborCost">
                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
                     </div>
+
+                    <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="vehicleCostInput">Vehicle Cost & Fuel-Economy Input</label>
+                    </div>
+                    <div class="border">
+                        <select name="vehicleCostInput" class="selectMenu" id="vehicleCostInput">
+                            <option value="autonomie">Autonomie Simulations</option>
+                            <option value="aeo">AEO 2020</option>
+                            <option value="real_world_today">Real-World Today (LDV)</option>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="inputContainer">
                     <label for="mpgPlugin" class="sliderLabel">Vehicle MPG Plugin</label>
