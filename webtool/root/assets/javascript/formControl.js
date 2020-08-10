@@ -1,10 +1,18 @@
 function main()
 {
-    resetToDefault();
-    let form = document.getElementById("vehicleInfoForm");
-    form.addEventListener("change", function(){
-        submittedAjaxForm();
-    });
+     resetToDefault();
+
+    // this has been replaced with code in check for zero.
+    //  let form = document.getElementById("vehicleInfoForm");
+
+    // form.addEventListener("change", function(){
+    //     checkForZero();
+    //     let submitButton = document.getElementById("submitButton");
+    //     submitButton.click();
+    // });
+
+    checkForZero();
+    submittedAjaxForm();
 }
 
 function resetToDefault()
@@ -17,11 +25,65 @@ function resetToDefault()
     });
 }
 
+function checkForZero()
+{
+    let form = document.getElementById("vehicleInfoForm");
+    let bodyCostPlugin = document.getElementById("bodyCostPlugin");
+    let mpgPlugin = document.getElementById("mpgPlugin");
+    let submitButton = document.getElementById("submitButton");
+
+    form.addEventListener("change", function(){
+        let dataForm = $(this).serialize();
+    
+        $.ajax({
+            type: "POST",
+            url: "assets/PHP/checkForZero.php",
+            data: dataForm
+        }).done(function(data){
+            if(data === "vehicle yes fuel no")
+            {
+                let value = prompt("No vehilce information for your selection. Please enter vehicle body price", "127030.29");
+                if(isNaN(value))
+                {
+                    value = prompt("Input entered not a number", "127030.29");
+                }
+                bodyCostPlugin.value = value;
+            }
+            else if(data === "vehicle no fuel yes")
+            {
+                let value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                if(isNaN(value))
+                {
+                    value = prompt("Input entered not a number", "27.63");
+                }
+                mpgPlugin.value = value;
+            }
+            else if(data === "vehicle yes fuel yes")
+            {
+                let value = prompt("No vehilce information for your selection. Please enter vehicle body price", "127030.29");
+                if(isNaN(value))
+                {
+                    value = prompt("Input entered not a number", "127030.29");
+                }
+                bodyCostPlugin.value = value;
+
+                value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                if(isNaN(value))
+                {
+                    value = prompt("Input entered not a number", "27.63");
+                }
+                mpgPlugin.value = value;
+            }
+            
+            submitButton.click();
+        });
+    })
+}
+
 function submittedAjaxForm()
 {
     let form = document.getElementById("vehicleInfoForm");
     let canvas = document.querySelector(".canvasContainer");
-    let submitButton = document.getElementById("submitButton");
 
     let vehicleData = [];
     let financingData = [];
@@ -99,13 +161,13 @@ function submittedAjaxForm()
             {
                 for(let i = 0; i < 7; i++)
                 {
-                    body[i] = vehicleInformation[8][i];
-                    finance[i] = vehicleInformation[9][i];
-                    fuel[i] = vehicleInformation[10][i];
-                    insurance[i] = vehicleInformation[11][i];
-                    tax[i] = vehicleInformation[12][i];
-                    maintenance[i] = vehicleInformation[13][i];
-                    repair[i] = vehicleInformation[14][i];
+                    body[i] = vehicleInformation[9][i];
+                    finance[i] = vehicleInformation[10][i];
+                    fuel[i] = vehicleInformation[11][i];
+                    insurance[i] = vehicleInformation[12][i];
+                    tax[i] = vehicleInformation[13][i];
+                    maintenance[i] = vehicleInformation[14][i];
+                    repair[i] = vehicleInformation[15][i];
                 }
             }
             else
@@ -123,8 +185,6 @@ function submittedAjaxForm()
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData, vmtData);
         });
     });
-
-    submitButton.click();
 }
 
 main();

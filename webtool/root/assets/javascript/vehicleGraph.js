@@ -4,9 +4,13 @@ let powertrainName = document.getElementById("powertrainMenu");
 function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
 {
   $("#piChartGraph").remove();
-  $(".canvasContainer").append("<canvas id='piChartGraph'>canvas is not supported in your browser</canvas>");
+  $(".pieChartContainer").append("<canvas id='piChartGraph'>canvas is not supported in your browser</canvas>");
 
     let canvas = document.getElementById("piChartGraph");
+
+    let img = new Image();
+    img.crossOrigin = "Anonymous";
+
     totalCost = [];
     let pTitleName = document.getElementById("vehicleBodyMenu");
     let bTitleName = document.getElementById("powertrainMenu");
@@ -60,6 +64,10 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
         fontColor: "black",
         fontSize: 20,
         position: 'top'
+      },
+      legend:
+      {
+        position: "right"
       }
     }
 
@@ -68,6 +76,8 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
       data: data,
       options: options
     });
+
+    img.src = "assets/pi_graph_pictures/compact sedan.jpg";
 }
 
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)

@@ -16,6 +16,7 @@ function vmtMenuModifier()
     }
 
     vehicleBody.addEventListener("change", function(){
+        event.preventDefault();
         switch(vehicleBody.selectedIndex)
         {
             case 0:
@@ -273,6 +274,7 @@ function incrementalAnnualFuelModifier()
     incAnnualFuelRange.disabled = true;
 
     fuelPriceMethodMenu.addEventListener("change", function(){
+        event.preventDefault();
         switch(fuelPriceMethodMenu.selectedIndex)
         {
             case 1:
@@ -300,6 +302,7 @@ function bevMenuModifier()
     bevRange.options[3].disabled = true;
 
     powertrain.addEventListener("change", function(){
+        event.preventDefault();
         switch(powertrain.selectedIndex)
         {
             case 5:
@@ -325,6 +328,7 @@ function powertrainMenuModifier()
     let vehicleBodyMenu = document.getElementById("vehicleBodyMenu");
 
     vehicleBodyMenu.addEventListener("change", function(){
+        event.preventDefault();
         switch(vehicleBodyMenu.selectedIndex)
         {
             case 10:
@@ -387,6 +391,7 @@ function fuelMenuModifier()
 
     powertrainMenu.addEventListener("change", function()
     {
+        event.preventDefault();
         switch(powertrainMenu.selectedIndex)
         {
             case 0:
@@ -479,6 +484,7 @@ function fuelMenuModifier()
     });
 
     vehicleBodyMenu.addEventListener("change", function(){
+        event.preventDefault();
         switch(powertrainMenu.selectedIndex)
         {
             case 0:
@@ -591,7 +597,7 @@ function definedFuel()
     let fuelPriceMethod = document.getElementById("fuelPriceMethod");
 
     fuelPriceMethod.addEventListener("change", function(){
-
+        event.preventDefault();
         if(fuelPriceMethod.selectedIndex == 2)
         {
             let value = prompt("please enter a starting fuel value", "2.50");
@@ -611,14 +617,20 @@ function maxYear()
     let vehicleMenu = document.getElementById("vehicleBodyMenu");
     let analysisWindow = document.getElementById("analysisWindow");
     let analysisNumber = document.getElementById("analysisNumber");
+    let markupFactor = document.getElementById("markupFactor");
+    let markupFactorNumber = document.getElementById("markupFactorNumber");
 
     vehicleMenu.addEventListener("change", function(){
+        event.preventDefault();
         if(vehicleMenu.selectedIndex > 9)
         {
             analysisWindow.max = 17;
             analysisWindow.value = 17;
             analysisNumber.max = 17;
             analysisNumber.value = 17;
+
+            markupFactor.value = 1;
+            markupFactorNumber.value = 1;
         }
         else
         {
@@ -626,6 +638,9 @@ function maxYear()
             analysisWindow.value = 30;
             analysisNumber.max = 30;
             analysisNumber.value = 30;
+
+            markupFactor.value = 1.5;
+            markupFactorNumber.value = 1.5;
         }
     });
 }
@@ -638,7 +653,7 @@ function dropDownControlMain()
     bevMenuModifier();
     definedFuel();
     maxYear();
-    //incrementalAnnualFuelModifier();
+   // incrementalAnnualFuelModifier();
 }
 
 dropDownControlMain();

@@ -41,12 +41,12 @@
     
     else if(!empty($_POST["showPowertrainGraph"]))
     {
-        $pBody = calculatePowertrainBody("ICE-SI");
-        $pFinance = calculatePowerTrainFinance("ICE-CI");
-        $pFuel = calculatePowertrainFUel("HEV-SI");
-        $pInsurance = calculatePowertrainInsurance("PHEV");
-        $pTaxes = calculatePowertrainTaxes("FCEV");
-        $pMaintenance = calculatePowertrainMaintenance("BEV");
+        $pBody = calculatePowertrainBody();
+        $pFinance = calculatePowerTrainFinance();
+        $pFuel = calculatePowertrainFUel();
+        $pInsurance = calculatePowertrainInsurance();
+        $pTaxes = calculatePowertrainTaxes();
+        $pMaintenance = calculatePowertrainMaintenance();
         $pRepair = calculatePowertrainRepair();
 
         $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair);

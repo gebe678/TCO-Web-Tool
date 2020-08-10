@@ -223,7 +223,7 @@
                     <div class="inputContainer">
                         <label for="markupFactor" class="sliderLabel">Purchase Price Markup Factor</label>
                         <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
-                        <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText">
+                        <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText" id="markupFactorNumber">
                     </div>
 
                     <div class="inputContainer">
@@ -386,8 +386,6 @@
                     </div>
                 </div>
 
-                <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
-
                 <div class="dropDownMenu">
                     <div class="label">
                         <label for="years">Fuel Starting Cost Year:</label>
@@ -468,7 +466,7 @@
                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
                     </div>
 
-                    <div class="dropDownMenu">
+                <div class="dropDownMenu">
                     <div class="label">
                         <label for="vehicleCostInput">Vehicle Cost & Fuel-Economy Input</label>
                     </div>
@@ -480,19 +478,11 @@
                         </select>
                     </div>
                 </div>
-
-                <div class="inputContainer">
-                    <label for="mpgPlugin" class="sliderLabel">Vehicle MPG Plugin</label>
-                    <input type="range" min="1" max="100" step=".00000001" value="16.12332967" class="slider" name="mpgPlugin" id="mpgPlugin">
-                    <input type="number" min="1" max="100" step=".00000001" value="16.12332967" class="outputText">
-                </div>
-
-                <div class="inputContainer">
-                    <label for="bodyCostPlugin" class="sliderLabel">Vehicle Body Cost Plugin</label>
-                    <input type="range" min="5000" max="100000" step=".0001" value="15000.4398" class="slider" name="bodyCostPlugin" id="bodyCostPlugin">
-                    <input type="number" min="5000" max="100000" step=".0001" value="15000.4398" class="outputText">
-                </div> 
             </div>
+
+                <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
+                <input type="text" name="mpgPlugin" id="mpgPlugin" style="display: none" value="0">
+                <input type="text" name="bodyCostPlugin" id="bodyCostPlugin" style="display:none" value="0">
 
             <div class="checkboxContainer">
                 <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>
@@ -626,9 +616,14 @@
         ?>
 
             <!--canvas id's for showing the data from the vehicle cost visually-->
-            <div class="canvasContainer">
+            <div class="imageOverlayContainer" style="display:none;">
                 <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
+            </div>
+            <div class="pieChartContainer">
                 <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
+            </div>
+
+            <div class="canvasContainer">
                 <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
                 <canvas id="perMileGraph">canvas is not supported in your browser</canvas>

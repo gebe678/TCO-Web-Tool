@@ -133,6 +133,10 @@ p{
     max-width: 1000px;
 }
 
+.pieChartContainer{
+    max-width: 550px;
+}
+
 /* .submitButton{
     display: none;
 } */
