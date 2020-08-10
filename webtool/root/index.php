@@ -172,7 +172,7 @@
                 <div class="inputContainer">
                     <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
                     <input type="range" min="5" max="30" value="30" class="slider" name="analysisWindow" id="analysisWindow">
-                    <input type="number" min="5" max="30" value="30" class="outputText">
+                    <input type="number" min="5" max="30" value="30" class="outputText" id="analysisNumber">
                 </div>
 
                 <div class="inputContainer">
@@ -627,14 +627,15 @@
 
             <!--canvas id's for showing the data from the vehicle cost visually-->
             <div class="canvasContainer">
-                <canvas id="imageOverlay" style="display: inline-block;">canvas is not supported in your browser</canvas>
+                <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
+                <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
                 <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
                 <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
                 <canvas id="perMileGraph">canvas is not supported in your browser</canvas>
             </div>
     </main>
 </div>
-    <footer>   
+    <footer>
         <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a></p>
         <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers">
     </footer>

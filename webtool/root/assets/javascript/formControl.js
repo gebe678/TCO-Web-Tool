@@ -3,7 +3,7 @@ function main()
     resetToDefault();
     let form = document.getElementById("vehicleInfoForm");
     form.addEventListener("change", function(){
-        //submittedAjaxForm();
+        submittedAjaxForm();
     });
 }
 
@@ -73,6 +73,28 @@ function submittedAjaxForm()
                 vmtData[i] = vehicleInformation[8][i];
             }
 
+            switch(bodyType.selectedIndex)
+            {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    for(let i = 0; i < 30; i++)
+                    {
+                        laborData[i] = 0;
+                    }
+                    break;
+            }
+
+            imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
+            fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData);
+
             if(showPowertrainGraph.checked)
             {
                 for(let i = 0; i < 7; i++)
@@ -98,26 +120,6 @@ function submittedAjaxForm()
                 powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
 
-            switch(bodyType.selectedIndex)
-            {
-                case 0:
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    for(let i = 0; i < 30; i++)
-                    {
-                        laborData[i] = 0;
-                    }
-                    break;
-            }
-
-            imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData, vmtData);
         });
     });

@@ -606,6 +606,30 @@ function definedFuel()
     });
 }
 
+function maxYear()
+{
+    let vehicleMenu = document.getElementById("vehicleBodyMenu");
+    let analysisWindow = document.getElementById("analysisWindow");
+    let analysisNumber = document.getElementById("analysisNumber");
+
+    vehicleMenu.addEventListener("change", function(){
+        if(vehicleMenu.selectedIndex > 9)
+        {
+            analysisWindow.max = 17;
+            analysisWindow.value = 17;
+            analysisNumber.max = 17;
+            analysisNumber.value = 17;
+        }
+        else
+        {
+            analysisWindow.max = 30;
+            analysisWindow.value = 30;
+            analysisNumber.max = 30;
+            analysisNumber.value = 30;
+        }
+    });
+}
+
 function dropDownControlMain()
 {
     powertrainMenuModifier();
@@ -613,6 +637,7 @@ function dropDownControlMain()
     vmtMenuModifier();
     bevMenuModifier();
     definedFuel();
+    maxYear();
     //incrementalAnnualFuelModifier();
 }
 

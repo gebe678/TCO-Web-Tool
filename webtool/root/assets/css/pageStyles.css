@@ -129,10 +129,9 @@ p{
     max-width: 100%;
 }
 
-/* .canvasContainer{
-    position: relative;
-    width: 1500px;
-}  */
+.canvasContainer{
+    max-width: 1000px;
+}
 
 /* .submitButton{
     display: none;

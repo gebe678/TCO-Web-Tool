@@ -1,6 +1,75 @@
 let bodyName = document.getElementById("vehicleBodyMenu");
 let powertrainName = document.getElementById("powertrainMenu");
 
+function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
+{
+  $("#piChartGraph").remove();
+  $(".canvasContainer").append("<canvas id='piChartGraph'>canvas is not supported in your browser</canvas>");
+
+    let canvas = document.getElementById("piChartGraph");
+    totalCost = [];
+    let pTitleName = document.getElementById("vehicleBodyMenu");
+    let bTitleName = document.getElementById("powertrainMenu");
+
+    let vehicleCost = 0;
+    let financingCost = 0;
+    let annualFuel = 0;
+    let insurance = 0;
+    let taxes = 0;
+    let maintenanceCost = 0;
+    let repairCost = 0;
+    let laborCost = 0;
+
+    for(let i = 0; i < 5; i++)
+    {
+      vehicleCost = vehicleCost + vehicleBodyCost[i];
+      financingCost = financingCost + financeCost[i];
+      annualFuel = annualFuel + annualFuelCost[i];
+      insurance = insurance + insuranceCost[i];
+      taxes = taxes + taxesAndFees[i];
+      maintenanceCost = maintenanceCost + maintenance[i];
+      repairCost = repairCost + repair[i];
+      laborCost = laborCost + labor[i];
+    }
+
+    vehicleCost = Math.round(100 * vehicleCost) / 100;
+    financingCost = Math.round(100 * financingCost) / 100;
+    annualFuel = Math.round(100 * annualFuel) / 100;
+    insurance = Math.round(100 * insurance) / 100;
+    taxes = Math.round(100 * taxes) / 100;
+    maintenanceCost = Math.round(100 * maintenanceCost) / 100;
+    repairCost = Math.round(100 * repairCost) / 100;
+    laborCost = Math.round(100 * laborCost) / 100;
+
+    let data = 
+    {
+      datasets: [{
+        data: [vehicleCost, financingCost, annualFuel, insurance, taxes, maintenanceCost, repairCost, laborCost],
+        backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#e1e1ea", "#3333ff", "#66a3ff", "#03fc3d"]
+      }],
+      labels: ["vehicle body cost", "financing cost", "annual fuel", "insurance", "taxes", "maintenance cost", "repair cost", "labor cost"]
+    };
+
+    let options = 
+    {
+      title:
+      {
+        display: true,
+        text: "5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text,
+        fontFamily: "sans-serif",
+        fontColor: "black",
+        fontSize: 20,
+        position: 'top'
+      }
+    }
+
+    piGraph = new Chart(canvas, {
+      type: "pie",
+      data: data,
+      options: options
+    });
+}
+
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
 {
     let canvas = document.getElementById("vehicleGraph");
@@ -175,7 +244,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             // " \nTCO " + totalCostOwnership[i]);
         }
           Chart.defaults.global.defaultFontSize = 15;
-          vehicleGraph = new Chart(canvas, {
+          perMileGrpah = new Chart(canvas, {
           type: "bar",
           data: 
           {

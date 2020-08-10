@@ -54,7 +54,7 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
         turnWhite(canvas, ctx);
 
         let startValue = totalAreaCovered(canvas, ctx);
-        colorImage(canvas, ctx, startValue, img);
+        //colorImage(canvas, ctx, startValue, img);
 
         let tempCanvas = document.createElement("canvas");
         let tempCtx = tempCanvas.getContext("2d");
@@ -80,70 +80,70 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
 
         tempCtx.clearRect(0, 0, canvas.width, canvas.height);
 
-        ctx.font = "15px sans-serif";
-        ctx.fillText("Vehicle Body", 80, (startValue[0] + st) / 2);
-        ctx.fillText("Finance", 80, (st + st2) / 2);
-        ctx.fillText("Annual Fuel Cost", 80, (st2 + st3) / 2);
-        ctx.fillText("Insurance", 80, (st3 + st4) / 2);
-        ctx.fillText("Taxes", 80, (st4 + st5) / 2);
-        ctx.fillText("Maintenance", 80, (st5 + st6) / 2);
-        ctx.fillText("Repair", 80, (st6 + st7) / 2);
+        // ctx.font = "15px sans-serif";
+        // ctx.fillText("Vehicle Body", 80, (startValue[0] + st) / 2);
+        // ctx.fillText("Finance", 80, (st + st2) / 2);
+        // ctx.fillText("Annual Fuel Cost", 80, (st2 + st3) / 2);
+        // ctx.fillText("Insurance", 80, (st3 + st4) / 2);
+        // ctx.fillText("Taxes", 80, (st4 + st5) / 2);
+        // ctx.fillText("Maintenance", 80, (st5 + st6) / 2);
+        // ctx.fillText("Repair", 80, (st6 + st7) / 2);
 
         ctx.restore();
 
         ctx.font = "bold 20px sans-serif";
-        ctx.fillText("5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text, startValue[0], 20);
+        //ctx.fillText("5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text, startValue[0], 20);
 
-        ctx.beginPath();
-        ctx.moveTo((startValue[0] + st) / 2, 150);
-        ctx.lineTo((startValue[0] + st) / 2, 45);
-        ctx.moveTo((st + st2) / 2, 150);
-        ctx.lineTo((st + st2) / 2, 45);
-        ctx.moveTo((st2 + st3) / 2, 150);
-        ctx.lineTo((st2 + st3) / 2, 45);
-        ctx.moveTo((st3 + st4) / 2, 150);
-        ctx.lineTo((st3 + st4) / 2, 45);
-        ctx.moveTo((st4 + st5) / 2, 150);
-        ctx.lineTo((st4 + st5) / 2, 45);
-        ctx.moveTo((st5 + st6) / 2, 150);
-        ctx.lineTo((st5 + st6) / 2, 45);
-        ctx.moveTo((st6 + st7) / 2, 150);
-        ctx.lineTo((st6 + st7) / 2, 45);
-        ctx.stroke();
+        // ctx.beginPath();
+        // ctx.moveTo((startValue[0] + st) / 2, 150);
+        // ctx.lineTo((startValue[0] + st) / 2, 45);
+        // ctx.moveTo((st + st2) / 2, 150);
+        // ctx.lineTo((st + st2) / 2, 45);
+        // ctx.moveTo((st2 + st3) / 2, 150);
+        // ctx.lineTo((st2 + st3) / 2, 45);
+        // ctx.moveTo((st3 + st4) / 2, 150);
+        // ctx.lineTo((st3 + st4) / 2, 45);
+        // ctx.moveTo((st4 + st5) / 2, 150);
+        // ctx.lineTo((st4 + st5) / 2, 45);
+        // ctx.moveTo((st5 + st6) / 2, 150);
+        // ctx.lineTo((st5 + st6) / 2, 45);
+        // ctx.moveTo((st6 + st7) / 2, 150);
+        // ctx.lineTo((st6 + st7) / 2, 45);
+        // ctx.stroke();
         
-        ctx.font = "15px sans-serif";
-        vehiclePercentage = vehiclePercentage * 100;
-        vehiclePercentage = vehiclePercentage.toFixed(0);
-        ctx.fillText(vehiclePercentage + "%", (startValue[0] + st) / 2 - 7, 40);
+        // ctx.font = "15px sans-serif";
+        // vehiclePercentage = vehiclePercentage * 100;
+        // vehiclePercentage = vehiclePercentage.toFixed(0);
+        // ctx.fillText(vehiclePercentage + "%", (startValue[0] + st) / 2 - 7, 40);
 
-        financePercentage = financePercentage * 100;
-        financePercentage = financePercentage.toFixed(0);
-        ctx.fillText(financePercentage + "%", (st + st2) / 2 - 7, 40);
+        // financePercentage = financePercentage * 100;
+        // financePercentage = financePercentage.toFixed(0);
+        // ctx.fillText(financePercentage + "%", (st + st2) / 2 - 7, 40);
 
-        fuelPercentage = fuelPercentage * 100;
-        fuelPercentage = fuelPercentage.toFixed(0);
-        ctx.fillText(fuelPercentage + "%", (st2 + st3) / 2 - 7, 40);
+        // fuelPercentage = fuelPercentage * 100;
+        // fuelPercentage = fuelPercentage.toFixed(0);
+        // ctx.fillText(fuelPercentage + "%", (st2 + st3) / 2 - 7, 40);
 
-        insurancePercentage = insurancePercentage * 100;
-        insurancePercentage = insurancePercentage.toFixed(0);
-        ctx.fillText(insurancePercentage + "%", (st3 + st4) / 2 - 7, 40);
+        // insurancePercentage = insurancePercentage * 100;
+        // insurancePercentage = insurancePercentage.toFixed(0);
+        // ctx.fillText(insurancePercentage + "%", (st3 + st4) / 2 - 7, 40);
 
-        taxPercentage = taxPercentage * 100;
-        taxPercentage = taxPercentage.toFixed(0);
-        ctx.fillText(taxPercentage + "%", (st4 + st5) / 2 - 7, 40);
+        // taxPercentage = taxPercentage * 100;
+        // taxPercentage = taxPercentage.toFixed(0);
+        // ctx.fillText(taxPercentage + "%", (st4 + st5) / 2 - 7, 40);
 
-        maintenancePercentage = maintenancePercentage * 100;
-        maintenancePercentage = maintenancePercentage.toFixed(0);
-        ctx.fillText(maintenancePercentage + "%", (st5 + st6) / 2 - 7, 40);
+        // maintenancePercentage = maintenancePercentage * 100;
+        // maintenancePercentage = maintenancePercentage.toFixed(0);
+        // ctx.fillText(maintenancePercentage + "%", (st5 + st6) / 2 - 7, 40);
 
-        repairPercentage = repairPercentage * 100;
-        repairPercentage = repairPercentage.toFixed(0);
-        ctx.fillText(repairPercentage + "%", (st6 + st7) / 2 - 7, 40);
+        // repairPercentage = repairPercentage * 100;
+        // repairPercentage = repairPercentage.toFixed(0);
+        // ctx.fillText(repairPercentage + "%", (st6 + st7) / 2 - 7, 40);
     };
 
     // source file for the image to be loaded
     let bodyType = document.querySelector(".bodyType");
-    img.src = "assets/sillouette_pictures/" + imageType + ".jpg";
+    img.src = "assets/pi_graph_pictures/" + imageType + ".jpg";
 }
 
 // sets the global vehicle variables for the function
@@ -158,8 +158,6 @@ function setVehicleInformation(vehicle, financing, annualFuel, insuranceCost, ta
         taxes = taxes + taxesCost[i];
         maintenance = maintenance + maintenanceCost[i];
         repairCost = repairCost + repair[i];
-
-        
     }
 }
 
