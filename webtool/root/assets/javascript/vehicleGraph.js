@@ -51,30 +51,38 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
         data: [vehicleCost, financingCost, annualFuel, insurance, taxes, maintenanceCost, repairCost, laborCost],
         backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#e1e1ea", "#3333ff", "#66a3ff", "#03fc3d"]
       }],
-      labels: ["vehicle body cost", "financing cost", "annual fuel", "insurance", "taxes", "maintenance cost", "repair cost", "labor cost"]
+      labels: ["vehicle body cost", "financing cost", "annual fuel", "insurance", "taxes", "maintenance cost", "repair cost", "labor cost"],
     };
-
-    let options = 
-    {
-      title:
-      {
-        display: true,
-        text: "5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text,
-        fontFamily: "sans-serif",
-        fontColor: "black",
-        fontSize: 20,
-        position: 'top'
-      },
-      legend:
-      {
-        position: "right"
-      }
-    }
 
     piGraph = new Chart(canvas, {
       type: "pie",
       data: data,
-      options: options
+      options: 
+      {
+        plugins: 
+        {
+          labels:
+          {
+            render: "percentage",
+            fontColor: ["black", "black", "black", "black", "black", "black", "black"],
+            percision: 2,
+            position: "outside"
+          }
+        },
+        title:
+        {
+          display: true,
+          text: "5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text,
+          fontFamily: "sans-serif",
+          fontColor: "black",
+          fontSize: 20,
+          position: 'top'
+        },
+        legend:
+        {
+          position: "right"
+        }
+      }
     });
 
     img.src = "assets/pi_graph_pictures/compact sedan.jpg";
@@ -195,6 +203,10 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
             yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}}]
+          },
+          plugins:
+          {
+            labels: false
           }
       }
     });
@@ -319,6 +331,10 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
               {
                 xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
                 yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"}}]
+              },
+              plugins:
+              {
+                labels: false
               }
           }
         });
