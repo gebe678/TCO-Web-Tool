@@ -113,6 +113,7 @@ function submittedAjaxForm()
         let dataForm = $(this).serialize();
         let bodyType = document.getElementById("vehicleBodyMenu");
         let showPowertrainGraph = document.getElementById("powertrainComparison");
+        let showModelYearGraph = document.getElementById("modelYearComparison");
         
         $.ajax({
             type: 'POST',
@@ -120,6 +121,7 @@ function submittedAjaxForm()
             data: dataForm
         }).done(function(data)
         {
+            console.log(data);
             let vehicleInformation = jQuery.parseJSON(data);
 
             for(let i = 0; i < 30; i++)
@@ -154,11 +156,28 @@ function submittedAjaxForm()
                     break;
             }
 
-            imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
+            //imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData);
 
             if(showPowertrainGraph.checked)
             {
+                $("#modelYearGraph").remove();
+
+                for(let i = 0; i < 7; i++)
+                {
+                    body[i] = vehicleInformation[9][i];
+                    finance[i] = vehicleInformation[10][i];
+                    fuel[i] = vehicleInformation[11][i];
+                    insurance[i] = vehicleInformation[12][i];
+                    tax[i] = vehicleInformation[13][i];
+                    maintenance[i] = vehicleInformation[14][i];
+                    repair[i] = vehicleInformation[15][i];
+                }
+            }
+            else if(showModelYearGraph.checked)
+            {
+                $("#powertrainGraph").remove();
+
                 for(let i = 0; i < 7; i++)
                 {
                     body[i] = vehicleInformation[9][i];
@@ -173,6 +192,7 @@ function submittedAjaxForm()
             else
             {
                 $("#powertrainGraph").remove();
+                $("#modelYearGraph").remove();
             }
 
             canvas.style.display = "block";
@@ -180,6 +200,11 @@ function submittedAjaxForm()
             if(showPowertrainGraph.checked)
             {
                 powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
+            }
+
+            if(showModelYearGraph.checked)
+            {
+                modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData, vmtData);

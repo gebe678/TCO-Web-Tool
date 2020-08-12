@@ -108,7 +108,6 @@ p{
 
 .technologyGroup{
     width: 550px;
-    background-color: rgb(70, 202, 241);
 }
 
 .economicGroup{
@@ -135,6 +134,10 @@ p{
 
 .pieChartContainer{
     max-width: 600px;
+}
+
+#imageOverlay{
+    float: right;
 }
 
 /* .submitButton{

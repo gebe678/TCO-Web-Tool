@@ -6,11 +6,35 @@
 
         $totalCost;
         $min;
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
 
         for($i = 0; $i < $numYears + 1; $i++)
         {
+            if($i + $fuelModifier === 31)
+            {
+                $fuelModifier--;
+            }
+
             $fuelData = $biofuelCost;
-            $yearInfo = getFuelID($i);
+            $yearInfo = getFuelID($i + $fuelModifier);
 
             if($yearInfo <= $fuelData)
             {
@@ -20,7 +44,7 @@
             {
                 $min = $fuelData;
             }
-            $totalCost[$i] = getGasolineData($i) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
+            $totalCost[$i] = getGasolineData($i + $fuelModifier) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
             $totalCost[$i] = round($totalCost[$i], 2);
         }
         return $totalCost;
@@ -31,11 +55,35 @@
         include "getID.php";
 
         $totalCost;
-        $min;
+        $min = 0;
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
 
         for($i = 0; $i < $numYears + 1; $i++)
         {
-            $yearInfo = getFuelID($i);
+            if($i + $fuelModifier === 31)
+            {
+                $fuelModifier--;
+            }
+
+            $yearInfo = getFuelID($i + $fuelModifier);
 
             if($yearInfo <= $hydrogenCost)
             {
@@ -57,10 +105,34 @@
         include "getID.php";
         $PHEVUtilityFactor = 0.3;
         $totalCost;
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
 
         for($i = 0; $i < $numYears + 1; $i++)
         {
-            $totalCost[$i] = getDieselData($i) * (1 - $PHEVUtilityFactor) + getElectricData($i) * $PHEVUtilityFactor;
+            if($i + $fuelModifier === 31)
+            {
+                $fuelModifier--;
+            }
+
+            $totalCost[$i] = getDieselData($i + $fuelModifier) * (1 - $PHEVUtilityFactor) + getElectricData($i + $fuelModifier) * $PHEVUtilityFactor;
         }
 
         return $totalCost;
@@ -71,10 +143,34 @@
         include "getID.php";
 
         $totalCost;
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
 
         for($i = 0; $i < $numYears + 1; $i++)
         {
-            $totalCost[$i] = getGasolineData($i) + $premiumGasMarkup;
+            if($i + $fuelModifier === 31)
+            {
+                $fuelModifier--;
+            }
+
+            $totalCost[$i] = getGasolineData($i + $fuelModifier) + $premiumGasMarkup;
         }
 
         return $totalCost;
@@ -123,6 +219,25 @@
         $annualFuelPrice;
         $mpgYearDegradation = .001;
         $fuelPriceType = $_POST["fuelPriceMethod"];
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
 
         if($powertrain === "BEV")
         {
@@ -197,7 +312,12 @@
             {
                 for($i = 0; $i < $numYears + 1; $i++)
                 {
-                    $fuelPrice[$i] = getFuelData($i);
+                    if($i + $fuelModifier === 31)
+                    {
+                        $fuelModifier--;
+                    }
+
+                    $fuelPrice[$i] = getFuelData($i + $fuelModifier);
                 }
             } 
         }

@@ -34,7 +34,7 @@
         $vehicleVmt[$i] = floatval($vehicleVmt[$i]);
     }
 
-    if(empty($_POST["showPowertrainGraph"]))
+    if(empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]))
     {
         $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt);
     }
@@ -50,6 +50,18 @@
         $pRepair = calculatePowertrainRepair();
 
         $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair);
+    }
+    else if(!empty($_POST["showModelYearGraph"]))
+    {
+        $mBody = calculateModelYearBody();
+        $mFinance = calculateModelYearFinancing();
+        $mFuel = calculateModelYearFuel();
+        $mInsurance = calculateModelYearInsurance();
+        $mTaxes = calculateModelYearTaxes();
+        $mMaintenance = calculateModelYearMaintenance();
+        $mRepair = calculateModelYearRepair();
+
+        $TCO_information = array($vehicleBodyCost, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair);
     }
 
     echo json_encode($TCO_information);
@@ -157,5 +169,95 @@
         $powertrainRepair[5] = calculateRepair("BEV");
 
         return $powertrainRepair;
+    }
+
+    function calculateModelYearBody()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearBody[0] = calculateBodyCost("2020");
+        $modelYearBody[1] = calculateBodyCost("2025");
+        $modelYearBody[2] = calculateBodyCost("2030");
+        $modelYearBody[3] = calculateBodyCost("2035");
+        $modelYearBody[4] = calculateBodyCost("2050");
+
+        return $modelYearBody;
+    }
+
+    function calculateModelYearFinancing()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearFinancing[0] = calculateFinancingCost("2020");
+        $modelYearFinancing[1] = calculateFinancingCost("2025");
+        $modelYearFinancing[2] = calculateFinancingCost("2030");
+        $modelYearFinancing[3] = calculateFinancingCost("2035");
+        $modelYearFinancing[4] = calculateFinancingCost("2050");
+
+        return $modelYearFinancing;
+    }
+    function calculateModelYearFuel()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearFuel[0] = calculateFuelCost("2020");
+        $modelYearFuel[1] = calculateFuelCost("2025");
+        $modelYearFuel[2] = calculateFuelCost("2030");
+        $modelYearFuel[3] = calculateFuelCost("2035");
+        $modelYearFuel[4] = calculateFuelCost("2050");
+
+        return $modelYearFuel;
+    }
+
+    function calculateModelYearInsurance()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearInsurance[0] = calculateInsruance("2020");
+        $modelYearInsurance[1] = calculateInsruance("2025");
+        $modelYearInsurance[2] = calculateInsruance("2030");
+        $modelYearInsurance[3] = calculateInsruance("2035");
+        $modelYearInsurance[4] = calculateInsruance("2050");
+
+        return $modelYearInsurance;
+    }
+
+    function calculateModelYearTaxes()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearTaxes[0] = calculateTaxes("2020");
+        $modelYearTaxes[1] = calculateTaxes("2025");
+        $modelYearTaxes[2] = calculateTaxes("2030");
+        $modelYearTaxes[3] = calculateTaxes("2035");
+        $modelYearTaxes[4] = calculateTaxes("2050");
+
+        return $modelYearTaxes;
+    }
+
+    function calculateModelYearMaintenance()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearMaintenance[0] = calculateMaintenance("2020");
+        $modelYearMaintenance[1] = calculateMaintenance("2025");
+        $modelYearMaintenance[2] = calculateMaintenance("2030");
+        $modelYearMaintenance[3] = calculateMaintenance("2035");
+        $modelYearMaintenance[4] = calculateMaintenance("2050");
+
+        return $modelYearMaintenance;
+    }
+
+    function calculateModelYearRepair()
+    {
+        include_once "modelYearData.php";
+
+        $modelYearRepair[0] = calculateRepair("2020");
+        $modelYearRepair[1] = calculateRepair("2025");
+        $modelYearRepair[2] = calculateRepair("2030");
+        $modelYearRepair[3] = calculateRepair("2035");
+        $modelYearRepair[4] = calculateRepair("2050");
+
+        return $modelYearRepair;
     }
 ?>

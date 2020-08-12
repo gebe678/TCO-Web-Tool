@@ -29,7 +29,6 @@
 
             $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];
         }
-
         return $componentCost;
     }
 

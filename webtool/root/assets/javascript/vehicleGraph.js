@@ -3,17 +3,17 @@ let powertrainName = document.getElementById("powertrainMenu");
 
 function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
 {
+  let pTitleName = document.getElementById("vehicleBodyMenu");
+  let bTitleName = document.getElementById("powertrainMenu");
+
   $("#piChartGraph").remove();
+  $(".pieChartTitle").remove();
+  $(".pieChartContainer").append("<p class='pieChartTitle' style='font-family: sans-serif; font-size: 20px; font-weight: bold;'> 5 Year TCO For "  + " " + bTitleName.options[bTitleName.selectedIndex].value + " " + pTitleName.options[pTitleName.selectedIndex].value + " <img src='assets/pi_graph_pictures/" + pTitleName.options[pTitleName.selectedIndex].value + ".jpg' alt='this is the picture'/></p>");
   $(".pieChartContainer").append("<canvas id='piChartGraph'>canvas is not supported in your browser</canvas>");
 
     let canvas = document.getElementById("piChartGraph");
 
-    let img = new Image();
-    img.crossOrigin = "Anonymous";
-
     totalCost = [];
-    let pTitleName = document.getElementById("vehicleBodyMenu");
-    let bTitleName = document.getElementById("powertrainMenu");
 
     let vehicleCost = 0;
     let financingCost = 0;
@@ -49,29 +49,36 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
     {
       datasets: [{
         data: [vehicleCost, financingCost, annualFuel, insurance, taxes, maintenanceCost, repairCost, laborCost],
-        backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#e1e1ea", "#3333ff", "#66a3ff", "#03fc3d"]
+        backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#e1e1ea", "#3333ff", "#66a3ff", "#03fc3d"],
+        borderWidth: 0
       }],
-      labels: ["vehicle body cost", "financing cost", "annual fuel", "insurance", "taxes", "maintenance cost", "repair cost", "labor cost"],
+      labels: ["depreciation", "financing", "fuel", "insurance", "taxes", "maintenance", "repair", "labor"],
     };
 
     piGraph = new Chart(canvas, {
-      type: "pie",
+      type: "outlabeledPie",
       data: data,
-      options: 
+      options:
       {
         plugins: 
         {
-          labels:
+          outlabels:
           {
-            render: "percentage",
-            fontColor: ["black", "black", "black", "black", "black", "black", "black"],
-            percision: 2,
-            position: "outside"
-          }
+            text: '%l %p',
+            color: 'white',
+            stretch: 45,
+            font: 
+            {
+                resizable: true,
+                minSize: 12,
+                maxSize: 18
+            }
+          },
+          labels: false
         },
         title:
         {
-          display: true,
+          display: false,
           text: "5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text,
           fontFamily: "sans-serif",
           fontColor: "black",
@@ -80,12 +87,11 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
         },
         legend:
         {
-          position: "right"
+          position: "right",
+          align: "center",
         }
       }
     });
-
-    img.src = "assets/pi_graph_pictures/compact sedan.jpg";
 }
 
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, labor)
@@ -147,42 +153,42 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
         [
           {
             data: vehicleBodyCosts,
-            label: "Vehicle Body",
+            label: "Depreciation",
             backgroundColor: "#994d00",
           },
           {
             data: financeCosts,
-            label: "Finance Cost",
+            label: "Financing",
             backgroundColor: "#ff0000"
           },
           {
             data: annualFuelCosts,
-            label: "Annual Fuel Cost",
+            label: "Fuel",
             backgroundColor: "#ffaa00"
           },
           {
             data: insuranceCosts,
-            label: "Insurance Cost",
+            label: "Insurance",
             backgroundColor: "#9494b8"
           },
           {
             data: taxesAndFeesCosts,
-            label: "Taxes And Fees",
+            label: "Taxes",
             backgroundColor: "#e1e1ea"
           },
           {
             data: maintenanceCosts,
-            label: "Maintenance Cost",
+            label: "Maintenance",
             backgroundColor: "#3333ff"
           },
           {
             data: repairCosts,
-            label: "Repair Cost",
+            label: "Repair",
             backgroundColor: "#66a3ff"
           },
           {
             data: laborCosts,
-            label: "Labor Cost",
+            label: "Labor",
             backgroundColor: "#03fc3d"
           }
         ]
@@ -275,42 +281,42 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             [
               {
                 data: vehicleBodyCosts,
-                label: "Vehicle Body",
+                label: "Depreciation",
                 backgroundColor: "#994d00",
               },
               {
                 data: financeCosts,
-                label: "Finance Cost",
+                label: "Financing",
                 backgroundColor: "#ff0000"
               },
               {
                 data: annualFuelCosts,
-                label: "Annual Fuel Cost",
+                label: "Fuel",
                 backgroundColor: "#ffaa00"
               },
               {
                 data: insuranceCosts,
-                label: "Insurance Cost",
+                label: "Insurance",
                 backgroundColor: "#9494b8"
               },
               {
                 data: taxesAndFeesCosts,
-                label: "Taxes And Fees",
+                label: "Taxes",
                 backgroundColor: "#e1e1ea"
               },
               {
                 data: maintenanceCosts,
-                label: "Maintenance Cost",
+                label: "Maintenance",
                 backgroundColor: "#3333ff"
               },
               {
                 data: repairCosts,
-                label: "Repair Cost",
+                label: "Repair",
                 backgroundColor: "#66a3ff"
               },
               {
                 data: laborCosts,
-                label: "Labor Cost",
+                label: "Labor",
                 backgroundColor: "#03fc3d"
               }
             ]
@@ -357,7 +363,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
     repairCosts = [];
     totalCost = [];
 
-    for(let i = 0; i < 7; i++)
+    for(let i = 0; i < 6; i++)
     {
       bodyCosts[i] = parseInt(body[i]);
       financeCosts[i] = parseInt(finance[i]);
@@ -390,37 +396,37 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
         [
           {
               data: bodyCosts,
-              label: "Vehicle Body",
+              label: "Depreciation",
               backgroundColor: "#994d00",
           },
           {
             data: financeCosts,
-            label: "Finance Cost",
+            label: "Financing",
             backgroundColor: "#ff0000"
           },
           {
             data: fuelCosts,
-            label: "Annual Fuel Cost",
+            label: "Fuel",
             backgroundColor: "#ffaa00"
           },
           {
             data: insuranceCosts,
-            label: "Insurance Cost",
+            label: "Insurance",
             backgroundColor: "#9494b8"
           },
           {
             data: taxCosts,
-            label: "Taxes And Fees",
+            label: "Taxes",
             backgroundColor: "#e1e1ea"
           },
           {
             data: maintenanceCosts,
-            label: "Maintenance Cost",
+            label: "Maintenance",
             backgroundColor: "#3333ff"
           },
           {
             data: repairCosts,
-            label: "Repair Cost",
+            label: "Repair",
             backgroundColor: "#66a3ff"
           }
         ]
@@ -440,6 +446,124 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],
             yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
+          },
+          plugins:
+          {
+            labels:
+            [
+             
+            ]
+          }
+      }
+    });
+}
+
+function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair)
+{
+    $("#modelYearGraph").remove();
+    $(".canvasContainer").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+
+    canvas = document.getElementById("modelYearGraph");
+
+    modelYear = [];
+    bodyCosts = [];
+    financeCosts = [];
+    fuelCosts = [];
+    insuranceCosts = [];
+    taxCosts = [];
+    maintenanceCosts = [];
+    repairCosts = [];
+    totalCost = [];
+
+    for(let i = 0; i < 5; i++)
+    {
+      bodyCosts[i] = parseInt(body[i]);
+      financeCosts[i] = parseInt(finance[i]);
+      fuelCosts[i] = parseInt(fuel[i]);
+      insuranceCosts[i] = parseInt(insurance[i]);
+      taxCosts[i] = parseInt(tax[i]);
+      maintenanceCosts[i] = parseInt(maintenance[i]);
+      repairCosts[i] = parseInt(repair[i]);
+
+      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i];
+    }
+
+    modelYear[0] = "2020";
+    modelYear[1] = "2025";
+    modelYear[2] = "2030";
+    modelYear[3] = "2035";
+    modelYear[4] = "2050";
+
+    let ctx = canvas.getContext("2d");
+    ctx.canvas.width = 10;
+
+    Chart.defaults.global.defaultFontSize = 15;
+    modelYear = new Chart(canvas, {
+      type: "bar",
+      data:
+      {
+        labels: modelYear,
+        datasets:
+        [
+          {
+              data: bodyCosts,
+              label: "Depreciation",
+              backgroundColor: "#994d00",
+          },
+          {
+            data: financeCosts,
+            label: "Financing",
+            backgroundColor: "#ff0000"
+          },
+          {
+            data: fuelCosts,
+            label: "Fuel",
+            backgroundColor: "#ffaa00"
+          },
+          {
+            data: insuranceCosts,
+            label: "Insurance",
+            backgroundColor: "#9494b8"
+          },
+          {
+            data: taxCosts,
+            label: "Taxes",
+            backgroundColor: "#e1e1ea"
+          },
+          {
+            data: maintenanceCosts,
+            label: "Maintenance",
+            backgroundColor: "#3333ff"
+          },
+          {
+            data: repairCosts,
+            label: "Repair",
+            backgroundColor: "#66a3ff"
+          }
+        ]
+      },
+      options: 
+      {
+        title:
+        {
+          display: true,
+          text: "TCO Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Model Years",
+          fontFamily: "sans-serif",
+          fontColor: "black",
+          fontSize: 20,
+          position: 'top'
+        },
+          scales:
+          {
+            xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Model Year"}}],
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
+          },
+          plugins:
+          {
+            labels:
+            [
+             
+            ]
           }
       }
     });

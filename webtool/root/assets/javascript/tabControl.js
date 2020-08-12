@@ -8,7 +8,8 @@ function toggleControl()
     let toggle = document.getElementById("toggleButton");
     let detailedView = document.querySelector(".detailedView");
     let labelText = document.querySelector(".labelText");
-    let toggleLabel = document.querySelector(".toggleLabel");
+    let technologyGroup = document.querySelector(".technologyGroup");
+    let detailedTechnologyGroup = document.querySelector(".detailedView .technologyGroup");
 
     toggle.addEventListener("click", function(){
         if(toggle.checked)
@@ -17,6 +18,8 @@ function toggleControl()
             labelText.innerHTML = "Detailed View";
             labelText.style.float = "left";
             labelText.style.marginLeft = "20px";
+            technologyGroup.style.backgroundColor = "#46caf1";
+            detailedTechnologyGroup.style.backgroundColor = "#46caf1";
         }
     
         if(!toggle.checked)
@@ -25,6 +28,8 @@ function toggleControl()
             labelText.innerHTML = "Simplified View";
             labelText.style.float = "right";
             labelText.style.marginRight = "20px";
+            technologyGroup.style.backgroundColor = "white";
+            detailedTechnologyGroup.style.backgroundColor = "white";
         }
     
     });

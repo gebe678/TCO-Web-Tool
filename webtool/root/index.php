@@ -13,11 +13,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
     <script src="assets/javascript/tabControl.js" defer></script>
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
-    <script src="assets/javascript/imageOverlay.js" defer></script>
+    <!-- <script src="assets/javascript/imageOverlay.js" defer></script> -->
     <script src="assets/javascript/formControl.js" defer></script>
 
 </head>
@@ -491,19 +492,23 @@
                 <label for="powertrainComparison" class="togglePowertrainLabel"></label>
             </div>
 
+            <div class="checkboxContainer">
+                <label class="sliderLabel" for="modelYearComparison">Show Model Year Comparison</label>
+                <input type="checkbox" id="modelYearComparison" class="togglePowertrain" name="showModelYearGraph">
+                <label for="modelYearComparison" class="togglePowertrainLabel"></label>
+            </div>
+
             <input type="submit" class="submitButton" id="submitButton">
         </form>
 
         <!--canvas id's for showing the data from the vehicle cost visually-->
-        <div class="imageOverlayContainer" style="display:none;">
-            <canvas id="imageOverlay">canvas is not supported in your browser</canvas>
-        </div>
         <div class="pieChartContainer">
             <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
         </div>
 
         <div class="canvasContainer">
             <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
+            <canvas id="modelYearGraph">canvas is not supported in your browser</canvas>
             <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
             <canvas id="perMileGraph">canvas is not supported in your browser</canvas>
         </div>

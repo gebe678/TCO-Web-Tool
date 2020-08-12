@@ -132,31 +132,120 @@
     {
         include "connectDatabase.php";
 
+        $mpgCostQuery;
+        $fuelPriceQuery;
+        $fuelPrice;
+        $sum = 0;
+        $technology = $_POST["technology"];
+        $vehicleBody = $_POST["vehicleBody"];
+        $modelYear = $_POST["modelYear"];
+        $vmtType = $_POST["vmt"];
+        $mpgYearDegradation = .001;
+        
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
+
         switch($powertrainType)
         {
             case "ICE-SI":
-                return 0;
+                $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'ICE-SI' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                $fuelPriceQuery = "SELECT Gasoline FROM aeo_fuel_prices";
+                $fuelConnect = $connect->query($fuelPriceQuery);
+                for($i = 0; $i < 31; $i++)
+                {
+                    $tempFuel = $fuelConnect->fetch_assoc(); $fuelPrice[$i] = $tempFuel["Gasoline"];
+                }
                 break;
             case "ICE-CI":
-                return 0;
+                $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'ICE-CI' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                $fuelPriceQuery = "SELECT Diesel FROM aeo_fuel_prices";
+                $fuelConnect = $connect->query($fuelPriceQuery);
+                for($i = 0; $i < 31; $i++)
+                {
+                    $tempFuel = $fuelConnect->fetch_assoc(); $fuelPrice[$i] = $tempFuel["Diesel"];
+                }
                 break;
             case "HEV-SI":
-                return 0;
+                $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'HEV-SI' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                $fuelPriceQuery = "SELECT Gasoline FROM aeo_fuel_prices";
+                $fuelConnect = $connect->query($fuelPriceQuery);
+                for($i = 0; $i < 31; $i++)
+                {
+                    $tempFuel = $fuelConnect->fetch_assoc(); $fuelPrice[$i] = $tempFuel["Gasoline"];
+                }
                 break;
             case "PHEV":
-                return 0;
+                $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'PHEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                $fuelPriceQuery = "SELECT Gas_Electric FROM aeo_fuel_prices";
+                $fuelConnect = $connect->query($fuelPriceQuery);
+                for($i = 0; $i < 31; $i++)
+                {
+                    $tempFuel = $fuelConnect->fetch_assoc(); $fuelPrice[$i] = $tempFuel["Gas_Electric"];
+                }
                 break;
             case "FCEV":
-                return 0;
+                 include_once "fuelPriceCalculations.php";
+
+                 $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'FCEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                 $fuelPrice = calculateHydrogenCost(30);
                 break;
             case "BEV":
-                return 0;
+                $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'BEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+                $fuelPriceQuery = "SELECT Electric FROM aeo_fuel_prices";
+                $fuelConnect = $connect->query($fuelPriceQuery);
+                for($i = 0; $i < 31; $i++)
+                {
+                    $tempFuel = $fuelConnect->fetch_assoc(); $fuelPrice[$i] = $tempFuel["Electric"];
+                }
                 break;
             default:
                 echo "invalid powertrain selected";
         }
 
-        return 0;
+        $MPGCost = $connect->query($mpgCostQuery); $MPGCost = $MPGCost->fetch_assoc(); $MPGCost = $MPGCost["MPG"];
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+        $vmt = $connect->query($vmtQuery);
+
+        for($i = 0; $i < 5; $i++)
+        {
+            $vmtSelect = $vmt->fetch_assoc(); $annualVmtYears[$i] = $vmtSelect[$vmtType];
+        }
+
+        for($i = 0; $i < 5; $i++)
+        {
+            if($i + $fuelModifier === 30)
+            {
+                $fuelModifier--;
+            }
+
+            $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
+            $fuelPricePerMile[$i] = $fuelPrice[$i + $fuelModifier + 1] / $MPGCost;
+        }
+        
+        for($i = 0; $i < 5; $i++)
+        {
+            $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
+            $sum = $sum + $annualFuelPrice[$i];
+        }
+
+        return $sum;
     }
 
     function calculateInsruance($powertrainType)
@@ -167,19 +256,40 @@
         $vehicleBody = $_POST["vehicleBody"];
         $technology = $_POST["technology"];
         $modelYear = $_POST["modelYear"];
-        $vehicleBodyCostQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrainType' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
-        $vehicleBodyCost = $connect->query($vehicleBodyCostQuery); $vehicleBodyCost = $vehicleBodyCost->fetch_assoc(); $vehicleBodyCost = $vehicleBodyCost["Body_Cost"];
+        $depreciationRate = $_POST["depreciationRate"];
 
-        $insuranceCost;
+        $sum = 0;
+        $vehicleBodyCostQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrainType' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+        $vehicleConnect = $connect->query($vehicleBodyCostQuery);
+        $vehicleValue = $vehicleConnect->fetch_assoc(); $vehicleBodyCost = $vehicleValue["Body_Cost"];
+        
+        $depreciation[0] = $vehicleBodyCost * $markupFactor;
+        $oldCost = $depreciation[0];
+        $previousCost = $vehicleBodyCost * $markupFactor;
+        $bodyCost[0] = $previousCost;
+
+        for($i = 0; $i < 5; $i++)
+        {
+            $depreciation[$i] = $oldCost * $depreciationRate;
+            $oldCost = $oldCost - $depreciation[$i];
+        }
+
+        for($i = 1; $i < 5; $i++)
+        {
+            $bodyCost[$i] = $previousCost - $depreciation[$i - 1];
+            $previousCost = $bodyCost[$i];
+        }
+
         $insuranceProportional = $_POST["insuranceProportional"];
         $insuranceProportionalNumber = 0;
         $insuranceFixed = $_POST["insuranceFixed"];
-        $bodyCost = $vehicleBodyCost * $markupFactor;
 
-        $insuranceProportionalNumber = $insuranceProportional * $bodyCost;
-        $insuranceCost = $insuranceProportionalNumber + $insuranceFixed;
-
-        return $insuranceCost;
+        for($i = 0; $i < 5; $i++)
+        {
+            $insuranceProportionalNumber = $insuranceProportional * $bodyCost[$i];
+            $sum = $insuranceProportionalNumber + $insuranceFixed;            
+        }
+        return $sum;
     }
 
     function calculateTaxes()
@@ -187,14 +297,25 @@
         $purchaseCost = $_POST["purchaseCost"];
         $salesTaxAndTitle = $_POST["salesTax"];
         $annualRegistration = $_POST["annualRegistration"];
-        $totalCost;
+        $totalCost = 0;
 
-        $totalCost = $purchaseCost * $salesTaxAndTitle + $annualRegistration;
+        for($i = 0; $i < 5; $i++)
+        {
+            if($i == 0)
+            {
+                $totalCost += $purchaseCost * $salesTaxAndTitle + $annualRegistration;
+            }
+            else
+            {
+                $totalCost += $annualRegistration;
+            }
+        }
+
 
         return $totalCost;
     }
 
-    function calculateMaintenance($powertrainType)
+    function calculateMaintenanceComponent($powertrainType, $component)
     {
         include "connectDatabase.php";
 
@@ -249,28 +370,59 @@
         $vmtQuery = "SELECT $vmtType FROM annual_vmt";
 
         $i = 0;
-        $totalVMT = $connect->query($vmtQuery); $totalVMT = $totalVMT->fetch_assoc(); $totalVMT = $totalVMT[$vmtType];
+        $connectVmt = $connect->query($vmtQuery); 
+        for($i = 0; $i < 5; $i++)
+        {
+            $vmtData = $connectVmt->fetch_assoc(); $totalVMT[$i] = $vmtData[$vmtType];
+        }
+
         $previousNum = 0;
         $totalCost = 0;
         $flag;
         $componentCost;
 
-        for($i = 0; $i < 8; $i++)
+        for($i = 0; $i < 5; $i++)
         {
-            $flag[$i] = floor($totalVMT / $firstServiceResults[$i]);
-            $flag[$i] = round($flag[$i]);
-            $componentCost[$i] = $flag[$i] * $costDataResults[$i] * $scalingFactorResults[$i];
+            if($totalVMT[$i] < $firstServiceResults[$component] + $repeatServiceResults[$component] And $previousNum + 0 == 0)
+            {
+                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstServiceResults[$component]);
+                $flag[$i] = round($flag[$i]);
+                $previousNum += $flag[$i];
+            }
+            else
+            {
+                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstServiceResults[$component] - ($previousNum - 1) * $repeatServiceResults[$component]) / $repeatServiceResults[$component]);
+                $previousNum += $flag[$i];
+            }
+
+            $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];
         }
 
-        for($i = 0; $i < 8; $i++)
-        {
-            $totalCost = $componentCost[$i] + $totalCost;
-        }
-
-        return $totalCost;
+        return $componentCost;
     }
 
-    function calculateRepair($powertrainType)
+    function calculateMaintenance($powertrain)
+    {
+        $maintenanceCost = 0;
+        $oilCost = calculateMaintenanceComponent($powertrain, 0);
+        $tireCost = calculateMaintenanceComponent($powertrain, 1);
+        $airFilterCost = calculateMaintenanceComponent($powertrain, 2);
+        $batteryCost = calculateMaintenanceComponent($powertrain, 3);
+        $fluidCost = calculateMaintenanceComponent($powertrain, 4);
+        $brakes1Cost = calculateMaintenanceComponent($powertrain, 5);
+        $beltsAndHosesCost = calculateMaintenanceComponent($powertrain, 6);
+        $pumpsCost = calculateMaintenanceComponent($powertrain, 7);
+        $methodType = $_POST["maintenanceMethod"];
+
+        for($i = 0; $i < 5; $i++)
+        {
+            $maintenanceCost += $oilCost[$i] + $tireCost[$i] + $airFilterCost[$i]  + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i] + $pumpsCost[$i];
+        }
+
+        return $maintenanceCost;
+    }
+
+    function calculateRepairComponent($powertrainType, $component)
     {
         include "connectDatabase.php";
 
@@ -325,24 +477,52 @@
         $vmtQuery = "SELECT $vmtType FROM annual_vmt";
 
         $i = 0;
-        $totalVMT = $connect->query($vmtQuery); $totalVMT = $totalVMT->fetch_assoc(); $totalVMT = $totalVMT[$vmtType];
+        $connectVmt = $connect->query($vmtQuery); 
+        for($i = 0; $i < 5; $i++)
+        {
+            $vmtData = $connectVmt->fetch_assoc(); $totalVMT[$i] = $vmtData[$vmtType];
+        }
+
         $previousNum = 0;
         $totalCost = 0;
         $flag;
         $componentCost;
 
-        for($i = 0; $i < 8; $i++)
+        for($i = 0; $i < 5; $i++)
         {
-            $flag[$i] = floor($totalVMT / $firstServiceResults[$i]);
-            $flag[$i] = round($flag[$i]);
-            $componentCost[$i] = $flag[$i] * $costDataResults[$i] * $scalingFactorResults[$i];
+            if($totalVMT[$i] < $firstServiceResults[$component] + $repeatServiceResults[$component] And $previousNum + 0 == 0)
+            {
+                $flag[$i] = floor(calculateCumulativeVmt($i) / $firstServiceResults[$component]);
+                $flag[$i] = round($flag[$i]);
+                $previousNum += $flag[$i];
+            }
+            else
+            {
+                $flag[$i] = floor((calculateCumulativeVmt($i) - $firstServiceResults[$component] - ($previousNum - 1) * $repeatServiceResults[$component]) / $repeatServiceResults[$component]);
+                $previousNum += $flag[$i];
+            }
+
+            $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];
         }
 
-        for($i = 0; $i < 8; $i++)
+        return $componentCost;
+    }
+
+    function calculateRepair($powertrainType)
+    {
+        $repairCost = 0;
+        $brakes2Cost = calculateRepairComponent($powertrainType, 0);
+        $transmissionCost = calculateRepairComponent($powertrainType, 1);
+        $engineCost = calculateRepairComponent($powertrainType, 2);
+        $hvBatteryCost = calculateRepairComponent($powertrainType, 3);
+        $fcStack = calculateRepairComponent($powertrainType, 4);
+        $bodyCost = calculateRepairComponent($powertrainType, 5);
+
+        for($i = 0; $i < 5; $i++)
         {
-            $totalCost = $componentCost[$i] + $totalCost;
+            $repairCost += $brakes2Cost[$i] + $transmissionCost[$i] + $engineCost[$i] + $hvBatteryCost[$i] + $fcStack[$i] + $bodyCost[$i];
         }
 
-        return $totalCost;
+        return $repairCost;
     }
 ?>

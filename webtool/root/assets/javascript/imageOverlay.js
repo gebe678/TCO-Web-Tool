@@ -47,38 +47,38 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
     img.onload = function(){
 
         //resize the canvas to the picture size
-        resetCanvasSize(img.width, img.height, canvas);  
+        //resetCanvasSize(img.width, img.height, canvas);  
         
         ctx.drawImage(img, 0, 0);
 
-        turnWhite(canvas, ctx);
+        //turnWhite(canvas, ctx);
 
-        let startValue = totalAreaCovered(canvas, ctx);
+        //let startValue = totalAreaCovered(canvas, ctx);
         //colorImage(canvas, ctx, startValue, img);
 
-        let tempCanvas = document.createElement("canvas");
-        let tempCtx = tempCanvas.getContext("2d");
+        //let tempCanvas = document.createElement("canvas");
+        //let tempCtx = tempCanvas.getContext("2d");
 
-        tempCanvas.width = canvas.width;
-        tempCanvas.height = canvas.height;
+        //tempCanvas.width = canvas.width;
+        //tempCanvas.height = canvas.height;
 
-        tempCtx.drawImage(canvas, 0, 0);
+        //tempCtx.drawImage(canvas, 0, 0);
 
-        let angle = 270 * Math.PI / 180;
-        canvas.width = img.height;
-        canvas.height = img.width;
+        //let angle = 270 * Math.PI / 180;
+        //canvas.width = img.height;
+        //canvas.height = img.width;
 
-        let imageWidth = img.width;
-        let imageHeight = img.height;
+        // let imageWidth = img.width;
+        // let imageHeight = img.height;
 
-        ctx.save();
+        // ctx.save();
 
-        ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
-        ctx.rotate(angle);
-        ctx.translate(-img.width / 2, -img.height / 2);
-        ctx.drawImage(tempCanvas, 0, 0);
+        // ctx.translate(Math.abs(imageWidth/2 * Math.cos(angle) + imageHeight/2 * Math.sin(angle)), Math.abs(imageHeight/2 * Math.cos(angle) + imageWidth/2 * Math.sin(angle)));
+        // ctx.rotate(angle);
+        // ctx.translate(-img.width / 2, -img.height / 2);
+        // ctx.drawImage(tempCanvas, 0, 0);
 
-        tempCtx.clearRect(0, 0, canvas.width, canvas.height);
+        // tempCtx.clearRect(0, 0, canvas.width, canvas.height);
 
         // ctx.font = "15px sans-serif";
         // ctx.fillText("Vehicle Body", 80, (startValue[0] + st) / 2);
@@ -89,9 +89,9 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
         // ctx.fillText("Maintenance", 80, (st5 + st6) / 2);
         // ctx.fillText("Repair", 80, (st6 + st7) / 2);
 
-        ctx.restore();
+        //ctx.restore();
 
-        ctx.font = "bold 20px sans-serif";
+        //ctx.font = "bold 20px sans-serif";
         //ctx.fillText("5 Year TCO For " + pTitleName.options[pTitleName.selectedIndex].text + " " +  bTitleName.options[bTitleName.selectedIndex].text, startValue[0], 20);
 
         // ctx.beginPath();
@@ -142,7 +142,7 @@ function imageOverlayMain(vehicle, financing, annualFuel, insuranceCost, taxesCo
     };
 
     // source file for the image to be loaded
-    let bodyType = document.querySelector(".bodyType");
+    //let bodyType = document.querySelector(".bodyType");
     img.src = "assets/pi_graph_pictures/" + imageType + ".jpg";
 }
 
