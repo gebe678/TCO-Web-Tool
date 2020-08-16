@@ -7,19 +7,60 @@
     include "financeCalculations.php";
     include "laborCalculations.php";
     include "getID.php";
+    include "database_cach.php";
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
 
-    $vehicleBodyCost = calculateDepreciation($analysisWindow);
-    $financeCost = calculateInterestPayment($analysisWindow);
-    $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
-    $insuranceCost = calculateInsuranceCost($analysisWindow);
-    $taxesAndFees = calculateTaxesAndFees($analysisWindow);
-    $maintenance = calculateTotalMaintenance($analysisWindow);
-    $repair = calculateTotalRepair($analysisWindow);
-    $labor = calculateLaborCost($analysisWindow);
-    $vehicleVmt = getVmtData();
+    $vehicleBodyCost;
+    $financeCost;
+    $annualFuelCost;
+    $insuranceCost;
+    $taxesAndFees;
+    $maintenance;
+    $repair;
+    $operational;
+    $infrastructure;
+    $labor;
+    $vehicleVmt;
+
+    if(!checkDatabase())
+    {
+        $vehicleBodyCost = calculateDepreciation($analysisWindow);
+        $financeCost = calculateInterestPayment($analysisWindow);
+        $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
+        $insuranceCost = calculateInsuranceCost($analysisWindow);
+        $taxesAndFees = calculateTaxesAndFees($analysisWindow);
+        $maintenance = calculateTotalMaintenance($analysisWindow);
+        $repair = calculateTotalRepair($analysisWindow);
+        $operational = 0;
+        $infrastructure = 0;
+        $labor = calculateLaborCost($analysisWindow);
+        $vehicleVmt = getVmtData();
+
+        for($i = 0; $i < $analysisWindow; $i++)
+        {
+            writeData($i, $vehicleBodyCost[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational, $infrastructure, $labor[$i], $vehicleVmt[$i]);
+        }
+    }
+    else
+    {
+        $info = searchForData();
+
+        for($i = 0; $i < $analysisWindow; $i++)
+        {
+            $year = $i;
+            $vehicleBodyCost[$i] = $info[0][$i];
+            $financeCost[$i] = $info[1][$i];
+            $annualFuelCost[$i] = $info[2][$i];
+            $insuranceCost[$i] = $info[3][$i];
+            $taxesAndFees[$i] = $info[4][$i];
+            $maintenance[$i] = $info[5][$i];
+            $repair[$i] = $info[6][$i];
+            $labor[$i] = $info[7][$i];
+            $vehicleVmt[$i] = $info[8][$i];
+        }
+    }
 
     for($i = 0; $i < $analysisWindow; $i++)
     {

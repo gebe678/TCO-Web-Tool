@@ -31,7 +31,7 @@
         <nav>
             <!--navigation bar to go between the pages of the site easily-->
             <div class="navBar">
-                <input type="checkbox" id="toggleButton" class="toggleSwitch">
+                <input type="checkbox" id="toggleButton" class="toggleSwitch" name="detailedView">
                 <label for="toggleButton" class="toggleLabel"><span class="labelText">Simplified View</span></label>
                 <button id="resetButton">Reset to default</button>
             </div>
@@ -407,7 +407,7 @@
                 </div>
 
                 <div class="inputContainer">
-                    <label for="premiumGasModifier" class="sliderLabel">Premium Markup</label>
+                    <label for="premiumGasModifier" class="sliderLabel">Premium Gasoline Markup</label>
                     <input type="range" min="0" max="1" step=".01" value=".40" class="slider" name="premiumGasModifier" id="premiumGasModifier">
                     <input type="number" min="0" max="1" step=".01" value=".40" class="outputText">
                 </div>
