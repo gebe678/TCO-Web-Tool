@@ -204,7 +204,7 @@
                  include_once "fuelPriceCalculations.php";
 
                  $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'FCEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
-                 $fuelPrice = calculateHydrogenCost(30);
+                 $fuelPrice = 0;//calculateHydrogenCost(30);
                 break;
             case "BEV":
                 $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'BEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";

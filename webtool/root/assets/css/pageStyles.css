@@ -54,6 +54,34 @@ nav{
     display: none;
 }
 
+.detailedOptions{
+    display: none;
+}
+
+.detailedView .depreciation{
+    display: none;
+}
+
+.detailedView .finance{
+    display: none;
+}
+
+.detailedView .fuel{
+    display: none;
+}
+
+.detailedView .insurance{
+    display: none;
+}
+
+.detailedView .taxes{
+    display: none;
+}
+
+.detailedView .labor{
+    display: none;
+}
+
 .togglePowertrainLabel{
     position: relative;
     display: inline-block;

@@ -1,7 +1,10 @@
 <?php 
     function calculateTaxesAndFees($numYears)
     {
-        $purchaseCost = $_POST["purchaseCost"];
+        $vehicleBodyCost = $_POST["vehicleBody"];
+        $markupFactor = $_POST["markupFactor"];
+        $purchaseCost = $vehicleBodyCost * $markupFactor;
+        
         $salesTaxAndTitle = $_POST["salesTax"];
         $annualRegistration = $_POST["annualRegistration"];
         $totalCost;
