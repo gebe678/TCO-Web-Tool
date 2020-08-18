@@ -131,6 +131,7 @@
     function calculateFuelCost($powertrainType)
     {
         include "connectDatabase.php";
+        include_once "getFuelCostData.php";
 
         $mpgCostQuery;
         $fuelPriceQuery;
@@ -204,7 +205,7 @@
                  include_once "fuelPriceCalculations.php";
 
                  $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'FCEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
-                 $fuelPrice = 0;//calculateHydrogenCost(30);
+                 $fuelPrice = calculateHydrogenCost(30);
                 break;
             case "BEV":
                 $mpgCostQuery = "SELECT MPG FROM vehicle_mpg WHERE powertrain LIKE 'BEV' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
@@ -294,9 +295,11 @@
 
     function calculateTaxes()
     {
-        $purchaseCost = $_POST["purchaseCost"];
+        $bodyCost = $_POST["vehicleBody"];
+        $markupFactor = $_POST["markupFactor"];
         $salesTaxAndTitle = $_POST["salesTax"];
         $annualRegistration = $_POST["annualRegistration"];
+        $purchaseCost = $bodyCost * $markupFactor;
         $totalCost = 0;
 
         for($i = 0; $i < 5; $i++)
@@ -412,7 +415,6 @@
         $brakes1Cost = calculateMaintenanceComponent($powertrain, 5);
         $beltsAndHosesCost = calculateMaintenanceComponent($powertrain, 6);
         $pumpsCost = calculateMaintenanceComponent($powertrain, 7);
-        $methodType = $_POST["maintenanceMethod"];
 
         for($i = 0; $i < 5; $i++)
         {

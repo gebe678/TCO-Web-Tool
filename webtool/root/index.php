@@ -61,6 +61,8 @@
                 </span>
 
                 <button id="resetButton">Reset to default</button>
+
+                <a href="getDatabaseInfo.php">Tableau Example</a>
             </div>
         </nav>
     </header>
@@ -131,6 +133,8 @@
             </div>
 
             <div class="detailedView">
+                
+                <!-- <h3>Technology Factors</h3> -->
 
                 <div class="technologyGroup">
 
@@ -306,6 +310,8 @@
 
                 </div>
 
+                <!-- <h3>Economic Factors</h3> -->
+
                 <div class="economicGroup">
 
                     <div class="dropDownMenu">
@@ -447,6 +453,8 @@
                     </div>
 
                 </div>
+
+                <!-- <h3>Behavioral Factors</h3> -->
 
                 <div class="behavioralGroup">
 

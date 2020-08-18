@@ -131,6 +131,7 @@
     function calculateFuelCost($modelYear)
     {
         include "connectDatabase.php";
+        include_once "getFuelCostData.php";
 
         $mpgCostQuery;
         $fuelPriceQuery;
@@ -294,10 +295,12 @@
 
     function calculateTaxes()
     {
-        $purchaseCost = $_POST["purchaseCost"];
+        $markupFactor = $_POST["markupFactor"];
+        $vehicleBody = $_POST["vehicleBody"];
         $salesTaxAndTitle = $_POST["salesTax"];
         $annualRegistration = $_POST["annualRegistration"];
         $totalCost = 0;
+        $purchaseCost = $markupFactor * $vehicleBody;
 
         for($i = 0; $i < 5; $i++)
         {
@@ -413,7 +416,6 @@
         $brakes1Cost = calculateMaintenanceComponent(5);
         $beltsAndHosesCost = calculateMaintenanceComponent(6);
         $pumpsCost = calculateMaintenanceComponent(7);
-        $methodType = $_POST["maintenanceMethod"];
 
         for($i = 0; $i < 5; $i++)
         {

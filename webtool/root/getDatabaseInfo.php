@@ -1,123 +1,13 @@
-<!--php code to get the information from the database-->
-<?php
-                include "assets/PHP/getID.php";
-                include "assets/PHP/getFuelCostData.php";
-                include "assets/PHP/fuelPriceCalculations.php";
-                include "assets/PHP/maintenancePriceCalculations.php";
-                include "assets/PHP/vehicleCalculations.php";
-                include "assets/PHP/insuranceCalculations.php";
-                include "assets/PHP/taxesAndFeesCalculations.php";
-                include "assets/PHP/financeCalculations.php";
-
-                function numberOfDigits($number)
-                {
-                    $numDigits = 0;
-                    while($number != 0)
-                    {
-                        $number = round($number / 10);
-                        $numDigits++;
-                    }
-
-                    return $numDigits - 1;
-                }
-
-                function roundNumber($number)
-                {
-                    $numDigits = numberOfDigits($number);
-                    $returnNumber = 1;
-
-                    if($numDigits > 2)
-                    {
-                        for($i = 0; $i < $numDigits - 2; $i++)
-                        {
-                            $returnNumber = $returnNumber * 10;
-                        }
-                    }
-
-                    return $returnNumber;
-                }                
-
-                // This is where I will put the important vehicle information
-                $vehicleBodyCost = calculateSimpleDepreciation(30);
-                $financeCost = calculateInterestPayment(30);
-                $annualFuelCost = calculateAnnualFuelcost(30);
-                $insuranceCost = calculateInsurancecost(30);
-                $taxesAndFees = calculateTaxesAndFees(30);
-                $maintenance = calculateTotalMaintenance(30);
-                $repair = calculateTotalRepair(30);
-
-                $totalVehicleBodyCost = 0;
-                $totalFinanceCost = 0;
-                $totalAnnualFuelCost = 0;
-                $totalInsuranceCost = 0;
-                $totalTaxesCost = 0;
-                $totalMaintenanceCost = 0;
-                $totalRepairCost = 0;
-
-                for($i = 0; $i < 10; $i++)
-                {
-                    $totalVehicleBodyCost = $vehicleBodyCost[$i] + $totalVehicleBodyCost;
-                    $totalFinanceCost = $totalFinanceCost + $financeCost[$i];
-                    $totalAnnualFuelCost = $totalAnnualFuelCost + $annualFuelCost[$i];
-                    $totalInsuranceCost = $totalInsuranceCost + $insuranceCost[$i];
-                    $totalTaxesCost = $totalTaxesCost + $taxesAndFees[$i];
-                    $totalMaintenanceCost = $totalMaintenanceCost + $maintenance[$i];
-                    $totalRepairCost = $totalRepairCost + $repair[$i];
-                }
-
-                //  $totalVehicleBodyCost = round($totalVehicleBodyCost / 5);
-                //  $totalFinanceCost = round($totalFinanceCost / 5);
-                //  $totalAnnualFuelCost = round($totalAnnualFuelCost / 5);
-                //  $totalInsuranceCost = round($totalInsuranceCost / 5);
-                //  $totalTaxesCost = round($totalTaxesCost / 5);
-                //  $totalRepairCost = round($totalRepairCost / 5);
-
-                echo "<p class='costComponent'>$totalVehicleBodyCost</p>";
-                echo "<p class='costComponent'>$totalFinanceCost</p>";
-                echo "<p class='costComponent'>$totalAnnualFuelCost</p>";
-                echo "<p class='costComponent'>$totalInsuranceCost</p>";
-                echo "<p class='costComponent'>$totalTaxesCost</p>";
-                echo "<p class='costComponent'>$totalMaintenanceCost</p>";
-                echo "<p class='costComponent'>$totalRepairCost</p>";
-                echo "<p class='costComponent bodyType'>$vehicleBody</p>";
-
-                for($i = 0; $i < 30; $i++)
-                {
-                    $year = $i + 1;
-                    echo "<p class='costComponents year'>$year</p>";
-
-                    $vehicleBodyCost[$i] = round($vehicleBodyCost[$i], 0);
-                    echo "<p class='costComponents vehicleBody'>$vehicleBodyCost[$i]</p>"; 
-
-                    $financeCost[$i] = round($financeCost[$i], 0);
-                    echo "<p class='costComponents financeCost'>$financeCost[$i]</p>";
-
-                    $annualFuelCost[$i] = round($annualFuelCost[$i], 0);
-                    echo "<p class='costComponents annualFuelCost'>$annualFuelCost[$i]</p>";
-
-                    $insuranceCost[$i] = round($insuranceCost[$i], 0);
-                    echo "<p class='costComponents insuranceCost'>$insuranceCost[$i]</p>";
-
-                    $taxesAndFees[$i] = round($taxesAndFees[$i], 0);
-                    echo "<p class='costComponents taxesAndFees'>$taxesAndFees[$i]</p>";
-
-                    $maintenance[$i] = round($maintenance[$i], 0);
-                    echo "<p class='costComponents maintenance'>$maintenance[$i]</p>";
-
-                    $repair[$i] = round($repair[$i], 0);
-                    echo "<p class='costComponents repair'>$repair[$i]</p>";
-                }
-
-                // for($i = 0; $i < 30; $i++)
-                // {
-                //     echo "Year " . ($i + 1) . "<br>";
-                //     echo "Body Cost is: ". round($vehicleBodyCost[$i], 0) . "<br>";
-                //     echo "Finance Cost is: " . round($financeCost[$i], 0) . "<br>";
-                //     echo "annual Fuel Cost Is: ". round($annualFuelCost[$i], 0) . "<br>";
-                //     echo "Insurance Cost is : ". round($insuranceCost[$i], 0) . "<br>";
-                //     echo "Taxes and Fees are: ". round($taxesAndFees[$i], 0) . "<br>";
-                //     echo "Maintenance is: ". round($maintenance[$i], 0) . "<br>";
-                //     echo "Repair cost is: ". round($repair[$i], 0) . "<br>";
-                //     echo "<br><br>";
-                // }                
-            ?>           
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tableau Example</title>
+        <meta name="author" content="Griffin Lehrer">
+        <meta name="description" content="caluclate the total cost of operation for a vehicle">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <a href="index.php">index</a>
+        <div class='tableauPlaceholder' id='viz1597705919981' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ta&#47;tableauexample1&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='tableauexample1&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;ta&#47;tableauexample1&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1597705919981');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </body>
+</html>
