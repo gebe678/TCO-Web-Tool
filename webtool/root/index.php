@@ -18,8 +18,9 @@
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
+    <script src="assets/javascript/createDatabaseEntries.js" defer></script>
     <!-- <script src="assets/javascript/imageOverlay.js" defer></script> -->
-    <script src="assets/javascript/formControl.js" defer></script>
+    <!-- <script src="assets/javascript/formControl.js" defer></script> -->
 
 </head>
 <body>
@@ -61,6 +62,7 @@
                 </span>
 
                 <button id="resetButton">Reset to default</button>
+                <button id="databaseAdder">Add Values To Database</button>
 
                 <a href="getDatabaseInfo.php">Tableau Example</a>
             </div>

@@ -11,7 +11,7 @@ function main()
     //     submitButton.click();
     // });
 
-    checkForZero();
+    //checkForZero();
     submittedAjaxForm();
 }
 
