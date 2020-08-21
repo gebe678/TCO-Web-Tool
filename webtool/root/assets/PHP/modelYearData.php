@@ -137,11 +137,13 @@
         $fuelPriceQuery;
         $fuelPrice;
         $sum = 0;
-        $technology = $_POST["technology"];
-        $vehicleBody = $_POST["vehicleBody"];
         $powertrainType = $_POST["powertrain"];
+        $vehicleBody = $_POST["vehicleBody"];
+        $modelYear = $_POST["modelYear"];
+        $technology = $_POST["technology"];
         $vmtType = $_POST["vmt"];
         $mpgYearDegradation = .001;
+        $MPGCost = 0;
         
         $fuelModifier = 0;
 
@@ -218,11 +220,16 @@
                 break;
             default:
                 echo "invalid powertrain selected";
-        }
+        }   
 
         $MPGCost = $connect->query($mpgCostQuery); $MPGCost = $MPGCost->fetch_assoc(); $MPGCost = $MPGCost["MPG"];
         $vmtQuery = "SELECT $vmtType FROM annual_vmt";
         $vmt = $connect->query($vmtQuery);
+
+        if($MPGCost == 0)
+        {
+            $MPGCost = 1;
+        }
 
         for($i = 0; $i < 5; $i++)
         {
@@ -244,6 +251,11 @@
         {
             $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
             $sum = $sum + $annualFuelPrice[$i];
+        }
+        
+        if($MPGCost <= 1)
+        {
+            $sum = 0;
         }
 
         return $sum;

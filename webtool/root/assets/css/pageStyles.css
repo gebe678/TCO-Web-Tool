@@ -58,7 +58,7 @@ nav{
     display: none;
 }
 
-.detailedView .depreciation{
+/* .detailedView .depreciation{
     display: none;
 }
 
@@ -80,7 +80,7 @@ nav{
 
 .detailedView .labor{
     display: none;
-}
+} */
 
 .togglePowertrainLabel{
     position: relative;
@@ -143,7 +143,7 @@ p{
     background-color: rgb(133, 235, 75);
 }
 
-.behavioralGroup{
+.behaviorGroup{
     width: 550px;
     background-color: rgb(190, 169, 137);
 }
@@ -168,9 +168,9 @@ p{
     float: right;
 }
 
-.submitButton{
+/* .submitButton{
     display: none;
-}
+} */
 
 .content{
     min-height: calc(100vh - 70px);

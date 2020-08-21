@@ -18,9 +18,9 @@
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
-    <script src="assets/javascript/createDatabaseEntries.js" defer></script>
+    <!-- <script src="assets/javascript/createDatabaseEntries.js" defer></script> -->
     <!-- <script src="assets/javascript/imageOverlay.js" defer></script> -->
-    <!-- <script src="assets/javascript/formControl.js" defer></script> -->
+    <script src="assets/javascript/formControl.js" defer></script>
 
 </head>
 <body>
@@ -36,7 +36,7 @@
                 <label for="toggleButton" class="toggleLabel"><span class="labelText">Simplified View</span></label>
 
                 <span class="detailedOptions">
-                    <input type="checkbox" id="depreciationButton" class="toggleSwitch" name="depreciation">
+                    <!-- <input type="checkbox" id="depreciationButton" class="toggleSwitch" name="depreciation">
                     <label for="depreciationButton" class="toggleLabel"><span class="labelText">Depreciation</span></label>
 
                     <input type="checkbox" id="financingView" class="toggleSwitch" name="financingView">
@@ -49,7 +49,7 @@
                     <label for="insuranceView" class="toggleLabel"><span class="labelText">Insurance</span></label>
 
                     <input type="checkbox" id="taxesView" class="toggleSwitch" name="taxesView">
-                    <label for="taxesView" class="toggleLabel"><span class="labelText">Taxes</span></label>
+                    <label for="taxesView" class="toggleLabel"><span class="labelText">Taxes</span></label> -->
 
                     <!-- <input type="checkbox" id="maintenanceView" class="toggleSwitch" name="maintenanceView">
                     <label for="maintenanceView" class="toggleLabel"><span class="labelText">Maintenance</span></label>
@@ -57,8 +57,17 @@
                     <input type="checkbox" id="repairView" class="toggleSwitch" name="repairView">
                     <label for="repairView" class="toggleLabel"><span class="labelText">Repair</span></label> -->
 
-                    <input type="checkbox" id="laborView" class="toggleSwitch" name="laborView">
-                    <label for="laborView" class="toggleLabel"><span class="labelText">Labor</span></label>
+                    <!-- <input type="checkbox" id="laborView" class="toggleSwitch" name="laborView">
+                    <label for="laborView" class="toggleLabel"><span class="labelText">Labor</span></label> -->
+
+                    <input type="checkbox" id="technologyGroup" class="toggleSwitch" name="technologyGroup" checked>
+                    <label for="technologyGroup" class="toggleLabel"><span class="labelText">Technology</span></label>
+
+                    <input type="checkbox" id="economicGroup" class="toggleSwitch" name="economicGroup" checked>
+                    <label for="economicGroup" class="toggleLabel"><span class="labelText">Economic Group</span></label>
+
+                    <input type="checkbox" id="behaviorGroup" class="toggleSwitch" name="behaviorGroup" checked>
+                    <label for="behaviorGroup" class="toggleLabel"><span class="labelText">Behavior Group</span></label>
                 </span>
 
                 <button id="resetButton">Reset to default</button>
@@ -458,7 +467,7 @@
 
                 <!-- <h3>Behavioral Factors</h3> -->
 
-                <div class="behavioralGroup">
+                <div class="behaviorGroup">
 
                     <div class="dropDownMenu">
                         <div class="label">
@@ -530,8 +539,7 @@
 
                     </div>
 
-                </div>
-                
+                </div>     
             </div>
 
                 <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">

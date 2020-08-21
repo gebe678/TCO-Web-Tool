@@ -16,3 +16,7 @@
 .detailedView{
     display: none;
 }
+
+.detaiedView .show{
+    display: block;
+}

@@ -26,6 +26,11 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
 
     for(let i = 0; i < 5; i++)
     {
+      console.log("labor cost from calculations " + labor[i]);
+    }
+
+    for(let i = 0; i < 5; i++)
+    {
       vehicleCost = vehicleCost + vehicleBodyCost[i];
       financingCost = financingCost + financeCost[i];
       annualFuel = annualFuel + annualFuelCost[i];
@@ -33,8 +38,10 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
       taxes = taxes + taxesAndFees[i];
       maintenanceCost = maintenanceCost + maintenance[i];
       repairCost = repairCost + repair[i];
-      laborCost = laborCost + labor[i];
+      laborCost = laborCost + parseFloat(labor[i]);
     }
+
+    console.log("total labor cost " + laborCost)
 
     vehicleCost = Math.round(100 * vehicleCost) / 100;
     financingCost = Math.round(100 * financingCost) / 100;
@@ -74,7 +81,7 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
                 maxSize: 18
             }
           },
-          labels: false
+          labels: false,
         },
         title:
         {

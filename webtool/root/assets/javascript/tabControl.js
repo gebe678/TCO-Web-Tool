@@ -1,12 +1,39 @@
 function main()
 {
     toggleControl();
-    depreciationView();
-    financingView();
-    fuelView();
-    insuranceView();
-    taxesView();
-    laborView();
+    elementControl(".technologyGroup", "#technologyGroup");
+    elementControl(".economicGroup", "#economicGroup");
+    elementControl(".behaviorGroup", "#behaviorGroup");
+    //depreciationView();
+    // financingView();
+    // fuelView();
+    // insuranceView();
+    // taxesView();
+    // laborView();
+}
+
+function elementControl(groupID, toggleID)
+{
+    let depreciationGroup = document.querySelectorAll(groupID);
+    let depreciationToggle = document.querySelector(toggleID);
+
+    depreciationToggle.addEventListener("click", function(){
+        if(depreciationToggle.checked)
+        {
+            for(let i = 0; i < depreciationGroup.length; i++)
+            {
+                depreciationGroup[i].style.display = "block";
+            }
+        }
+        
+        if(!depreciationToggle.checked)
+        {
+            for(let i = 0; i < depreciationGroup.length; i++)
+            {
+                depreciationGroup[i].style.display = "none";
+            }
+        }
+    });
 }
 
 function toggleControl()
@@ -21,9 +48,8 @@ function toggleControl()
     toggle.addEventListener("click", function(){
         if(toggle.checked)
         {
-            detailedView.style.display = "block";
-            detailedOptions.style.display = "inline";
-            
+            detailedView.style.display = "flex";
+            detailedOptions.style.display = "inline-block";
             labelText.innerHTML = "Detailed View";
             labelText.style.float = "left";
             labelText.style.marginLeft = "20px";
