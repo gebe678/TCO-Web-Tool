@@ -511,14 +511,10 @@
                                 <option value="Taxi">Taxi</option>
                                 <option value="BEV_200_Car">BEV_200_Car</option>
                                 <option value="Single_Unit_Service_Truck_General">Single_Unit_Service_Truck_General</option>
-                                <option value="Single_Unit_Service_Truck_HHD">Single_Unit_Service_Truck_HHD</option>
-                                <option value="Single_Unit_Service_Truck_MHD">Single_Unit_Service_Truck_MHD</option>
-                                <option value="Single_Unit_Service_Truck_LHD">Single_Unit_Service_Truck_LHD</option>
                                 <option value="Single_Unit_Freight_Truck_General">Single_Unit_Freight_Truck_General</option>
                                 <option value="Single_Unit_Freight_Truck_HHD">Single_Unit_Freight_Truck_HHD</option>
                                 <option value="Single_Unit_Freight_Truck_MHD">Single_Unit_Freight_Truck_MHD</option>
                                 <option value="Single_Unit_Freight_Truck_LHD">Single_Unit_Freight_Truck_LHD</option>
-                                <option value="Single_Unit_Multipurpose_Truck">Single_Unit_Multipurpose_Truck</option>
                                 <option value="Tractor_Sleeper_Cab">Tractor_Sleeper_Cab</option>
                                 <option value="Tractor_Day_Cab">Tractor_Day_Cab</option>
                                 <option value="Tractor_Long_Haul">Tractor_Long_Haul</option>

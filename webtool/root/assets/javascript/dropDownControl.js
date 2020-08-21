@@ -162,7 +162,7 @@ function vmtMenuModifier()
             case 10:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 13 || i == 15 || i == 16)
+                    if(i == 10 || i == 12 || i == 13)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -176,7 +176,7 @@ function vmtMenuModifier()
             case 11:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 14 || i == 16 || i == 17)
+                    if(i == 11 || i == 14)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -190,7 +190,7 @@ function vmtMenuModifier()
             case 12:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 8 || i == 9 || i == 12 || i == 13 || i == 17)
+                    if(i == 8 || i == 9 || i == 13)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -204,7 +204,7 @@ function vmtMenuModifier()
             case 13:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 8 || i == 11 || i == 17)
+                    if(i == 8)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -218,7 +218,7 @@ function vmtMenuModifier()
             case 14:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 8 || i == 11 || i == 16)
+                    if(i == 8 || i == 13)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -232,7 +232,7 @@ function vmtMenuModifier()
             case 15:
                 for(let i = 0; i < vmt.options.length; i++)
                 {
-                    if(i == 22)
+                    if(i == 18)
                     {
                         vmt.options[i].disabled = false;
                     }
@@ -241,7 +241,7 @@ function vmtMenuModifier()
                         vmt.options[i].disabled = true;
                     }
                 }
-                vmt.options[22].selected = true;
+                vmt.options[18].selected = true;
                 break;
             case 16:
                 for(let i = 0; i < vmt.options.length; i++)
