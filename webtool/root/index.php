@@ -535,7 +535,34 @@
 
                     </div>
 
-                </div>     
+                </div>
+
+                <div class="tempvalues">
+
+                    <div class="inputContainer">
+                        <label for="payloadCost" class="sliderLabel">Payload Cost</label>
+                        <input type="range" min="0" max="1" step=".01" value=".05" class="slider" name="payloadCost" id="payloadCost">
+                        <input type="number" min="0" max="1" step=".01" value=".05" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="chargingTime" class="sliderLabel">Charging Time Cost</label>
+                        <input type="range" min="0" max="1" step=".01" value=".02" class="slider" name="chargingTime" id="chargingTime">
+                        <input type="number" min="0" max="1" step=".01" value=".02" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure Cost</label>
+                        <input type="range" min="1000" max="5000"  value="1000" class="slider" name="fuelInfrastructure" id="fuelInfrastructure">
+                        <input type="number" min="1000" max="5000"  value="1000" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
+                        <input type="range" min="0" max="10000000"  value="19095" class="slider" name="purchaseCost" id="purchaseCost">
+                        <input type="number" min="0" max="10000000"  value="19095" class="outputText" id="purchaseNumber">
+                    </div> 
+                </div>
             </div>
 
                 <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
@@ -563,6 +590,7 @@
         </div>
 
         <div class="canvasContainer">
+            <canvas id="tornadoChart">canvas is not supported in your browser</canvas>
             <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
             <canvas id="modelYearGraph">canvas is not supported in your browser</canvas>
             <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>

@@ -11,7 +11,8 @@ function main()
     //     submitButton.click();
     // });
 
-    //checkForZero();
+    checkForZero();
+    setPurchaseCost();
     submittedAjaxForm();
 }
 
@@ -22,6 +23,27 @@ function resetToDefault()
 
     resetButton.addEventListener("click", function(){
         form.reset();
+    });
+}
+
+function setPurchaseCost()
+{
+    let form = document.getElementById("vehicleInfoForm");
+    let markupFactor = document.getElementById("markupFactor");
+    let purchaseCost = document.getElementById("purchaseCost");
+    let purchaseNumber = document.getElementById("purchaseNumber");
+
+    form.addEventListener("change", function(){
+        let dataForm = $(this).serialize();
+    
+        $.ajax({
+            type: "POST",
+            url: "assets/PHP/setPurchaseCost.php",
+            data: dataForm
+        }).done(function(data){
+            purchaseCost.value = Math.round(data * markupFactor.value);
+            purchaseNumber.value = Math.round(data * markupFactor.value);
+        });
     });
 }
 
@@ -75,7 +97,7 @@ function checkForZero()
                 mpgPlugin.value = value;
             }
             
-            submitButton.click();
+            //submitButton.click();
         });
     })
 }
@@ -92,6 +114,7 @@ function submittedAjaxForm()
     let taxData = [];
     let maintenanceData = [];
     let repairData = [];
+    let operationalData = [];
     let laborData = [];
     let vmtData = [];
 
@@ -133,8 +156,9 @@ function submittedAjaxForm()
                 taxData[i] = parseFloat(vehicleInformation[4][i]);
                 maintenanceData[i] = vehicleInformation[5][i];
                 repairData[i] = vehicleInformation[6][i];
-                laborData[i] = vehicleInformation[7][i];
-                vmtData[i] = vehicleInformation[8][i];
+                operationalData[i] = vehicleInformation[7][i];
+                laborData[i] = vehicleInformation[8][i];
+                vmtData[i] = vehicleInformation[9][i];
             }
 
             switch(bodyType.selectedIndex)
@@ -156,8 +180,24 @@ function submittedAjaxForm()
                     break;
             }
 
+            for(let i = 0; i < 30; i++)
+            {
+                if(vmtData[i] === 0)
+                {
+                    vehicleData[i] = 0;
+                    financingData[i] = 0;
+                    annualFuelData[i] = 0;
+                    insuranceData[i] = 0;
+                    taxData[i] = 0;
+                    maintenanceData[i] = 0;
+                    repairData[i] = 0;
+                    operationalData[i] = 0;
+                    laborData[i] = 0;
+                }
+            }
+
             //imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
-            fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData);
+            fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData);
 
             if(showPowertrainGraph.checked)
             {
@@ -207,7 +247,7 @@ function submittedAjaxForm()
                 modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair);
             }
 
-            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, laborData, vmtData);
+            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);
         });
     });
 }

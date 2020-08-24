@@ -8,6 +8,7 @@
     include "laborCalculations.php";
     include "getID.php";
     include "database_cach.php";
+    include "operationalCalculations.php";
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
@@ -33,15 +34,15 @@
         $taxesAndFees = calculateTaxesAndFees($analysisWindow);
         $maintenance = calculateTotalMaintenance($analysisWindow);
         $repair = calculateTotalRepair($analysisWindow);
-        $operational = 0;
         $infrastructure = 0;
+        $operational = calculateOperationalCost($analysisWindow);
         $labor = calculateLaborCost($analysisWindow);
         $vehicleVmt = getVmtData();
 
-        for($i = 0; $i < $analysisWindow; $i++)
-        {
-            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational, $infrastructure, $labor[$i], $vehicleVmt[$i]);
-        }
+        // for($i = 0; $i < $analysisWindow; $i++)
+        // {
+        //     writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+        // }
     }
     else
     {
@@ -71,12 +72,14 @@
         $taxesAndFees[$i] = $taxesAndFees[$i] / pow((1 + $discountRate), $year);
         $maintenance[$i] = $maintenance[$i] / pow((1 + $discountRate), $year);
         $repair[$i] = $repair[$i] / pow((1 + $discountRate), $year);
+        $operational[$i] = $operational[$i] / pow((1 + $discountRate), $year);
+        $labor[$i] = $labor[$i] / pow((1 + $discountRate), $year);
         $vehicleVmt[$i] = floatval($vehicleVmt[$i]);
     }
 
     if(empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]))
     {
-        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt);
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt);
     }
     
     else if(!empty($_POST["showPowertrainGraph"]))
@@ -89,7 +92,7 @@
         $pMaintenance = calculatePowertrainMaintenance();
         $pRepair = calculatePowertrainRepair();
 
-        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair);
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair);
     }
     else if(!empty($_POST["showModelYearGraph"]))
     {
@@ -101,7 +104,7 @@
         $mMaintenance = calculateModelYearMaintenance();
         $mRepair = calculateModelYearRepair();
 
-        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair);
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair);
     }
 
     echo json_encode($TCO_information);

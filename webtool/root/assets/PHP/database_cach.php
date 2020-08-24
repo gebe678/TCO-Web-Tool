@@ -2,20 +2,22 @@
 
     function checkDatabase()
     {
-        include "connectDatabase.php";
-        include "getID.php";
-        $year = 0;
+        // include "connectDatabase.php";
+        // include "getID.php";
+        // $year = 0;
 
-        $checkForSuccessQuery = "SELECT ID FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'";
+        // $checkForSuccessQuery = "SELECT ID FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'";
 
-        $result = $connect->query($checkForSuccessQuery);
+        // $result = $connect->query($checkForSuccessQuery);
 
-        if(mysqli_num_rows($result) == 0)
-        {
-            return false;
-        }
+        // if(mysqli_num_rows($result) == 0)
+        // {
+        //     return false;
+        // }
 
-        return true;
+        // return true;
+
+        return false;
     }
 
     function searchForData()
@@ -76,14 +78,14 @@
 
     function writeData($year, $vehicle, $finance, $fuel, $insurance, $taxes, $maintenance, $repair, $operational, $infrastructure, $labor, $vmt)
     {
-        include "connectDatabase.php";
+        // include "connectDatabase.php";
 
-        $vehicleBody = $_POST["vehicleBody"];
-        $powertrain = $_POST["powertrain"];
-        $modelYear = $_POST["modelYear"];
+        // $vehicleBody = $_POST["vehicleBody"];
+        // $powertrain = $_POST["powertrain"];
+        // $modelYear = $_POST["modelYear"];
 
-        $insertData = "INSERT INTO simplified_view_cost_components(Year, Vehicle, Financing, Annual_Fuel, Insurance, Taxes_And_Fees, Maintenance, Repair, Operational, Infrastructure, Labor, VMT, Vehicle_Body, Powertrain, Model_Year)VALUES($year, $vehicle, $finance, $fuel, $insurance, $taxes, $maintenance, $repair, $operational, $infrastructure, $labor, $vmt, '$vehicleBody', '$powertrain', '$modelYear')";
-        $sqli = $connect->query($insertData);
+        // $insertData = "INSERT INTO simplified_view_cost_components(Year, Vehicle, Financing, Annual_Fuel, Insurance, Taxes_And_Fees, Maintenance, Repair, Operational, Infrastructure, Labor, VMT, Vehicle_Body, Powertrain, Model_Year)VALUES($year, $vehicle, $finance, $fuel, $insurance, $taxes, $maintenance, $repair, $operational, $infrastructure, $labor, $vmt, '$vehicleBody', '$powertrain', '$modelYear')";
+        // $sqli = $connect->query($insertData);
 
     }
 ?>
