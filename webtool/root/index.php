@@ -79,7 +79,7 @@
     </header>
     <main>
         <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
-
+            <div class="simplifiedview">
             <div class="technologyGroup">
 
                 <div class="dropDownMenu">
@@ -141,6 +141,7 @@
                 </div>
 
 
+            </div>
             </div>
 
             <div class="detailedView">
@@ -315,9 +316,22 @@
                                 <option value="autonomie">Autonomie Simulations</option>
                                 <option value="aeo">AEO 2020</option>
                                 <option value="real_world_today">Real-World Today (LDV)</option>
+                                <option value="userDefinied">User Defined</option>
                             </select>
                         </div>
                     </div>
+
+                    <div class="inputContainer">
+                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure Cost</label>
+                        <input type="range" min="1000" max="5000"  value="1000" class="slider" name="fuelInfrastructure" id="fuelInfrastructure">
+                        <input type="number" min="1000" max="5000"  value="1000" class="outputText">
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
+                        <input type="range" min="0" max="10000000"  value="19095" class="slider" name="purchaseCost" id="purchaseCost">
+                        <input type="number" min="0" max="10000000"  value="19095" class="outputText" id="purchaseNumber">
+                    </div> 
 
                 </div>
 
@@ -533,12 +547,6 @@
                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
                     </div>
 
-                    </div>
-
-                </div>
-
-                <div class="tempvalues">
-
                     <div class="inputContainer">
                         <label for="payloadCost" class="sliderLabel">Payload Cost</label>
                         <input type="range" min="0" max="1" step=".01" value=".05" class="slider" name="payloadCost" id="payloadCost">
@@ -551,23 +559,18 @@
                         <input type="number" min="0" max="1" step=".01" value=".02" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
-                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure Cost</label>
-                        <input type="range" min="1000" max="5000"  value="1000" class="slider" name="fuelInfrastructure" id="fuelInfrastructure">
-                        <input type="number" min="1000" max="5000"  value="1000" class="outputText">
-                    </div>
+                </div>
 
-                    <div class="inputContainer">
-                        <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
-                        <input type="range" min="0" max="10000000"  value="19095" class="slider" name="purchaseCost" id="purchaseCost">
-                        <input type="number" min="0" max="10000000"  value="19095" class="outputText" id="purchaseNumber">
-                    </div> 
                 </div>
             </div>
+
+                <div class="tempvalues">
+                </div>
 
                 <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
                 <input type="text" name="mpgPlugin" id="mpgPlugin" style="display: none" value="0">
                 <input type="text" name="bodyCostPlugin" id="bodyCostPlugin" style="display:none" value="0">
+                <input type="text" name="customPurchaseCost" id="customPurchaseCost" style="display:none" value="0">
 
             <div class="checkboxContainer">
                 <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>

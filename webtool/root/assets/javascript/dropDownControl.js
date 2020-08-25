@@ -612,6 +612,26 @@ function definedFuel()
     });
 }
 
+function definedPurchaseCost()
+{
+    let customPurchaseCost = document.getElementById("customPurchaseCost");
+    let simulation = document.getElementById("vehicleCostInput");
+
+    simulation.addEventListener("change", function(){
+        if(simulation.selectedIndex === 3)
+        {   
+            let value = prompt("please enter custom purchase price", "19095");
+    
+            if(isNaN(value))
+            {
+                value = prompt("Input entered not a number", "19095");
+            }
+    
+            customPurchaseCost.value = value;
+        }
+    });
+}
+
 function maxYear()
 {
     let vehicleMenu = document.getElementById("vehicleBodyMenu");
@@ -652,6 +672,7 @@ function dropDownControlMain()
     vmtMenuModifier();
     bevMenuModifier();
     definedFuel();
+    definedPurchaseCost();
     maxYear();
    // incrementalAnnualFuelModifier();
 }

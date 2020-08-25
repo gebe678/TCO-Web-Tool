@@ -134,6 +134,11 @@ p{
     display: none;
 }
 
+.simplifiedView{
+    border: 2px solid black;
+    width: 550px;
+}
+
 .technologyGroup{
     width: 550px;
 }

@@ -53,11 +53,11 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
     let data = 
     {
       datasets: [{
-        data: [vehicleCost, financingCost, annualFuel, insurance, taxes, maintenanceCost, repairCost, operationalCost, laborCost],
-        backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#e1e1ea", "#3333ff", "#66a3ff", "#c267F5", "#03fc3d"],
+        data: [vehicleCost, financingCost, annualFuel, insurance, maintenanceCost, repairCost, operationalCost, laborCost, taxes],
+        backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#3333ff", "#66a3ff", "#c267F5", "#03fc3d", "#e1e1ea"],
         borderWidth: 0
       }],
-      labels: ["depreciation", "financing", "fuel", "insurance", "taxes", "maintenance", "repair", "operational", "labor"],
+      labels: ["depreciation", "financing", "fuel", "insurance", "maintenance", "repair", "operational", "labor", "taxes"],
     };
 
     piGraph = new Chart(canvas, {
@@ -65,12 +65,22 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
       data: data,
       options:
       {
+        layout:
+        {
+          padding:
+          {
+            left: 10,
+            right: 10,
+            top: 10,
+            bottom: 10
+          }
+        },
         plugins: 
         {
           outlabels:
           {
             text: '%l %p',
-            color: 'white',
+            color: ['white', 'white', 'white', 'white', 'white', 'white', 'white', 'black', 'black'],
             stretch: 45,
             font: 
             {
