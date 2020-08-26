@@ -39,10 +39,10 @@
         $labor = calculateLaborCost($analysisWindow);
         $vehicleVmt = getVmtData();
 
-        // for($i = 0; $i < $analysisWindow; $i++)
-        // {
-        //     writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
-        // }
+        for($i = 0; $i < $analysisWindow; $i++)
+        {
+            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+        }
     }
     else
     {
