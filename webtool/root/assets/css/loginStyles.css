@@ -1,0 +1,15 @@
+.labelBox{
+    min-width: 200;
+}
+
+#userName{
+    margin-bottom: 30px;
+}
+
+.signinBox{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
