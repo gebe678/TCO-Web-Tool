@@ -27,6 +27,8 @@
 
                 <input type="submit">
             </form>
+
+            <a href="signupPage.php">Click to sign up</a>
         </div>
     </body>
 

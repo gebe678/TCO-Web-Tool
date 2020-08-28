@@ -6,6 +6,10 @@
     margin-bottom: 30px;
 }
 
+#password{
+    margin-bottom: 30px;
+}
+
 .signinBox{
     position: fixed;
     top: 50%;
