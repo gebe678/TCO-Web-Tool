@@ -14,6 +14,7 @@
             $insertData = "INSERT INTO users(username, userPassword, email) VALUES('$username', '$password', '$email')";
             $result = $connect->query($usernameCheck);
             $i = 0;
+            $usernames;
 
             while($searchResults = $result->fetch_assoc())
             {

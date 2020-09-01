@@ -53,8 +53,8 @@ function toggleControl()
             labelText.innerHTML = "Detailed View";
             labelText.style.float = "left";
             labelText.style.marginLeft = "20px";
-            technologyGroup.style.backgroundColor = "#46caf1";
-            detailedTechnologyGroup.style.backgroundColor = "#46caf1";
+            technologyGroup.style.backgroundColor = "#e4d1d1";
+            detailedTechnologyGroup.style.backgroundColor = "#e4d1d1";
         }
     
         if(!toggle.checked)

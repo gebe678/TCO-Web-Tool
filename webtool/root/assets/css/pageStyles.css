@@ -1,9 +1,15 @@
 html body{
-    margin: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 body{
     display: flex;
     flex-direction: column;
+}
+
+.content{
+    margin-left: 10px;
 }
 
 h1{
@@ -140,17 +146,17 @@ p{
 }
 
 .technologyGroup{
-    width: 550px;
+    min-width: 550px;
 }
 
 .economicGroup{
-    width: 550px;
-    background-color: rgb(133, 235, 75);
+    min-width: 550px;
+    background-color: #b9b0b0;
 }
 
 .behaviorGroup{
-    width: 550px;
-    background-color: rgb(190, 169, 137);
+    min-width: 550px;
+    background-color: #d9ecd0;
 }
 
 .bannerPicture{

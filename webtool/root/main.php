@@ -64,10 +64,10 @@
                     <label for="technologyGroup" class="toggleLabel"><span class="labelText">Technology</span></label>
 
                     <input type="checkbox" id="economicGroup" class="toggleSwitch" name="economicGroup" checked>
-                    <label for="economicGroup" class="toggleLabel"><span class="labelText">Economic Group</span></label>
+                    <label for="economicGroup" class="toggleLabel"><span class="labelText">Economic</span></label>
 
                     <input type="checkbox" id="behaviorGroup" class="toggleSwitch" name="behaviorGroup" checked>
-                    <label for="behaviorGroup" class="toggleLabel"><span class="labelText">Behavior Group</span></label>
+                    <label for="behaviorGroup" class="toggleLabel"><span class="labelText">Behavior</span></label>
                 </span>
 
                 <button id="resetButton">Reset to default</button>
@@ -328,7 +328,7 @@
                     </div>
 
                     <div class="inputContainer">
-                        <label for="purchaseCost" class="sliderLabel">Purchase Cost</label>
+                        <label for="purchaseCost" class="sliderLabel" id="purchaseLabel">Purchase Cost</label>
                         <input type="range" min="0" max="10000000"  value="19095" class="slider" name="purchaseCost" id="purchaseCost">
                         <input type="number" min="0" max="10000000"  value="19095" class="outputText" id="purchaseNumber">
                     </div> 
@@ -570,7 +570,7 @@
                 <input type="text" name="userDefinedFuel" id="userDefinedFuel" style="display: none;" value="0">
                 <input type="text" name="mpgPlugin" id="mpgPlugin" style="display: none" value="0">
                 <input type="text" name="bodyCostPlugin" id="bodyCostPlugin" style="display:none" value="0">
-                <input type="text" name="customPurchaseCost" id="customPurchaseCost" style="display:none" value="0">
+                <input type="text" name="customPurchaseCost" id="customPurchaseCost" style="display:none;" value="19095">
 
             <div class="checkboxContainer">
                 <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>

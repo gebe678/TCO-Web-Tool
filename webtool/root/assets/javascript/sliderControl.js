@@ -5,6 +5,7 @@ function main()
     let textBlock = document.querySelectorAll(".textBlock");
 
     syncSliderAndText(slider, text);
+    changeNumberSize(text);
 }
 
 function syncSliderAndText(slider, text)
@@ -22,6 +23,14 @@ function syncSliderAndText(slider, text)
          {
              text[i].value = slider[i].value;
          }
+    }
+}
+
+function changeNumberSize(text)
+{
+    for(let i = 0; i < text.length; i++)
+    {
+        text[i].style.width = "90px";
     }
 }
 

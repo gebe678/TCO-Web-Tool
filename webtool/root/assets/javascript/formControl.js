@@ -30,8 +30,7 @@ function setPurchaseCost()
 {
     let form = document.getElementById("vehicleInfoForm");
     let markupFactor = document.getElementById("markupFactor");
-    let purchaseCost = document.getElementById("purchaseCost");
-    let purchaseNumber = document.getElementById("purchaseNumber");
+    let purchaseCost = document.getElementById("customPurchaseCost");
 
     form.addEventListener("change", function(){
         let dataForm = $(this).serialize();
@@ -42,7 +41,6 @@ function setPurchaseCost()
             data: dataForm
         }).done(function(data){
             purchaseCost.value = Math.round(data * markupFactor.value);
-            purchaseNumber.value = Math.round(data * markupFactor.value);
         });
     });
 }

@@ -614,20 +614,23 @@ function definedFuel()
 
 function definedPurchaseCost()
 {
-    let customPurchaseCost = document.getElementById("customPurchaseCost");
+    let customPurchaseCost = document.getElementById("purchaseCost");
+    let purchaseNumber = document.getElementById("purchaseNumber");
+    let purchaseLabel = document.getElementById("purchaseLabel");
     let simulation = document.getElementById("vehicleCostInput");
 
     simulation.addEventListener("change", function(){
         if(simulation.selectedIndex === 3)
         {   
-            let value = prompt("please enter custom purchase price", "19095");
-    
-            if(isNaN(value))
-            {
-                value = prompt("Input entered not a number", "19095");
-            }
-    
-            customPurchaseCost.value = value;
+            customPurchaseCost.style.display = "inline-block";
+            purchaseNumber.style.display = "inline-block";
+            purchaseLabel.style.display = "block";
+        }
+        else
+        {
+            customPurchaseCost.style.display = "none";
+            purchaseNumber.style.display = "none";
+            purchaseLabel.style.display = "none";
         }
     });
 }

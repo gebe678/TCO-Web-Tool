@@ -31,7 +31,6 @@
     {
         if($username === $usernameDB[$i] && $password === $passwordDB[$i])
         {
-            echo "yup";
             header("Location: /main.php");
         }
         $i++;
