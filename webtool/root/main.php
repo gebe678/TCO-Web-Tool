@@ -18,6 +18,7 @@
     <script src="assets/javascript/sliderControl.js" defer> </script>
     <script src="assets/javascript/dropDownControl.js" defer> </script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
+    <script src="assets/javascript/usedVehicleControl.js" defer></script>
     <!-- <script src="assets/javascript/createDatabaseEntries.js" defer></script> -->
     <!-- <script src="assets/javascript/imageOverlay.js" defer></script> -->
     <script src="assets/javascript/formControl.js" defer></script>
@@ -582,6 +583,34 @@
                 <label class="sliderLabel" for="modelYearComparison">Show Model Year Comparison</label>
                 <input type="checkbox" id="modelYearComparison" class="togglePowertrain" name="showModelYearGraph">
                 <label for="modelYearComparison" class="togglePowertrainLabel"></label>
+            </div>
+
+            <div class="usedVehicleInputs">
+                <div class="checkboxContainer">
+                    <label class="sliderLabel" for="usedVehicle">Used Vehicle Comparison</label>
+                    <input type="checkbox" id="usedVehicle" class="togglePowertrain" name="usedVehicleComparison">
+                    <label for="usedVehicle" class="togglePowertrainLabel"></label>
+                </div>
+            
+                <div class="inputContainer" id="usedVehicleContainer">
+                    <label for="usedVehicleYear" class="sliderLabel">Used Vehicle Year</label>
+                    <input type="range" min="0" max="15" value="0" class="slider" name="usedVehicleYear" id="usedVehicleYear">
+                    <input type="number" min="0" max="15" value="0" class="outputText">
+                </div>
+
+                <div class="checkboxContainer" id="customVMTCheck">
+                    <label class="sliderLabel" for="customVMT">Use Custom VMT</label>
+                    <input type="checkbox" id="customVMT" class="togglePowertrain" name="customVMT">
+                    <label for="customVMT" class="togglePowertrainLabel"></label>
+                </div>
+
+                <div class="customVMTValues" id="customVMTValues">
+                    <label for="customVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
+                    <input type="text" name="customVMTValue" id="customVMTValue">
+
+                    <label for="customVMTYear" class="usedVehicleLabel">Custom VMT Year</label>
+                    <input type="text" name="customVMTYear" id="customVMTYear">
+                </div>
             </div>
 
             <input type="submit" class="submitButton" id="submitButton">
