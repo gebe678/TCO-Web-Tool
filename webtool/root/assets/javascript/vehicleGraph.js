@@ -38,8 +38,6 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
       laborCost = laborCost + parseFloat(labor[i]);
     }
 
-    console.log("total labor cost " + laborCost)
-
     vehicleCost = Math.round(100 * vehicleCost) / 100;
     financingCost = Math.round(100 * financingCost) / 100;
     annualFuel = Math.round(100 * annualFuel) / 100;

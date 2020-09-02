@@ -593,7 +593,7 @@
                 </div>
             
                 <div class="inputContainer" id="usedVehicleContainer">
-                    <label for="usedVehicleYear" class="sliderLabel">Used Vehicle Year</label>
+                    <label for="usedVehicleYear" class="sliderLabel">Select Vehcile Age</label>
                     <input type="range" min="0" max="15" value="0" class="slider" name="usedVehicleYear" id="usedVehicleYear">
                     <input type="number" min="0" max="15" value="0" class="outputText">
                 </div>
@@ -606,10 +606,10 @@
 
                 <div class="customVMTValues" id="customVMTValues">
                     <label for="customVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
-                    <input type="text" name="customVMTValue" id="customVMTValue">
+                    <input type="text" name="customVMTValue" id="customVMTValue" value="1">
 
                     <label for="customVMTYear" class="usedVehicleLabel">Custom VMT Year</label>
-                    <input type="text" name="customVMTYear" id="customVMTYear">
+                    <input type="text" name="customVMTYear" id="customVMTYear" value="1">
                 </div>
             </div>
 

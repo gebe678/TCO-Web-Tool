@@ -10,25 +10,27 @@
 
     <body>
         <div class="signinBox">
-            <form action="assets/PHP/signinCheck.php" method="post" name="signinForm" id="signinForm">
-                <div class="userName">
-                    <div class="labelBox">
-                        <label for="username">User Name</label>
+            <div class="formContainer">
+                <form action="assets/PHP/signinCheck.php" method="post" name="signinForm" id="signinForm">
+                    <div class="userName">
+                        <div class="labelBox">
+                            <label for="username">User Name</label>
+                        </div>
+                        <input type="text" name="username" id="username">
                     </div>
-                    <input type="text" name="username" id="username">
-                </div>
 
-                <div class="password">
-                    <div class="labelBox">
-                        <label for="password">Password</label>
+                    <div class="password">
+                        <div class="labelBox">
+                            <label for="password">Password</label>
+                        </div>
+                        <input type="password" name="password" id="password">
                     </div>
-                    <input type="password" name="password" id="password">
-                </div>
 
-                <input type="submit">
-            </form>
+                    <input type="submit">
+                </form>
 
-            <a href="signupPage.php">Click to sign up</a>
+                <a href="signupPage.php">Click to sign up</a>
+            </div>
         </div>
     </body>
 

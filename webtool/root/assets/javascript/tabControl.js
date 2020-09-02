@@ -44,6 +44,7 @@ function toggleControl()
     let technologyGroup = document.querySelector(".technologyGroup");
     let detailedTechnologyGroup = document.querySelector(".detailedView .technologyGroup");
     let detailedOptions = document.querySelector(".detailedOptions");
+    let form = document.getElementById("vehicleInfoForm");
 
     toggle.addEventListener("click", function(){
         if(toggle.checked)
@@ -66,6 +67,7 @@ function toggleControl()
             labelText.style.marginRight = "20px";
             technologyGroup.style.backgroundColor = "white";
             detailedTechnologyGroup.style.backgroundColor = "white";
+            form.reset();
         }
     });
 }

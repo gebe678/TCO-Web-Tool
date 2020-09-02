@@ -9,6 +9,7 @@
     include "getID.php";
     include "database_cach.php";
     include "operationalCalculations.php";
+    include "usedVehicleCalculations.php";
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
