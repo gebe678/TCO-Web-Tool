@@ -9,6 +9,7 @@
     </head>
 
     <body>
+    <p> this is a test</p>
         <div class="signinBox">
             <div class="formContainer">
                 <form action="assets/PHP/signinCheck.php" method="post" name="signinForm" id="signinForm">
