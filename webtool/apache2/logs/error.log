@@ -1,5 +1,4 @@
-[Wed Sep 02 18:13:30.971541 2020] [mpm_winnt:notice] [pid 14116:tid 820] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Wed Sep 02 18:13:30.971541 2020] [mpm_winnt:notice] [pid 14116:tid 820] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Wed Sep 02 18:13:30.971541 2020] [core:notice] [pid 14116:tid 820] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/TCO-Web-Tool/webtool/apache2'
-[Wed Sep 02 18:13:30.977526 2020] [mpm_winnt:notice] [pid 14116:tid 820] AH00418: Parent: Created child process 16660
-[Wed Sep 02 18:13:31.941487 2020] [mpm_winnt:notice] [pid 16660:tid 836] AH00354: Child: Starting 64 worker threads.
+[Wed Sep 02 18:16:58.058035 2020] [mpm_winnt:notice] [pid 24196:tid 820] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Wed Sep 02 18:16:58.058035 2020] [mpm_winnt:notice] [pid 24196:tid 820] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Wed Sep 02 18:16:58.058035 2020] [core:notice] [pid 24196:tid 820] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Sandia TCO Web Tool/TCO-Web-Tool/webtool/apache2'
+[Wed Sep 02 18:16:58.065016 2020] [mpm_winnt:notice] [pid 24196:tid 820] AH00418: Parent: Created child process 9264
