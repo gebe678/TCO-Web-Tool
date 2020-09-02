@@ -42,7 +42,7 @@
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
-            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+            //writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
         }
     }
     else
@@ -78,7 +78,7 @@
         $vehicleVmt[$i] = floatval($vehicleVmt[$i]);
     }
 
-    if(empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]))
+    if(empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]) AND empty($_POST["usedVehicle"]))
     {
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt);
     }
@@ -106,6 +106,19 @@
         $mRepair = calculateModelYearRepair();
 
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair);
+    }
+    else if(!empty($_POST["usedVehicle"]))
+    {
+        $uBody = calculateUsedBodyCost();
+        $uFinance = calculateUsedFinancingCost();
+        $uFuel = calculateUsedFuelCost();
+        $uInsurance = calculateUsedInsuranceCost();
+        $uTaxes = calculateUsedTaxesCost();
+        $uMaintenance = calculateUsedMaintenance();
+        $uRepair = calculateUsedRepair();
+        $uOperational = calculateUsedOperationalCost();
+
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uOperational);
     }
 
     echo json_encode($TCO_information);

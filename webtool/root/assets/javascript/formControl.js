@@ -123,6 +123,8 @@ function submittedAjaxForm()
     let tax = [];
     let maintenance = [];
     let repair = [];
+    let operational = [];
+    let labor = [];
 
     canvas.style.display = "none";
 
@@ -135,6 +137,7 @@ function submittedAjaxForm()
         let bodyType = document.getElementById("vehicleBodyMenu");
         let showPowertrainGraph = document.getElementById("powertrainComparison");
         let showModelYearGraph = document.getElementById("modelYearComparison");
+        let showUsedVehicleGraph = document.getElementById("usedVehicle");
         
         $.ajax({
             type: 'POST',
@@ -227,10 +230,22 @@ function submittedAjaxForm()
                     repair[i] = vehicleInformation[15][i];
                 }
             }
+            else if(showUsedVehicleGraph.checked)
+            {
+                body[0] = vehicleInformation[10];
+                finance[0] = vehicleInformation[11];
+                fuel[0] = vehicleInformation[12];
+                insurance[0] = vehicleInformation[13];
+                tax[0] = vehicleInformation[14];
+                maintenance[0] = vehicleInformation[15];
+                repair[0] = vehicleInformation[16];
+                operational[0] = vehicleInformation[17];
+            }
             else
             {
                 $("#powertrainGraph").remove();
                 $("#modelYearGraph").remove();
+                $("#usedVehicleChart").remove();
             }
 
             canvas.style.display = "block";
@@ -243,6 +258,11 @@ function submittedAjaxForm()
             if(showModelYearGraph.checked)
             {
                 modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair);
+            }
+
+            if(showUsedVehicleGraph.checked)
+            {
+                usedVehicleGraph(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, body, finance, fuel, insurance, tax, maintenance, repair, operational, 0);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);

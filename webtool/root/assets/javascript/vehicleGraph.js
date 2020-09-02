@@ -164,6 +164,128 @@ function tornadoChart()
   })
 }
 
+function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedOperational, usedLabor)
+{
+    $("#usedVehicleChart").remove();
+    $(".canvasContainer").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
+
+    let canvas = document.getElementById("usedVehicleChart");
+
+    let type = ["New Vehicle", "Used Vehicle"];
+    let vehicleCost = [0, 0];
+    let financeCost = [0, 0];
+    let fuelCost = [0, 0];
+    let insuranceCost = [0, 0];
+    let taxesCost = [0, 0];
+    let maintenanceCost = [0, 0];
+    let repairCost = [0, 0];
+    let operationalCost = [0, 0];
+    let laborCost = [0, 0];
+
+    for(let i = 0; i < 5; i++)
+    {
+      vehicleCost[0] += vehicle[i];
+      financeCost[0] += finance[i];
+      fuelCost[0] += fuel[i];
+      insuranceCost[0] += insurance[i];
+      taxesCost[0] += taxes[i];
+      maintenanceCost[0] += maintenance[i];
+      repairCost[0] += repair[i];
+      operationalCost[0] += operational[i];
+      laborCost[0] += labor[i];
+    }
+
+    Chart.defaults.global.defaultFontSize = 15;
+
+    vehicleCost[1] = usedVehicle[0];
+    financeCost[1] = usedFinance[0];
+    fuelCost[1] = usedFuel[0];
+    insuranceCost[1] = usedInsurance[0];
+    taxesCost[1] = usedTaxes[0];
+    maintenanceCost[1] = usedMaintenance[0];
+    repairCost[1] = usedRepair[0];
+    operationalCost[1] = usedOperational[0];
+    laborCost[1] = usedLabor[0];
+
+    usedVehicleChart = new Chart(canvas, {
+        type: "bar",
+        data: 
+        {
+          labels: type,
+          datasets:
+          [
+            {
+              data: vehicleCost,
+              label: "Depreciation",
+              backgroundColor: "#994d00",
+            },
+            {
+              data: financeCost,
+              label: "Financing",
+              backgroundColor: "#ff0000"
+            },
+            {
+              data: fuelCost,
+              label: "Fuel",
+              backgroundColor: "#ffaa00"
+            },
+            {
+              data: insuranceCost,
+              label: "Insurance",
+              backgroundColor: "#9494b8"
+            },
+            {
+              data: taxesCost,
+              label: "Taxes",
+              backgroundColor: "#e1e1ea"
+            },
+            {
+              data: maintenanceCost,
+              label: "Maintenance",
+              backgroundColor: "#3333ff"
+            },
+            {
+              data: repairCost,
+              label: "Repair",
+              backgroundColor: "#66a3ff"
+            },
+            {
+              data: operationalCost,
+              label: "operational",
+              backgroundColor: " #c267f5"
+            },
+            {
+              data: laborCost,
+              label: "Labor",
+              backgroundColor: "#03fc3d"
+            }
+          ]
+        },
+  
+        options: 
+        {
+            title:
+            {
+              display: true,
+              text: "Used Vehicle Comparison Over " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
+              fontFamily: "sans-serif",
+              fontColor: "black",
+              fontSize: 20,
+              position: 'top'
+            },
+            scales:
+            {
+              xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
+              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}}]
+            },
+            plugins:
+            {
+              labels: false
+            }
+        }
+    });
+}
+
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
 {
     let canvas = document.getElementById("vehicleGraph");

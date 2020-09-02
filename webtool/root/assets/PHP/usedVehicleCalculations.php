@@ -365,7 +365,7 @@
             $insuranceProportionalNumber = $insuranceProportional * $bodyCost[$i];
             if($i >= $vehicleAge && $i < $vehicleAge + 5)
             {
-                $sum = $insuranceProportionalNumber + $insuranceFixed;
+                $sum += $insuranceProportionalNumber + $insuranceFixed;
             }          
         }
         return $sum;
@@ -485,7 +485,8 @@
     {
         $vehicleAge = $_POST["usedVehicleYear"];
 
-        $maintenanceCost = 0;
+        $maintenanceCost;
+        $trueMaintenanceCost = 0;
         $oilCost = calculateUsedMaintenanceComponents(0);
         $tireCost = calculateUsedMaintenanceComponents(1);
         $airFilterCost = calculateUsedMaintenanceComponents(2);
@@ -497,13 +498,38 @@
 
         for($i = 0; $i < 30; $i++)
         {
+            $maintenanceCost[$i] = ($oilCost[$i] + $tireCost[$i] + $airFilterCost[$i]  + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i] + $pumpsCost[$i]);
+        }
+
+        for($i = 0; $i < 30; $i++)
+        {
+            if($i - 2 == -2)
+            {
+                $smoothedMaintenanceCost[$i] = ($maintenanceCost[$i] + $maintenanceCost[$i + 1] + $maintenanceCost[$i + 2]) / 3;
+            }
+            else if($i - 2 == -1)
+            {
+                $smoothedMaintenanceCost[$i] = ($maintenanceCost[$i - 1] + $maintenanceCost[$i] + $maintenanceCost[$i + 1] + $maintenanceCost[$i + 2]) / 4;
+            }
+            else if($i + 2 == 30)
+            {
+                $smoothedMaintenanceCost[$i] = ($maintenanceCost[$i - 2] + $maintenanceCost[$i - 1] + $maintenanceCost[$i] + $maintenanceCost[$i + 1]) / 4;
+            }
+            else if($i + 2 == 30 + 1)
+            {
+                $smoothedMaintenanceCost[$i] = ($maintenanceCost[$i - 2] + $maintenanceCost[$i - 1] + $maintenanceCost[$i]) / 3;
+            }
+            else
+            {
+                $smoothedMaintenanceCost[$i] = ($maintenanceCost[$i - 2] + $maintenanceCost[$i - 1] + $maintenanceCost[$i] + $maintenanceCost[$i + 1] + $maintenanceCost[$i + 2]) / 5;
+            }
             if($i >= $vehicleAge && $i < $vehicleAge + 5)
             {
-                $maintenanceCost += $oilCost[$i] + $tireCost[$i] + $airFilterCost[$i]  + $batteryCost[$i] + $fluidCost[$i] + $brakes1Cost[$i] + $beltsAndHosesCost[$i] + $pumpsCost[$i];
+                $trueMaintenanceCost += $smoothedMaintenanceCost[$i];
             } 
         }
 
-        return $maintenanceCost;
+        return $trueMaintenanceCost;
     }
 
     function calculateUsedReapirComponents($component)
@@ -565,7 +591,7 @@
         $flag;
         $componentCost;
 
-        for($i = 0; $i < 5; $i++)
+        for($i = 0; $i < 30; $i++)
         {
             if($totalVMT[$i] < $firstServiceResults[$component] + $repeatServiceResults[$component] And $previousNum + 0 == 0)
             {
@@ -579,7 +605,7 @@
                 $previousNum += $flag[$i];
             }
 
-            $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];
+            $componentCost[$i] = $flag[$i] * $costDataResults[$component] * $scalingFactorResults[$component];        
         }
 
         return $componentCost;
@@ -589,7 +615,8 @@
     {
         $vehicleAge = $_POST["usedVehicleYear"];
 
-        $repairCost = 0;
+        $repairCost;
+        $trueRepairCost = 0;
         $brakes2Cost = calculateUsedReapirComponents(0);
         $transmissionCost = calculateUsedReapirComponents(1);
         $engineCost = calculateUsedReapirComponents(2);
@@ -597,15 +624,41 @@
         $fcStack = calculateUsedReapirComponents(4);
         $bodyCost = calculateUsedReapirComponents(5);
 
-        for($i = 0; $i < 5; $i++)
+        for($i = 0; $i < 30; $i++)
         {
+            $repairCost[$i] = $brakes2Cost[$i] + $transmissionCost[$i] + $engineCost[$i] + $hvBatteryCost[$i] + $fcStack[$i] + $bodyCost[$i];  
+        }
+
+        for($i = 0; $i < 30; $i++)
+        {
+            if($i - 2 == -2)
+            {
+                $smoothedRepairCost[$i] = ($repairCost[$i] + $repairCost[$i + 1] + $repairCost[$i + 2]) / 3;
+            }
+            else if($i - 2 == -1)
+            {
+                $smoothedRepairCost[$i] = ($repairCost[$i - 1] + $repairCost[$i] + $repairCost[$i + 1] + $repairCost[$i + 2]) / 4;
+            }
+            else if($i + 2 == 30)
+            {
+                $smoothedRepairCost[$i] = ($repairCost[$i - 2] + $repairCost[$i - 1] + $repairCost[$i] + $repairCost[$i + 1]) / 4;
+            }
+            else if($i + 2 == 30 + 1)
+            {
+                $smoothedRepairCost[$i] = ($repairCost[$i - 2] + $repairCost[$i - 1] + $repairCost[$i]) / 3;
+            }
+            else
+            {
+                $smoothedRepairCost[$i] = ($repairCost[$i - 2] + $repairCost[$i - 1] + $repairCost[$i] + $repairCost[$i + 1] + $repairCost[$i + 2]) / 5;
+            }
+
             if($i >= $vehicleAge && $i < $vehicleAge + 5)
             {
-                $repairCost += $brakes2Cost[$i] + $transmissionCost[$i] + $engineCost[$i] + $hvBatteryCost[$i] + $fcStack[$i] + $bodyCost[$i];
+                $trueRepairCost += $smoothedRepairCost[$i];
             } 
         }
 
-        return $repairCost;
+        return $trueRepairCost;
     }
 
     function calculateUsedPayloadCost($numYears)

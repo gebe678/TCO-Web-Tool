@@ -588,7 +588,7 @@
             <div class="usedVehicleInputs">
                 <div class="checkboxContainer">
                     <label class="sliderLabel" for="usedVehicle">Used Vehicle Comparison</label>
-                    <input type="checkbox" id="usedVehicle" class="togglePowertrain" name="usedVehicleComparison">
+                    <input type="checkbox" id="usedVehicle" class="togglePowertrain" name="usedVehicle">
                     <label for="usedVehicle" class="togglePowertrainLabel"></label>
                 </div>
             
@@ -623,6 +623,7 @@
 
         <div class="canvasContainer">
             <canvas id="tornadoChart">canvas is not supported in your browser</canvas>
+            <canvas id="usedVehicleChart">canvas is not supported in your browser</canvas>
             <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
             <canvas id="modelYearGraph">canvas is not supported in your browser</canvas>
             <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
