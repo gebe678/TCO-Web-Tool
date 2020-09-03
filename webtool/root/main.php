@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+
+    if(!isset($_SESSION["userid"]) || $_SESSION["userid"] != true)
+    {
+        header("Location: index.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -75,6 +85,7 @@
                 <button id="databaseAdder">Add Values To Database</button>
 
                 <a href="getDatabaseInfo.php">Tableau Example</a>
+                <a href="logout.php"> Log Out </a>
             </div>
         </nav>
     </header>
