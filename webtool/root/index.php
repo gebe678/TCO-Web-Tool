@@ -43,6 +43,7 @@
                 
                 $_SESSION["userid"] = true;
                 $_SESSION["user"] = $username;
+                header("Location: main.php");
             }
             $i++;
         }

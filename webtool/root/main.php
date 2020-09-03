@@ -85,7 +85,7 @@
                 <button id="databaseAdder">Add Values To Database</button>
 
                 <a href="getDatabaseInfo.php">Tableau Example</a>
-                <a href="logout.php"> Log Out </a>
+                <a href="logout.php" style="float: right;"> Log Out </a>
             </div>
         </nav>
     </header>
