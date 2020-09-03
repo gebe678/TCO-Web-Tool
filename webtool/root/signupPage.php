@@ -42,6 +42,7 @@
         if($availiable)
         {
             $sqli = $connect->query($insertData);
+            header("Location: index.php");
         }
         else
         {
@@ -84,7 +85,7 @@
                     <input type="text" name="email" id="email">
                 </div>
 
-                <input type="submit">
+                <input type="submit" name="submit">
             </form>
         </div>
     </body>
