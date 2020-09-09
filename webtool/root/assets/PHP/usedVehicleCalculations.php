@@ -19,7 +19,7 @@
         if(!empty($_POST["customVMT"]))
         {
             $customVmtValue = $_POST["customVMTValue"];
-            $customVmtYear = $_POST["customVMTYear"] - 1;
+            $customVmtYear = $_POST["usedVehicleYear"] - 1;
 
             $oldVmtValue = $vmt[$customVmtYear];
             $vmt[$customVmtYear] = $customVmtValue;

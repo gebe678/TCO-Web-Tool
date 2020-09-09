@@ -113,4 +113,20 @@
         $annualVmtYears[$i] = $vmtYear[$vmtType];
         $i++;
     }
+
+    if(!empty($_POST["customNewVmt"]))
+    {
+        $customVmtValue = $_POST["customNewVMTValue"];
+        $customVmtYear = $_POST["customNewVMTYear"] - 1;
+
+        $oldVmtValue = $annualVmtYears[$customVmtYear];
+        $annualVmtYears[$customVmtYear] = $customVmtValue;
+
+        $vmtRatio = $annualVmtYears[$customVmtYear] / $oldVmtValue;
+
+        for($i = $customVmtYear + 1; $i < sizeof($annualVmtYears); $i++)
+        {
+            $annualVmtYears[$i] = $annualVmtYears[$i] * $vmtRatio;
+        }
+    }
 ?>

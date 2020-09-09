@@ -267,7 +267,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
             title:
             {
               display: true,
-              text: "Used Vehicle Comparison Over " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
+              text: "New Vs Used Comparison For " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
               fontFamily: "sans-serif",
               fontColor: "black",
               fontSize: 20,

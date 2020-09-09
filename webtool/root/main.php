@@ -584,6 +584,19 @@
                 <input type="text" name="bodyCostPlugin" id="bodyCostPlugin" style="display:none" value="0">
                 <input type="text" name="customPurchaseCost" id="customPurchaseCost" style="display:none;" value="19095">
 
+            <div class="checkboxContainer" id="customNewVmtCheck">
+                <label class="sliderLabel" for="customNewVmt">Use Custom VMT New Vehicle</label>
+                <input type="checkbox" id="customNewVmt" class="togglePowertrain" name="customNewVmt">
+                <label for="customNewVmt" class="togglePowertrainLabel"></label>
+            </div>
+
+            <div class="customNewVMTValues" id="customNewVMTValues">
+                <label for="customNewVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
+                <input type="text" name="customNewVMTValue" id="customNewVMTValue" value="1">
+                <label for="customNewVMTYear" class="usedVehicleLabel">Custom VMT Year</label>
+                <input type="text" name="customNewVMTYear" id="customNewVMTYear" value="1">
+            </div>
+
             <div class="checkboxContainer">
                 <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>
                 <input type="checkbox" id="powertrainComparison" class="togglePowertrain" name="showPowertrainGraph">
@@ -610,7 +623,7 @@
                 </div>
 
                 <div class="checkboxContainer" id="customVMTCheck">
-                    <label class="sliderLabel" for="customVMT">Use Custom VMT</label>
+                    <label class="sliderLabel" for="customVMT">Use Custom VMT Used Vehicle</label>
                     <input type="checkbox" id="customVMT" class="togglePowertrain" name="customVMT">
                     <label for="customVMT" class="togglePowertrainLabel"></label>
                 </div>
@@ -618,9 +631,6 @@
                 <div class="customVMTValues" id="customVMTValues">
                     <label for="customVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
                     <input type="text" name="customVMTValue" id="customVMTValue" value="1">
-
-                    <label for="customVMTYear" class="usedVehicleLabel">Custom VMT Year</label>
-                    <input type="text" name="customVMTYear" id="customVMTYear" value="1">
                 </div>
             </div>
 

@@ -4,9 +4,27 @@ function main()
     let usedVehicleContainer = document.getElementById("usedVehicleContainer");
     let customVmt = document.getElementById("customVMTCheck");
     let customVmtValues = document.getElementById("customVMTValues");
+    let newVmtCheck = document.getElementById("customNewVmt");
+    let newVmtLabels = document.getElementById("customNewVMTValues");
     
     hideElements(usedVehicleContainer, customVmt, customVmtValues);
-    controlDisplay(usedVehicle, usedVehicleContainer, customVmt, customVmtValues)
+    controlDisplay(usedVehicle, usedVehicleContainer, customVmt, customVmtValues);
+    controlNewElements(newVmtCheck, newVmtLabels);
+}
+
+function controlNewElements(check, labels)
+{
+    labels.style.display = "none";
+    check.addEventListener("click", function(){
+        if(!check.checked)
+        {
+            labels.style.display = "none";
+        }
+        else if(check.checked)
+        {
+            labels.style.display = "inline-block";
+        }
+    });
 }
 
 function hideElements(usedVehicleContainer, customVmt, customVmtValues)
