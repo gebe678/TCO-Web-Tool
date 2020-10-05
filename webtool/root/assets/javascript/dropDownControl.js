@@ -349,6 +349,53 @@ function phevMenuModifier()
     });
 }
 
+function vehicleFinanceModifier()
+{
+    let financeCheck = document.getElementById("vehicleFinanced");
+    let interestRate = document.getElementById("interestRate");
+    let downPayment = document.getElementById("downPayment");
+    let financeTerm = document.getElementById("financeTerm");
+
+    let financeTermLabel = document.getElementById("financeTermLabel");
+    let downPaymentLabel = document.getElementById("downPaymentLabel");
+    let interestRateLabel = document.getElementById("interestRateLabel");
+
+    let financeTermNumber = document.getElementById("financeTermNumber");
+    let downPaymentNumber = document.getElementById("downPaymentNumber");
+    let interestRateNumber = document.getElementById("interestRateNumber");
+
+    financeCheck.addEventListener("click", function(){
+        if(financeCheck.checked)
+        {
+            interestRate.style.display = "inline-block";
+            interestRateLabel.style.display = "inline-block";
+            downPayment.style.display = "inline-block";
+
+            downPaymentLabel.style.display = "block";
+            financeTerm.style.display = "block";
+            financeTermLabel.style.display = "block";
+            
+            financeTermNumber.style.display = "inline-block";
+            downPaymentNumber.style.display = "inline-block";
+            interestRateNumber.style.display = "inline-block";
+        }
+        else
+        {
+            interestRate.style.display = "none";
+            interestRateLabel.style.display = "none";
+            downPayment.style.display = "none";
+
+            downPaymentLabel.style.display = "none";
+            financeTerm.style.display = "none";
+            financeTermLabel.style.display = "none";
+
+            financeTermNumber.style.display = "none";
+            downPaymentNumber.style.display = "none";
+            interestRateNumber.style.display = "none";
+        }
+    });
+}
+
 function powertrainMenuModifier()
 {
     let powertrainMenu = document.getElementById("powertrainMenu");
@@ -745,6 +792,7 @@ function dropDownControlMain()
     definedPurchaseCost();
     maxYear();
     resetFormOnPageRefresh();
+    vehicleFinanceModifier();
    // incrementalAnnualFuelModifier();
 }
 

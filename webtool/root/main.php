@@ -105,6 +105,25 @@
                 <input type="number" min="0" max="1" value=".001" step=".001" class="outputText">
         </div>
 
+        <div class="checkboxContainer">
+            <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
+            <input type="checkbox" id="vehicleFinanced" class="togglePowertrain" name="vehicleFinanced">
+            <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
+        </div>
+
+        <div class="inputContainer">
+            <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest Rate</label>
+            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="interestRate" id="interestRate">
+            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="interestRateNumber">
+        </div>
+
+        <div class="inputContainer">
+            <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down Payment</label>
+            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="downPayment" id="downPayment">
+            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="downPaymentNumber">
+        </div>
+
+        <!--End of the new values to be moved into appropiate categories!!!!!-->
 
             <div class="simplifiedView">
             <div class="technologyGroup">
@@ -341,8 +360,8 @@
                         <div class="border">
                             <select name="vehicleCostInput" class="selectMenu" id="vehicleCostInput">
                                 <option value="autonomie">Autonomie Simulations</option>
-                                <option value="aeo">AEO 2020</option>
-                                <option value="real_world_today">Real-World Today (LDV)</option>
+                               <!-- <option value="aeo">AEO 2020</option> -->
+                               <!--<option value="real_world_today">Real-World Today (LDV)</option> -->
                                 <option value="userDefined">User Defined</option>
                             </select>
                         </div>
@@ -503,9 +522,9 @@
                     <div class="finance">
 
                     <div class="inputContainer">
-                        <label for="financeTerm" class="sliderLabel">Finance Term</label>
+                        <label for="financeTerm" class="sliderLabel" id="financeTermLabel">Finance Term</label>
                         <input type="range" min="1" max="30"  value="5" class="slider" name="financeTerm" id="financeTerm">
-                        <input type="number" min="1" max="30"  value="5" class="outputText">
+                        <input type="number" min="1" max="30"  value="5" class="outputText" id="financeTermNumber">
                     </div>
 
                     </div>
