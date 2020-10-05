@@ -322,6 +322,33 @@ function bevMenuModifier()
     });
 }
 
+function phevMenuModifier()
+{
+    let powertrain = document.getElementById("powertrainMenu");
+    let phevRange = document.getElementById("phevRangeMenu");
+
+    phevRange.options[0].disabled = false;
+    phevRange.options[1].disabled = true;
+    phevRange.options[2].disabled = true;
+
+    powertrain.addEventListener("click", function(){
+        switch(powertrain.selectedIndex)
+        {
+            case 3:
+                phevRange.options[0].disabled = true;
+                phevRange.options[1].disabled = false;
+                phevRange.options[2].disabled = false;
+                phevRange.options[1].selected = true;
+                break;
+            default:
+                phevRange.options[0].disabled = false;
+                phevRange.options[1].disabled = true;
+                phevRange.options[2].disabled = true;
+                phevRange.options[0].selected = true;
+        }
+    });
+}
+
 function powertrainMenuModifier()
 {
     let powertrainMenu = document.getElementById("powertrainMenu");
@@ -713,6 +740,7 @@ function dropDownControlMain()
     fuelMenuModifier();
     vmtMenuModifier();
     bevMenuModifier();
+    phevMenuModifier();
     definedFuel();
     definedPurchaseCost();
     maxYear();

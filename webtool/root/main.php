@@ -99,6 +99,12 @@
                 <input type="number" min="0" max="1000000000" value="0" class="outputText">
         </div>
 
+        <div class="inputContainer">
+            <label for="fuelEfficiencyDegradation" class="sliderLabel">Fuel Efficiency Degradation Percentage</label>
+                <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
+                <input type="number" min="0" max="1" value=".001" step=".001" class="outputText">
+        </div>
+
 
             <div class="simplifiedView">
             <div class="technologyGroup">
@@ -504,7 +510,21 @@
 
                     </div>
 
+                    <div class="usedVehicleInputs">
+                        <div class="checkboxContainer">
+                        <label class="sliderLabel" for="usedVehicle">Analyze Used Car</label>
+                        <input type="checkbox" id="usedVehicle" class="togglePowertrain" name="usedVehicle">
+                        <label for="usedVehicle" class="togglePowertrainLabel"></label>
+                    </div>
+            
+                    <div class="inputContainer" id="usedVehicleContainer">
+                        <label for="usedVehicleYear" class="sliderLabel">Age of used car</label>
+                        <input type="range" min="0" max="15" value="0" class="slider" name="usedVehicleYear" id="usedVehicleYear">
+                        <input type="number" min="0" max="15" value="0" class="outputText">
+                    </div>
                 </div>
+
+            </div>
 
                 <!-- <h3>Behavioral Factors</h3> -->
 
@@ -531,8 +551,8 @@
                         <div class="border">
                             <select name="phevRange" class="selectMenu" id="phevRangeMenu">
                                 <option value="20">PHEV Powertrain Not Selected</option>
-                                <option value="20">20</option>
-                                <option value="50">50</option>
+                                <option value="20">Short</option>
+                                <option value="50">Long</option>
                             </select>
                         </div>
                     </div>
@@ -633,20 +653,6 @@
                 <label class="sliderLabel" for="modelYearComparison">Show Model Year Comparison</label>
                 <input type="checkbox" id="modelYearComparison" class="togglePowertrain" name="showModelYearGraph">
                 <label for="modelYearComparison" class="togglePowertrainLabel"></label>
-            </div>
-
-            <div class="usedVehicleInputs">
-                <div class="checkboxContainer">
-                    <label class="sliderLabel" for="usedVehicle">Used Vehicle Comparison</label>
-                    <input type="checkbox" id="usedVehicle" class="togglePowertrain" name="usedVehicle">
-                    <label for="usedVehicle" class="togglePowertrainLabel"></label>
-                </div>
-            
-                <div class="inputContainer" id="usedVehicleContainer">
-                    <label for="usedVehicleYear" class="sliderLabel">Select Vehcile Age</label>
-                    <input type="range" min="0" max="15" value="0" class="slider" name="usedVehicleYear" id="usedVehicleYear">
-                    <input type="number" min="0" max="15" value="0" class="outputText">
-                </div>
             </div>
 
             <input type="submit" class="submitButton" id="submitButton">
