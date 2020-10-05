@@ -7,6 +7,7 @@
         $bodyCost;
         $bodyType = $powertrain;
         $vBodyCost;
+        $vehicleIncentive = $_POST["vehicleIncentive"];
 
         if($bodyType === "BEV")
         {
@@ -54,11 +55,22 @@
             }
         }
 
+        if($vehicleInput == "userDefined")
+        {
+            $vBodyCost = $_POST["purchaseCost"];
+        }
+
         if($vBodyCost == 0)
         {
             $vBodyCost = $_POST["bodyCostPlugin"];
         }
 
+        if($vehicleIncentive > $vBodyCost)
+        {
+            $vehicleIncentive = $vBodyCost;
+        }
+
+        $vBodyCost = $vBodyCost - $vehicleIncentive;
         $bodyCost[0] = $vBodyCost * $markupFactor;
         $oldCost = $bodyCost[0];
 
@@ -77,6 +89,7 @@
 
         $year = 1;
         $vBodyCost;
+        $vehicleIncentive = $_POST["vehicleIncentive"];
 
         if($bodyType === "BEV")
         {
@@ -124,6 +137,12 @@
             }
         }
 
+        if($vehicleIncentive > $vBodyCost)
+        {
+            $vehicleIncentive = $vBodyCost;
+        }
+
+        $vBodyCost = $vBodyCost - $vehicleIncentive;
         $bodyCost = $vBodyCost * $markupFactor;
         $rate;
         $rate[0] = 0;
@@ -165,6 +184,7 @@
         include "getID.php";
 
         $vBodyCost;
+        $vehicleIncentive = $_POST["vehicleIncentive"];
 
         $depreciationType = $_POST["depreciation"];
 
@@ -214,10 +234,21 @@
             }
         }
 
+        if($vehicleInput == "userDefined")
+        {
+            $vBodyCost = $_POST["purchaseCost"];
+        }
+
         $bodyCost;
 
         $depreciation = calculateSimpleDepreciation($numYears);
 
+        if($vehicleIncentive > $vBodyCost)
+        {
+            $vehicleIncentive = $vBodyCost;
+        }
+
+        $vBodyCost = $vBodyCost - $vehicleIncentive;
         $previousCost = $vBodyCost * $markupFactor;
         $bodyCost[0] = $previousCost;
 

@@ -82,3 +82,15 @@
 #purchaseLabel{
     display: none;
 }
+
+#userDefinedMPG{
+    display: none;
+}
+
+#userDefinedMPGNumber{
+    display: none;
+}
+
+#userDefinedMPGLabel{
+    display: none;
+}

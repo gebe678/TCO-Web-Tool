@@ -4,6 +4,8 @@
         include "getID.php";
 
         $vBodyCost;
+        $vehicleIncentive = $_POST["vehicleIncentive"];
+
         if($powertrain === "BEV")
         {
             if($vehicleInput == "autonomie")
@@ -50,6 +52,11 @@
             }
         }
 
+        if($vehicleInput == "userDefined")
+        {
+            $vBodyCost = $_POST["purchaseCost"];
+        }
+
         if($vBodyCost == 0)
         {
             $vBodyCost = $_POST["bodyCostPlugin"];
@@ -58,6 +65,11 @@
         $financeTerm = $_POST["financeTerm"];
         $year = 1;
         $markupFactor = $_POST["markupFactor"];
+        if($vehicleIncentive > $vBodyCost)
+        {
+            $vehicleIncentive = $vBodyCost;
+        }
+        $vBodyCost = $vBodyCost - $vehicleIncentive;
         $vehicleCost = $vBodyCost * $markupFactor;
         $financeRate = .045;
         $downPaymentPercentage = .15;

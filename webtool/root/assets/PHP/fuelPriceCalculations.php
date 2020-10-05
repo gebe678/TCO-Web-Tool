@@ -285,9 +285,9 @@
             }
         }
 
-        if($MPGCost == 0)
+        if($vehicleInput == "userDefined" or $MPGCost == 0)
         {
-            $MPGCost = $_POST["mpgPlugin"];
+            $MPGCost = $_POST["userDefinedMPG"];
         }
         
         if($fuelPriceType == "defined")

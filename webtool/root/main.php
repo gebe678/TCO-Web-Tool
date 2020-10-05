@@ -82,21 +82,30 @@
                 </span>
 
                 <button id="resetButton">Reset to default</button>
-                <button id="databaseAdder">Add Values To Database</button>
+                <!-- <button id="databaseAdder">Add Values To Database</button> -->
 
-                <a href="getDatabaseInfo.php">Tableau Example</a>
+                <!-- <a href="getDatabaseInfo.php">Tableau Example</a> -->
                 <a href="logout.php" style="float: right;"> Log Out </a>
             </div>
         </nav>
     </header>
     <main>
         <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
+
+        <!--New Values added into tool will be moved into appropiate categories!!!!-->
+        <div class="inputContainer">
+            <label for="vehicleIncentive" class="sliderLabel">Vehicle Incentive</label>
+                <input type="range" min="0" max="1000000000" value="0" class="slider" name="vehicleIncentive" id="vehicleIncentive">
+                <input type="number" min="0" max="1000000000" value="0" class="outputText">
+        </div>
+
+
             <div class="simplifiedView">
             <div class="technologyGroup">
 
                 <div class="dropDownMenu">
                     <div class="label">
-                        <label for="vehicleBody">Vehicle Body:</label>
+                        <label for="vehicleBody">Vehicle Size, trim & vocation:</label>
                     </div>
                     <div class="border">
                         <select name="vehicleBody" class="selectMenu" id="vehicleBodyMenu">
@@ -166,7 +175,7 @@
 
                     <div class="dropDownMenu">
                         <div class="label">
-                            <label for="Fuel">Fuel:</label>
+                            <label for="Fuel">Fuel type:</label>
                         </div>
                         <div class="border">
                             <select name="fuel" class="selectMenu" id="fuelTypes">
@@ -328,7 +337,7 @@
                                 <option value="autonomie">Autonomie Simulations</option>
                                 <option value="aeo">AEO 2020</option>
                                 <option value="real_world_today">Real-World Today (LDV)</option>
-                                <option value="userDefinied">User Defined</option>
+                                <option value="userDefined">User Defined</option>
                             </select>
                         </div>
                     </div>
@@ -343,6 +352,12 @@
                         <label for="purchaseCost" class="sliderLabel" id="purchaseLabel">Purchase Cost</label>
                         <input type="range" min="0" max="10000000"  value="19095" class="slider" name="purchaseCost" id="purchaseCost">
                         <input type="number" min="0" max="10000000"  value="19095" class="outputText" id="purchaseNumber">
+                    </div> 
+
+                    <div class="inputContainer">
+                        <label for="userDefinedMPG" class="sliderLabel" id="userDefinedMPGLabel">MPG per Gallon</label>
+                        <input type="range" min="0" max="10000000"  value=".5" step=".1" class="slider" name="userDefinedMPG" id="userDefinedMPG">
+                        <input type="number" min="0" max="10000000"  value=".5" step=".1" class="outputText" id="userDefinedMPGNumber">
                     </div> 
 
                 </div>
@@ -419,8 +434,8 @@
 
                     <div class="inputContainer">
                         <label for="discountRate" class="sliderLabel">Discount Rate</label>
-                        <input type="range" min=".0" max="1" step=".00001" value="0" class="slider" name="discountRate" id="discountRate">
-                        <input type="number" min=".0" max="1" step=".00001" value="0" class="outputText">
+                        <input type="range" min=".0" max="1" step=".00001" value=".012" class="slider" name="discountRate" id="discountRate">
+                        <input type="number" min=".0" max="1" step=".00001" value=".012" class="outputText">
                     </div>
 
                     <div class="taxes">

@@ -412,7 +412,7 @@ function fuelMenuModifier()
                 fuelMenu.options[1].disabled = true;
                 fuelMenu.options[2].disabled = false;
                 fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = false;
+                fuelMenu.options[4].disabled = true;
                 fuelMenu.options[5].disabled = true;
                 fuelMenu.options[0].selected = true;
                 fuelMenu.options[6].disabled = true;
@@ -421,17 +421,34 @@ function fuelMenuModifier()
                 fuelMenu.options[2].selected = true;
                 break;
             case 2:
-                fuelMenu.options[0].disabled = false;
-                fuelMenu.options[1].disabled = true;
-                fuelMenu.options[2].disabled = true;
-                fuelMenu.options[3].disabled = false;
-                fuelMenu.options[4].disabled = false;
-                fuelMenu.options[5].disabled = true;
-                fuelMenu.options[0].selected = true;
-                fuelMenu.options[6].disabled = true;
-                fuelMenu.options[7].disabled = true;
-                fuelMenu.options[8].disabled = true;
-                fuelMenu.options[0].selected = true;
+                if(vehicleBodyMenu.selectedIndex > 9)
+                {
+                    fuelMenu.options[0].disabled = true;
+                    fuelMenu.options[1].disabled = true;
+                    fuelMenu.options[2].disabled = false;
+                    fuelMenu.options[3].disabled = false;
+                    fuelMenu.options[4].disabled = false;
+                    fuelMenu.options[5].disabled = true;
+                    fuelMenu.options[0].selected = true;
+                    fuelMenu.options[6].disabled = true;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[2].selected = true;
+                }
+                else
+                {
+                    fuelMenu.options[0].disabled = false;
+                    fuelMenu.options[1].disabled = true;
+                    fuelMenu.options[2].disabled = true;
+                    fuelMenu.options[3].disabled = false;
+                    fuelMenu.options[4].disabled = false;
+                    fuelMenu.options[5].disabled = true;
+                    fuelMenu.options[0].selected = true;
+                    fuelMenu.options[6].disabled = true;
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[0].selected = true;
+                }
                 break;
             case 3:
                 fuelMenu.options[0].disabled = true;
@@ -617,6 +634,9 @@ function definedPurchaseCost()
     let customPurchaseCost = document.getElementById("purchaseCost");
     let purchaseNumber = document.getElementById("purchaseNumber");
     let purchaseLabel = document.getElementById("purchaseLabel");
+    let customMPGCost = document.getElementById("userDefinedMPG");
+    let customMPGNumber = document.getElementById("userDefinedMPGNumber");
+    let customMPGLabel = document.getElementById("userDefinedMPGLabel");
     let simulation = document.getElementById("vehicleCostInput");
 
     simulation.addEventListener("change", function(){
@@ -625,12 +645,20 @@ function definedPurchaseCost()
             customPurchaseCost.style.display = "inline-block";
             purchaseNumber.style.display = "inline-block";
             purchaseLabel.style.display = "block";
+
+            customMPGCost.style.display = "inline-block";
+            customMPGNumber.style.display = "inline-block";
+            customMPGLabel.style.display = "block";
         }
         else
         {
             customPurchaseCost.style.display = "none";
             purchaseNumber.style.display = "none";
             purchaseLabel.style.display = "none";
+
+            customMPGCost.style.display = "none";
+            customMPGNumber.style.display = "none";
+            customMPGLabel.style.display = "none";
         }
     });
 }
@@ -668,6 +696,17 @@ function maxYear()
     });
 }
 
+function resetFormOnPageRefresh()
+{
+    let form = document.getElementById("vehicleInfoForm");
+
+    console.info(performance.navigation.type);
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD) 
+    {
+        form.reset();
+    }
+}
+
 function dropDownControlMain()
 {
     powertrainMenuModifier();
@@ -677,6 +716,7 @@ function dropDownControlMain()
     definedFuel();
     definedPurchaseCost();
     maxYear();
+    resetFormOnPageRefresh();
    // incrementalAnnualFuelModifier();
 }
 
