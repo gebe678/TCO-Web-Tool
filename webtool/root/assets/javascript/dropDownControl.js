@@ -774,11 +774,27 @@ function resetFormOnPageRefresh()
 {
     let form = document.getElementById("vehicleInfoForm");
 
-    console.info(performance.navigation.type);
     if (performance.navigation.type == performance.navigation.TYPE_RELOAD) 
     {
         form.reset();
     }
+}
+
+function getVehicleClassSize()
+{
+    let vehicleMenu = document.getElementById("vehicleBodyMenu");
+    let vehicleClass = document.getElementById("vehicleClassSize");
+
+    vehicleMenu.addEventListener("click", function(){
+        if(vehicleMenu.selectedIndex > 9)
+        {
+            vehicleClass.value = "HDV";
+        }
+        else if(vehicleMenu.selectedIndex <= 9)
+        {
+            vehicleClass.value = "LDV";
+        }
+    });
 }
 
 function dropDownControlMain()
@@ -793,6 +809,7 @@ function dropDownControlMain()
     maxYear();
     resetFormOnPageRefresh();
     vehicleFinanceModifier();
+    getVehicleClassSize();
    // incrementalAnnualFuelModifier();
 }
 

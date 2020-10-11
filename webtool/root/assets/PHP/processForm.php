@@ -10,6 +10,7 @@
     include "database_cach.php";
     include "operationalCalculations.php";
     include "usedVehicleCalculations.php";
+    include "residualValueCalculations.php";
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];

@@ -260,4 +260,78 @@
 
         return $bodyCost;
     }
+
+    function calculate_LDV_PHEV_UtilityFactor()
+    {
+        $phevRange = $_POST["phevRange"];
+        $economyInput = $_POST["vehicleCostInput"];
+        $result = 0;
+
+        if($phevRange === "20")
+        {
+            if($economyInput === "aeo")
+            {
+                $result = 0.271;
+            }
+            else
+            {
+                $result = 0.456;
+            }
+        }
+        else if($phevRange === "50")
+        {
+            if($economyInput === "aeo")
+            {
+                $result = 0.677;
+            }
+            else
+            {
+                $result = 0.743;
+            }
+        }
+
+        return $result;
+    }
+
+    function calculateBatterySize()
+    {
+        include "connectDatabase.php";
+
+        $powertrain = $_POST["powertrain"];
+        $vehicleBody = $_POST["vehicleBody"];
+        $technology = $_POST["technology"];
+        $modelYear = $_POST["modelYear"];
+
+        $phevRange = $_POST["phevRange"];
+        $phevMPGRange = "PHEV_" . $phevRange . "_MPG";
+
+        $bevRange = $_POST["bevRange"];
+        $bevMPGRange = "BEV_" . $bevRange . "_MPG";
+
+        $bevFuelEconomyQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
+        $bevFuelEconomy = $connect->query($bevFuelEconomyQuery); $bevFuelEconomy = $bevFuelEconomy->fetch_assoc(); $bevFuelEconomy = $bevFuelEconomy[$bevMPGRange];
+
+        $phevFuelEconomyQuery = "SELECT $phevMPGRange FROM phev_costs WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
+        $phevFuelEconomy = $connect->query($phevFuelEconomyQuery); $phevFuelEconomy = $phevFuelEconomy->fetch_assoc(); $phevFuelEconomy = $phevFuelEconomy[$phevMPGRange];
+
+        $batterySize = 0;
+
+        if($powertrain === "BEV")
+        {
+            $batterySize = ($bevRange / $bevFuelEconomy) * 33.7;
+        }
+        else if($powertrain === "PHEV")
+        {
+            if($phevRange === "20")
+            {
+                $batterySize = (20 / $phevFuelEconomy) * 33.7;
+            }
+            else if($phevRange === "50")
+            {
+                $batterySize = (50 / $phevFuelEconomy) * 33.7;
+            }
+        }
+
+        return $batterySize;
+    }
 ?>

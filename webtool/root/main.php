@@ -498,7 +498,10 @@
                         <div class="border">
                             <select name="depreciation" class="selectMenu" id="depreciationMenu">
                                 <option value="simple">Simple</option>
-                                <option value="advanced">Advanced</option>
+                                <option value="advanced">Advanced Exponential</option>
+                                <option value="userDefined" disabled>User Defined</option>
+                                <option value="upper">High Confidence</option>
+                                <option value="lower">Low COnfidence</option>
                             </select>
                         </div>
                     </div>
@@ -661,6 +664,7 @@
                 <input type="text" name="mpgPlugin" id="mpgPlugin" style="display: none" value="0">
                 <input type="text" name="bodyCostPlugin" id="bodyCostPlugin" style="display:none" value="0">
                 <input type="text" name="customPurchaseCost" id="customPurchaseCost" style="display:none;" value="19095">
+                <input type="text" name="vehicleClassSize" id="vehicleClassSize" style="display:none;" value="LDV">
 
             <div class="checkboxContainer">
                 <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>
