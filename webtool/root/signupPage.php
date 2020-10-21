@@ -9,13 +9,18 @@
         header("Location: main.php");
     }
 
-
     if(isset($_POST["submit"]))
     {
         $username = $_POST["username"];
         $password = $_POST["password"];
         $email = $_POST["email"];
         $availiable = true;
+        $emailAvailiable = true;
+
+        if(!strpos($email, "@"))
+        {
+            $emailAvailiable = false;
+        }
 
         $usernameCheck = "SELECT username FROM users";
         $insertData = "INSERT INTO users(username, userPassword, email) VALUES('$username', '$password', '$email')";
@@ -39,14 +44,18 @@
             $i++;
         }
 
-        if($availiable)
+        if($availiable and $emailAvailiable)
         {
             $sqli = $connect->query($insertData);
             header("Location: index.php");
         }
-        else
+        else if(!$availiable)
         {
             echo "username unavialiable";
+        }
+        else if(!$emailAvailiable)
+        {
+            echo "invalid email";
         }
     }
 ?>

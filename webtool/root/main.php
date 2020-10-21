@@ -1,4 +1,8 @@
 <?php 
+
+    $inactive = 7200;
+    ini_set("session.gc_maxlifetime", $inactive);
+
     session_start();
 
     if(!isset($_SESSION["userid"]) || $_SESSION["userid"] != true)
@@ -6,7 +10,18 @@
         header("Location: index.php");
         exit;
     }
-?>
+
+//     if(isset($_SESSION["testing"]) and (time() - $_SESSION["testing"] > $inactive))
+//     {
+//         session_unset();
+//         session_destroy();
+
+//         header("Location: index.php");
+//         exit;
+//     }
+
+//     $_SESSION["testing"] = time();
+// ?>
 
 <!DOCTYPE html>
 <html>
@@ -697,7 +712,7 @@
     </main>
 </div>
     <footer>
-        <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a></p>
+        <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a> | <button>Download Data</button></p>
         <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers">
     </footer>
 </body>
