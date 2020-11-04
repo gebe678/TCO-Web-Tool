@@ -8,5 +8,3 @@ I have found 2 issues with the tool currently. Firstly all of the BEV calculatio
 I have also found that the fuel data does not update when a new vehicle body is chosen. The powertrain is automatically updated based on the vehicle body type but the fuel type which is dependent on the powertrain is not updated with the change to the vehicle body. I will work on getting this fixed so the correct fuel type is selected with the powertrain.
 
 Link for tableau wordpress issue: https://community.tableau.com/s/question/0D54T00000C64d3/how-should-i-get-rid-of-play-sign-on-my-tableau-viz-in-wordpress
-
-I really hope that this works.
