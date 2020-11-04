@@ -138,6 +138,21 @@
             <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="downPaymentNumber">
         </div>
 
+        <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="insuranceType">Insruance Type:</label>
+                    </div>
+                    <div class="border">
+                        <select name="insuranceType" class="selectMenu" id="insuranceType">
+                            <option value="average">Average</option>
+                            <option value="min">Minimum</option>
+                            <option value="max">Maximum</option>
+                            <option value="SD1+">SD1+</option>
+                            <option value="SD1-">SD1-</option>
+                        </select>
+                    </div>
+                </div>
+
         <!--End of the new values to be moved into appropiate categories!!!!!-->
 
             <div class="simplifiedView">
