@@ -307,6 +307,8 @@
 
         $bevRange = $_POST["bevRange"];
         $bevMPGRange = "BEV_" . $bevRange . "_MPG";
+        
+        $size = $_POST["vehicleClassSize"];
 
         $bevFuelEconomyQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
         $bevFuelEconomy = $connect->query($bevFuelEconomyQuery); $bevFuelEconomy = $bevFuelEconomy->fetch_assoc(); $bevFuelEconomy = $bevFuelEconomy[$bevMPGRange];

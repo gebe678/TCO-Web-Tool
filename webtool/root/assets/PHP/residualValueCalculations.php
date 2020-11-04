@@ -259,4 +259,19 @@
         return $lowerDepreciationValues;
     }
 
+    // function vehicleValue($numYears)
+    // {
+    //     include "getID.php";
+
+    //     $start = $vehicleBodyCost * $_POST["markupFactor"];
+    //     $powertrain = $_POST["powertrain"];
+    //     $depreciation = $_POST["depreciation"];
+
+    //     $vehicleValues;
+
+    //     $simpleDepreciationValue = 
+
+    //     return $vehicleValues;
+    // }
+
 ?>

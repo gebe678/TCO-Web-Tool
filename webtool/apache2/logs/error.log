@@ -1,6 +1,6 @@
-[Tue Oct 20 19:50:22.215734 2020] [mpm_winnt:notice] [pid 14516:tid 788] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Tue Oct 20 19:50:22.216731 2020] [mpm_winnt:notice] [pid 14516:tid 788] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Tue Oct 20 19:50:22.216731 2020] [core:notice] [pid 14516:tid 788] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Sandia TCO Web Tool/TCO-Web-Tool/webtool/apache2'
-[Tue Oct 20 19:50:22.223713 2020] [mpm_winnt:notice] [pid 14516:tid 788] AH00418: Parent: Created child process 2576
-[Tue Oct 20 19:50:24.270243 2020] [mpm_winnt:notice] [pid 2576:tid 848] AH00354: Child: Starting 64 worker threads.
-[Tue Oct 20 20:11:38.183051 2020] [:error] [pid 2576:tid 1356] [client ::1:61761] PHP Fatal error:  Cannot redeclare calculateSimpleDepreciation() (previously declared in C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool\\root\\assets\\PHP\\vehicleCalculations.php:3) in C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool\\root\\assets\\PHP\\residualValueCalculations.php on line 84, referer: http://localhost:8080/main.php
+[Fri Oct 30 19:34:42.732478 2020] [mpm_winnt:notice] [pid 12180:tid 836] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Fri Oct 30 19:34:42.733475 2020] [mpm_winnt:notice] [pid 12180:tid 836] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Fri Oct 30 19:34:42.733475 2020] [core:notice] [pid 12180:tid 836] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Sandia TCO Web Tool/TCO-Web-Tool/webtool/apache2'
+[Fri Oct 30 19:34:42.737464 2020] [mpm_winnt:notice] [pid 12180:tid 836] AH00418: Parent: Created child process 11912
+[Fri Oct 30 19:34:43.916851 2020] [mpm_winnt:notice] [pid 11912:tid 884] AH00354: Child: Starting 64 worker threads.
+[Fri Oct 30 19:35:08.081003 2020] [:error] [pid 11912:tid 1356] [client ::1:55475] PHP Parse error:  syntax error, unexpected 'return' (T_RETURN) in C:\\Users\\warri\\Desktop\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool\\root\\assets\\PHP\\residualValueCalculations.php on line 274, referer: http://localhost:8080/main.php
