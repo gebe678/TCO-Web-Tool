@@ -2,3 +2,4 @@
 [Mon Nov 09 14:56:40.638481 2020] [mpm_winnt:notice] [pid 13100:tid 848] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
 [Mon Nov 09 14:56:40.638481 2020] [core:notice] [pid 13100:tid 848] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/HELP/TCO-Web-Tool/webtool/apache2'
 [Mon Nov 09 14:56:40.642471 2020] [mpm_winnt:notice] [pid 13100:tid 848] AH00418: Parent: Created child process 9172
+[Mon Nov 09 14:56:41.734103 2020] [mpm_winnt:notice] [pid 9172:tid 840] AH00354: Child: Starting 64 worker threads.
