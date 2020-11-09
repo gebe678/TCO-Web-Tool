@@ -47,13 +47,17 @@
                 $totalCost[$i] += $vehicleCost * $salesTax + $initialVehicleRegistration + $documentationFee;
             }
             
-            $totalCost += $annualVehicleRegistration + $otherCosts;
+            $totalCost[$i] += $annualVehicleRegistration + $otherCosts;
         }
         return $totalCost;
     }
 
     function calculateHDVTaxesAndFees($numYears)
     {
+        include "getID.php";
+
+        $totalCost;
+
         $exciseTax = .12;
         $salesTax = .084;
         $highwayUseTax = 0;
@@ -68,8 +72,65 @@
         $class8Bus = 902.429083749901;
         $class8Refuse = 902.429083749901;
 
+        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+
         $vehicleBody = $_POST["vehicleBody"];
+
+        $registration = 0;
+
+        switch($vehicleBody)
+        {
+            case "Tractor Sleeper":
+                $registration = $tractorSleeper;
+            break;
+            case "Tractor Day Cab":
+                $registration = $tractorDayCab;
+            break;
+            case "Class 8 Vocational":
+                $registration = $class8Vocational;
+            break;
+            case "Class 6 Pickup Delivery":
+                $registration = $class6Pickup;
+            break;
+            case "Class 3 Pickup Delivery":
+                $registration = $class3Pickup;
+            break;
+            case "Class 8 Bus":
+                $registration = $class8Bus;
+            break;
+            case "Class 8 Refuse":
+                $registration = $class8Refuse;
+            break;
+        }
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $totalCost[$i] = 0;
+
+            if($i === 0 AND ($vehicleBody === "Tractor Sleeper" OR $vehicleBody === "Tractor Day Cab" OR $vehicleBody === "Class 8 Vocational" OR $vehicleBody === "Class 8 Bus" OR $vehicleBody === "Class 8 Refuse"))
+            {
+                $totalCost[$i] += $vehicleCost * $exciseTax;
+            }
+
+            $totalCost[$i] += $vehicleCost * $salesTax + ($tolls + $permitsAndLicenses) * $annualVmtYears[$i] + $registration;
+        }
+
+        return $totalCost;
     }
 
-    calculateNewTaxesAndFees(0);
+    function calculateNewTaxesAndFees($numYears)
+    {
+        $totalCost;
+
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $totalCost = calculateLDVTaxesAndFees(30);
+        }
+        else
+        {
+            $totalCost = calculateHDVTaxesAndFees(30);
+        }
+
+        return $totalCost;
+    }
 ?>

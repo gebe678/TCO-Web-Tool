@@ -33,7 +33,7 @@
         $financeCost = calculateInterestPayment($analysisWindow);
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
         $insuranceCost = calculateNewInsuranceCost($analysisWindow);
-        $taxesAndFees = calculateTaxesAndFees($analysisWindow);
+        $taxesAndFees = calculateNewTaxesAndFees($analysisWindow);
         $maintenance = calculateTotalMaintenance($analysisWindow);
         $repair = calculateTotalRepair($analysisWindow);
         $infrastructure = 0;
