@@ -107,62 +107,62 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
     });
 }
 
-function tornadoChart()
-{
-  let canvas = document.getElementById("tornadoChart");
+// function tornadoChart()
+// {
+//   let canvas = document.getElementById("tornadoChart");
 
-  tornado = new Chart(canvas, {
-    type: "horizontalBar",
-    data: 
-    {
-      labels: ["variable1", "variable2", "variable3", "variable4", "variable5"],
-      datasets:
-      [
-        {
-          backgroundColor: "red",
-          label: "Data 1",
-          data: [-100, -50, -35, -10, -5]
-        },
-        {
-          backgroundColor: "green",
-          label: "Data 2",
-          data: [100, 50, 35, 10, 5]
-        }
-      ]
-    },
-    options:
-    {
-      title: 
-      {
-        display: true,
-        text: "Example Tornado Chart",
-        fontFamily: "sans-serif",
-        fontColor: "black",
-        fontSize: 20,
-        position: 'top'
-      },
-      scales:
-      {
-        xAxes:
-        [
-          {
-            stacked: true
-          }
-        ],
-        yAxes: 
-        [
-          {
-            stacked: true
-          }
-        ]
-      },
-      plugins:
-      {
-        labels: false
-      }
-    }
-  })
-}
+//   tornado = new Chart(canvas, {
+//     type: "horizontalBar",
+//     data: 
+//     {
+//       labels: ["variable1", "variable2", "variable3", "variable4", "variable5"],
+//       datasets:
+//       [
+//         {
+//           backgroundColor: "red",
+//           label: "Data 1",
+//           data: [-100, -50, -35, -10, -5]
+//         },
+//         {
+//           backgroundColor: "green",
+//           label: "Data 2",
+//           data: [100, 50, 35, 10, 5]
+//         }
+//       ]
+//     },
+//     options:
+//     {
+//       title: 
+//       {
+//         display: true,
+//         text: "Example Tornado Chart",
+//         fontFamily: "sans-serif",
+//         fontColor: "black",
+//         fontSize: 20,
+//         position: 'top'
+//       },
+//       scales:
+//       {
+//         xAxes:
+//         [
+//           {
+//             stacked: true
+//           }
+//         ],
+//         yAxes: 
+//         [
+//           {
+//             stacked: true
+//           }
+//         ]
+//       },
+//       plugins:
+//       {
+//         labels: false
+//       }
+//     }
+//   })
+// }
 
 function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedOperational, usedLabor)
 {

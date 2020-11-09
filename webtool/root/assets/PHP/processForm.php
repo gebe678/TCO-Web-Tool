@@ -32,7 +32,7 @@
         $vehicle = calculateDepreciation($analysisWindow);
         $financeCost = calculateInterestPayment($analysisWindow);
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
-        $insuranceCost = calculateInsuranceCost($analysisWindow);
+        $insuranceCost = calculateNewInsuranceCost($analysisWindow);
         $taxesAndFees = calculateTaxesAndFees($analysisWindow);
         $maintenance = calculateTotalMaintenance($analysisWindow);
         $repair = calculateTotalRepair($analysisWindow);

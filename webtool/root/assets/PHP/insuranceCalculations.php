@@ -16,8 +16,10 @@
         return $insuranceCost;
     }
 
-    function calculateNewInsruanceCost($numYears)
+    function calculateNewInsuranceCost($numYears)
     {
+        $totalInsurance;
+
         $AVERAGE = 600;
         $MIN = 300;
         $MAX = 1000;
@@ -49,9 +51,16 @@
             $insuranceLiability = $SD1LOW;
         }
 
-        calculateLDVInsurance(30, $insuranceLiability);
-        calcualteHDVInsurance(30, $insuranceLiability);
-        
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $totalInsurance = calculateLDVInsurance(30, $insuranceLiability);
+        }
+        else
+        {
+            $totalInsurance = calcualteHDVInsurance(30, $insuranceLiability);
+        }
+
+        return $totalInsurance;
     }
 
     function calcualteHDVInsurance($numYears, $insuranceLiability)
@@ -187,7 +196,7 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            if(($residualValue[$i] - $deductible) * $comprehensiveCutoff > $residualValue[0] * $comprehensivePremiumA + $comprehensivePremiumB)
+            if( (($residualValue[$i] - $deductible) * $comprehensiveCutoff) > ($residualValue[0] * ($comprehensivePremiumA + $comprehensivePremiumB)))
             {
                 $totalInsurance[$i] = $insuranceLiability + $residualValue[0] * $comprehensivePremiumA + $comprehensivePremiumB;
             }
@@ -195,12 +204,7 @@
             {
                 $totalInsurance[$i] = 0;
             }
-            
         }
-
         return $totalInsurance;
     }
-
-    calculateNewInsruanceCost(0);
-
 ?>

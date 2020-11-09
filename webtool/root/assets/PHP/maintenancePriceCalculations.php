@@ -1,5 +1,6 @@
 <?php 
 
+    // old maintenance and repair functions here
     function calculateMaintenanceCost($component, $numYears)
     {
         include_once "getMaintenanceData.php";
@@ -158,6 +159,12 @@
 
 
         return $repairCost;
+    }
+
+    // new maintenance and repair functions here
+    function calculateNewRepair($numYears)
+    {
+        
     }
 
     function calculateCumulativeVmt($numYears)
