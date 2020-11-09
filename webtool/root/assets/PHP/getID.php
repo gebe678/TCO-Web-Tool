@@ -65,7 +65,7 @@
 
     // Vehice_body_query
     $vehicleBodyCostQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
-
+    $vehicleWeightQuery = "SELECT Vehicle_Weight FROM vehicle_weight WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
     // vehcile cost input query
     $vehicleAeoQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Model_Year LIKE 'AEO_Model_Year_2020'";
     $vehicleRealWorldTodayQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE  Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Model_Year LIKE 'Real_World_Today'";
@@ -80,6 +80,7 @@
     $sizeID = $connect->query($vehicleQuery); $sizeID = $sizeID->fetch_assoc(); $sizeID = $sizeID["Size_ID"];
     $powertrainID = $connect->query($powertrainQuery); $powertrainID = $powertrainID->fetch_assoc(); $powertrainID = $powertrainID["Powertrain_ID"];
     $vehicleBodyCost = $connect->query($vehicleBodyCostQuery); $vehicleBodyCost = $vehicleBodyCost->fetch_assoc(); $vehicleBodyCost = $vehicleBodyCost["Body_Cost"];
+    $vehicleWeight = $connect->query($vehicleWeightQuery); $vehicleWeight = $vehicleWeight->fetch_assoc(); $vehicleWeight = $vehicleWeight["Vehicle_Weight"];
 
     // vehicle body cost results
     $vehicleAeoCost = $connect->query($vehicleAeoQuery); $vehicleAeoCost = $vehicleAeoCost->fetch_assoc(); $vehicleAeoCost = $vehicleAeoCost["Body_Cost"];

@@ -787,5 +787,5 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
 
     costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor);
     costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt);
-    tornadoChart();
+    //tornadoChart();
 }
