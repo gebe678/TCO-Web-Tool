@@ -11,6 +11,9 @@
     include "operationalCalculations.php";
     include "usedVehicleCalculations.php";
     include "residualValueCalculations.php";
+    include "newMaintenancePriceCalculations.php";
+
+    newMaintenanceMain(30);
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];

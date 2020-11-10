@@ -1,87 +1,87 @@
 <?php 
 
-//     function calculateSimpleDepreciation($numYears)
-//     {
-//         include "getID.php";
+    function calculateSimpleDepreciation($numYears)
+    {
+        include "getID.php";
 
-//         $bodyCost;
-//         $bodyType = $powertrain;
-//         $vBodyCost;
-//         $vehicleIncentive = $_POST["vehicleIncentive"];
+        $bodyCost;
+        $bodyType = $powertrain;
+        $vBodyCost;
+        $vehicleIncentive = $_POST["vehicleIncentive"];
 
-//         if($bodyType === "BEV")
-//         {
-//             if($vehicleInput == "autonomie")
-//             {
-//                 $vBodyCost = $bevCostResult;
-//             }
-//             else if($vehicleInput == "aeo")
-//             {
-//                 $vBodyCost = $bevAeoResult;
-//             }
-//             else if($vehicleInput == "real_world_today")
-//             {
-//                 $vBodyCost = $bevRealWorldResult;
-//             }
-//         }
-//         else if($bodyType === "PHEV")
-//         {
-//             if($vehicleInput == "autonomie")
-//             {
-//                 $vBodyCost = $phevCostResult;
-//             }
-//             else if($vehicleInput == "aeo")
-//             {
-//                 $vBodyCost = $phevAeoResult;
-//             }
-//         else if($vehicleInput == "real_world_today")
-//         {
-//             $vBodyCost = $phevRealWorldResult;
-//         }
-//     }
-//     else
-//     {
-//         if($vehicleInput == "autonomie")
-//         {
-//             $vBodyCost = $vehicleBodyCost;
-//         }
-//         else if($vehicleInput == "aeo")
-//         {
-//             $vBodyCost = $vehicleAeoCost;
-//         }
-//         else if($vehicleInput == "real_world_today")
-//         {
-//             $vBodyCost = $vehicleRealWorldCost;
-//         }
-//     }
+        if($bodyType === "BEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $bevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $bevAeoResult;
+            }
+            else if($vehicleInput == "real_world_today")
+            {
+                $vBodyCost = $bevRealWorldResult;
+            }
+        }
+        else if($bodyType === "PHEV")
+        {
+            if($vehicleInput == "autonomie")
+            {
+                $vBodyCost = $phevCostResult;
+            }
+            else if($vehicleInput == "aeo")
+            {
+                $vBodyCost = $phevAeoResult;
+            }
+        else if($vehicleInput == "real_world_today")
+        {
+            $vBodyCost = $phevRealWorldResult;
+        }
+    }
+    else
+    {
+        if($vehicleInput == "autonomie")
+        {
+            $vBodyCost = $vehicleBodyCost;
+        }
+        else if($vehicleInput == "aeo")
+        {
+            $vBodyCost = $vehicleAeoCost;
+        }
+        else if($vehicleInput == "real_world_today")
+        {
+            $vBodyCost = $vehicleRealWorldCost;
+        }
+    }
 
-//     if($vehicleInput == "userDefined")
-//     {
-//         $vBodyCost = $_POST["purchaseCost"];
-//     }
+    if($vehicleInput == "userDefined")
+    {
+        $vBodyCost = $_POST["purchaseCost"];
+    }
 
-//     if($vBodyCost == 0)
-//     {
-//         $vBodyCost = $_POST["bodyCostPlugin"];
-//     }
+    if($vBodyCost == 0)
+    {
+        $vBodyCost = $_POST["bodyCostPlugin"];
+    }
 
-//     if($vehicleIncentive > $vBodyCost)
-//     {
-//         $vehicleIncentive = $vBodyCost;
-//     }
+    if($vehicleIncentive > $vBodyCost)
+    {
+        $vehicleIncentive = $vBodyCost;
+    }
 
-//     $vBodyCost = $vBodyCost - $vehicleIncentive;
-//     $bodyCost[0] = $vBodyCost * $markupFactor;
-//     $oldCost = $bodyCost[0];
+    $vBodyCost = $vBodyCost - $vehicleIncentive;
+    $bodyCost[0] = $vBodyCost * $markupFactor;
+    $oldCost = $bodyCost[0];
 
-//     for($i = 0; $i < $numYears; $i++)
-//     {
-//         $bodyCost[$i] = $oldCost * $depreciationRate;
-//         $oldCost = $oldCost - $bodyCost[$i];
-//     }
+    for($i = 0; $i < $numYears; $i++)
+    {
+        $bodyCost[$i] = $oldCost * $depreciationRate;
+        $oldCost = $oldCost - $bodyCost[$i];
+    }
 
-//     return $bodyCost;
-// }
+    return $bodyCost;
+}
     function calculateAdvancedExponentialDepreciation($numYears)
     {
         include "getID.php";

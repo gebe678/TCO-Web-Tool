@@ -167,28 +167,28 @@
         
     }
 
-    function calculateCumulativeVmt($numYears)
-    {
-        include "connectDatabase.php";
+    // function calculateCumulativeVmt($numYears)
+    // {
+    //     include "connectDatabase.php";
         
-        $vmtType = $_POST["vmt"];
-        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+    //     $vmtType = $_POST["vmt"];
+    //     $vmtQuery = "SELECT $vmtType FROM annual_vmt";
 
-        $i = 0;
-        $h = $connect->query($vmtQuery);
-        while($vmtYear = $h->fetch_assoc())
-        {
-            $annualVmtYears[$i] = $vmtYear[$vmtType];
-            $i++;
-        }
+    //     $i = 0;
+    //     $h = $connect->query($vmtQuery);
+    //     while($vmtYear = $h->fetch_assoc())
+    //     {
+    //         $annualVmtYears[$i] = $vmtYear[$vmtType];
+    //         $i++;
+    //     }
         
-        $totalVMT = 0;
+    //     $totalVMT = 0;
 
-        for($i = 0; $i < $numYears + 1; $i++)
-        {
-            $totalVMT = $totalVMT + $annualVmtYears[$i];
-        }
+    //     for($i = 0; $i < $numYears + 1; $i++)
+    //     {
+    //         $totalVMT = $totalVMT + $annualVmtYears[$i];
+    //     }
 
-        return $totalVMT;
-    }
+    //     return $totalVMT;
+    // }
 ?>

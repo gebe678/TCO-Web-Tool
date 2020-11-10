@@ -531,7 +531,7 @@
                                 <option value="advanced">Advanced Exponential</option>
                                 <option value="userDefined" disabled>User Defined</option>
                                 <option value="upper">High Confidence</option>
-                                <option value="lower">Low COnfidence</option>
+                                <option value="lower">Low Confidence</option>
                             </select>
                         </div>
                     </div>
