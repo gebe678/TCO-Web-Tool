@@ -5,7 +5,7 @@
         $totalMaintenance;
         if($_POST["vehicleClassSize"] === "LDV")
         {
-            $totalMaintenance = newLDVMaintenanceMain($numYears));
+            $totalMaintenance = newLDVMaintenanceMain($numYears);
         }
         else
         {
@@ -161,4 +161,79 @@
 
         return $totalVMT;
     }
+
+    function newLDVRepair($numYears)
+    {
+        include "getID.php";
+
+        $ldvRepairCurve;
+        $repairAgingFactor = Array(0, 0, 0.003333333, 0.01,	0.016666667, 0.02, 0.023333333, 0.026666667, 0.03, 0.033333333, 0.036666667, 0.04, 0.043333333, 0.046666667, 0.05, 0.053333333, 0.056666667, 0.06, 0.063333333, 0.066666667, 0.07, 0.073333333, 0.076666667, 0.08, 0.083333333, 0.086666667, 0.09, 0.093333333, 0.096666667, 0.1, 0.103333333, 0.106666667, 0.11, 0.113333333, 0.116666667);
+
+        $vehicleBody = $_POST["vehicleBody"];
+        $powertrain = $_POST["powertrain"];
+        $sizeMultiplier = 0;
+        $powertrainMultiplier = 0;
+
+        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+
+        $ldvRepair;
+
+        switch($vehicleBody)
+        {
+            case "Compact Sedan":
+            case "Midsize Sedan":
+            case "Luxury Compact":
+            case "Luxury Midsize Car":
+                $sizeMultiplier = 1;
+                break;
+            
+            case "Small SUV":
+            case "Medium SUV":
+            case "Luxury Small SUV":
+            case "Luxury Medium SUV":
+                $sizeMultiplier = .95;
+                break;
+
+            case "Pickup":
+            case "Luxury Pickup":
+                $sizeMultiplier = .75;
+                break;
+
+            default:
+                $sizeMultiplier = 0;
+        }
+
+        switch($powertrain)
+        {
+            case "ICE-SI":
+                $powertrainMultiplier = 1;
+                break;
+            case "ICE-CI":
+                $powertrainMultiplier = 1;
+                break;
+            case "HEV-SI":
+                $powertrainMultiplier = .89;
+                break;
+            case "PHEV":
+                $powertrainMultiplier = .86;
+                break;
+            case "FCEV":
+                $powertrainMultiplier = .67;
+                break;
+            case "BEV":
+                $powertrainMultiplier = .67;
+                break;
+
+            default:
+                $powertrainMultiplier = 0;
+        }
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $ldvRepairCurve[$i] = $repairAgingFactor[$i] * $sizeMultiplier * $powertrainMultiplier * exp(.00002 * $vehicleCost);
+            $ldvRepair[$i] = $ldvRepairCurve[$i] * $annualVmtYears[$i];
+        }
+    }
+
+    newLDVRepair(30);
 ?>
