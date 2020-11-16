@@ -1,5 +1,21 @@
 <?php 
+
     function newMaintenanceMain($numYears)
+    {
+        $totalMaintenance;
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $totalMaintenance = newLDVMaintenanceMain($numYears));
+        }
+        else
+        {
+            $totalMaintenance = newHDVMaintenanceMain($numYears);
+        }
+
+        return $totalMaintenance;
+    }
+
+    function newLDVMaintenanceMain($numYears)
     {
         include "connectDatabase.php";
 
@@ -72,7 +88,43 @@
                 $sumProduct[$j] = ((floor((calculateCumulativeVmt($i) + $repeatVMT[$j] - $firstService[$j]) / $repeatVMT[$j])) - (floor((calculateCumulativeVmt($i - 1) + $repeatVMT[$j] - $firstService[$j]) / $repeatVMT[$j]))) * $powertrainScalingFactor[$j];
             }
             $totalMaintenance[$i] = array_sum($sumProduct);
-            echo $totalMaintenance[$i] .  " " . " " . " " . "  ";
+        }
+    }
+
+    function newHDVMaintenanceMain($numYears)
+    {
+        include "connectDatabase.php";
+
+        $totalMaintenance;
+
+        $vehicleBodyInfo = $_POST["vehicleBody"];
+        $vehicleInfo;
+        $i = 0;
+
+        $getInfoQuery = "SELECT * FROM maintenance_updated_hdv";
+
+        $c = $connect->query($getInfoQuery);
+
+        while($h = $c->fetch_assoc())
+        {
+            $vehicleInfo[$i] = $h[$vehicleBodyInfo];
+            $i++;
+        }
+
+        $vmtType = $_POST["vmt"];
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+
+        $i = 0;
+        $h = $connect->query($vmtQuery);
+        while($vmtYear = $h->fetch_assoc())
+        {
+            $annualVmtYears[$i] = $vmtYear[$vmtType];
+            $i++;
+        }
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $totalMaintenance[$i] = $vehicleInfo[$i] * $annualVmtYears[$i];
         }
     }
 
