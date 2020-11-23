@@ -1,21 +1,5 @@
 <?php
 
-
-function calculateSalvageValue($numYears)
-{
-
-}
-
-function calculateBatterySalvage($numYears)
-{
-
-}
-
-function calculateVehicleSalvage($numYears)
-{
-    
-}
-
 function calculateSimpleDepreciation($numYears)
 {
     include "getID.php";
@@ -512,24 +496,67 @@ function calculateLowerDepreciation($numYears)
         $phevFuelEconomyQuery = "SELECT $phevMPGRange FROM phev_costs WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
         $phevFuelEconomy = $connect->query($phevFuelEconomyQuery); $phevFuelEconomy = $phevFuelEconomy->fetch_assoc(); $phevFuelEconomy = $phevFuelEconomy[$phevMPGRange];
 
+        $HDVFuelEconomyQuery = "SELECT MPG FROM vehicle_mpg WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+        $HDVFuelEconomy = $connect->query($HDVFuelEconomyQuery); $HDVFuelEconomy = $HDVFuelEconomy->fetch_assoc(); $HDVFuelEconomy = $HDVFuelEconomy["MPG"];
+
         $batterySize = 0;
 
         if($powertrain === "BEV")
         {
-            $batterySize = ($bevRange / $bevFuelEconomy) * 33.7;
+            if($_POST["vehicleClassSize"] === "LDV")
+            {
+                $batterySize = ($bevRange / $bevFuelEconomy) * 33.7;
+            }
+            else
+            {
+                $batterySize = ($bevRange / $HDVFuelEconomy) * 33.7;
+            }
         }
         else if($powertrain === "PHEV")
         {
-            if($phevRange === "20")
+            if($_POST["vehicleClassSize"] === "LDV")
             {
-                $batterySize = (20 / $phevFuelEconomy) * 33.7;
+                if($phevRange === "20")
+                {
+                    echo "the ldv phev range is: " . $phevFuelEconomy;
+                    $batterySize = (20 / $phevFuelEconomy) * 33.7;
+                }
+                else if($phevRange === "50")
+                {
+                    $batterySize = (50 / $phevFuelEconomy) * 33.7;
+                }
             }
-            else if($phevRange === "50")
+            else
             {
-                $batterySize = (50 / $phevFuelEconomy) * 33.7;
+                if($phevRange === "20")
+                {
+                    $batterySize = (20 / $HDVFuelEconomy) * 38.1;
+                }
+                else if($phevRange === "50")
+                {
+                    $batterySize = (50 / $HDVFuelEconomy) * 38.1;
+                }
             }
         }
 
         return $batterySize;
     }
+
+    function calculateBatterySalvage($numYears)
+    {
+        $batterySize = calculateBatterySize();
+        $batteryValue = 185 * 1.5;
+        $batterySalvageCurve = [0.7, 0.622107385, 0.557501052, 0.502852736, 0.455881451, 0.414967667, 0.378927311, 0.346873058, 0.3181258, 0.292156238, 0.268545227, 0.246956174, 0.2271154, 0.208797899, 0.191816829, 0.176015631, 0.161262043, 0.147443494, 0.134463511, 0.1222389, 0.110697496, 0.099776367, 0.089420356, 0.079580898, 0.070215046, 0.061284666, 0.05275577, 0.044597959, 0.036783948, 0.029289173, 0.022091455];
+        $batterySalvageValue;
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $batterySalvageValue[$i] = $batterySize * $batteryValue * $batterySalvageCurve[$i];
+            echo $batterySalvageValue[$i] . " " . " " . " ";
+        }
+
+        return $batterySalvageValue[$i];
+    }
+
+    calculateBatterySalvage(30);
 ?>
