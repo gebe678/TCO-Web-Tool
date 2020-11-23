@@ -46,6 +46,9 @@
         $maxWeight = 80000;
         $weightAllowence = 0;
 
+        $iceciVehicleWeightQuery = "SELECT Vehicle_Weight FROM vehicle_weight WHERE Powertrain LIKE 'ICE-CI' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+        $iceciVehicleWeight = $connect->query($iceciVehicleWeightQuery); $iceciVehicleWeight = $iceciVehicleWeight->fetch_assoc(); $iceciVehicleWeight = $iceciVehicleWeight["Vehicle_Weight"];
+
         if($fuelType === "CNG" OR $powertrain === "BEV")
         {
             $weightAllowence = 2000;
@@ -55,7 +58,7 @@
         {
             if($i === 0)
             {
-                $capacity = $vehicleWeight - $vehicleWeight - $weightAllowence;
+                $capacity = $vehicleWeight - $iceciVehicleWeight - $weightAllowence;
                 if($capacity > 0)
                 {
                     $poundsLost[$i] = $capacity;
@@ -69,17 +72,17 @@
             {
                 if($poundsLost[$i - 1] - 500 > 0)
                 {
-                    $poundsLost[$i] = $poundsLost[$i - 1];
+                    $poundsLost[$i] = $poundsLost[$i - 1] - 500;
                 }
                 else
                 {
                     $poundsLost[$i] = 0;
                 }
             }
-            $averageLostPayload += $poundsLost[$i] + $densityFunction[$i];
+            $averageLostPayload += $poundsLost[$i] * $densityFunction[$i];
         }
 
-        $maxCargo = ($maxWeight + $weightAllowence) - $vehicleWeight + $vehicleWeight;
+        $maxCargo = ($maxWeight + $weightAllowence) - $vehicleWeight + $cargoWeight;
         
         $fractionalLoss = $averageLostPayload / $maxCargo;
 
@@ -105,7 +108,7 @@
 
         if($_POST["vehicleClassSize"] === "HDV")
         {
-            $phevUtilityFactorQuery = "SELECT Cargo_Weight FROM cargo_weight WHERE Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+            $phevUtilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
             $phevUtilityFactor = $connect->query($phevUtilityFactorQuery); $phevUtilityFactor = $phevUtilityFactor->fetch_assoc(); $phevUtilityFactor = $phevUtilityFactor["PHEV_Utility_Factor"];
         }
         else
@@ -148,7 +151,7 @@
         for($i = 0; $i < $numYears; $i++)
         {
             $operationalCost[$i] = $a[$i] + $b[$i];
-            echo $operationalCost[$i] .  " " . " " . " ";
+            //echo $operationalCost[$i] .  " " . " " . " ";
         }
 
         return $operationalCost;

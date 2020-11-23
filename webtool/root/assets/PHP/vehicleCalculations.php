@@ -1,5 +1,21 @@
 <?php
 
+
+function calculateSalvageValue($numYears)
+{
+
+}
+
+function calculateBatterySalvage($numYears)
+{
+
+}
+
+function calculateVehicleSalvage($numYears)
+{
+    
+}
+
 function calculateSimpleDepreciation($numYears)
 {
     include "getID.php";

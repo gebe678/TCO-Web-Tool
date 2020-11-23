@@ -548,10 +548,10 @@
                         </div>
                         <div class="border">
                             <select name="salvageValue" class="selectMenu" id="salvageValue">
-                                <option value="incurred">Cost Incurred In Year 0</option>
-                                <option value="averaged">Cost Averaged Across Lifetime</option>
-                                <option value="none">Cost Never Incurred</option>
-                                <option value="final">Cost Incurred In Final Year</option>
+                                <option value="none">None</option> <!--old value is incurred-->
+                                <option value="vehicle">Vehicle Only</option><!--old value is averaged-->
+                                <option value="battery">Battery Only</option><!--old value is none-->
+                                <option value="both">Vehicle and Battery</option><!--old value is final-->
                             </select>
                         </div>
                     </div>
