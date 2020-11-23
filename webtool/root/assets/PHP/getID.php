@@ -107,6 +107,17 @@
     $phevAeoResult = $connect->query($phevAeoQuery); $phevAeoResult = $phevAeoResult->fetch_assoc(); $phevAeoResult = $phevAeoResult[$phevCost];
     $phevRealWorldResult = $connect->query($phevRealWorldQuery); $phevRealWorldResult = $phevRealWorldResult->fetch_assoc(); $phevRealWorldResult = $phevRealWorldResult[$phevCost];
 
+
+    if($_POST["vehicleClassSize"] === "HDV")
+    {
+        $cargoWeightQuery = "SELECT Cargo_Weight FROM cargo_weight WHERE Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+        $cargoWeight = $connect->query($cargoWeightQuery); $cargoWeight = $cargoWeight->fetch_assoc(); $cargoWeight = $cargoWeight["Cargo_Weight"];
+    }
+    else
+    {
+        $cargoWeight = 0;
+    }
+
     $i = 0;
     $h = $connect->query($vmtQuery);
     while($vmtYear = $h->fetch_assoc())

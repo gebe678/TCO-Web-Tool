@@ -670,19 +670,19 @@
 
                     <div class="labor">
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="laborCost" class="sliderLabel">Labor Cost Per Mile</label>
                         <input type="range" min="0" max="1" value=".6" step="0.01" class="slider" name="laborCost" id="laborCost">
                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="payloadCost" class="sliderLabel">Payload Cost</label>
                         <input type="range" min="0" max="1" step=".01" value=".05" class="slider" name="payloadCost" id="payloadCost">
                         <input type="number" min="0" max="1" step=".01" value=".05" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="chargingTime" class="sliderLabel">Charging Time Cost</label>
                         <input type="range" min="0" max="1" step=".01" value=".02" class="slider" name="chargingTime" id="chargingTime">
                         <input type="number" min="0" max="1" step=".01" value=".02" class="outputText">
