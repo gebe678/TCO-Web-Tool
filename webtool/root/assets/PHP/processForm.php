@@ -10,10 +10,7 @@
     include "database_cach.php";
     include "operationalCalculations.php";
     include "usedVehicleCalculations.php";
-    include "residualValueCalculations.php";
     include "newMaintenancePriceCalculations.php";
-
-    newMaintenanceMain(30);
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"];
@@ -46,7 +43,7 @@
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
-            //writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
         }
     }
     else

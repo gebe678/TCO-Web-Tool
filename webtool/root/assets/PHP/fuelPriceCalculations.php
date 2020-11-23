@@ -2,7 +2,7 @@
 
     function calculateBiofuelCost($numYears)
     {
-        include "getID.php";
+        include "getFuelCostData.php";
 
         $totalCost;
         $min;
@@ -208,6 +208,11 @@
         return $totalCost;
     }
 
+    function calculateIdlingCost($numYears)
+    {
+        return .2 * 1800 * 8600;
+    }
+
     function calculateAnnualFuelCost($numYears)
     {
         include "getID.php";
@@ -340,6 +345,10 @@
         for($i = 0; $i < $numYears; $i++)
         {
             $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
+            if($vehicleBody === "Tractor Sleeper" AND ($powertrain === "HEV-SI" OR $powertrain === "ICE-CI"))
+            {
+                $annualFuelPrice[$i] += calculateIdlingCost($numYears);
+            }
         }
        
         return $annualFuelPrice;

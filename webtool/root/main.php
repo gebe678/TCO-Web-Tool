@@ -107,54 +107,6 @@
     <main>
         <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
 
-        <!--New Values added into tool will be moved into appropiate categories!!!!-->
-        <div class="inputContainer">
-            <label for="vehicleIncentive" class="sliderLabel">Vehicle Incentive</label>
-                <input type="range" min="0" max="1000000000" value="0" class="slider" name="vehicleIncentive" id="vehicleIncentive">
-                <input type="number" min="0" max="1000000000" value="0" class="outputText">
-        </div>
-
-        <div class="inputContainer">
-            <label for="fuelEfficiencyDegradation" class="sliderLabel">Fuel Efficiency Degradation Percentage</label>
-                <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
-                <input type="number" min="0" max="1" value=".001" step=".001" class="outputText">
-        </div>
-
-        <div class="checkboxContainer">
-            <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
-            <input type="checkbox" id="vehicleFinanced" class="togglePowertrain" name="vehicleFinanced">
-            <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
-        </div>
-
-        <div class="inputContainer">
-            <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest Rate</label>
-            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="interestRate" id="interestRate">
-            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="interestRateNumber">
-        </div>
-
-        <div class="inputContainer">
-            <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down Payment</label>
-            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="downPayment" id="downPayment">
-            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="downPaymentNumber">
-        </div>
-
-        <div class="dropDownMenu">
-                    <div class="label">
-                        <label for="insuranceType">Insruance Type:</label>
-                    </div>
-                    <div class="border">
-                        <select name="insuranceType" class="selectMenu" id="insuranceType">
-                            <option value="average">Average</option>
-                            <option value="min">Minimum</option>
-                            <option value="max">Maximum</option>
-                            <option value="SD1+">SD1+</option>
-                            <option value="SD1-">SD1-</option>
-                        </select>
-                    </div>
-                </div>
-
-        <!--End of the new values to be moved into appropiate categories!!!!!-->
-
             <div class="simplifiedView">
             <div class="technologyGroup">
 
@@ -395,6 +347,60 @@
                                 <option value="userDefined">User Defined</option>
                             </select>
                         </div>
+                    </div>
+
+                    <div class="checkboxContainer">
+                        <label class="sliderLabel" for="idling">Idling Costs</label>
+                        <input type="checkbox" id="idling" class="togglePowertrain" name="idling">
+                        <label for="idling" class="togglePowertrainLabel"></label>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label for="vehicleIncentive" class="sliderLabel">Vehicle Incentive</label>
+                        <input type="range" min="0" max="1000000000" value="0" class="slider" name="vehicleIncentive" id="vehicleIncentive">
+                        <input type="number" min="0" max="1000000000" value="0" class="outputText">
+                     </div>
+
+                             <!--New Values added into tool will be moved into appropiate categories!!!!-->
+        <div class="checkboxContainer">
+            <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
+            <input type="checkbox" id="vehicleFinanced" class="togglePowertrain" name="vehicleFinanced">
+            <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
+        </div>
+
+        <div class="inputContainer">
+            <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest Rate</label>
+            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="interestRate" id="interestRate">
+            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="interestRateNumber">
+        </div>
+
+        <div class="inputContainer">
+            <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down Payment</label>
+            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="downPayment" id="downPayment">
+            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="downPaymentNumber">
+        </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="insuranceType">Insruance Type:</label>
+                    </div>
+                    <div class="border">
+                        <select name="insuranceType" class="selectMenu" id="insuranceType">
+                            <option value="average">Average</option>
+                            <option value="min">Minimum</option>
+                            <option value="max">Maximum</option>
+                            <option value="SD1+">SD1+</option>
+                            <option value="SD1-">SD1-</option>
+                        </select>
+                    </div>
+                </div>
+
+        <!--End of the new values to be moved into appropiate categories!!!!!-->
+
+                     <div class="inputContainer">
+                        <label for="fuelEfficiencyDegradation" class="sliderLabel">Fuel Efficiency Degradation Percentage</label>
+                        <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
+                        <input type="number" min="0" max="1" value=".001" step=".001" class="outputText">
                     </div>
 
                     <div class="inputContainer">

@@ -44,7 +44,8 @@
 
     function getGasolineData($index)
     {
-        include "getID.php";
+       // include "getID.php";
+       include "connectDatabase.php";
     
         $costComponentQuery = "SELECT Gasoline FROM aeo_fuel_prices";
         $result = $connect->query($costComponentQuery);
