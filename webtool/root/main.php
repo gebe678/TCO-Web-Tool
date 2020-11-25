@@ -549,7 +549,7 @@
                         <div class="border">
                             <select name="salvageValue" class="selectMenu" id="salvageValue">
                                 <option value="none">None</option> <!--old value is incurred-->
-                                <option value="vehicle">Vehicle Only</option><!--old value is averaged-->
+                                <option value="vehicle" selected>Vehicle Only</option><!--old value is averaged-->
                                 <option value="battery">Battery Only</option><!--old value is none-->
                                 <option value="both">Vehicle and Battery</option><!--old value is final-->
                             </select>

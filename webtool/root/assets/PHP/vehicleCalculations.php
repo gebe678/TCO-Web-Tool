@@ -336,7 +336,7 @@ function calculateLowerDepreciation($numYears)
     //     return $rate;
     // }
 
-    function calculateDepreciation($numYears)
+    function calculateVehicleDepreciation($numYears)
     {
         $depreciationType = $_POST["depreciation"];
         $depreciation;
@@ -552,11 +552,42 @@ function calculateLowerDepreciation($numYears)
         for($i = 0; $i < $numYears; $i++)
         {
             $batterySalvageValue[$i] = $batterySize * $batteryValue * $batterySalvageCurve[$i];
-            echo $batterySalvageValue[$i] . " " . " " . " ";
         }
 
-        return $batterySalvageValue[$i];
+        return $batterySalvageValue;
     }
 
-    calculateBatterySalvage(30);
+    function calculateDepreciation($numYears)
+    {
+        $depreciationType = $_POST["salvageValue"];
+        $depreciationCost;
+
+        if($depreciationType === "none")
+        {
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $depreciationCost[$i] = 0;
+            }
+        }
+        else if($depreciationType === "vehicle")
+        {
+            $depreciationCost = calculateVehicleDepreciation($numYears);
+        }
+        else if($depreciationType === "battery")
+        {
+            $depreciationCost = calculateBatterySalvage($numYears);
+        }
+        else if($depreciationType === "both")
+        {   
+            $batterySalvage = calculateBatterySalvage($numYears);
+            $vehicleSalvage = calculateVehicleDepreciation($numYears);
+
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $depreciationCost[$i] = $batterySalvage[$i] + $vehicleSalvage[$i];
+            }
+        }
+
+        return $depreciationCost;
+    }
 ?>
