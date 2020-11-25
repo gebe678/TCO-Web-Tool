@@ -797,6 +797,43 @@ function getVehicleClassSize()
     });
 }
 
+function insuranceMenuModifier()
+{
+    let vehicleBodyMenu = document.getElementById("vehicleBodyMenu");
+    let insuranceMenu = document.getElementById("insuranceType");
+
+    insuranceMenu.options[3].disabled = true;
+    insuranceMenu.options[4].disabled = true;
+
+    vehicleBodyMenu.addEventListener("change", function() {
+        if(vehicleBodyMenu.selectedIndex < 10)
+        {
+            insuranceMenu.options[0].disabled = false;
+            insuranceMenu.options[1].disabled = false;
+            insuranceMenu.options[2].disabled = false;
+
+            insuranceMenu.options[0].selected = true;
+
+            for(let i = 3; i < 5; i++)
+            {
+                insuranceMenu.options[i].disabled = false;
+            }
+        }
+        else if(vehicleBodyMenu.selectedIndex > 9)
+        {
+            insuranceMenu.options[0].disabled = true;
+            insuranceMenu.options[1].disabled = true;
+            insuranceMenu.options[2].disabled = true;
+
+            for(let i = 3; i < insuranceMenu.options.length; i++)
+            {
+                insuranceMenu.options[i].disabled = false;
+            }
+            insuranceMenu.options[3].selected = true;
+        }
+    });
+}
+
 function dropDownControlMain()
 {
     powertrainMenuModifier();
@@ -810,6 +847,7 @@ function dropDownControlMain()
     resetFormOnPageRefresh();
     vehicleFinanceModifier();
     getVehicleClassSize();
+    insuranceMenuModifier();
    // incrementalAnnualFuelModifier();
 }
 

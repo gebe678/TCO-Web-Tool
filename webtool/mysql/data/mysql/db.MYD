@@ -31,3 +31,6 @@ Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)
 2020-10-20 19:50:23 19464 [Note] Event Scheduler: Loaded 0 events
 2020-10-20 19:50:23 19464 [Note] C:\Users\warri\Desktop\Sandia TCO Web Tool\TCO-Web-Tool\webtool/mysql/bin/mysqld_usbwv8.exe: ready for connections.
 Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)
+2020-11-25 16:31:48 24748 [Note] Event Scheduler: Loaded 0 events
+2020-11-25 16:31:48 24748 [Note] C:\Users\warri\Desktop\HELP\TCO-Web-Tool\webtool/mysql/bin/mysqld_usbwv8.exe: ready for connections.
+Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)

@@ -386,11 +386,28 @@
                     </div>
                     <div class="border">
                         <select name="insuranceType" class="selectMenu" id="insuranceType">
-                            <option value="average">Average</option>
-                            <option value="min">Minimum</option>
-                            <option value="max">Maximum</option>
-                            <option value="SD1+">SD1+</option>
-                            <option value="SD1-">SD1-</option>
+                            <option value="average">Average (Light Duty)</option>
+                            <option value="hi">Hi (Light Duty)</option>
+                            <option value="low">Low (Light Duty)</option>
+                            <option value="variable">Variable (Heavy Duty)</option>
+                            <option value="fixed">Fixed (Heavy Duty)</option>
+                            <option value="userDefined" disabled>User Defined</option>
+                            <option value="min" style="display:none;">Minimum</option>
+                            <option value="max" style="display:none;">Maximum</option>
+                            <option value="SD1+" style="display:none;">SD1+</option>
+                            <option value="SD1-" style="display:none;">SD1-</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="dropDownMenu">
+                    <div class="label">
+                        <label for="busOccupancy">Bus Occupancy:</label>
+                    </div>
+                    <div class="border">
+                        <select name="busOccupancy" class="selectMenu" id="busOccupancy">
+                            <option value="lessThan15">Less than 15</option>
+                            <option value="greaterThan15">Greater than 15</option>
                         </select>
                     </div>
                 </div>
