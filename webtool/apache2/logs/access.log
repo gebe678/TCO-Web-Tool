@@ -1,0 +1,7 @@
+::1 - - [25/Nov/2020:16:32:11 -0500] "GET / HTTP/1.1" 200 1166
+::1 - - [25/Nov/2020:16:32:12 -0500] "GET /assets/css/loginStyles.css HTTP/1.1" 304 -
+::1 - - [25/Nov/2020:16:32:16 -0500] "POST / HTTP/1.1" 302 1196
+::1 - - [25/Nov/2020:16:32:16 -0500] "GET /main.php HTTP/1.1" 200 42585
+::1 - - [25/Nov/2020:16:32:16 -0500] "GET /assets/page_pictures/banner_final_fullsize.jpg HTTP/1.1" 200 155986
+::1 - - [25/Nov/2020:16:32:16 -0500] "GET /assets/page_pictures/tcoToolContributers.jpg HTTP/1.1" 200 32512
+::1 - - [25/Nov/2020:16:32:16 -0500] "GET /assets/javascript/vehicleGraph.js HTTP/1.1" 304 -
