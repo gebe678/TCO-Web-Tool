@@ -44,6 +44,7 @@
     <script src="assets/javascript/dropDownControl.js" defer> </script>
     <script src="assets/javascript/vehicleGraph.js" defer></script>
     <script src="assets/javascript/usedVehicleControl.js" defer></script>
+    <script src="assets/javascript/hiddenInputControl.js" defer></script>
     <!-- <script src="assets/javascript/createDatabaseEntries.js" defer></script> -->
     <!-- <script src="assets/javascript/imageOverlay.js" defer></script> -->
     <script src="assets/javascript/formControl.js" defer></script>
@@ -220,7 +221,7 @@
 
                     <div class="insurance">
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="insuranceProportional" class="sliderLabel">Insurance Proportional Rate</label>
                         <input type="range" min="0" max="1" step=".01" value="0.04" class="slider" name="insuranceProportional" id="insuranceProportional">
                         <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
@@ -230,7 +231,7 @@
 
                     <div class="depreciation">
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="markupFactor" class="sliderLabel">Purchase Price Markup Factor</label>
                         <input type="range" min="1" max="2" step=".01" value="1.5" class="slider" name="markupFactor" id="markupFactor">
                         <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText" id="markupFactorNumber">
@@ -337,10 +338,24 @@
 
                     <div class="dropDownMenu">
                         <div class="label">
-                            <label for="vehicleCostInput">Vehicle Cost & Fuel-Economy Input</label>
+                            <label for="vehicleCostInput">Vehicle Cost</label>
                         </div>
                         <div class="border">
                             <select name="vehicleCostInput" class="selectMenu" id="vehicleCostInput">
+                                <option value="autonomie">Autonomie Simulations</option>
+                               <!-- <option value="aeo">AEO 2020</option> -->
+                               <!--<option value="real_world_today">Real-World Today (LDV)</option> -->
+                                <option value="userDefined">User Defined</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="fuelCostInput">Fuel-Economy Input</label>
+                        </div>
+                        <div class="border">
+                            <select name="fuelCostInput" class="selectMenu" id="fuelCostInput">
                                 <option value="autonomie">Autonomie Simulations</option>
                                <!-- <option value="aeo">AEO 2020</option> -->
                                <!--<option value="real_world_today">Real-World Today (LDV)</option> -->

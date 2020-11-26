@@ -559,8 +559,12 @@ function calculateLowerDepreciation($numYears)
 
     function calculateDepreciation($numYears)
     {
+        include "getID.php";
+
         $depreciationType = $_POST["salvageValue"];
         $depreciationCost;
+        $remainingCost;
+        $oldCost = $vehicleBodyCost * $_POST["markupFactor"];
 
         if($depreciationType === "none")
         {
@@ -588,6 +592,14 @@ function calculateLowerDepreciation($numYears)
             }
         }
 
-        return $depreciationCost;
+        for($i = 0; $i < $numYears - 1; $i++)
+        {
+            $remainingCost[$i] = $oldCost - $depreciationCost[$i + 1];
+            $oldCost = $depreciationCost[$i + 1];
+
+            echo $remainingCost[$i] . " " . " ";
+        }
+
+        return $remainingCost;
     }
 ?>
