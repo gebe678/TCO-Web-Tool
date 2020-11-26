@@ -71,10 +71,10 @@ function calculateSimpleDepreciation($numYears)
     }
 
     $vBodyCost = $vBodyCost - $vehicleIncentive;
-    $bodyCost[0] = $vBodyCost * $markupFactor;
+    $bodyCost[0] = $vBodyCost * $markupFactor + 8600;
     $oldCost = $bodyCost[0];
 
-    for($i = 0; $i < $numYears; $i++)
+    for($i = 0; $i < $numYears + 1; $i++)
     {
         $bodyCost[$i] = $oldCost * $depreciationRate;
         $oldCost = $oldCost - $bodyCost[$i];
@@ -97,7 +97,7 @@ function calculateAdvancedExponentialDepreciation($numYears)
         $powertrain = $powertrain . "_Luxury";
     }
 
-    $startValue = $vehicleValue * $vehicleMarkupFactor;
+    $startValue = $vehicleValue * $vehicleMarkupFactor + 8600;
 
     $factorAQuery = "SELECT factor_a FROM enhanced_exponentional_depreciation WHERE '$powertrain' LIKE powertrain";
     $factorBQuery = "SELECT factor_b FROM enhanced_exponentional_depreciation WHERE '$powertrain' LIKE powertrain";
@@ -107,7 +107,7 @@ function calculateAdvancedExponentialDepreciation($numYears)
 
     $oldValue = $startValue;
 
-    for($i = 0; $i < $numYears; $i++)
+    for($i = 0; $i < $numYears + 1; $i++)
     {
         $advancedExponentionalValues[$i] = $oldValue;
 
@@ -124,7 +124,7 @@ function calculateUserDefinedDepreciation($numYears)
     $vehicleValue = $vehicleBodyCost;
     $vehicleMarkupFactor = $markupFactor;
 
-    $startValue = $vehicleValue * $vehicleMarkupFactor;
+    $startValue = $vehicleValue * $vehicleMarkupFactor + 8600;
 }
 
 function calcuateUpperDeprecation($numYears)
@@ -171,7 +171,7 @@ function calcuateUpperDeprecation($numYears)
 
     $powertrain = str_replace("-", "_", $powertrain);
 
-    $startValue = $vehicleValue * $vehicleMarkupFactor;
+    $startValue = $vehicleValue * $vehicleMarkupFactor + 8600;
 
     $highConfidenceQuery = "SELECT $powertrain FROM high_confidence_scrappage_value";
 
@@ -236,7 +236,7 @@ function calculateLowerDepreciation($numYears)
 
     $powertrain = str_replace("-", "_", $powertrain);
 
-    $startValue = $vehicleValue * $vehicleMarkupFactor;
+    $startValue = $vehicleValue * $vehicleMarkupFactor + 8600;
 
     $lowConfidenceQuery = "SELECT $powertrain FROM low_confidence_scrappage_value";
 
@@ -564,7 +564,9 @@ function calculateLowerDepreciation($numYears)
         $depreciationType = $_POST["salvageValue"];
         $depreciationCost;
         $remainingCost;
-        $oldCost = $vehicleBodyCost * $_POST["markupFactor"];
+        $oldCost = $vehicleBodyCost * $_POST["markupFactor"] + 8600;
+
+        $startValue = $vehicleBodyCost * $_POST["markupFactor"] + 8600;
 
         if($depreciationType === "none")
         {
@@ -592,12 +594,17 @@ function calculateLowerDepreciation($numYears)
             }
         }
 
-        for($i = 0; $i < $numYears - 1; $i++)
+        for($i = 0; $i < $numYears; $i++)
         {
-            $remainingCost[$i] = $oldCost - $depreciationCost[$i + 1];
-            $oldCost = $depreciationCost[$i + 1];
+            $remainingCost[$i] = $depreciationCost[$i] - $depreciationCost[$i + 1];
+        }
 
-            echo $remainingCost[$i] . " " . " ";
+        $discountRate = $depreciationCost[$numYears];
+        $discountRate2 = $discountRate * pow(($_POST["discountRate"] + 1), -($numYears - $_POST["usedVehicleYear"]));
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+           $remainingCost[$i] = $remainingCost[$i] * ($startValue - $discountRate2) / ($startValue - $discountRate);
         }
 
         return $remainingCost;
