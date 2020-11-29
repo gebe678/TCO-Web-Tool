@@ -1,28 +1,30 @@
 <?php 
-    function calculateTaxesAndFees($numYears)
-    {
-        $vehicleBodyCost = $_POST["vehicleBody"];
-        $markupFactor = $_POST["markupFactor"];
-        $purchaseCost = $vehicleBodyCost * $markupFactor;
+    // No longer used old calculations
+    
+    // function calculateTaxesAndFees($numYears)
+    // {
+    //     $vehicleBodyCost = $_POST["vehicleBody"];
+    //     $markupFactor = $_POST["markupFactor"];
+    //     $purchaseCost = $vehicleBodyCost * $markupFactor;
         
-        $salesTaxAndTitle = $_POST["salesTax"];
-        $annualRegistration = $_POST["annualRegistration"];
-        $totalCost;
+    //     $salesTaxAndTitle = $_POST["salesTax"];
+    //     $annualRegistration = $_POST["annualRegistration"];
+    //     $totalCost;
 
-        for($i = 0; $i < $numYears; $i++)
-        {
-            if($i == 0)
-            {
-                $totalCost[$i] = $purchaseCost * $salesTaxAndTitle + $annualRegistration;
-            }
-            else
-            {
-                $totalCost[$i] = $annualRegistration;
-            }
-        }
+    //     for($i = 0; $i < $numYears; $i++)
+    //     {
+    //         if($i == 0)
+    //         {
+    //             $totalCost[$i] = $purchaseCost * $salesTaxAndTitle + $annualRegistration;
+    //         }
+    //         else
+    //         {
+    //             $totalCost[$i] = $annualRegistration;
+    //         }
+    //     }
 
-        return $totalCost;
-    }
+    //     return $totalCost;
+    // }
 
     function calculateLDVTaxesAndFees($numYears)
     {
@@ -72,7 +74,7 @@
         $class8Bus = 902.429083749901;
         $class8Refuse = 902.429083749901;
 
-        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"] + 8600;
 
         $vehicleBody = $_POST["vehicleBody"];
 
@@ -110,9 +112,10 @@
             if($i === 0 AND ($vehicleBody === "Tractor Sleeper" OR $vehicleBody === "Tractor Day Cab" OR $vehicleBody === "Class 8 Vocational" OR $vehicleBody === "Class 8 Bus" OR $vehicleBody === "Class 8 Refuse"))
             {
                 $totalCost[$i] += $vehicleCost * $exciseTax;
+                $totalCost[$i] += $vehicleCost * $salesTax;   /// This should only happen if a vehicle is new
             }
-
-            $totalCost[$i] += $vehicleCost * $salesTax + ($tolls + $permitsAndLicenses) * $annualVmtYears[$i] + $registration;
+            
+            $totalCost[$i] += ($tolls + $permitsAndLicenses) * $annualVmtYears[$i] + $registration;
         }
 
         return $totalCost;

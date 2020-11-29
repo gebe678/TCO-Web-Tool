@@ -210,7 +210,12 @@
 
     function calculateIdlingCost($numYears)
     {
-        return .2 * 1800 * 8600;
+        // THis calculation needs to be fixed
+
+        // if there is an APU then use .2 
+        // if there is not an APU use .8 
+        // multiply the APU factor by the idle time (1800)
+        return .2 * 1800;
     }
 
     function calculateAnnualFuelCost($numYears)

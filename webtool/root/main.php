@@ -566,10 +566,10 @@
                         <div class="border">
                             <select name="depreciation" class="selectMenu" id="depreciationMenu">
                                 <option value="simple">Simple</option>
-                                <option value="advanced">Advanced Exponential</option>
+                                <option value="advanced" selected>Advanced Exponential</option>
                                 <option value="userDefined" disabled>User Defined</option>
-                                <option value="upper">High Confidence</option>
-                                <option value="lower">Low Confidence</option>
+                                <option value="upper" style="display: none;">High Confidence</option>
+                                <option value="lower" style="display:none;">Low Confidence</option>
                             </select>
                         </div>
                     </div>
