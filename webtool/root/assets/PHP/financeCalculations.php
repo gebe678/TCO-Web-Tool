@@ -71,9 +71,9 @@
         }
         $vBodyCost = $vBodyCost - $vehicleIncentive;
         $vehicleCost = $vBodyCost * $markupFactor;
-        $financeRate = .045;
-        $downPaymentPercentage = .15;
-        $loanPayment[0] = $vehicleCost * (1 - .15);
+        $financeRate = .046;
+        $downPaymentPercentage = .12;
+        $loanPayment[0] = $vehicleCost * (1 - .12);
         $monthlyPayment = round($loanPayment[0] * ($financeRate / 12) * pow((1 + $financeRate / 12), $financeTerm * 12) / (pow((1 + $financeRate / 12), $financeTerm * 12) - 1), 7);
         $fianceCost;
         for($i = 1; $i < $numYears; $i++)

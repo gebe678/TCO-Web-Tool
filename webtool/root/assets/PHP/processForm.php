@@ -38,7 +38,7 @@
         $maintenance = newMaintenanceMain($analysisWindow);
         $repair = newRepairCalculations($analysisWindow);
         $infrastructure = 0;
-        $operational = calculateOperationalCost($analysisWindow);
+        $operational = calculateNewOperationalCost($analysisWindow);
         $labor = calculateLaborCost($analysisWindow);
         $vehicleVmt = getVmtData();
 

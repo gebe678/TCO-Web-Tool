@@ -203,7 +203,7 @@
             case "Midsize Sedan":
             case "Luxury Midsize Car":
             case "Luxury Compact":
-                $comprehensivePremiumB = .009;
+                $comprehensivePremiumB = .01071;
                 $comprehensivePremiumA = 261.8;
                 break;
 
@@ -211,13 +211,13 @@
             case "Small SUV":
             case "Luxury Small SUV":
             case "Luxury Medium SUV":
-                $comprehensivePremiumB = .005;
+                $comprehensivePremiumB = .00595;
                 $comprehensivePremiumA = 285.6;
                 break;
             
             case "Pickup":
             case "Luxury Pickup":
-                $comprehensivePremiumB = .006;
+                $comprehensivePremiumB = .00714;
                 $comprehensivePremiumA = 249.9;
                 break;
         }
@@ -258,13 +258,13 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            if( (($residualValue[$i] - $deductible) * $comprehensiveCutoff) > ($residualValue[0] * ($comprehensivePremiumA + $comprehensivePremiumB)))
+            if((($residualValue[$i + 1] - $deductible) * $comprehensiveCutoff) > (($residualValue[0] * $comprehensivePremiumB) + $comprehensivePremiumA))
             {
-                $totalInsurance[$i] = $insuranceLiability + $residualValue[0] * $comprehensivePremiumA + $comprehensivePremiumB;
+                $totalInsurance[$i] = $insuranceLiability + (($residualValue[0] * $comprehensivePremiumB) + $comprehensivePremiumA);
             }
             else
             {
-                $totalInsurance[$i] = 0;
+                $totalInsurance[$i] = $insuranceLiability;
             }
         }
         return $totalInsurance;

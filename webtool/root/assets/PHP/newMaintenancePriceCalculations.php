@@ -90,7 +90,31 @@
             $totalMaintenance[$i] = array_sum($sumProduct);
         }
 
-        return $totalMaintenance;
+        for($i = 0; $i < $numYears; $i++)
+        {
+            if($i - 2 == -2)
+            {
+                $smoothedMaintenanceCost[$i] = ($totalMaintenance[$i] + $totalMaintenance[$i + 1] + $totalMaintenance[$i + 2]) / 3;
+            }
+            else if($i - 2 == -1)
+            {
+                $smoothedMaintenanceCost[$i] = ($totalMaintenance[$i - 1] + $totalMaintenance[$i] + $totalMaintenance[$i + 1] + $totalMaintenance[$i + 2]) / 4;
+            }
+            else if($i + 2 == $numYears)
+            {
+                $smoothedMaintenanceCost[$i] = ($totalMaintenance[$i - 2] + $totalMaintenance[$i - 1] + $totalMaintenance[$i] + $totalMaintenance[$i + 1]) / 4;
+            }
+            else if($i + 2 == $numYears + 1)
+            {
+                $smoothedMaintenanceCost[$i] = ($totalMaintenance[$i - 2] + $totalMaintenance[$i - 1] + $totalMaintenance[$i]) / 3;
+            }
+            else
+            {
+                $smoothedMaintenanceCost[$i] = ($totalMaintenance[$i - 2] + $totalMaintenance[$i - 1] + $totalMaintenance[$i] + $totalMaintenance[$i + 1] + $totalMaintenance[$i + 2]) / 5;
+            }
+        }
+
+        return $smoothedMaintenanceCost;
     }
 
     function newHDVMaintenanceMain($numYears)

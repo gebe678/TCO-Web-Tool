@@ -143,6 +143,17 @@
 
     function calculateNewOperationalCost($numYears)
     {
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $cost;
+
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $cost[$i] = 0;
+            }
+
+            return $cost;
+        }
         $a = calculateExtraPayloadCost($numYears);
         $b = calculateDowntimeOppurtunityCost($numYears);
 
