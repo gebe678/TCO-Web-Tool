@@ -262,25 +262,25 @@
 
                     
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="biofuelCost" class="sliderLabel">Biofuel Cost Parity</label>
                         <input type="range" min="1" max="30" value="15" class="slider" name="biofuelCost" id="biofuelCost">
                         <input type="number" min="1" max="30" value="15" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="biofuelPremium" class="sliderLabel">Biofuel Premium Cost</label>
                         <input type="range" min="1" max="10" value="1" class="slider" name="biofuelPremium" id="biofuelPremium">
                         <input type="number" min="1" max="10" value="1" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="hydrogenCost" class="sliderLabel">Hydrogen to $5kg</label>
                         <input type="range" min="1" max="30" value="15" class="slider" name="hydrogenCost" id="hydrogenCost">
                         <input type="number" min="1" max="30" value="15" class="outputText">
                     </div>
 
-                    <div class="inputContainer">
+                    <div class="inputContainer" style="display: none;">
                         <label for="hydrogenPremium" class="sliderLabel">Hydrogen Premium Cost</label>
                         <input type="range" min="1" max="10" value="5" class="slider" name="hydrogenPremium" id="hydrogenPremium">
                         <input type="number" min="1" max="10" value="5" class="outputText">
