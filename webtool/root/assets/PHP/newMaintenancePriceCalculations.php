@@ -171,14 +171,15 @@
         include "getID.php";
 
         $ldvRepairCurve;
-        $repairAgingFactor = Array(0, 0, 0.003333333, 0.01,	0.016666667, 0.02, 0.023333333, 0.026666667, 0.03, 0.033333333, 0.036666667, 0.04, 0.043333333, 0.046666667, 0.05, 0.053333333, 0.056666667, 0.06, 0.063333333, 0.066666667, 0.07, 0.073333333, 0.076666667, 0.08, 0.083333333, 0.086666667, 0.09, 0.093333333, 0.096666667, 0.1, 0.103333333, 0.106666667, 0.11, 0.113333333, 0.116666667);
+        $repairAgingFactor = Array(0, 0, 0.00333333333333333, 0.01,	0.016666667, 0.02, 0.023333333, 0.026666667, 0.03, 0.033333333, 0.036666667, 0.04, 0.043333333, 0.046666667, 0.05, 0.053333333, 0.056666667, 0.06, 0.063333333, 0.066666667, 0.07, 0.073333333, 0.076666667, 0.08, 0.083333333, 0.086666667, 0.09, 0.093333333, 0.096666667, 0.1, 0.103333333, 0.106666667, 0.11, 0.113333333, 0.116666667);
 
         $vehicleBody = $_POST["vehicleBody"];
         $powertrain = $_POST["powertrain"];
         $sizeMultiplier = 0;
         $powertrainMultiplier = 0;
 
-        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+        // reminder remove the 8600 for the APU add in
+        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"] + 8600;
 
         $ldvRepair;
 
@@ -234,10 +235,28 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $ldvRepairCurve[$i] = $repairAgingFactor[$i] * $sizeMultiplier * $powertrainMultiplier * exp(.00002 * $vehicleCost);
+            $ldvRepairCurve[$i] = $repairAgingFactor[$i] * $sizeMultiplier * $powertrainMultiplier * exp(0.00002 * $vehicleCost);
             $ldvRepair[$i] = $ldvRepairCurve[$i] * $annualVmtYears[$i];
         }
+
+        return $ldvRepair;
     }
 
-    //newLDVRepair(30);
+    function newRepairCalculations($numYears)
+    {
+        $repair;
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $repair = newLDVRepair($numYears);
+        }
+        else
+        {
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $repair[$i] = 0;
+            }
+        }
+
+        return $repair;
+    }
 ?>

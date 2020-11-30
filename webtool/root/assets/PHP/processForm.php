@@ -36,7 +36,7 @@
         $insuranceCost = calculateNewInsuranceCost($analysisWindow);
         $taxesAndFees = calculateNewTaxesAndFees($analysisWindow);
         $maintenance = newMaintenanceMain($analysisWindow);
-        $repair = calculateTotalRepair($analysisWindow);
+        $repair = newRepairCalculations($analysisWindow);
         $infrastructure = 0;
         $operational = calculateOperationalCost($analysisWindow);
         $labor = calculateLaborCost($analysisWindow);
