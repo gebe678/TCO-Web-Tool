@@ -1,109 +1,111 @@
 <?php 
 
-    function calculateBiofuelCost($numYears)
-    {
-        include "getFuelCostData.php";
+    // No longer used
+    // function calculateBiofuelCost($numYears)
+    // {
+    //     include "getFuelCostData.php";
 
-        $totalCost;
-        $min;
-        $fuelModifier = 0;
+    //     $totalCost;
+    //     $min;
+    //     $fuelModifier = 0;
 
-        switch($modelYear)
-        {
-            case 2020:
-                $fuelModifier = 0;
-                break;
-            case 2025:
-                $fuelModifier = 5;
-                break;
-            case 2030:
-                $fuelModifier = 10;
-                break;
-            case 2035:
-                $fuelModifier = 15;
-                break;
-            case 2050:
-                $fuelModifier = 30;
-        }
+    //     switch($modelYear)
+    //     {
+    //         case 2020:
+    //             $fuelModifier = 0;
+    //             break;
+    //         case 2025:
+    //             $fuelModifier = 5;
+    //             break;
+    //         case 2030:
+    //             $fuelModifier = 10;
+    //             break;
+    //         case 2035:
+    //             $fuelModifier = 15;
+    //             break;
+    //         case 2050:
+    //             $fuelModifier = 30;
+    //     }
 
-        for($i = 0; $i < $numYears + 1; $i++)
-        {
-            if($i + $fuelModifier === 31)
-            {
-                $fuelModifier--;
-            }
+    //     for($i = 0; $i < $numYears + 1; $i++)
+    //     {
+    //         if($i + $fuelModifier === 31)
+    //         {
+    //             $fuelModifier--;
+    //         }
 
-            $fuelData = $biofuelCost;
-            $yearInfo = getFuelID($i + $fuelModifier);
+    //         $fuelData = $biofuelCost;
+    //         $yearInfo = getFuelID($i + $fuelModifier);
 
-            if($yearInfo <= $fuelData)
-            {
-                $min = $yearInfo;
-            }
-            else if($fuelData < $yearInfo)
-            {
-                $min = $fuelData;
-            }
-            $totalCost[$i] = getGasolineData($i + $fuelModifier) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
-            $totalCost[$i] = round($totalCost[$i], 2);
-        }
-        return $totalCost;
-    }
+    //         if($yearInfo <= $fuelData)
+    //         {
+    //             $min = $yearInfo;
+    //         }
+    //         else if($fuelData < $yearInfo)
+    //         {
+    //             $min = $fuelData;
+    //         }
+    //         $totalCost[$i] = getGasolineData($i + $fuelModifier) + $biofuelPremium * ($biofuelCost - $min) / $biofuelCost;
+    //         $totalCost[$i] = round($totalCost[$i], 2);
+    //     }
+    //     return $totalCost;
+    // }
+    
+    // No longer used
+    // function calculateHydrogenCost($numYears)
+    // {
+    //     include "getID.php";
 
-    function calculateHydrogenCost($numYears)
-    {
-        include "getID.php";
+    //     $totalCost;
+    //     $min = 0;
+    //     $fuelModifier = 0;
 
-        $totalCost;
-        $min = 0;
-        $fuelModifier = 0;
+    //     switch($modelYear)
+    //     {
+    //         case 2020:
+    //             $fuelModifier = 0;
+    //             break;
+    //         case 2025:
+    //             $fuelModifier = 5;
+    //             break;
+    //         case 2030:
+    //             $fuelModifier = 10;
+    //             break;
+    //         case 2035:
+    //             $fuelModifier = 15;
+    //             break;
+    //         case 2050:
+    //             $fuelModifier = 30;
+    //     }
 
-        switch($modelYear)
-        {
-            case 2020:
-                $fuelModifier = 0;
-                break;
-            case 2025:
-                $fuelModifier = 5;
-                break;
-            case 2030:
-                $fuelModifier = 10;
-                break;
-            case 2035:
-                $fuelModifier = 15;
-                break;
-            case 2050:
-                $fuelModifier = 30;
-        }
+    //     for($i = 0; $i < $numYears + 1; $i++)
+    //     {
+    //         if($i + $fuelModifier === 31)
+    //         {
+    //             $fuelModifier--;
+    //         }
 
-        for($i = 0; $i < $numYears + 1; $i++)
-        {
-            if($i + $fuelModifier === 31)
-            {
-                $fuelModifier--;
-            }
+    //         $yearInfo = getFuelID($i + $fuelModifier);
 
-            $yearInfo = getFuelID($i + $fuelModifier);
+    //         if($yearInfo <= $hydrogenCost)
+    //         {
+    //             $min = $yearInfo;
+    //         }
+    //         else if($hydrogenCost > $yearInfo)
+    //         {
+    //             $min = $hydrogenCost;
+    //         }
+    //         $totalCost[$i] = 5 + $hydrogenPremium * ($hydrogenCost - $min) / $hydrogenCost;
+    //         $totalCost[$i] = round($totalCost[$i], 2);
+    //     }
 
-            if($yearInfo <= $hydrogenCost)
-            {
-                $min = $yearInfo;
-            }
-            else if($hydrogenCost > $yearInfo)
-            {
-                $min = $hydrogenCost;
-            }
-            $totalCost[$i] = 5 + $hydrogenPremium * ($hydrogenCost - $min) / $hydrogenCost;
-            $totalCost[$i] = round($totalCost[$i], 2);
-        }
-
-        return $totalCost;
-    }
+    //     return $totalCost;
+    // }
 
     function calculateDieselElectricCost($numYears)
     {
         include "getID.php";
-        $PHEVUtilityFactor = 0.3;
+        $PHEVUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
         $totalCost;
         $fuelModifier = 0;
 
@@ -138,10 +140,10 @@
         return $totalCost;
     }
 
-    function calculatePremiumGasolineCost($numYears)
+    function calculateGasElectricCost($numYears)
     {
         include "getID.php";
-
+        $PHEVUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
         $totalCost;
         $fuelModifier = 0;
 
@@ -170,11 +172,88 @@
                 $fuelModifier--;
             }
 
-            $totalCost[$i] = getGasolineData($i + $fuelModifier) + $premiumGasMarkup;
+            $totalCost[$i] = getGasolineData($i + $fuelModifier) * (1 - $PHEVUtilityFactor) + getElectricData($i + $fuelModifier) * $PHEVUtilityFactor;
         }
 
         return $totalCost;
     }
+
+    function calculatePremiumGasElectricCost($numYears)
+    {
+        include "getID.php";
+        $PHEVUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
+        $totalCost;
+        $fuelModifier = 0;
+
+        switch($modelYear)
+        {
+            case 2020:
+                $fuelModifier = 0;
+                break;
+            case 2025:
+                $fuelModifier = 5;
+                break;
+            case 2030:
+                $fuelModifier = 10;
+                break;
+            case 2035:
+                $fuelModifier = 15;
+                break;
+            case 2050:
+                $fuelModifier = 30;
+        }
+
+        for($i = 0; $i < $numYears + 1; $i++)
+        {
+            if($i + $fuelModifier === 31)
+            {
+                $fuelModifier--;
+            }
+
+            $totalCost[$i] = getPremiumGasolineData($i + $fuelModifier) * (1 - $PHEVUtilityFactor) + getElectricData($i + $fuelModifier) * $PHEVUtilityFactor;
+        }
+
+        return $totalCost;
+    }
+
+    // No longer used
+    // function calculatePremiumGasolineCost($numYears)
+    // {
+    //     include "getID.php";
+
+    //     $totalCost;
+    //     $fuelModifier = 0;
+
+    //     switch($modelYear)
+    //     {
+    //         case 2020:
+    //             $fuelModifier = 0;
+    //             break;
+    //         case 2025:
+    //             $fuelModifier = 5;
+    //             break;
+    //         case 2030:
+    //             $fuelModifier = 10;
+    //             break;
+    //         case 2035:
+    //             $fuelModifier = 15;
+    //             break;
+    //         case 2050:
+    //             $fuelModifier = 30;
+    //     }
+
+    //     for($i = 0; $i < $numYears + 1; $i++)
+    //     {
+    //         if($i + $fuelModifier === 31)
+    //         {
+    //             $fuelModifier--;
+    //         }
+
+    //         $totalCost[$i] = getGasolineData($i + $fuelModifier) + $premiumGasMarkup;
+    //     }
+
+    //     return $totalCost;
+    // }
 
     function caluclatePercentageIncrease($numYears)
     {
@@ -184,10 +263,20 @@
         
         if($fuelPriceType == "increase")
         {
-            if($fuelType == "Diesel_Electric")
+            if($fuelType === "Diesel_Electric")
             {
                 $dieselElec = calculateDieselElectricCost($numYears);
                 $totalCost[0] = $dieselElec[0];
+            }
+            else if($fuelType === "Gas_Electric")
+            {
+                $gasElec = calculateGasElectricCost($numYears);
+                $totalCost[0] = $gasElec[0];
+            }
+            else if($fuelType === "Premium_Electric")
+            {
+                $premiumElec = calculatePremiumGasElectricCost($numYears);
+                $totalCost[0] = $premiumElec[0];
             }
             else
             {
@@ -300,23 +389,19 @@
             $MPGCost = $_POST["userDefinedMPG"];
         }
         
-        if($fuelPriceType == "defined")
+        if($fuelPriceType === "defined")
         {
-            if($fuelType == "Biofuel")
-            {
-                $fuelPrice = calculateBiofuelCost($numYears);
-            }
-            else if($fuelType == "Hydrogen")
-            {
-                $fuelPrice = calculateHydrogenCost($numYears);
-            }
-            else if($fuelType == "Diesel_Electric")
+            if($fuelType == "Diesel_Electric")
             {
                 $fuelPrice = calculateDieselElectricCost($numYears);
             }
-            else if($fuelType == "Premium_Gasoline")
+            else if($fuelType === "Gas_Electric")
             {
-                $fuelPrice = calculatePremiumGasolineCost($numYears);
+                $fuelPrice = calculateGasElectricCost($numYears);
+            }
+            else if($fuelType === "Premium_Electric")
+            {
+                $fuelPrice = calculatePremiumGasElectricCost($numYears);
             }
             else
             {
@@ -343,7 +428,7 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $MPGCost = round($MPGCost * (1 - $mpgYearDegradation), 8);
+            $MPGCost = $MPGCost * (1 - $mpgYearDegradation);
             $fuelPricePerMile[$i] = $fuelPrice[$i + 1] / $MPGCost;
         }
         

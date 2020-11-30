@@ -462,6 +462,7 @@ function fuelMenuModifier()
     fuelMenu.options[6].disabled = true;
     fuelMenu.options[7].disabled = true;
     fuelMenu.options[8].disabled = true;
+    fuelMenu.options[9].disabled = true;
 
     powertrainMenu.addEventListener("change", function()
     {
@@ -479,6 +480,7 @@ function fuelMenuModifier()
                 fuelMenu.options[6].disabled = true;
                 fuelMenu.options[7].disabled = true;
                 fuelMenu.options[8].disabled = true;
+                fuelMenu.options[9].disabled = true;
                 fuelMenu.options[0].selected = true;
                 break;
             case 1:
@@ -492,6 +494,7 @@ function fuelMenuModifier()
                 fuelMenu.options[6].disabled = true;
                 fuelMenu.options[7].disabled = true;
                 fuelMenu.options[8].disabled = true;
+                fuelMenu.options[9].disabled = true;
                 fuelMenu.options[2].selected = true;
                 break;
             case 2:
@@ -507,6 +510,7 @@ function fuelMenuModifier()
                     fuelMenu.options[6].disabled = true;
                     fuelMenu.options[7].disabled = true;
                     fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[9].disabled = true;
                     fuelMenu.options[2].selected = true;
                 }
                 else
@@ -521,6 +525,7 @@ function fuelMenuModifier()
                     fuelMenu.options[6].disabled = true;
                     fuelMenu.options[7].disabled = true;
                     fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[9].disabled = true;
                     fuelMenu.options[0].selected = true;
                 }
                 break;
@@ -533,17 +538,26 @@ function fuelMenuModifier()
                 fuelMenu.options[5].disabled = true;
                 fuelMenu.options[6].disabled = true;
                 
-                if(vehicleBodyMenu.selectedIndex <= 9)
+                if(vehicleBodyMenu.selectedIndex <= 4)
                 {
                     fuelMenu.options[7].disabled = false;
                     fuelMenu.options[8].disabled = true;
                     fuelMenu.options[7].selected = true;
+                    fuelMenu.options[9].disabled = true;
+                }
+                else if(vehicleBodyMenu.selectedIndex >= 5 && vehicleBodyMenu.selectedIndex <= 9)
+                {
+                    fuelMenu.options[7].disabled = true;
+                    fuelMenu.options[8].disabled = true;
+                    fuelMenu.options[9].disabled = false;
+                    fuelMenu.options[9].selected = true;
                 }
                 else
                 {
                     fuelMenu.options[7].disabled = true;
                     fuelMenu.options[8].disabled = false;
                     fuelMenu.options[8].selected = true;
+                    fuelMenu.options[9].disabled = true;
                 }
  
                 break;
@@ -557,6 +571,7 @@ function fuelMenuModifier()
                 fuelMenu.options[6].disabled = true;
                 fuelMenu.options[7].disabled = true;
                 fuelMenu.options[8].disabled = true;
+                fuelMenu.options[9].disabled = true;
                 fuelMenu.options[5].selected = true;
                 break;
             case 5:
@@ -569,6 +584,7 @@ function fuelMenuModifier()
                 fuelMenu.options[6].disabled = false;
                 fuelMenu.options[7].disabled = true;
                 fuelMenu.options[8].disabled = true;
+                fuelMenu.options[9].disabled = true;
                 fuelMenu.options[6].selected = true;
                 break;
         }
@@ -679,7 +695,40 @@ function fuelMenuModifier()
                 break;
         }
     });
+}
 
+function apuModifier()
+{
+    vehicleMenu = document.getElementById("vehicleBodyMenu");
+    powewrtrainMenu = document.getElementById("powertrainMenu");
+    apuMenu = document.getElementById("APU");
+
+    apuMenu.options[0].disabled = true;
+
+    powertrainMenu.addEventListener("change", function(){
+        if(vehicleMenu.selectedIndex > 9)
+        {
+            if(powertrainMenu.selectedIndex > 2)
+            {
+                apuMenu.options[0].disabled = true;
+            }
+            else
+            {
+                apuMenu.options[0].disabled = false;
+            }
+        }
+        else
+        {
+            apuMenu.options[0].disabled = true;
+        }
+    });
+
+    vehicleBodyMenu.addEventListener("change", function(){
+        if(vehicleMenu.selectedIndex > 9)
+        {
+            apuMenu.options[0].disabled = false;
+        }
+    });
 }
 
 function definedFuel()
@@ -848,6 +897,7 @@ function dropDownControlMain()
     vehicleFinanceModifier();
     getVehicleClassSize();
     insuranceMenuModifier();
+    apuModifier();
    // incrementalAnnualFuelModifier();
 }
 

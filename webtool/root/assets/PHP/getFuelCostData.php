@@ -148,6 +148,27 @@
         return -1;
     }
 
+    function getPremiumGasolineData($index)
+    {
+        include "getID.php";
+    
+        $costComponentQuery = "SELECT Premium_Gasoline FROM aeo_fuel_prices";
+        $result = $connect->query($costComponentQuery);
+        $output;
+        $i = 0;
+        while($row = $result->fetch_assoc())
+        {
+            $output[$i] = $row["Premium_Gasoline"];
+            $i++;
+        }
+                        
+        if($index < count($output) && $index >= 0)
+        {
+            return $output[$index];
+        }
+        return -1;
+    }
+
     function getFuelData($index)
     {
         include "getID.php";
@@ -173,13 +194,15 @@
     {
         include "getID.php";
 
-        $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$fuelType' AND year LIKE $fuelYear";
+        $vehicleSize = $_POST["vehicleClassSize"];
+        $fuelReference = $_POST["fuelReference"];
+        $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$fuelType' AND year LIKE $fuelYear AND vehicle_size LIKE '$vehicleSize' AND fuel_type LIKE '$fuelReference'";
 
-        if($fuelType == "Hydrogen")
-        {
-            $hydrogenType = $fuelType . "_" . $hydrogenSuccess;
-            $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$hydrogenType' AND year LIKE $fuelYear";
-        }
+        // if($fuelType == "Hydrogen")
+        // {
+        //     $hydrogenType = $fuelType . "_" . $hydrogenSuccess;
+        //     $costComponentQuery = "SELECT price FROM energy_use_task WHERE fuel LIKE '$hydrogenType' AND year LIKE $fuelYear";
+        // }
 
         $result = $connect->query($costComponentQuery); $result = $result->fetch_assoc(); $result = $result["price"];
 

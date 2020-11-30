@@ -196,6 +196,7 @@
                                 <option value="Electric">Electric</option>
                                 <option value="Gas_Electric">Gas Electric</option>
                                 <option value="Diesel_Electric">Diesel Electric</option>
+                                <option value="Premium_Electric">Premium Gasoline Electric</option>
                             </select>
                         </div>
                     </div>
@@ -291,9 +292,9 @@
                         </div>
                         <div class="border">
                             <select name="fuelPriceMethod" class="selectMenu" id="fuelPriceMethod">
-                                <option value="defined">Defined for all years</option>
-                                <option value="increase">Fuel Price Increase Method</option>
-                                <option value="userDefined">User Defined Increase Method</option>
+                                <option value="defined">Thrid Party Prices</option>
+                                <option value="increase">Annual Incremental Change</option>
+                                <option value="userDefined">User Defined Increase</option>
                             </select>
                         </div>
                     </div>
@@ -312,6 +313,31 @@
                                 <option value="2040">2040</option>
                                 <option value="2045">2045</option>
                                 <option value="2050">2050</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="fuelReference">Fuel Reference</label>
+                        </div>
+                        <div class="border">
+                            <select name="fuelReference" class="selectMenu" id="fuelReference">
+                                <option value="ref">AEO 2020 Reference</option>
+                                <option value="low_oil">Low Oil</option>
+                                <option value="high_oil">High Oil</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="APU">APU</label>
+                        </div>
+                        <div class="border">
+                            <select name="APU" class="selectMenu" id="APU">
+                                <option value="true">True</option>
+                                <option value="false" selected>False</option>
                             </select>
                         </div>
                     </div>
@@ -437,8 +463,8 @@
 
                     <div class="inputContainer">
                         <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure Cost</label>
-                        <input type="range" min="1000" max="5000"  value="1000" class="slider" name="fuelInfrastructure" id="fuelInfrastructure">
-                        <input type="number" min="1000" max="5000"  value="1000" class="outputText">
+                        <input type="range" min="0" max="5000"  value="1000" class="slider" name="fuelInfrastructure" id="fuelInfrastructure">
+                        <input type="number" min="0" max="5000"  value="1000" class="outputText">
                     </div>
 
                     <div class="inputContainer">
