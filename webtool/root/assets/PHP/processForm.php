@@ -35,7 +35,7 @@
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
         $insuranceCost = calculateNewInsuranceCost($analysisWindow);
         $taxesAndFees = calculateNewTaxesAndFees($analysisWindow);
-        $maintenance = calculateTotalMaintenance($analysisWindow);
+        $maintenance = newMaintenanceMain($analysisWindow);
         $repair = calculateTotalRepair($analysisWindow);
         $infrastructure = 0;
         $operational = calculateOperationalCost($analysisWindow);

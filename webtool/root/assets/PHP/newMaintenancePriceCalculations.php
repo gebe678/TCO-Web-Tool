@@ -89,6 +89,8 @@
             }
             $totalMaintenance[$i] = array_sum($sumProduct);
         }
+
+        return $totalMaintenance;
     }
 
     function newHDVMaintenanceMain($numYears)
@@ -126,6 +128,8 @@
         {
             $totalMaintenance[$i] = $vehicleInfo[$i] * $annualVmtYears[$i];
         }
+
+        return $totalMaintenance;
     }
 
     function calculateCumulativeVmt($numYears)
@@ -235,5 +239,5 @@
         }
     }
 
-    newLDVRepair(30);
+    //newLDVRepair(30);
 ?>
