@@ -22,8 +22,7 @@
         $technology = $_POST["technology"];
         $vehicleSize = $_POST["vehicleBody"];
         $modelYear = $_POST["modelYear"];
-
-        $costPerMile = round(((37.95 / $fuelMPG) / 50) * 30, 2);
+        $costPerMile = (37.95 / 6.250523) / 50 * 30;
         $utilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleSize' AND Model_Year LIKE '$modelYear'";
         $utilityFactor = $connect->query($utilityFactorQuery); $utilityFactor = $utilityFactor->fetch_assoc(); $utilityFactor = $utilityFactor["PHEV_Utility_Factor"];
 
