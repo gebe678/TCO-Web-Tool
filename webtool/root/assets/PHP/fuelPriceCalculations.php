@@ -297,14 +297,21 @@
         return $totalCost;
     }
 
-    function calculateIdlingCost($numYears)
+    function calculateIdlingCost()
     {
         // THis calculation needs to be fixed
 
         // if there is an APU then use .2 
         // if there is not an APU use .8 
         // multiply the APU factor by the idle time (1800)
-        return .2 * 1800;
+        if($_POST["APU"] === "false")
+        {
+            return .8 * 1800;
+        }
+        else
+        {
+            return .2 * 1800;
+        }
     }
 
     function calculateAnnualFuelCost($numYears)
@@ -426,18 +433,35 @@
             $fuelPrice = caluclatePercentageIncrease($numYears + 1);
         }
 
-        for($i = 0; $i < $numYears; $i++)
+        for($i = 0; $i < $numYears + 1; $i++)
         {
-            $MPGCost = $MPGCost * (1 - $mpgYearDegradation);
-            $fuelPricePerMile[$i] = $fuelPrice[$i + 1] / $MPGCost;
+            if($_POST["vehicleClassSize"] === "HDV")
+            {
+               $fuelPrice[$i] = $fuelPrice[$i] * 137453 / 120080;
+            }
         }
         
         for($i = 0; $i < $numYears; $i++)
         {
+            $MPGCost = $MPGCost * (1 - $mpgYearDegradation);  /// MPGCost is the mile per gallon
+            //echo " mpg cost " . round($MPGCost, 6) . " " . " ";
+            //echo " fuel price " . $i . " ". $fuelPrice[$i + 1] . " ";
+            $fuelPricePerMile[$i] = round(round($fuelPrice[$i + 1], 6)/ round($MPGCost, 6), 5);
+            //echo " fuel price per mile " . $fuelPricePerMile[$i] . " " . " ";
+        }
+
+        
+        
+        for($i = 0; $i < $numYears; $i++)
+        {
             $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
+
             if($vehicleBody === "Tractor Sleeper" AND ($powertrain === "HEV-SI" OR $powertrain === "ICE-CI"))
             {
-                $annualFuelPrice[$i] += calculateIdlingCost($numYears);
+                if($_POST["APU"] === "true")
+                {
+                    $annualFuelPrice[$i] += calculateIdlingCost();
+                }
             }
         }
        

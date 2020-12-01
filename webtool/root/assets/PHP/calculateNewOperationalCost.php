@@ -88,7 +88,7 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $payloadCost[$i] = $fractionalLoss * $annualVmtYears[$i];
+            $payloadCost[$i] = $fractionalLoss;
         }
 
         return $payloadCost;

@@ -798,10 +798,10 @@ function maxYear()
         event.preventDefault();
         if(vehicleMenu.selectedIndex > 9)
         {
-            analysisWindow.max = 15;
-            analysisWindow.value = 15;
-            analysisNumber.max = 15;
-            analysisNumber.value = 15;
+            analysisWindow.max = 30;
+            analysisWindow.value = 30;
+            analysisNumber.max = 30;
+            analysisNumber.value = 30;
 
             markupFactor.value = 1;
             markupFactorNumber.value = 1;

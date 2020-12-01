@@ -323,21 +323,9 @@
                         </div>
                         <div class="border">
                             <select name="fuelReference" class="selectMenu" id="fuelReference">
-                                <option value="ref">AEO 2020 Reference</option>
-                                <option value="low_oil">Low Oil</option>
-                                <option value="high_oil">High Oil</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="dropDownMenu">
-                        <div class="label">
-                            <label for="APU">APU</label>
-                        </div>
-                        <div class="border">
-                            <select name="APU" class="selectMenu" id="APU">
-                                <option value="true">True</option>
-                                <option value="false" selected>False</option>
+                                <option value="ref">AEO Reference Case</option> <!--AEO 2020 Values-->
+                                <option value="low_oil">AEO Low Oil Case</option>
+                                <option value="high_oil">AEO High Oil Case</option>
                             </select>
                         </div>
                     </div>
@@ -394,6 +382,18 @@
                         <label class="sliderLabel" for="idling">Idling Costs</label>
                         <input type="checkbox" id="idling" class="togglePowertrain" name="idling">
                         <label for="idling" class="togglePowertrainLabel"></label>
+                    </div>
+
+                    <div class="dropDownMenu">
+                        <div class="label">
+                            <label for="APU">APU</label>
+                        </div>
+                        <div class="border">
+                            <select name="APU" class="selectMenu" id="APU">
+                                <option value="true">True</option>
+                                <option value="false" selected>False</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="inputContainer">
@@ -457,8 +457,8 @@
 
                      <div class="inputContainer">
                         <label for="fuelEfficiencyDegradation" class="sliderLabel">Fuel Efficiency Degradation Percentage</label>
-                        <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
-                        <input type="number" min="0" max="1" value=".001" step=".001" class="outputText">
+                        <input type="range" min="0" max="1" value="0" step=".001" class="slider" name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
+                        <input type="number" min="0" max="1" value="0" step=".001" class="outputText">
                     </div>
 
                     <div class="inputContainer">
@@ -553,8 +553,8 @@
 
                     <div class="inputContainer">
                         <label for="discountRate" class="sliderLabel">Discount Rate</label>
-                        <input type="range" min=".0" max="1" step=".00001" value=".012" class="slider" name="discountRate" id="discountRate">
-                        <input type="number" min=".0" max="1" step=".00001" value=".012" class="outputText">
+                        <input type="range" min=".0" max="1" step=".00001" value="0" class="slider" name="discountRate" id="discountRate">
+                        <input type="number" min=".0" max="1" step=".00001" value="0" class="outputText">
                     </div>
 
                     <div class="taxes">

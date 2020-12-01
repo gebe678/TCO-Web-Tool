@@ -1,51 +1,51 @@
 <?php 
-    function calculatePayloadCost($numYears)
-    {
-        include "getID.php";
+    // function calculatePayloadCost($numYears)
+    // {
+    //     include "getID.php";
 
-        // add to detailed view
-        $costPerMile = $_POST["payloadCost"];
-        $vmt = $annualVmtYears;
-        $totalCost;
+    //     // add to detailed view
+    //     $costPerMile = $_POST["payloadCost"];
+    //     $vmt = $annualVmtYears;
+    //     $totalCost;
 
-        for($i = 0; $i < $numYears; $i++)
-        {
-            $totalCost[$i] = $costPerMile * $vmt[$i];
-        }
+    //     for($i = 0; $i < $numYears; $i++)
+    //     {
+    //         $totalCost[$i] = $costPerMile * $vmt[$i];
+    //     }
 
-        return $totalCost;
-    }
+    //     return $totalCost;
+    // }
 
-    function calculateChargingTime($numYears)
-    {
-        include "getID.php";
+    // function calculateChargingTime($numYears)
+    // {
+    //     include "getID.php";
 
-        // add to detailed view
-        $costPerMile = $_POST["chargingTime"];
-        $vmt = $annualVmtYears;
-        $totalCost;
+    //     // add to detailed view
+    //     $costPerMile = $_POST["chargingTime"];
+    //     $vmt = $annualVmtYears;
+    //     $totalCost;
 
-        for($i = 0; $i < $numYears; $i++)
-        {
-            $totalCost[$i] = $costPerMile * $vmt[$i];
-        }
+    //     for($i = 0; $i < $numYears; $i++)
+    //     {
+    //         $totalCost[$i] = $costPerMile * $vmt[$i];
+    //     }
 
-        return $totalCost;
-    }
+    //     return $totalCost;
+    // }
 
-    function calculateFuelInfrastructure($numYears)
-    {
-        // add to detailed view
-        $costPerYearVehicle = $_POST["fuelInfrastructure"];
-        $totalCost;
+    // function calculateFuelInfrastructure($numYears)
+    // {
+    //     // add to detailed view
+    //     $costPerYearVehicle = $_POST["fuelInfrastructure"];
+    //     $totalCost;
 
-        for($i = 0; $i < $numYears; $i++)
-        {
-            $totalCost[$i] = $costPerYearVehicle;
-        }
+    //     for($i = 0; $i < $numYears; $i++)
+    //     {
+    //         $totalCost[$i] = $costPerYearVehicle;
+    //     }
 
-        return $totalCost;
-    }
+    //     return $totalCost;
+    // }
 
     function calculateOperationalCost($numYears)
     {
