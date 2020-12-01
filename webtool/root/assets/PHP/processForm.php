@@ -37,10 +37,11 @@
         $taxesAndFees = calculateNewTaxesAndFees($analysisWindow);
         $maintenance = newMaintenanceMain($analysisWindow);
         $repair = newRepairCalculations($analysisWindow);
-        $infrastructure = 0;
-        $operational = calculateNewOperationalCost($analysisWindow);
-        $labor = calculateLaborCost($analysisWindow);
+        $infrastructure = 0;       
         $vehicleVmt = getVmtData();
+        $labor = calculateNewLaborCost($analysisWindow);
+
+        $operational = calculateNewOperationalCost($analysisWindow);
 
         for($i = 0; $i < $analysisWindow; $i++)
         {

@@ -167,7 +167,4 @@
 
         return $operationalCost;
     }
-
-    calculateNewOperationalCost(30);
-
 ?>
