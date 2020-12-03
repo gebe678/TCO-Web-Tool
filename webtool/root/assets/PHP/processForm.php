@@ -28,8 +28,8 @@
     // $labor;
     // $vehicleVmt;
 
-    if(!checkDatabase())
-    {
+    //if(!checkDatabase())
+    //{
         $vehicle = calculateDepreciation($analysisWindow);
         $financeCost = calculateInterestPayment($analysisWindow);
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
@@ -40,31 +40,42 @@
         $infrastructure = 0;       
         $vehicleVmt = getVmtData();
         $labor = calculateNewLaborCost($analysisWindow);
+        $operational;
 
-        $operational = calculateNewOperationalCost($analysisWindow);
-
-        for($i = 0; $i < $analysisWindow; $i++)
-        {
-            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
-        }
-    }
-    else
-    {
-        $info = searchForData();
+        $extraPayLoad = calculateExtraPayloadCost($analysisWindow);
+        $downTimeOpprutunity = calculateDowntimeOppurtunityCost($analysisWindow);
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
-            $vehicle[$i] = $info[0][$i];
-            $financeCost[$i] = $info[1][$i];
-            $annualFuelCost[$i] = $info[2][$i];
-            $insuranceCost[$i] = $info[3][$i];
-            $taxesAndFees[$i] = $info[4][$i];
-            $maintenance[$i] = $info[5][$i];
-            $repair[$i] = $info[6][$i];
-            $labor[$i] = $info[7][$i];
-            $vehicleVmt[$i] = $info[8][$i];
+            $downTimeOpprutunity[$i] = $downTimeOpprutunity[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]) + ($repair[$i] / $vehicleVmt[$i]));
+            $extraPayLoad[$i] = $extraPayLoad[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($annualFuelCost[$i] / $vehicleVmt[$i]) + ($insuranceCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]) + ($repair[$i] / $vehicleVmt[$i]) + ($taxesAndFees[$i] / $vehicleVmt[$i] + ($labor[$i] / $vehicleVmt[$i])));
+            $operational[$i] = $extraPayLoad[$i] + $downTimeOpprutunity[$i];
         }
-    }
+
+        //$operational = calculateNewOperationalCost($analysisWindow);
+
+        for($i = 0; $i < $analysisWindow; $i++)
+        {
+            //writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+        }
+    //}
+    //else
+    //{
+        //$info = searchForData();
+
+        // for($i = 0; $i < $analysisWindow; $i++)
+        // {
+        //     $vehicle[$i] = $info[0][$i];
+        //     $financeCost[$i] = $info[1][$i];
+        //     $annualFuelCost[$i] = $info[2][$i];
+        //     $insuranceCost[$i] = $info[3][$i];
+        //     $taxesAndFees[$i] = $info[4][$i];
+        //     $maintenance[$i] = $info[5][$i];
+        //     $repair[$i] = $info[6][$i];
+        //     $labor[$i] = $info[7][$i];
+        //     $vehicleVmt[$i] = $info[8][$i];
+        // }
+    //}
 
     for($i = 0; $i < $analysisWindow; $i++)
     {

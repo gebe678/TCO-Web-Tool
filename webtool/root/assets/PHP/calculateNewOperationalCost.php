@@ -88,7 +88,7 @@
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $payloadCost[$i] = $fractionalLoss;
+            $payloadCost[$i] = $fractionalLoss * $annualVmtYears[$i];
         }
 
         return $payloadCost;
@@ -102,40 +102,9 @@
         $downtimeOppurtunityCost;
         $laborCostPerHour = 30.00;
 
-        $costPerMile = ((37.95 / $fuelMPG) / 50) * $laborCostPerHour;
-
-        $phevUtilityFactor;
-
-        if($_POST["vehicleClassSize"] === "HDV")
+        for($i = 0; $i < $numYears; $i++)
         {
-            $phevUtilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
-            $phevUtilityFactor = $connect->query($phevUtilityFactorQuery); $phevUtilityFactor = $phevUtilityFactor->fetch_assoc(); $phevUtilityFactor = $phevUtilityFactor["PHEV_Utility_Factor"];
-        }
-        else
-        {
-            $phevUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
-        }
-
-        if($powertrain === "BEV")
-        {
-            for($i = 0; $i < $numYears; $i++)
-            {
-                $downtimeOppurtunityCost[$i] = $costPerMile * $annualVmtYears[$i];
-            }
-        }
-        else if($powertrain === "PHEV")
-        {
-            for($i = 0; $i < $numYears; $i++)
-            {
-                $downtimeOppurtunityCost[$i] = $costPerMile * $phevUtilityFactor;
-            }
-        }
-        else
-        {
-            for($i = 0; $i < $numYears; $i++)
-            {
-                $downtimeOppurtunityCost[$i] = 0;
-            }
+            $downtimeOppurtunityCost[$i] = $averageDowntime * $annualVmtYears[$i];
         }
 
         return $downtimeOppurtunityCost;
@@ -162,7 +131,6 @@
         for($i = 0; $i < $numYears; $i++)
         {
             $operationalCost[$i] = $a[$i] + $b[$i];
-            //echo $operationalCost[$i] .  " " . " " . " ";
         }
 
         return $operationalCost;

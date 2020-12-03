@@ -555,7 +555,6 @@ function calculateLowerDepreciation($numYears)
             {
                 if($phevRange === "20")
                 {
-                    echo "the ldv phev range is: " . $phevFuelEconomy;
                     $batterySize = (20 / $phevFuelEconomy) * 33.7;
                 }
                 else if($phevRange === "50")
@@ -637,10 +636,12 @@ function calculateLowerDepreciation($numYears)
                 $depreciationCost[$i] = $batterySalvage[$i] + $vehicleSalvage[$i];
             }
         }
-
+        //echo $depreciationCost[0] . " d2 " . " ";
+        //echo $depreciationCost[1] . " d1 " . " ";
         for($i = 0; $i < $numYears; $i++)
         {
-            $remainingCost[$i] = $depreciationCost[$i] - $depreciationCost[$i + 1];
+            $remainingCost[$i] = $depreciationCost[$i] - $depreciationCost[$i + 1] . "  " .  "  ";
+            //echo $remainingCost[$i] . " " . " ";
         }
 
         $discountRate = $depreciationCost[$numYears];
