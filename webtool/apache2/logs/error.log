@@ -1,5 +1,4 @@
-[Thu Dec 03 15:33:36.732281 2020] [mpm_winnt:notice] [pid 21968:tid 892] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Thu Dec 03 15:33:36.732281 2020] [mpm_winnt:notice] [pid 21968:tid 892] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Thu Dec 03 15:33:36.732281 2020] [core:notice] [pid 21968:tid 892] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/HELP/TCO-Web-Tool/webtool/apache2'
-[Thu Dec 03 15:33:36.737269 2020] [mpm_winnt:notice] [pid 21968:tid 892] AH00418: Parent: Created child process 15692
-[Thu Dec 03 15:33:37.735595 2020] [mpm_winnt:notice] [pid 15692:tid 772] AH00354: Child: Starting 64 worker threads.
+[Thu Dec 03 17:02:29.974148 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Thu Dec 03 17:02:29.974148 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Thu Dec 03 17:02:29.974148 2020] [core:notice] [pid 9220:tid 900] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/HELP/TCO-Web-Tool/webtool/apache2'
+[Thu Dec 03 17:02:29.979131 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00418: Parent: Created child process 2680

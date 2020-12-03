@@ -1,8 +1,0 @@
-::1 - - [03/Dec/2020:15:34:18 -0500] "GET / HTTP/1.1" 200 1166
-::1 - - [03/Dec/2020:15:34:18 -0500] "GET /assets/css/loginStyles.css HTTP/1.1" 304 -
-::1 - - [03/Dec/2020:15:34:22 -0500] "POST / HTTP/1.1" 302 1196
-::1 - - [03/Dec/2020:15:34:22 -0500] "GET /main.php HTTP/1.1" 200 46058
-::1 - - [03/Dec/2020:15:34:22 -0500] "GET /assets/page_pictures/banner_final_fullsize.jpg HTTP/1.1" 200 155986
-::1 - - [03/Dec/2020:15:34:22 -0500] "GET /assets/page_pictures/tcoToolContributers.jpg HTTP/1.1" 200 32512
-::1 - - [03/Dec/2020:15:34:22 -0500] "GET /assets/javascript/hiddenInputControl.js HTTP/1.1" 200 3406
-::1 - - [03/Dec/2020:15:34:22 -0500] "GET /assets/javascript/dropDownControl.js HTTP/1.1" 304 -
