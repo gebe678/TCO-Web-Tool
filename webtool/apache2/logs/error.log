@@ -1,4 +1,6 @@
-[Thu Dec 03 17:02:29.974148 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Thu Dec 03 17:02:29.974148 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Thu Dec 03 17:02:29.974148 2020] [core:notice] [pid 9220:tid 900] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/HELP/TCO-Web-Tool/webtool/apache2'
-[Thu Dec 03 17:02:29.979131 2020] [mpm_winnt:notice] [pid 9220:tid 900] AH00418: Parent: Created child process 2680
+[Mon Dec 14 22:32:22.638650 2020] [mpm_winnt:notice] [pid 13136:tid 832] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Mon Dec 14 22:32:22.638650 2020] [mpm_winnt:notice] [pid 13136:tid 832] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Mon Dec 14 22:32:22.639646 2020] [core:notice] [pid 13136:tid 832] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/HELP/TCO-Web-Tool/webtool/apache2'
+[Mon Dec 14 22:32:22.643637 2020] [mpm_winnt:notice] [pid 13136:tid 832] AH00418: Parent: Created child process 11720
+[Mon Dec 14 22:32:23.786312 2020] [mpm_winnt:notice] [pid 11720:tid 900] AH00354: Child: Starting 64 worker threads.
+[Mon Dec 14 23:15:46.213846 2020] [:error] [pid 11720:tid 1344] [client ::1:64727] PHP Parse error:  syntax error, unexpected ')' in C:\\Users\\warri\\Desktop\\HELP\\TCO-Web-Tool\\webtool\\root\\assets\\PHP\\vehicleCalculations.php on line 665, referer: http://localhost:8080/main.php

@@ -411,14 +411,14 @@
 
         <div class="inputContainer">
             <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest Rate</label>
-            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="interestRate" id="interestRate">
-            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="interestRateNumber">
+            <input type="range" min="0" max="1" value=".046" step=".001" class="slider" name="interestRate" id="interestRate">
+            <input type="number" min="0" max="1" value=".046" step=".001" class="outputText" id="interestRateNumber">
         </div>
 
         <div class="inputContainer">
             <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down Payment</label>
-            <input type="range" min="0" max="1" value=".001" step=".001" class="slider" name="downPayment" id="downPayment">
-            <input type="number" min="0" max="1" value=".001" step=".001" class="outputText" id="downPaymentNumber">
+            <input type="range" min="0" max="1" value=".12" step=".001" class="slider" name="downPayment" id="downPayment">
+            <input type="number" min="0" max="1" value=".12" step=".001" class="outputText" id="downPaymentNumber">
         </div>
 
                 <div class="dropDownMenu">
@@ -620,8 +620,8 @@
 
                     <div class="inputContainer">
                         <label for="financeTerm" class="sliderLabel" id="financeTermLabel">Finance Term</label>
-                        <input type="range" min="1" max="30"  value="5" class="slider" name="financeTerm" id="financeTerm">
-                        <input type="number" min="1" max="30"  value="5" class="outputText" id="financeTermNumber">
+                        <input type="range" min="1" max="30" step=".01" value="5.25" class="slider" name="financeTerm" id="financeTerm">
+                        <input type="number" min="1" max="30" step=".01" value="5.25" class="outputText" id="financeTermNumber">
                     </div>
 
                     </div>
