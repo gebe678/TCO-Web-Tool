@@ -698,5 +698,36 @@ function calculateLowerDepreciation($numYears)
         return $vehiclePayment;    
     }
 
+    function PMT($interest,$num_of_payments,$PV,$FV, $Type){
+        $xp=pow((1+$interest),$num_of_payments);
+        return
+            ($PV* $interest*$xp/($xp-1)+$interest/($xp-1)*$FV)*
+            ($Type==0 ? 1 : 1/($interest+1));
+    }
+
+    echo PMT(1,1,1,1,1);
+
+    function calculateInterestPayment($numYears)
+    {
+        include "getID.php";
+
+        $interestPayment;
+        $startValue = $vehicleBodyCost * $_POST["markupFactor"];
+        $downPayment = $_POST["downPayment"];
+        $vehiclePayment = calculateVehiclePayments($numYears);
+        for($i = 0; $i < $numYears; $i++)
+        {
+            $interestPayment[$i] = 0;
+            if($i === 0)
+            {
+                $interestPayment[$i] = $downPayment * $startValue;
+            }
+            
+            
+        }
+
+        return $interestPayment;
+    }
+
     //calculateVehiclePayments(10);
 ?>

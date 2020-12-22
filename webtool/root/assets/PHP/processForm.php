@@ -4,7 +4,7 @@
     include "vehicleCalculations.php";
     include "insuranceCalculations.php";
     include "taxesAndFeesCalculations.php";
-    include "financeCalculations.php";
+    #include "financeCalculations.php";
     include "laborCalculations.php";
     include "getID.php";
     include "database_cach.php";
