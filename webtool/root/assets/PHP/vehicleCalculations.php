@@ -659,6 +659,7 @@ function calculateLowerDepreciation($numYears)
     {
         include "getID.php";
 
+
         $startValue = $vehicleBodyCost * $_POST["markupFactor"];
         $financeTerm = $_POST["financeTerm"];
         $loanAmount = $startValue * (1 - $_POST["downPayment"]);
@@ -674,16 +675,17 @@ function calculateLowerDepreciation($numYears)
                 $vehiclePayment[$i] = $startValue * $_POST["downPayment"];
             }
 
-            if($i <= $financeTerm)
+            if($i < ($financeTerm - 1))
             {
                 $vehiclePayment[$i] += 12 * $monthlyPayment;
             }
             else
             {
-                if(ceil($financeTerm) === $i)
+                if((int)ceil($financeTerm - 1) === $i)
                 {
-                    echo "yes";
-                    $vehiclePayment[$i] = $vehiclePayment[$i] * $financeTerm % 1 * $monthlyPayment;
+                    $vehiclePayment[$i] = 1;
+                    $vehiclePayment[$i] = $vehiclePayment[$i] * $monthlyPayment * fmod($financeTerm, 1) * 12;
+                    //echo "is the v pay ". $vehiclePayment[$i] . " " . $i . " end v pay";
                 }
                 else
                 {
@@ -691,9 +693,10 @@ function calculateLowerDepreciation($numYears)
                 }
             }
 
-            echo $vehiclePayment[$i] . " " . " ";
-        }    
+            ///echo $vehiclePayment[$i] . " " . " ";
+        }
+        return $vehiclePayment;    
     }
 
-    calculateVehiclePayments(10);
+    //calculateVehiclePayments(10);
 ?>
