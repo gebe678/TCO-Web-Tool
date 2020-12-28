@@ -70,12 +70,12 @@
         include "getID.php";
 
         $totalInsurance;
-        $HDVRetainedValue;
 
         $vmt = $annualVmtYears;
 
-        $HDVInsuranceFixedCosts = .062;
+        $HDVInsuranceFixedCosts = .06466;
         $HDVPhysicalDamageInsruance = 2.5;
+        $HDVRetainedValue = calculateHDVRetainedValue($numYears);
 
         $insuranceType = $_POST["insuranceType"];
         $vehicleType = $_POST["vehicleBody"];
@@ -83,50 +83,11 @@
 
         if($insuranceType === "variable")
         {
-            $HDVInsuranceFixedCosts = .065;
-            $HDVPhysicalDamageInsruance = .025;
-        
-
-            $factorA = 0;
-            $factorB = 0;
-
-            switch($vehicleType)
-            {
-                case "Tractor Sleeper":
-                    $factorA = -0.0975300074517685;
-                    $factorB = -0.000956136815567892;
-                    break;
-                case "Tractor Day Cab":
-                    $factorA = -0.0928929490503211;
-                    $factorB = -0.000891127462516952;
-                    break;
-                case "Class 8 Vocational":
-                    $factorA = -0.0812317827637767;
-                    $factorB = -0.000122323141189712;
-                    break;
-                case "Class 6 Pickup Delivery":
-                    $factorA = -0.104546162034194;
-                    $factorB = -0.000947008683718151;
-                    break;
-                case "Class 3 Pickup Delivery":
-                    $factorA = -0.0680478228079685;
-                    $factorB = -0.000444861177599875;
-                    break;
-                case "Class 8 Bus":
-                    $factorA = -0.0812317827637767;
-                    $factorB = -0.000122323141189712;
-                    break;
-                case "Class 8 Refuse":
-                    $factorA = -0.0812317827637767;
-                    $factorB = -0.000122323141189712;
-                    break;
-            }
-        
             for($i = 0; $i < $numYears; $i++)
             {
-                $HDVRetainedValue[$i] = exp($factorA * ($i + 1) + $factorB * $vmt[$i + 1] / 1000);
-                echo $HDVRetainedValue[$i] . " " . " " . " ";
-                $totalInsurance[$i] = ($HDVInsuranceFixedCosts * $vmt[$i]) + ($HDVPhysicalDamageInsruance * $HDVRetainedValue[$i] / 1000);
+                $insuranceLiability = $HDVInsuranceFixedCosts * $annualVmtYears[$i];
+                $insurancePhysicalDamage = ($HDVPhysicalDamageInsruance * 12) * $HDVRetainedValue[$i] / 1000;
+                $totalInsurance[$i] = $insuranceLiability + $insurancePhysicalDamage;
             }
         }
         else if($insuranceType === "fixed")
@@ -269,5 +230,98 @@
             }
         }
         return $totalInsurance;
+    }
+
+    function calculateHDVRetainedValue($numYears)
+    {
+        include "getID.php";
+
+        $vehicle = $_POST["vehicleBody"];
+        $retainedValue;
+
+        $tractorSleeperA = -0.0975300074517685;
+        $tractorSleeperB = -0.000956136815567892;
+
+        $tractorDaycabA = -0.0928929490503211;
+        $tractorDaycabB = -0.000891127462516952;
+
+        $classBox8A = -0.0812317827637767;
+        $classBox8B = -0.000122323141189712;
+
+        $classBox6A = -0.104546162034194;
+        $classBox6B = -0.000947008683718151;
+
+        $class4StepA = -0.0680478228079685;
+        $class4StepB = -0.000444861177599875;
+
+        for($i = 0; $i < $numYears; $i++)
+        {
+            if($vehicle === "Tractor Sleeper")
+            {
+                $retainedValue[$i] = exp($tractorSleeperA * ($i + 1) + $tractorSleeperB * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Tractor Day Cab")
+            {
+                $retainedValue[$i] = exp($tractorDaycabA * ($i + 1) + $tractorDaycabB * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Class 8 Vocational")
+            {
+                $retainedValue[$i] = exp($classBox8A * ($i + 1) + $classBox8B * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Class 6 Pickup Delivery")
+            {
+                $retainedValue[$i] = exp($classBox6A * ($i + 1) + $classBox6B * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Class 3 Pickup Delivery")
+            {
+                $retainedValue[$i] = exp($class4StepA * ($i + 1) + $class4StepB * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Class 8 Bus")
+            {
+                $retainedValue[$i] = exp($classBox8A * ($i + 1) + $classBox8B * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+            else if($vehicle === "Class 8 Refuse")
+            {
+                $retainedValue[$i] = exp($classBox8A * ($i + 1) + $classBox8B * calculateCumulativeVmtInsurance($i) / 1000);
+            }
+
+            $retainedValue[$i] = $retainedValue[$i] * $vehicleBodyCost;
+        }
+        
+        return $retainedValue;
+    }
+
+    function calculateCumulativeVmtInsurance($numYears)
+    {
+        include "connectDatabase.php";
+
+        $vmtType = $_POST["vmt"];
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+
+        $i = 0;
+        $h = $connect->query($vmtQuery);
+        while($vmtYear = $h->fetch_assoc())
+        {
+            $annualVmtYears[$i] = $vmtYear[$vmtType];
+            $i++;
+        }
+        
+        $totalVMT = 0;
+
+        for($i = 0; $i < $numYears + 1; $i++)
+        {
+            $totalVMT = $totalVMT + $annualVmtYears[$i];
+        }
+
+        if($numYears == 0)
+        {
+            return $annualVmtYears[0];
+        }
+        else if($numYears < 0)
+        {
+            return 0;
+        }
+
+        return $totalVMT;
     }
 ?>
