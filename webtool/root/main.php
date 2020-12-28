@@ -423,7 +423,7 @@
 
                 <div class="dropDownMenu">
                     <div class="label">
-                        <label for="insuranceType">Insruance Type:</label>
+                        <label for="insuranceType">Insurance Type:</label>
                     </div>
                     <div class="border">
                         <select name="insuranceType" class="selectMenu" id="insuranceType">

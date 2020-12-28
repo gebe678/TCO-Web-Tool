@@ -83,7 +83,7 @@
 
         if($insuranceType === "variable")
         {
-            $HDVInsuranceFixedCosts = .062;
+            $HDVInsuranceFixedCosts = .065;
             $HDVPhysicalDamageInsruance = .025;
         
 
@@ -125,6 +125,7 @@
             for($i = 0; $i < $numYears; $i++)
             {
                 $HDVRetainedValue[$i] = exp($factorA * ($i + 1) + $factorB * $vmt[$i + 1] / 1000);
+                echo $HDVRetainedValue[$i] . " " . " " . " ";
                 $totalInsurance[$i] = ($HDVInsuranceFixedCosts * $vmt[$i]) + ($HDVPhysicalDamageInsruance * $HDVRetainedValue[$i] / 1000);
             }
         }
