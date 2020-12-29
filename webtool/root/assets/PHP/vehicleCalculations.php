@@ -675,7 +675,7 @@ function calculateLowerDepreciation($numYears)
                 $vehiclePayment[$i] = $startValue * $_POST["downPayment"];
             }
 
-            if($i < ($financeTerm - 1))
+            if($i < ($financeTerm))
             {
                 $vehiclePayment[$i] += 12 * $monthlyPayment;
             }
@@ -704,26 +704,98 @@ function calculateLowerDepreciation($numYears)
 
         $financeCost;
         $principleCost;
+        $interestPortion = 1 + $_POST["interestRate"];
+
         $startValue = $vehicleBodyCost * $_POST["markupFactor"];
         $downPayment = $_POST["downPayment"];
         $financeTerm = $_POST["financeTerm"];
+
         $vehiclePayment = calculateVehiclePayments($numYears);
         $loanAmount = $startValue * (1 - $_POST["downPayment"]);
         $interestRate = .000001;
+
         $monthlyPayment = $loanAmount * ($interestRate / 12) * pow((1 + $interestRate / 12), $financeTerm * 12) / ( pow( (1 + $interestRate / 12), $financeTerm * 12 ) - 1);
+
+        // calculate the interest payments on the car loan
+
+        // if there is an even financing term
+        if($financeTerm % 2 === 0)
+        {
+            // find half of the interest portion
+            $halfInterest = (($interestPortion - 1) / 2) + 1;
+            // find the middle two years for the finance rate
+            for($i = floor($financeTerm / 2); $i >= 0; $i--)
+            {
+                if($i === floor($financeTerm / 2))
+                {
+                    $principleCost[$i] = 12 * $monthlyPayment / $halfInterest;
+                }
+                else
+                {
+                    $principleCost[$i] = $principleCost[$i + 1] / $interestPortion;
+                }
+            }
+
+            for($i = floor($financeTerm / 2) + 1; $i < $numYears; $i++)
+            {
+                if($i === floor($financeTerm / 2) + 1)
+                {
+                    $principleCost[$i] = 12 * $monthlyPayment * $halfInterest;
+                }
+                else
+                {
+                    if($i <= $financeTerm)
+                    {
+                        $principleCost[$i] = $principleCost[$i - 1] * $interestPortion;
+                    }
+                    else
+                    {
+                        $principleCost[$i] = 0;
+                    }
+                }
+            }
+        }
+        // There is an odd finance rate
+        else
+        {
+            // The middle payment in the case of an odd number of payments
+            for($i = floor($financeTerm / 2); $i >= 0; $i--)
+            {
+                if($i === floor($financeTerm / 2))
+                {
+                    $principleCost[$i] = 12 * $monthlyPayment;
+                }
+                else
+                {
+                    $principleCost[$i] = $principleCost[$i + 1] / $interestPortion;
+                }
+            }
+
+            for($i = floor($financeTerm / 2) + 1; $i < $numYears; $i++)
+            {
+                $principleCost[$i] = $principleCost[$i - 1] * $interestPortion;
+
+                if($i > $financeTerm)
+                {
+                    $principleCost[$i] = 0;
+                }
+            }
+
+            for($i = 0; $i < $numYears; $i++)
+            {
+               // echo $principleCost[$i] . " " . $i . " " . " ";
+            }
+        }
 
         for($i = 0; $i < $numYears; $i++)
         {
-            $principleCost[$i] = 0;
             if($i === 0)
             {
-                $principleCost[$i] = $downPayment * $startValue;
+                $principleCost[$i] += $downPayment * $startValue;
             }
 
             if($i < $financeTerm)
             {
-                $principleCost[$i] += $monthlyPayment * 12;
-
                 $financeCost[$i] = $vehiclePayment[$i] - $principleCost[$i];
             }
             else
