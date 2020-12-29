@@ -74,7 +74,7 @@
         $class8Bus = 902.429083749901;
         $class8Refuse = 902.429083749901;
 
-        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"] + 8600;
+        $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
 
         $vehicleBody = $_POST["vehicleBody"];
 
@@ -127,11 +127,11 @@
 
         if($_POST["vehicleClassSize"] === "LDV")
         {
-            $totalCost = calculateLDVTaxesAndFees(30);
+            $totalCost = calculateLDVTaxesAndFees($numYears);
         }
         else
         {
-            $totalCost = calculateHDVTaxesAndFees(30);
+            $totalCost = calculateHDVTaxesAndFees($numYears);
         }
 
         return $totalCost;

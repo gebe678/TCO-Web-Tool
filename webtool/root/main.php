@@ -620,8 +620,8 @@
 
                     <div class="inputContainer">
                         <label for="financeTerm" class="sliderLabel" id="financeTermLabel">Finance Term</label>
-                        <input type="range" min="1" max="30" step=".01" value="5.25" class="slider" name="financeTerm" id="financeTerm">
-                        <input type="number" min="1" max="30" step=".01" value="5.25" class="outputText" id="financeTermNumber">
+                        <input type="range" min="1" max="30" value="5" class="slider" name="financeTerm" id="financeTerm">
+                        <input type="number" min="1" max="30" value="5" class="outputText" id="financeTermNumber">
                     </div>
 
                     </div>
