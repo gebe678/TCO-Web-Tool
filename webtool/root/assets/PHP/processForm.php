@@ -80,7 +80,7 @@
     for($i = 0; $i < $analysisWindow; $i++)
     {
         $year = $i;
-        //$vehicle[$i] = $vehicle[$i] / pow((1 + $discountRate), $year);
+        $vehicle[$i] = $vehicle[$i] / pow((1 + $discountRate), $year);
         $financeCost[$i] = $financeCost[$i] / pow((1 + $discountRate), $year);
         $annualFuelCost[$i] = $annualFuelCost[$i] / pow((1 + $discountRate), $year);
         $insuranceCost[$i] = $insuranceCost[$i] / pow((1 + $discountRate), $year);

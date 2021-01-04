@@ -375,6 +375,8 @@ function calculateLowerDepreciation($numYears)
 
     function calculateVehicleDepreciation($numYears)
     {
+        include "getID.php";
+
         $depreciationType = $_POST["depreciation"];
         $depreciation;
 
@@ -384,7 +386,16 @@ function calculateLowerDepreciation($numYears)
         }
         else if($depreciationType === "advanced")
         {
-            $depreciation = calculateAdvancedExponentialDepreciation($numYears);
+            if($_POST["vehicleClassSize"] === "LDV")
+            {
+                $depreciation = calculateAdvancedExponentialDepreciation($numYears);
+            }
+            else if($_POST["vehicleClassSize"] === "HDV")
+            {
+                include_once "insuranceCalculations.php";
+                $depreciation = calculateHDVRetainedValue($numYears + 1);
+                array_unshift($depreciation, $vehicleBodyCost * $_POST["markupFactor"]);
+            }
         }
         else if($depreciationType === "upper")
         {
@@ -636,6 +647,7 @@ function calculateLowerDepreciation($numYears)
                 $depreciationCost[$i] = $batterySalvage[$i] + $vehicleSalvage[$i];
             }
         }
+
         //echo $depreciationCost[0] . " d2 " . " ";
         //echo $depreciationCost[1] . " d1 " . " ";
         for($i = 0; $i < $numYears; $i++)
@@ -645,7 +657,7 @@ function calculateLowerDepreciation($numYears)
         }
 
         $discountRate = $depreciationCost[$numYears];
-        $discountRate2 = $discountRate * pow((.012 + 1), - ($numYears - $_POST["usedVehicleYear"]));
+        $discountRate2 = $discountRate * pow(($_POST["discountRate"] + 1), - ($numYears - $_POST["usedVehicleYear"]));
 
         for($i = 0; $i < $numYears; $i++)
         {

@@ -100,7 +100,6 @@
 
         $averageDowntime = .1048;
         $downtimeOppurtunityCost;
-        $laborCostPerHour = 30.00;
 
         for($i = 0; $i < $numYears; $i++)
         {
