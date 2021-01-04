@@ -269,3 +269,8 @@
 ::1 - - [04/Jan/2021:14:14:09 -0500] "POST /assets/PHP/setPurchaseCost.php HTTP/1.1" 200 11
 ::1 - - [04/Jan/2021:14:14:09 -0500] "POST /assets/PHP/checkForZero.php HTTP/1.1" 200 18
 ::1 - - [04/Jan/2021:14:14:11 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 3967
+::1 - - [04/Jan/2021:14:50:44 -0500] "GET /main.php HTTP/1.1" 200 46054
+::1 - - [04/Jan/2021:14:50:47 -0500] "POST /assets/PHP/setPurchaseCost.php HTTP/1.1" 200 11
+::1 - - [04/Jan/2021:14:50:47 -0500] "POST /assets/PHP/checkForZero.php HTTP/1.1" 200 18
+::1 - - [04/Jan/2021:14:50:48 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 4526
+::1 - - [04/Jan/2021:14:52:24 -0500] "GET /main.php HTTP/1.1" 200 46054
