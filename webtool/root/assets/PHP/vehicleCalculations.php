@@ -640,16 +640,17 @@ function calculateLowerDepreciation($numYears)
         //echo $depreciationCost[1] . " d1 " . " ";
         for($i = 0; $i < $numYears; $i++)
         {
-            $remainingCost[$i] = $depreciationCost[$i] - $depreciationCost[$i + 1] . "  " .  "  ";
+            $remainingCost[$i] = $depreciationCost[$i] - $depreciationCost[$i + 1];
             //echo $remainingCost[$i] . " " . " ";
         }
 
         $discountRate = $depreciationCost[$numYears];
-        $discountRate2 = $discountRate * pow(($_POST["discountRate"] + 1), -($numYears - $_POST["usedVehicleYear"]));
+        $discountRate2 = $discountRate * pow((.012 + 1), - ($numYears - $_POST["usedVehicleYear"]));
 
         for($i = 0; $i < $numYears; $i++)
         {
            $remainingCost[$i] = $remainingCost[$i] * ($startValue - $discountRate2) / ($startValue - $discountRate);
+           //echo $remainingCost[$i] . " " . " " . " ";
         }
 
         return $remainingCost;
