@@ -105,7 +105,11 @@
     function calculateDieselElectricCost($numYears)
     {
         include "getID.php";
-        $PHEVUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
+
+        $utilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
+        $PHEVUtilityFactor = $connect->query($utilityFactorQuery); $PHEVUtilityFactor = $PHEVUtilityFactor->fetch_assoc(); $PHEVUtilityFactor = $PHEVUtilityFactor["PHEV_Utility_Factor"];
+
+        //$PHEVUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
         $totalCost;
         $fuelModifier = 0;
 
@@ -349,7 +353,14 @@
         {
             if($vehicleInput == "autonomie")
             {
-                $MPGCost = $bevMPG;
+                if($_POST["vehicleClassSize"] === "LDV")
+                {
+                    $MPGCost = $bevMPG;
+                }
+                else if($_POST["vehicleClassSize"] === "HDV")
+                {
+                    $MPGCost = $fuelMPG;
+                }
             }
             else if($vehicleInput == "aeo")
             {
@@ -364,7 +375,14 @@
         {
             if($vehicleInput == "autonomie")
             {
-                $MPGCost = $phevMPG;
+                if($_POST["vehicleClassSize"] === "LDV")
+                {
+                    $MPGCost = $phevMPG;
+                }
+                else if($_POST["vehicleClassSize"] === "HDV")
+                {
+                    $MPGCost = $fuelMPG;
+                }
             }
             else if($vehicleInput == "aeo")
             {
@@ -447,6 +465,8 @@
             //echo " mpg cost " . round($MPGCost, 6) . " " . " ";
             //echo " fuel price " . $i . " ". $fuelPrice[$i + 1] . " ";
             $fuelPricePerMile[$i] = round(round($fuelPrice[$i + 1], 6)/ round($MPGCost, 6), 5);
+            //echo $fuelPrice[$i] . " " . " ";
+            //echo $MPGCost . " " . " ";
             //echo " fuel price per mile " . $fuelPricePerMile[$i] . " " . " ";
         }
 
@@ -454,6 +474,7 @@
         
         for($i = 0; $i < $numYears; $i++)
         {
+            //echo $fuelPricePerMile[$i] . " " . " ";
             $annualFuelPrice[$i] = $fuelPricePerMile[$i] * $annualVmtYears[$i];
 
             if($vehicleBody === "Tractor Sleeper" AND ($powertrain === "HEV-SI" OR $powertrain === "ICE-CI"))

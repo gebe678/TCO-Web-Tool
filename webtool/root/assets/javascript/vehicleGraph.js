@@ -480,9 +480,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             {
               counter++;
               totalVmt += vmt[counter];
-              console.log("yes");
             }
-            console.log(totalVmt, " is the total vmt");
 
             vehicleBodyCosts[i] = parseInt(vehicleBodyCost[counter]) / vmt[counter];
             financeCosts[i] = parseInt(financeCost[counter]) / vmt[counter]; //parseInt(financeCost[i].innerHTML);

@@ -77,7 +77,7 @@
                 $powertrainScalingFactor = $fcev_cost;
                 break;
             case "BEV":
-                $powertrainScalingFactor = $bevcost;
+                $powertrainScalingFactor = $bev_cost;
                 break;
         }
 
