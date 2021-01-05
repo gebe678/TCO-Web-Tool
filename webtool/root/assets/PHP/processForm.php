@@ -47,19 +47,27 @@
 
         $discountAnnualVmtYears = 0;
         $yearCostComponents = 0;
+        $totalYearCostComponents = 0;
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
             $discountAnnualVmtYears += $annualVmtYears[$i] / pow((1 + $discountRate), $i);
             $yearCostComponents += $vehicle[$i] + $financeCost[$i] + $maintenance[$i];
+
+            $totalYearCostComponents += $vehicle[$i] + $financeCost[$i] + $annualFuelCost[$i] + $insuranceCost[$i] + $taxesAndFees[$i] + $maintenance[$i] + $labor[$i];
         }
 
         $finalYearCostComponents = $yearCostComponents / $discountAnnualVmtYears;
+        $finalTotalYearCostComponents = $totalYearCostComponents / $discountAnnualVmtYears;
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
             $downTimeOpprutunity[$i] = $downTimeOpprutunity[$i] * $finalYearCostComponents;
-            $operational[$i] = $downTimeOpprutunity[$i];
+            $extraPayLoad[$i] = $extraPayLoad[$i] * $finalTotalYearCostComponents;
+
+           // echo $extraPayLoad[$i] . " " . " " ;
+
+            $operational[$i] = $downTimeOpprutunity[$i] + $extraPayLoad[$i];
         }
 
         // for($i = 0; $i < $analysisWindow; $i++)
