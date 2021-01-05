@@ -452,24 +452,48 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
 
         // vmt data by year
         let vmtCost = [];
+
+        let milesDriven = ["10k", "20k", "30k", "40k", "50k", "60k", "70k", "80k", "90k", "100k", "110k", "120k", "130k", "140k", "150k", "160k", "170k", "180k", "190k", "200k", "210k", "220k", "230k", "240k", "250k", "260k", "270k", "280k", "290k", "300k"];
+        let milesDrivenInt = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000, 150000, 160000, 170000, 180000, 190000, 200000, 210000, 220000, 230000, 240000, 250000, 260000, 270000, 280000, 290000, 300000];
     
         let totalCostOwnership = [];
-    
+
+        let totalVmt = vmt[0];
+        let counter = 0;
+
         for(let i = 0; i < 30; i++)
         {
-            year[i] = i + 1;
-            vmtCost[i] = vmt[i];
-            vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i]) / vmtCost[i]; //parseInt(vehicleBodyCost[i].innerHTML);
-            financeCosts[i] = parseInt(financeCost[i]) / vmtCost[i]; //parseInt(financeCost[i].innerHTML);
-            annualFuelCosts[i] = parseInt(annualFuelCost[i]) / vmtCost[i]; //parseInt(annualFuelCost[i].innerHTML);
-            insuranceCosts[i] = parseInt(insuranceCost[i]) / vmtCost[i]; //parseInt(insuranceCost[i].innerHTML);
-            taxesAndFeesCosts[i] = parseInt(taxesAndFees[i]) / vmtCost[i]; //parseInt(taxesAndFees[i].innerHTML);
-            maintenanceCosts[i] = parseInt(maintenance[i]) / vmtCost[i]; //parseInt(maintenance[i].innerHTML);
-            repairCosts[i] = parseInt(repair[i]) / vmtCost[i]; //parseInt(repair[i].innerHTML);
-            operationalCosts[i] = parseInt(operational[i]) / vmtCost[i];
-            laborCosts[i] = parseInt(labor[i]) / vmtCost[i];
-            totalCostOwnership[i] = (vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i]);
-    
+            // year[i] = i + 1;
+            // vmtCost[i] = vmt[i];
+            // vehicleBodyCosts[i] = parseInt(vehicleBodyCost[i]) / vmtCost[i]; //parseInt(vehicleBodyCost[i].innerHTML);
+            // financeCosts[i] = parseInt(financeCost[i]) / vmtCost[i]; //parseInt(financeCost[i].innerHTML);
+            // annualFuelCosts[i] = parseInt(annualFuelCost[i]) / vmtCost[i]; //parseInt(annualFuelCost[i].innerHTML);
+            // insuranceCosts[i] = parseInt(insuranceCost[i]) / vmtCost[i]; //parseInt(insuranceCost[i].innerHTML);
+            // taxesAndFeesCosts[i] = parseInt(taxesAndFees[i]) / vmtCost[i]; //parseInt(taxesAndFees[i].innerHTML);
+            // maintenanceCosts[i] = parseInt(maintenance[i]) / vmtCost[i]; //parseInt(maintenance[i].innerHTML);
+            // repairCosts[i] = parseInt(repair[i]) / vmtCost[i]; //parseInt(repair[i].innerHTML);
+            // operationalCosts[i] = parseInt(operational[i]) / vmtCost[i];
+            // laborCosts[i] = parseInt(labor[i]) / vmtCost[i];
+            // totalCostOwnership[i] = (vehicleBodyCosts[i] + financeCosts[i] + annualFuelCosts[i] + insuranceCosts[i] + taxesAndFeesCosts[i] + maintenanceCosts[i] + repairCosts[i]);
+            
+            if(milesDrivenInt[i] > totalVmt)
+            {
+              counter++;
+              totalVmt += vmt[counter];
+              console.log("yes");
+            }
+            console.log(totalVmt, " is the total vmt");
+
+            vehicleBodyCosts[i] = parseInt(vehicleBodyCost[counter]) / vmt[counter];
+            financeCosts[i] = parseInt(financeCost[counter]) / vmt[counter]; //parseInt(financeCost[i].innerHTML);
+            annualFuelCosts[i] = parseInt(annualFuelCost[counter]) / vmt[counter]; //parseInt(annualFuelCost[i].innerHTML);
+            insuranceCosts[i] = parseInt(insuranceCost[counter]) / vmt[counter]; //parseInt(insuranceCost[i].innerHTML);
+            taxesAndFeesCosts[i] = parseInt(taxesAndFees[counter]) / vmt[counter]; //parseInt(taxesAndFees[i].innerHTML);
+            maintenanceCosts[i] = parseInt(maintenance[counter]) / vmt[counter]; //parseInt(maintenance[i].innerHTML);
+            repairCosts[i] = parseInt(repair[i]) / vmt[counter]; //parseInt(repair[i].innerHTML);
+            operationalCosts[i] = parseInt(operational[counter]) / vmt[counter];
+            laborCosts[i] = parseInt(labor[counter]) / vmt[counter];        
+
             // console.log("vehicle body: " + vehicleBodyCosts[i] + " \nfinance " + financeCosts[i] + " \nannualfuel " + annualFuelCosts[i] + 
             // " \ninsurance " + insuranceCosts[i] + " \ntaxes " + taxesAndFeesCosts[i] + " \nmaintenance " + maintenanceCosts[i] + " \nrepair " + repairCosts[i] + 
             // " \nTCO " + totalCostOwnership[i]);
@@ -479,7 +503,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
           type: "bar",
           data: 
           {
-            labels: year,
+            labels: milesDriven,
             datasets:
             [
               {

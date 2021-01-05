@@ -45,12 +45,29 @@
         $extraPayLoad = calculateExtraPayloadCost($analysisWindow);
         $downTimeOpprutunity = calculateDowntimeOppurtunityCost($analysisWindow);
 
+        $discountAnnualVmtYears = 0;
+        $yearCostComponents = 0;
+
         for($i = 0; $i < $analysisWindow; $i++)
         {
-            $downTimeOpprutunity[$i] = $downTimeOpprutunity[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]) + ($repair[$i] / $vehicleVmt[$i]));
-            $extraPayLoad[$i] = $extraPayLoad[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($annualFuelCost[$i] / $vehicleVmt[$i]) + ($insuranceCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]) + ($repair[$i] / $vehicleVmt[$i]) + ($taxesAndFees[$i] / $vehicleVmt[$i] + ($labor[$i] / $vehicleVmt[$i])));
-            $operational[$i] = $extraPayLoad[$i] + $downTimeOpprutunity[$i];
+            $discountAnnualVmtYears += $annualVmtYears[$i] / pow((1 + $discountRate), $i);
+            $yearCostComponents += $vehicle[$i] + $financeCost[$i] + $maintenance[$i];
         }
+
+        $finalYearCostComponents = $yearCostComponents / $discountAnnualVmtYears;
+
+        for($i = 0; $i < $analysisWindow; $i++)
+        {
+            $downTimeOpprutunity[$i] = $downTimeOpprutunity[$i] * $finalYearCostComponents;
+            $operational[$i] = $downTimeOpprutunity[$i];
+        }
+
+        // for($i = 0; $i < $analysisWindow; $i++)
+        // {
+        //     $downTimeOpprutunity[$i] = $downTimeOpprutunity[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]));// + ($repair[$i] / $vehicleVmt[$i]));
+        //     $extraPayLoad[$i] = $extraPayLoad[$i] * (($vehicle[$i] / $vehicleVmt[$i]) + ($financeCost[$i] / $vehicleVmt[$i]) + ($annualFuelCost[$i] / $vehicleVmt[$i]) + ($insuranceCost[$i] / $vehicleVmt[$i]) + ($maintenance[$i] / $vehicleVmt[$i]) + ($repair[$i] / $vehicleVmt[$i]) + ($taxesAndFees[$i] / $vehicleVmt[$i] + ($labor[$i] / $vehicleVmt[$i])));
+        //     $operational[$i] = $extraPayLoad[$i] + $downTimeOpprutunity[$i];
+        // }
 
         //$operational = calculateNewOperationalCost($analysisWindow);
 
