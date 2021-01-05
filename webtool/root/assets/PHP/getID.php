@@ -22,6 +22,7 @@
 
     $phevRange = $_POST["phevRange"];
     $phevMPGRange = "PHEV_" . $phevRange . "_MPG";
+    $phevMPGGasRange = "PHEV_" . $phevRange . "_MPG_Gas";
     $phevCost = "PHEV_" . $phevRange;
 
     $fuelYear = $_POST["fuelYear"];
@@ -54,6 +55,7 @@
     $bevRealWorldMPGQuery = "SELECT $bevMPGRange FROM bev_costs WHERE Model_Year LIKE 'Real_World_Today' AND Size LIKE '$vehicleBody'";
 
     $phevMPGQuery = "SELECT $phevMPGRange FROM phev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+    $phevMPGGasQuery = "SELECT $phevMPGGasRange FROM phev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
     $phevCostQuery = "SELECT $phevCost FROM phev_costs WHERE Technology LIKE '$technology' AND Model_Year LIKE $modelYear";
     $phevAeoQuery = "SELECT $phevCost FROM phev_costs WHERE Model_Year LIKE 'AEO_Model_Year_2020' AND Size LIKE '$vehicleBody'";
     $phevRealWorldQuery = "SELECT $phevCost FROM phev_costs WHERE Model_Year LIKE 'Real_World_Today' AND Size LIKE '$vehicleBody'";
@@ -100,6 +102,7 @@
     $bevRealWorldResult = $connect->query($bevRealWorldQuery); $bevRealWorldResult = $bevRealWorldResult->fetch_assoc(); $bevRealWorldResult = $bevRealWorldResult[$bevCost];
 
     $phevMPG = $connect->query($phevMPGQuery); $phevMPG = $phevMPG->fetch_assoc(); $phevMPG = $phevMPG[$phevMPGRange];
+    $phevMPGGas = $connect->query($phevMPGGasQuery); $phevMPGGas = $phevMPGGas->fetch_assoc(); $phevMPGGas = $phevMPGGas[$phevMPGGasRange];
     $phevAeoMPG = $connect->query($phevAeoMPGQuery); $phevAeoMPG = $phevAeoMPG->fetch_assoc(); $phevAeoMPG = $phevAeoMPG[$phevMPGRange];
     $phevRealWorldMPG = $connect->query($phevRealWorldMPGQuery); $phevRealWorldMPG = $phevRealWorldMPG->fetch_assoc(); $phevRealWorldMPG = $phevRealWorldMPG[$phevMPGRange];
 

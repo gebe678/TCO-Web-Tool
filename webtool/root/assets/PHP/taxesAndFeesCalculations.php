@@ -40,6 +40,24 @@
 
         $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
 
+        if($powertrain === "BEV")
+        {
+            $otherCosts = 81;
+            $annualVehicleRegistration = 141;
+        }
+        else if($powertrain === "HEV")
+        {
+            $annualVehicleRegistration = 75;
+        }
+        else if($powertrain === "PHEV")
+        {
+            $annualVehicleRegistration = 104;
+        }
+        else if($powertrain === "FCEV")
+        {
+            $annualVehicleRegistration = 141;
+        }
+
         for($i = 0; $i < $numYears; $i++)
         {
             $totalCost[$i] = 0;

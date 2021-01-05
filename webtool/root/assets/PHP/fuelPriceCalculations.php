@@ -377,7 +377,7 @@
             {
                 if($_POST["vehicleClassSize"] === "LDV")
                 {
-                    $MPGCost = $phevMPG;
+                    $MPGCost = 1 / (0.456 / $phevMPG + 0.544 / $phevMPGGas);
                 }
                 else if($_POST["vehicleClassSize"] === "HDV")
                 {
