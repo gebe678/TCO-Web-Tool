@@ -565,7 +565,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             },
               scales:
               {
-                xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
+                xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Miles Driven"}}],
                 yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"}}]
               },
               plugins:

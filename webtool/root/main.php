@@ -485,7 +485,7 @@
 
                 <div class="economicGroup">
 
-                    <div class="dropDownMenu">
+                    <div class="dropDownMenu" style="display:none;">
                         <div class="label">
                             <label for="regionality">Regionality:</label>
                         </div>
@@ -662,7 +662,7 @@
 
                     <div class="dropDownMenu">
                         <div class="label">
-                            <label for="phevRange">PHEV Range:</label>
+                            <label for="phevRange">(LDV only) PHEV Range:</label>
                         </div>
                         <div class="border">
                             <select name="phevRange" class="selectMenu" id="phevRangeMenu">
