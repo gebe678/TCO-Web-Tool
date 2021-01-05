@@ -683,3 +683,6 @@
 127.0.0.1 - - [05/Jan/2021:18:28:00 -0500] "POST /assets/PHP/checkForZero.php HTTP/1.1" 200 18
 127.0.0.1 - - [05/Jan/2021:18:28:00 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 3970
 127.0.0.1 - - [05/Jan/2021:18:28:01 -0500] "GET /assets/pi_graph_pictures/Tractor%20Day%20Cab.jpg HTTP/1.1" 200 25558
+127.0.0.1 - - [05/Jan/2021:18:33:25 -0500] "POST /assets/PHP/setPurchaseCost.php HTTP/1.1" 200 10
+127.0.0.1 - - [05/Jan/2021:18:33:25 -0500] "POST /assets/PHP/checkForZero.php HTTP/1.1" 200 18
+127.0.0.1 - - [05/Jan/2021:18:33:27 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 3976
