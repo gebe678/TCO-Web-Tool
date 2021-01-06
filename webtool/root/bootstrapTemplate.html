@@ -1,28 +1,3 @@
-<?php 
-
-    $inactive = 7200;
-    ini_set("session.gc_maxlifetime", $inactive);
-
-    session_start();
-
-    if(!isset($_SESSION["userid"]) || $_SESSION["userid"] != true)
-    {
-        header("Location: index.php");
-        exit;
-    }
-
-//     if(isset($_SESSION["testing"]) and (time() - $_SESSION["testing"] > $inactive))
-//     {
-//         session_unset();
-//         session_destroy();
-
-//         header("Location: index.php");
-//         exit;
-//     }
-
-//     $_SESSION["testing"] = time();
-// ?>
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -857,7 +832,7 @@
                                 <label for="modelYearComparison" class="togglePowertrainLabel"></label>
                             </div>
 
-                            <input type="submit" class="submitButton form-group btn btn-primary" id="submitButton">
+                            <input type="submit" class="submitButton form-group" id="submitButton">
 
                         </div><!-- </col-lg-12> -->
 

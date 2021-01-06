@@ -5,7 +5,7 @@
 
     if(isset($_SESSION["userid"]) && $_SESSION["userid"] === true)
     {
-        header("Location: main.php");
+        header("Location: mainBootstrap.php");
     }
     
     if(isset($_POST["submit"]))
@@ -44,7 +44,7 @@
                 $_SESSION["userid"] = true;
                 $_SESSION["user"] = $username;
                 $_SESSION["testing"] = 100;
-                header("Location: main.php");
+                header("Location: mainBootstrap.php");
             }
             $i++;
         }

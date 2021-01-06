@@ -1,4 +1,4 @@
-html body{
+/* html body{
     margin-right: 0px;
     margin-top: 0px;
     margin-bottom: 0px;
@@ -6,11 +6,11 @@ html body{
 body{
     display: flex;
     flex-direction: column;
-}
+} */
 
-.content{
+/* .content{
     margin-left: 10px;
-}
+} */
 
 h1{
     text-align: center;
@@ -140,22 +140,22 @@ p{
     display: none;
 }
 
-.simplifiedView{
+/* .simplifiedView{
     margin: 0px 3px 3px 0px;
     width: 550px;
-}
+}  */
 
-.technologyGroup{
+ /* .technologyGroup{
     min-width: 550px;
-}
+} */
 
 .economicGroup{
-    min-width: 550px;
+    /* min-width: 550px; */
     background-color: #b9b0b0;
 }
 
 .behaviorGroup{
-    min-width: 550px;
+    /* min-width: 550px; */
     background-color: #d9ecd0;
 }
 
@@ -167,27 +167,27 @@ p{
     max-width: 100%;
 }
 
-.canvasContainer{
+/* .canvasContainer{
     max-width: 1000px;
 }
 
 .pieChartContainer{
     max-width: 600px;
-}
+} */
 
-#imageOverlay{
+/* #imageOverlay{
     float: right;
-}
+} */
 
 /* .submitButton{
     display: none;
 } */
 
-.content{
+/* .content{
     min-height: calc(100vh - 70px);
-}
+} */
 
-footer{
+/* footer{
     height: 50px;
-}
+} */
 

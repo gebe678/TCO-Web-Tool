@@ -108,7 +108,6 @@
     <main>
         <form action="assets/PHP/processForm.php" method="POST" name="vehicleInfo" id="vehicleInfoForm">
 
-            <div class="simplifiedView">
             <div class="technologyGroup">
 
                 <div class="dropDownMenu">
@@ -199,8 +198,6 @@
                                 <option value="Premium_Electric">Premium Gasoline Electric</option>
                             </select>
                         </div>
-                    </div>
-
                     </div>
 
 

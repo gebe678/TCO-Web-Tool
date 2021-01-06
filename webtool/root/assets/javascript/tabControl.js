@@ -39,7 +39,7 @@ function elementControl(groupID, toggleID)
 function toggleControl()
 {
     let toggle = document.getElementById("toggleButton");
-    let detailedView = document.querySelector(".detailedView");
+    let detailedView = document.querySelectorAll(".detailedView");
     let labelText = document.querySelector(".labelText");
     let technologyGroup = document.querySelector(".technologyGroup");
     let detailedTechnologyGroup = document.querySelector(".detailedView .technologyGroup");
@@ -49,7 +49,11 @@ function toggleControl()
     toggle.addEventListener("click", function(){
         if(toggle.checked)
         {
-            detailedView.style.display = "flex";
+            for(let i = 0;  i < detailedView.length; i++)
+            {
+                detailedView[i].style.display = "block";
+            }
+            
             detailedOptions.style.display = "inline-block";
             labelText.innerHTML = "Detailed View";
             labelText.style.float = "left";
@@ -60,7 +64,10 @@ function toggleControl()
     
         if(!toggle.checked)
         {
-            detailedView.style.display = "none";
+            for(let i = 0;  i < detailedView.length; i++)
+            {
+                detailedView[i].style.display = "none";
+            }
             detailedOptions.style.display = "none";
             labelText.innerHTML = "Simplified View";
             labelText.style.float = "right";
