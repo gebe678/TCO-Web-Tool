@@ -696,6 +696,13 @@
                                         </div>
                                     </div><!-- </usedVehicleInputs> -->
 
+                                    <div class="checkboxContainer form-group">
+                                        <label class="sliderLabel" for="majorLDVCheck">Major Repairs</label>
+                                        <input type="checkbox" id="majorLDVCheck" class="togglePowertrain"
+                                            name="majorLDVCheck">
+                                        <label for="majorLDVCheck" class="togglePowertrainLabel"></label>
+                                    </div><!-- </checkBoxContainer> -->
+
                                     <div class="inputContainer form-group" id="usedVehicleContainer">
                                         <label for="usedVehicleYear" class="sliderLabel">Age of used car</label>
                                         <input type="range" min="0" max="15" value="0" class="slider"
