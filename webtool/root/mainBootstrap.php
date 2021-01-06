@@ -887,8 +887,7 @@
 
             </div><!-- </col-lg-12> -->
 
-        </div>
-        <!--</row>-->
+        </div><!--</row>-->
 
         <div class="row">
 
