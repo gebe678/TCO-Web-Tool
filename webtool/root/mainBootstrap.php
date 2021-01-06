@@ -901,7 +901,7 @@
             <div class="col-lg-12">
 
                 <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a> | <button>Download Data</button></p>
-                <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers">
+                <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">
 
             </div><!-- </col-lg-12> -->
 

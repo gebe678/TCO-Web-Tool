@@ -609,6 +609,7 @@ function calculateLowerDepreciation($numYears)
         include "getID.php";
 
         $depreciationType = $_POST["salvageValue"];
+        $setDiscountRate = $_POST["discountRate"];
         $depreciationCost;
         $remainingCost;
         $vehicleValue = $vehicleBodyCost;
@@ -657,7 +658,7 @@ function calculateLowerDepreciation($numYears)
         }
 
         $discountRate = $depreciationCost[$numYears];
-        $discountRate2 = $discountRate * pow(($_POST["discountRate"] + 1), - ($numYears - $_POST["usedVehicleYear"]));
+        $discountRate2 = $discountRate * pow(($setDiscountRate + 1), - ($numYears - $_POST["usedVehicleYear"]));
 
         for($i = 0; $i < $numYears; $i++)
         {
