@@ -730,6 +730,8 @@ function calculateLowerDepreciation($numYears)
 
         $monthlyPayment = $loanAmount * ($interestRate / 12) * pow((1 + $interestRate / 12), $financeTerm * 12) / ( pow( (1 + $interestRate / 12), $financeTerm * 12 ) - 1);
 
+        //echo $monthlyPayment . " " . " ";
+
         // calculate the interest payments on the car loan
 
         // if there is an even financing term
@@ -738,9 +740,9 @@ function calculateLowerDepreciation($numYears)
             // find half of the interest portion
             $halfInterest = (($interestPortion - 1) / 2) + 1;
             // find the middle two years for the finance rate
-            for($i = floor($financeTerm / 2); $i >= 0; $i--)
+            for($i = floor($financeTerm / 2) - 1; $i >= 0; $i--)
             {
-                if($i === floor($financeTerm / 2))
+                if($i === floor($financeTerm / 2) - 1)
                 {
                     $principleCost[$i] = 12 * $monthlyPayment / $halfInterest;
                 }
@@ -750,9 +752,9 @@ function calculateLowerDepreciation($numYears)
                 }
             }
 
-            for($i = floor($financeTerm / 2) + 1; $i < $numYears; $i++)
+            for($i = floor($financeTerm / 2); $i < $numYears; $i++)
             {
-                if($i === floor($financeTerm / 2) + 1)
+                if($i === floor($financeTerm / 2))
                 {
                     $principleCost[$i] = 12 * $monthlyPayment * $halfInterest;
                 }
@@ -773,9 +775,9 @@ function calculateLowerDepreciation($numYears)
         else
         {
             // The middle payment in the case of an odd number of payments
-            for($i = floor($financeTerm / 2); $i >= 0; $i--)
+            for($i = floor($financeTerm / 2) - 1; $i >= 0; $i--)
             {
-                if($i === floor($financeTerm / 2))
+                if($i === floor($financeTerm / 2) - 1)
                 {
                     $principleCost[$i] = 12 * $monthlyPayment;
                 }
@@ -785,7 +787,7 @@ function calculateLowerDepreciation($numYears)
                 }
             }
 
-            for($i = floor($financeTerm / 2) + 1; $i < $numYears; $i++)
+            for($i = floor($financeTerm / 2); $i < $numYears; $i++)
             {
                 $principleCost[$i] = $principleCost[$i - 1] * $interestPortion;
 
@@ -794,12 +796,12 @@ function calculateLowerDepreciation($numYears)
                     $principleCost[$i] = 0;
                 }
             }
-
-            for($i = 0; $i < $numYears; $i++)
-            {
-               // echo $principleCost[$i] . " " . $i . " " . " ";
-            }
         }
+
+        // for($i = 0; $i < $numYears; $i++)
+        // {
+        //    echo $principleCost[$i] . " " . $i . " " . " ";
+        // }
 
         for($i = 0; $i < $numYears; $i++)
         {

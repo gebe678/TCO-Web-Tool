@@ -30,7 +30,7 @@
 
     //if(!checkDatabase())
     //{
-        $vehicle = calculateDepreciation($analysisWindow);
+        $vehicle = calculateVehiclePayments($analysisWindow);
         $financeCost = calculateInterestPayment($analysisWindow);
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
         $insuranceCost = calculateNewInsuranceCost($analysisWindow);
