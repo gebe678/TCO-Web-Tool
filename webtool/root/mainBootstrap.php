@@ -113,17 +113,17 @@
 
                                 <input type="checkbox" id="technologyGroup" class="toggleSwitch" name="technologyGroup"
                                     checked>
-                                <label for="technologyGroup" class="toggleLabel"><span
+                                <label for="technologyGroup" class="toggleLabel toggleTechnology"><span
                                         class="labelText">Technology</span></label>
 
                                 <input type="checkbox" id="economicGroup" class="toggleSwitch" name="economicGroup"
                                     checked>
-                                <label for="economicGroup" class="toggleLabel"><span
+                                <label for="economicGroup" class="toggleLabel toggleEconomic"><span
                                         class="labelText">Economic</span></label>
 
                                 <input type="checkbox" id="behaviorGroup" class="toggleSwitch" name="behaviorGroup"
                                     checked>
-                                <label for="behaviorGroup" class="toggleLabel"><span
+                                <label for="behaviorGroup" class="toggleLabel toggleBehavior"><span
                                         class="labelText">Behavior</span></label>
                             </span> <!-- </detailedOptions> -->
 
@@ -674,9 +674,9 @@
                                     <div class="inputContainer">
                                         <label for="financeTerm" class="sliderLabel" id="financeTermLabel">Finance
                                             Term</label>
-                                        <input type="range" min="1" max="30" value="5" class="slider" name="financeTerm"
+                                        <input type="range" min="1" max="30" value="4" class="slider" name="financeTerm"
                                             id="financeTerm">
-                                        <input type="number" min="1" max="30" value="5" class="outputText"
+                                        <input type="number" min="1" max="30" value="4" class="outputText"
                                             id="financeTermNumber">
                                     </div><!-- </inputContainer> -->
 
@@ -706,7 +706,7 @@
                                     <div class="checkboxContainer form-group">
                                         <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
                                         <input type="checkbox" id="vehicleFinanced" class="togglePowertrain"
-                                            name="vehicleFinanced">
+                                            name="vehicleFinanced" checked>
                                         <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkboxContainer> -->
 

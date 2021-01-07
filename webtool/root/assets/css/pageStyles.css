@@ -60,6 +60,24 @@ nav{
     color: black;
 }
 
+.toggleSwitch:checked + .toggleTechnology{
+    text-align: center;
+    background-color: #e4d1d1;
+    color: black;
+}
+
+.toggleSwitch:checked + .toggleEconomic{
+    text-align: center;
+    background-color: #b9b0b0;
+    color: black;
+}
+
+.toggleSwitch:checked + .toggleBehavior{
+    text-align: center;
+    background-color: #d9ecd0;
+    color: black;
+}
+
 .toggleSwitch{
     display: none;
 }
