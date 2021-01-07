@@ -33,6 +33,7 @@ nav{
     background-color: rgb(121, 121, 121);
     border-radius: 20px;
     color: white;
+    text-align: center;
 }
 
 .toggleLabel::after{
@@ -45,13 +46,16 @@ nav{
     top: 1px;
     left: 1px;
     transition: all 0.3;
+    text-align: center;
 }
 
 .toggleSwitch:checked + .toggleLabel::after{
+    text-align: center;
     left: 130px;
 }
 
 .toggleSwitch:checked + .toggleLabel{
+    text-align: center;
     background-color: #6de747;
     color: black;
 }
@@ -123,10 +127,11 @@ nav{
     display: none;
 }
 
-.toggleLabel .labelText{
+/* .toggleLabel .labelTextDetailedView{
     float: right;
-    margin-right: 20px;
-}
+    text-align: center;
+    margin-left: 4px;
+} */
 
 p{
     font-family: sans-serif;

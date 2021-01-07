@@ -83,7 +83,7 @@
                         <!--navigation bar to go between the pages of the site easily-->
                         <div class="navBar">
                             <input type="checkbox" id="toggleButton" class="toggleSwitch" name="detailedView">
-                            <label for="toggleButton" class="toggleLabel"><span class="labelText">Simplified
+                            <label for="toggleButton" class="toggleLabel"><span class="labelTextDetailedView">Simplified
                                     View</span></label>
 
                             <span class="detailedOptions">
@@ -125,14 +125,14 @@
                                     checked>
                                 <label for="behaviorGroup" class="toggleLabel"><span
                                         class="labelText">Behavior</span></label>
-                            </span>
+                            </span> <!-- </detailedOptions> -->
 
                             <button id="resetButton">Reset to default</button>
                             <!-- <button id="databaseAdder">Add Values To Database</button> -->
 
                             <!-- <a href="getDatabaseInfo.php">Tableau Example</a> -->
-                            <a href="logout.php" style="float: right;"> Log Out </a>
-                        </div>
+                            <a href="logout.php" style="float:right;"> Log Out </a>
+                        </div><!-- </navBar> -->
                     </nav>
                 </header>
 
@@ -279,8 +279,8 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="annualFuelPriceIncrease" class="sliderLabel">Incremental Annual Fuel
-                                            Price Change</label>
+                                        <label for="annualFuelPriceIncrease" class="sliderLabel">Annual Fuel Price
+                                            Change %</label>
                                         <input type="range" min="-100" max="100" value="0" class="slider"
                                             name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
                                         <input type="number" min="-100" max="100" value="0" class="outputText"
@@ -317,7 +317,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelPriceMethod">Fuel Price Method:</label>
+                                            <label for="fuelPriceMethod">Fuel Price:</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelPriceMethod" class="selectMenu form-control"
@@ -328,6 +328,14 @@
                                             </select>
                                         </div>
                                     </div><!-- </dropDownContainer> -->
+
+                                    <div class="inputContainer form-group">
+                                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure
+                                            Cost</label>
+                                        <input type="range" min="0" max="1000" value="1000" class="slider"
+                                            name="fuelInfrastructure" id="fuelInfrastructure">
+                                        <input type="number" min="0" max="1000" value="1000" class="outputText">
+                                    </div><!-- </inputContainer> -->
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
@@ -438,16 +446,9 @@
                                         <input type="number" min="0" max="1000000000" value="0" class="outputText">
                                     </div><!-- </inputContainer> -->
 
-                                    <div class="checkboxContainer form-group">
-                                        <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
-                                        <input type="checkbox" id="vehicleFinanced" class="togglePowertrain"
-                                            name="vehicleFinanced">
-                                        <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
-                                    </div><!-- </checkboxContainer> -->
-
                                     <div class="inputContainer form-group">
                                         <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest
-                                            Rate</label>
+                                            Rate %</label>
                                         <input type="range" min="0" max="1" value=".046" step=".001" class="slider"
                                             name="interestRate" id="interestRate">
                                         <input type="number" min="0" max="1" value=".046" step=".001" class="outputText"
@@ -456,7 +457,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down
-                                            Payment</label>
+                                            Payment %</label>
                                         <input type="range" min="0" max="1" value=".12" step=".001" class="slider"
                                             name="downPayment" id="downPayment">
                                         <input type="number" min="0" max="1" value=".12" step=".001" class="outputText"
@@ -498,19 +499,11 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="fuelEfficiencyDegradation" class="sliderLabel">Fuel Efficiency
-                                            Degradation Percentage</label>
+                                        <label for="fuelEfficiencyDegradation" class="sliderLabel">Annual MPG
+                                            Degradation %</label>
                                         <input type="range" min="0" max="1" value="0" step=".001" class="slider"
                                             name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
                                         <input type="number" min="0" max="1" value="0" step=".001" class="outputText">
-                                    </div><!-- </inputContainer> -->
-
-                                    <div class="inputContainer form-group">
-                                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure
-                                            Cost</label>
-                                        <input type="range" min="0" max="5000" value="1000" class="slider"
-                                            name="fuelInfrastructure" id="fuelInfrastructure">
-                                        <input type="number" min="0" max="5000" value="1000" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display:none;">
@@ -613,7 +606,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="discountRate" class="sliderLabel">Discount Rate</label>
+                                        <label for="discountRate" class="sliderLabel">Discount Rate %</label>
                                         <input type="range" min=".0" max="1" step=".00001" value="0" class="slider"
                                             name="discountRate" id="discountRate">
                                         <input type="number" min=".0" max="1" step=".00001" value="0"
@@ -709,6 +702,13 @@
                                             name="usedVehicleYear" id="usedVehicleYear">
                                         <input type="number" min="0" max="15" value="0" class="outputText">
                                     </div><!-- </inputContainer> -->
+
+                                    <div class="checkboxContainer form-group">
+                                        <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
+                                        <input type="checkbox" id="vehicleFinanced" class="togglePowertrain"
+                                            name="vehicleFinanced">
+                                        <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
+                                    </div><!-- </checkboxContainer> -->
 
                                 </div><!-- </economicGroup> -->
 

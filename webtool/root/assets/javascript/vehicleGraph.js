@@ -55,7 +55,7 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
         backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#3333ff", "#66a3ff", "#c267F5", "#03fc3d", "#e1e1ea"],
         borderWidth: 0
       }],
-      labels: ["depreciation", "financing", "fuel", "insurance", "maintenance", "repair", "operational", "labor", "taxes"],
+      labels: ["Depreciation", "Financing", "Fuel", "Insurance", "Maintenance", "Repair", "Operational", "Labor", "Taxes"],
     };
 
     piGraph = new Chart(canvas, {

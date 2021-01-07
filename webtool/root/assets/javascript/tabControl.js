@@ -40,7 +40,7 @@ function toggleControl()
 {
     let toggle = document.getElementById("toggleButton");
     let detailedView = document.querySelectorAll(".detailedView");
-    let labelText = document.querySelector(".labelText");
+    let labelText = document.querySelector(".labelTextDetailedView");
     let technologyGroup = document.querySelector(".technologyGroup");
     let detailedTechnologyGroup = document.querySelector(".detailedView .technologyGroup");
     let detailedOptions = document.querySelector(".detailedOptions");
@@ -56,8 +56,8 @@ function toggleControl()
             
             detailedOptions.style.display = "inline-block";
             labelText.innerHTML = "Detailed View";
-            labelText.style.float = "left";
-            labelText.style.marginLeft = "20px";
+            //labelText.style.float = "left";
+            //labelText.style.marginLeft = "20px";
             technologyGroup.style.backgroundColor = "#e4d1d1";
             detailedTechnologyGroup.style.backgroundColor = "#e4d1d1";
         }
@@ -70,8 +70,8 @@ function toggleControl()
             }
             detailedOptions.style.display = "none";
             labelText.innerHTML = "Simplified View";
-            labelText.style.float = "right";
-            labelText.style.marginRight = "20px";
+           // labelText.style.float = "right";
+            //labelText.style.marginRight = "20px";
             technologyGroup.style.backgroundColor = "white";
             detailedTechnologyGroup.style.backgroundColor = "white";
             form.reset();
