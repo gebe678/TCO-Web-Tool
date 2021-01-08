@@ -132,6 +132,7 @@
 
                             <!-- <a href="getDatabaseInfo.php">Tableau Example</a> -->
                             <a href="logout.php" style="float:right;"> Log Out </a>
+                            <a href="assets/CSV Tables.zip" style="float:right;">Downlaod Database Files &nbsp</a>
                         </div><!-- </navBar> -->
                     </nav>
                 </header>
