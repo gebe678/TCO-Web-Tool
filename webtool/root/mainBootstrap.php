@@ -153,7 +153,7 @@
                                 <h3 class="detailedView"> Technology Group </h3>
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="vehicleBody" title="body of the vehicle">Vehicle Size:</label>
+                                        <label for="vehicleBody" title="Vehicle body consideration">Vehicle Size:</label>
                                     </div>
                                     <div class="border">
                                         <select name="vehicleBody" class="selectMenu form-control" id="vehicleBodyMenu">
@@ -180,7 +180,7 @@
 
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="powertrain">Powertrain:</label>
+                                        <label for="powertrain" title="Type of powertrain used by the vehicle">Powertrain:</label>
                                     </div>
                                     <div class="border">
                                         <select name="powertrain" class="selectMenu form-control" id="powertrainMenu">
@@ -196,7 +196,7 @@
 
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label name="modelYear">Model Year:</label>
+                                        <label name="modelYear" title="Year the vehicle is purchased">Model Year:</label>
                                     </div>
                                     <div class="border">
                                         <select name="modelYear" class="selectMenu form-control" id="modelYearMenu">
@@ -217,7 +217,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="Fuel">Fuel type:</label>
+                                            <label for="Fuel" title="Fuel the vehicle uses (Options vary depending on the selected powertrain)">Fuel type:</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuel" class="selectMenu form-control" id="fuelTypes">
@@ -237,7 +237,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="technology">Technology Progress:</label>
+                                            <label for="technology" title="How advanced the technology the vehicle has">Technology Progress:</label>
                                         </div>
                                         <div class="border">
                                             <select name="technology" class="selectMenu form-control"
@@ -266,22 +266,14 @@
                                     </div> <!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="depreciationRate" class="sliderLabel">Simple Depreciation
-                                            Rate</label>
-                                        <input type="range" min="0" max="1" step=".01" value="0.09" class="slider"
-                                            name="depreciationRate" id="depreciationRate">
-                                        <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
-                                    </div> <!-- </inputContainer> -->
-
-                                    <div class="inputContainer form-group">
-                                        <label for="writeOff" class="sliderLabel">Vehicle Write Off</label>
+                                        <label for="writeOff" class="sliderLabel" title="write off for used vehicles">Vehicle Write Off</label>
                                         <input type="range" min="1" max="30" value="10" class="slider" name="writeOff"
                                             id="writeOff">
                                         <input type="number" min="1" max="30" value="10" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="annualFuelPriceIncrease" class="sliderLabel">Annual Fuel Price
+                                        <label for="annualFuelPriceIncrease" class="sliderLabel" title="Percentage change in fuel price">Annual Fuel Price
                                             Change %</label>
                                         <input type="range" min="-100" max="100" value="0" class="slider"
                                             name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
@@ -319,7 +311,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelPriceMethod">Fuel Price:</label>
+                                            <label for="fuelPriceMethod" title="Method for calculating fuel prices for the vehicle">Fuel Price:</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelPriceMethod" class="selectMenu form-control"
@@ -332,21 +324,21 @@
                                     </div><!-- </dropDownContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="fuelInfrastructure" class="sliderLabel">Fueling Infrastructure
+                                        <label for="fuelInfrastructure" class="sliderLabel" title="operational cost of heavy-duty vehicles when
+calculating the infrastructure for refueling these heavy-duty vehicles">Fueling Infrastructure
                                             Cost</label>
                                         <input type="range" min="0" max="1000" value="1000" class="slider"
                                             name="fuelInfrastructure" id="fuelInfrastructure">
                                         <input type="number" min="0" max="1000" value="1000" class="outputText">
                                     </div><!-- </inputContainer> -->
 
-                                    <div class="dropDownMenu form-group">
+                                    <div class="dropDownMenu form-group" style="display:none;">
                                         <div class="label">
-                                            <label for="years">Fuel Starting Cost Year:</label>
+                                            <label for="years" title="Year fuel cost begins before changing through the % increase">Fuel Starting Cost Year:</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelYear" class="selectMenu form-control" id="fuelStartYear">
                                                 <option value="2020">2020</option>
-                                                <option value="2025">2025</option>
                                                 <option value="2025">2025</option>
                                                 <option value="2030">2030</option>
                                                 <option value="2035">2035</option>
@@ -359,7 +351,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelReference">Fuel Reference</label>
+                                            <label for="fuelReference" title="reference for starting fuel cost">Fuel Reference</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelReference" class="selectMenu form-control"
@@ -373,7 +365,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="premiumGasModifier" class="sliderLabel">Premium Gasoline
+                                        <label for="premiumGasModifier" class="sliderLabel" title="Markup for premium gasoline price">Premium Gasoline
                                             Markup</label>
                                         <input type="range" min="0" max="1" step=".01" value=".40" class="slider"
                                             name="premiumGasModifier" id="premiumGasModifier">
@@ -382,7 +374,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="hydrogenSuccessFactor">Hydrogen Success:</label>
+                                            <label for="hydrogenSuccessFactor" title="Changes price based on estimation of success in hydrogen fuel">Hydrogen Success:</label>
                                         </div>
                                         <div class="border">
                                             <select name="hydrogenSuccessFactor" class="selectMenu form-control"
@@ -395,7 +387,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vehicleCostInput">Vehicle Cost</label>
+                                            <label for="vehicleCostInput" title="Simulation for vehicle costs for the selected body chosen">Vehicle Cost</label>
                                         </div>
                                         <div class="border">
                                             <select name="vehicleCostInput" class="selectMenu form-control"
@@ -410,7 +402,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelCostInput">Fuel-Economy Input</label>
+                                            <label for="fuelCostInput" title="Simulation for costs of fuel for chosen fuel type">Fuel-Economy Input</label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelCostInput" class="selectMenu form-control"
@@ -424,14 +416,14 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="checkboxContainer form-group">
-                                        <label class="sliderLabel" for="idling">Idling Costs</label>
+                                        <label class="sliderLabel" for="idling" title="For tractor-sleepers if the truck is idling">Idling Costs</label>
                                         <input type="checkbox" id="idling" class="togglePowertrain" name="idling">
                                         <label for="idling" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkboxContainer -->
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="APU">APU</label>
+                                            <label for="APU" title="If idling costs then check if tractor-sleeper has an APU device">APU</label>
                                         </div>
                                         <div class="border">
                                             <select name="APU" class="selectMenu form-control" id="APU">
@@ -442,14 +434,14 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="vehicleIncentive" class="sliderLabel">Vehicle Incentive</label>
+                                        <label for="vehicleIncentive" class="sliderLabel" title="Discount cost for purchasing selected vehicle type">Vehicle Incentive</label>
                                         <input type="range" min="0" max="1000000000" value="0" class="slider"
                                             name="vehicleIncentive" id="vehicleIncentive">
                                         <input type="number" min="0" max="1000000000" value="0" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="interestRate" class="sliderLabel" id="interestRateLabel">Interest
+                                        <label for="interestRate" class="sliderLabel" id="interestRateLabel" title="Interest % for financing costs">Interest
                                             Rate %</label>
                                         <input type="range" min="0" max="1" value=".046" step=".001" class="slider"
                                             name="interestRate" id="interestRate">
@@ -458,7 +450,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="downPayment" class="sliderLabel" id="downPaymentLabel">Down
+                                        <label for="downPayment" class="sliderLabel" id="downPaymentLabel" title="Percentage of the cost that was payed upfront">Down
                                             Payment %</label>
                                         <input type="range" min="0" max="1" value=".12" step=".001" class="slider"
                                             name="downPayment" id="downPayment">
@@ -468,7 +460,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="insuranceType">Insurance Type:</label>
+                                            <label for="insuranceType" title="Insurance type for the chosen vehicle">Insurance Type:</label>
                                         </div>
                                         <div class="border">
                                             <select name="insuranceType" class="selectMenu form-control"
@@ -489,7 +481,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="busOccupancy">Bus Occupancy:</label>
+                                            <label for="busOccupancy" title="How many people the bus may fit">Bus Occupancy:</label>
                                         </div>
                                         <div class="border">
                                             <select name="busOccupancy" class="selectMenu form-control"
@@ -501,7 +493,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="fuelEfficiencyDegradation" class="sliderLabel">Annual MPG
+                                        <label for="fuelEfficiencyDegradation" class="sliderLabel" title="% the fuel cost degrades every year">Annual MPG
                                             Degradation %</label>
                                         <input type="range" min="0" max="1" value="0" step=".001" class="slider"
                                             name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
@@ -602,7 +594,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="analysisWindow" class="sliderLabel">Analysis Window</label>
+                                        <label for="analysisWindow" class="sliderLabel" title="number of years to estimate the Total Cost of Operation">Analysis Window</label>
                                         <input type="range" min="5" max="30" value="30" class="slider"
                                             name="analysisWindow" id="analysisWindow">
                                         <input type="number" min="5" max="30" value="30" class="outputText"
@@ -610,7 +602,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="discountRate" class="sliderLabel">Discount Rate %</label>
+                                        <label for="discountRate" class="sliderLabel" title="% discounted every year from the TCO">Discount Rate %</label>
                                         <input type="range" min=".0" max="1" step=".00001" value="0" class="slider"
                                             name="discountRate" id="discountRate">
                                         <input type="number" min=".0" max="1" step=".00001" value="0"
@@ -618,7 +610,7 @@
                                     </div><!-- </inputContainer -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="annualRegistration" class="sliderLabel">Annual Registration
+                                        <label for="annualRegistration" class="sliderLabel" title="Cost to regiester the vehicle">Annual Registration
                                             Fee</label>
                                         <input type="range" min="100" max="100" value="100" class="slider"
                                             name="annualRegistration" id="annualRegistration">
@@ -626,7 +618,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="salesTax" class="sliderLabel">Sales Tax & Title</label>
+                                        <label for="salesTax" class="sliderLabel" title="Sales Tax & Title cost for the vehicle">Sales Tax & Title</label>
                                         <input type="range" min=".05" max=".05" step=".01" value=".05" class="slider"
                                             name="salesTax" id="salesTax">
                                         <input type="number" min=".05" max=".05" step=".01" value=".05"
@@ -634,15 +626,23 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer">
-                                        <label for="insuranceFixed" class="sliderLabel">Insurance Fixed Rate</label>
+                                        <label for="insuranceFixed" class="sliderLabel" title="Fixed insurance rate">Insurance Fixed Rate</label>
                                         <input type="range" min="100" max="500" value="400" class="slider"
                                             name="insuranceFixed" id="insuranceFixed">
                                         <input type="number" min="100" max="500" value="400" class="outputText">
                                     </div><!-- </inputContainer> -->
 
+                                    <div class="inputContainer form-group">
+                                        <label for="depreciationRate" class="sliderLabel" title="Depreciation Rate for simple depreciation calculation (only used when simple depreciation is chosen)">Simple Depreciation
+                                            Rate</label>
+                                        <input type="range" min="0" max="1" step=".01" value="0.09" class="slider"
+                                            name="depreciationRate" id="depreciationRate">
+                                        <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
+                                    </div> <!-- </inputContainer> -->
+
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="depreciation">Depreciation:</label>
+                                            <label for="depreciation" title="Depreciation type for the selected vehicle">Depreciation:</label>
                                         </div>
                                         <div class="border">
                                             <select name="depreciation" class="selectMenu form-control"
@@ -658,7 +658,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="salvageValue">Salvage Value</label>
+                                            <label for="salvageValue" title="Parts that can be salvaged after the vehicle is scrapped">Salvage Value</label>
                                         </div>
                                         <div class="border">
                                             <select name="salvageValue" class="selectMenu form-control"
@@ -676,7 +676,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer">
-                                        <label for="financeTerm" class="sliderLabel" id="financeTermLabel">Finance
+                                        <label for="financeTerm" class="sliderLabel" id="financeTermLabel" title="Number of years the vehicle is financed">Finance
                                             Term</label>
                                         <input type="range" min="1" max="30" value="4" class="slider" name="financeTerm"
                                             id="financeTerm">
@@ -686,7 +686,7 @@
 
                                     <div class="usedVehicleInputs form-group">
                                         <div class="checkboxContainer">
-                                            <label class="sliderLabel" for="usedVehicle">Analyze Used Car</label>
+                                            <label class="sliderLabel" for="usedVehicle" title="Toggeled if car to be analyized is used">Analyze Used Car</label>
                                             <input type="checkbox" id="usedVehicle" class="togglePowertrain"
                                                 name="usedVehicle">
                                             <label for="usedVehicle" class="togglePowertrainLabel"></label>
@@ -694,21 +694,21 @@
                                     </div><!-- </usedVehicleInputs> -->
 
                                     <div class="checkboxContainer form-group">
-                                        <label class="sliderLabel" for="majorLDVCheck">Major Repairs</label>
+                                        <label class="sliderLabel" for="majorLDVCheck" title="If major repairs on the vehicle is expected">Major Repairs</label>
                                         <input type="checkbox" id="majorLDVCheck" class="togglePowertrain"
                                             name="majorLDVCheck">
                                         <label for="majorLDVCheck" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkBoxContainer> -->
 
                                     <div class="inputContainer form-group" id="usedVehicleContainer">
-                                        <label for="usedVehicleYear" class="sliderLabel">Age of used car</label>
+                                        <label for="usedVehicleYear" class="sliderLabel" title="Age of the used car if analyize used car is toggled">Age of used car</label>
                                         <input type="range" min="0" max="15" value="0" class="slider"
                                             name="usedVehicleYear" id="usedVehicleYear">
                                         <input type="number" min="0" max="15" value="0" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="checkboxContainer form-group">
-                                        <label class="sliderLabel" for="vehicleFinanced">Is Vehicle Financed</label>
+                                        <label class="sliderLabel" for="vehicleFinanced" title="Toggled if the vehicle was financed">Is Vehicle Financed</label>
                                         <input type="checkbox" id="vehicleFinanced" class="togglePowertrain"
                                             name="vehicleFinanced" checked>
                                         <label for="vehicleFinanced" class="togglePowertrainLabel"></label>
@@ -730,7 +730,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="bevRange">Bev Range:</label>
+                                            <label for="bevRange" title="Miles the vehicle can drive on a full battery">Bev Range:</label>
                                         </div>
                                         <div class="border">
                                             <select name="bevRange" class="selectMenu form-control" id="bevRangeMenu">
@@ -744,7 +744,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="phevRange">(LDV only) PHEV Range:</label>
+                                            <label for="phevRange" Title="Miles the vehicle can drive on a full battery">(LDV only) PHEV Range:</label>
                                         </div>
                                         <div class="border">
                                             <select name="phevRange" class="selectMenu form-control" id="phevRangeMenu">
@@ -757,7 +757,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vmt">VMT:</label>
+                                            <label for="vmt" title="Expected Vehicle Miles Traveled">VMT:</label>
                                         </div>
                                         <div class="border">
                                             <select name="vmt" class="selectMenu form-control" id="vmtMenu">
@@ -790,27 +790,27 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="checkboxContainer form-group" id="customNewVmtCheck">
-                                        <label class="sliderLabel" for="customNewVmt">Use Custom VMT New Vehicle</label>
+                                        <label class="sliderLabel" for="customNewVmt" title="Custom VMt schedule for new vehicle">Use Custom VMT New Vehicle</label>
                                         <input type="checkbox" id="customNewVmt" class="togglePowertrain"
                                             name="customNewVmt">
                                         <label for="customNewVmt" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkBoxContainer> -->
 
                                     <div class="customNewVMTValues form-group" id="customNewVMTValues">
-                                        <label for="customNewVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
+                                        <label for="customNewVMTValue" class="usedVehicleLabel" title="Starting VMT value for custom vehicle">Custom VMT Value</label>
                                         <input type="text" name="customNewVMTValue" id="customNewVMTValue" value="1">
-                                        <label for="customNewVMTYear" class="usedVehicleLabel">Custom VMT Year</label>
+                                        <label for="customNewVMTYear" class="usedVehicleLabel" title="Year the VMT schedule should begin">Custom VMT Year</label>
                                         <input type="text" name="customNewVMTYear" id="customNewVMTYear" value="1">
                                     </div><!-- </customNewVMTValues> -->
 
                                     <div class="checkboxContainer form-group" id="customVMTCheck">
-                                        <label class="sliderLabel" for="customVMT">Use Custom VMT Used Vehicle</label>
+                                        <label class="sliderLabel" for="customVMT" title="Calcuate a custom VMT for a used vehicle">Use Custom VMT Used Vehicle</label>
                                         <input type="checkbox" id="customVMT" class="togglePowertrain" name="customVMT">
                                         <label for="customVMT" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkboxContainer> -->
 
                                     <div class="customVMTValues form-group" id="customVMTValues">
-                                        <label for="customVMTValue" class="usedVehicleLabel">Custom VMT Value</label>
+                                        <label for="customVMTValue" class="usedVehicleLabel" title="Custom VMT starting year for used vehicle">Custom VMT Value</label>
                                         <input type="text" name="customVMTValue" id="customVMTValue" value="1">
                                     </div><!-- </customVMTValues> -->
 
@@ -857,14 +857,14 @@
                                 value="LDV">
 
                             <div class="checkboxContainer form-group">
-                                <label class="sliderLabel" for="powertrainComparison">Show Powertrain Comparison</label>
+                                <label class="sliderLabel" for="powertrainComparison" title="Show chosen inputs across all powertrains">Show Powertrain Comparison</label>
                                 <input type="checkbox" id="powertrainComparison" class="togglePowertrain"
                                     name="showPowertrainGraph">
                                 <label for="powertrainComparison" class="togglePowertrainLabel"></label>
                             </div>
 
                             <div class="checkboxContainer form-group">
-                                <label class="sliderLabel" for="modelYearComparison">Show Model Year Comparison</label>
+                                <label class="sliderLabel" for="modelYearComparison" title="Show chosen inputs across all model years">Show Model Year Comparison</label>
                                 <input type="checkbox" id="modelYearComparison" class="togglePowertrain"
                                     name="showModelYearGraph">
                                 <label for="modelYearComparison" class="togglePowertrainLabel"></label>

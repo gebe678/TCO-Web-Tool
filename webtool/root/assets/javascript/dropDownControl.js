@@ -883,6 +883,23 @@ function insuranceMenuModifier()
     });
 }
 
+function linkFuelStartYearToModelYear()
+{
+    let fuelStart = document.getElementById("fuelStartYear");
+    let modelYear = document.getElementById("modelYearMenu");
+
+    modelYear.addEventListener("change", function(){
+        if(modelYear.selectedIndex < 4)
+        {
+            fuelStart.selectedIndex = modelYear.selectedIndex;
+        }
+        else
+        {
+            fuelStart.selectedIndex = modelYear.selectedIndex + 2;
+        }
+    });
+}
+
 function dropDownControlMain()
 {
     powertrainMenuModifier();
@@ -898,6 +915,7 @@ function dropDownControlMain()
     getVehicleClassSize();
     insuranceMenuModifier();
     apuModifier();
+    linkFuelStartYearToModelYear();
    // incrementalAnnualFuelModifier();
 }
 
