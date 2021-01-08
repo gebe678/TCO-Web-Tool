@@ -1,5 +1,12 @@
+let dataDownload = false;
+
 function main()
 {
+
+    let downloadButton = document.getElementById("downloadData");
+    let submitButton = document.getElementById("submitButton");
+    let shownSubmitButton = document.getElementById("submitShownButton");
+
      resetToDefault();
 
     // this has been replaced with code in check for zero.
@@ -14,6 +21,16 @@ function main()
     checkForZero();
     setPurchaseCost();
     submittedAjaxForm();
+
+    downloadButton.addEventListener("click", function(){
+        dataDownload = true;
+        submitButton.click();
+    });
+
+    shownSubmitButton.addEventListener("click", function(){
+        dataDownlaod = false;
+        submitButton.click();
+    });
 }
 
 function resetToDefault()
@@ -32,7 +49,7 @@ function setPurchaseCost()
     let markupFactor = document.getElementById("markupFactor");
     let purchaseCost = document.getElementById("customPurchaseCost");
 
-    form.addEventListener("change", function(){
+    form.addEventListener("submit", function(){
         let dataForm = $(this).serialize();
     
         $.ajax({
@@ -52,7 +69,7 @@ function checkForZero()
     let mpgPlugin = document.getElementById("mpgPlugin");
     let submitButton = document.getElementById("submitButton");
 
-    form.addEventListener("change", function(){
+    form.addEventListener("submit", function(){
         let dataForm = $(this).serialize();
     
         $.ajax({
@@ -177,8 +194,48 @@ function submittedAjaxForm()
                     for(let i = 0; i < 30; i++)
                     {
                         laborData[i] = 0;
+                        operationalData[i] = 0;
                     }
                     break;
+            }
+
+            let downloadData = [];
+            let vehicleLabel = ["Depreciation"];
+            let financeLabel = ["Financing"];
+            let insuranceLabel = ["Insurance"];
+            let taxesLabel = ["Taxes and Fees"];
+            let maintenanceLabel = ["Maintenance"];
+            let repairLabel = ["Repair"];
+            let operationalLabel = ["operational"];
+            let laborLabel = ["Labor"];
+            let vmtLabel = ["Vehicle Miles Traveled"];
+
+            downloadData.push(vehicleLabel.concat(vehicleData));
+            downloadData.push(financeLabel.concat(financingData));
+            downloadData.push(insuranceLabel.concat(annualFuelData));
+            downloadData.push(taxesLabel.concat(insuranceData));
+            downloadData.push(maintenanceLabel.concat(taxData));
+            downloadData.push(repairLabel.concat(maintenanceData));
+            downloadData.push(operationalLabel.concat(repairData));
+            downloadData.push(laborLabel.concat(laborData));
+            downloadData.push(vmtLabel.concat(vmtData));
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+
+            downloadData.forEach(function(rowArray) {
+                let row = rowArray.join(",");
+                csvContent += row + "\r\n";
+            });
+
+            var encodedUri = encodeURI(csvContent);
+            var link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "vehicleCostInformation.csv");
+            document.body.appendChild(link); // Required for FF
+
+            if(dataDownload === true)
+            {
+                link.click(); // This will download the data file named "my_data.csv".
             }
 
             for(let i = 0; i < 30; i++)

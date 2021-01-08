@@ -149,9 +149,10 @@
                         <div class="col-lg-4">
 
                             <div class="technologyGroup">
+                                <h3 class="detailedView"> Technology Group </h3>
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="vehicleBody">Vehicle Size:</label>
+                                        <label for="vehicleBody" title="body of the vehicle">Vehicle Size:</label>
                                     </div>
                                     <div class="border">
                                         <select name="vehicleBody" class="selectMenu form-control" id="vehicleBodyMenu">
@@ -536,6 +537,8 @@
 
                                 <div class="economicGroup">
 
+                                    <h3> Economic Group </h3>
+
                                     <div class="dropDownMenu form-group" style="display:none;">
                                         <div class="label">
                                             <label for="regionality">Regionality:</label>
@@ -722,6 +725,8 @@
 
                                 <div class="behaviorGroup">
 
+                                    <h3>Behavior Group</h3>
+
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
                                             <label for="bevRange">Bev Range:</label>
@@ -864,7 +869,8 @@
                                 <label for="modelYearComparison" class="togglePowertrainLabel"></label>
                             </div>
 
-                            <input type="submit" class="submitButton form-group btn btn-primary" id="submitButton">
+                            <input type="submit" class="submitButton form-group btn btn-primary" id="submitButton" style="display:none;">
+                            <button class="submitButton form-group btn btn-primary" id="submitShownButton">Submit Query</button>
 
                         </div><!-- </col-lg-12> -->
 
@@ -900,7 +906,7 @@
 
             <div class="col-lg-12">
 
-                <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a> | <button>Download Data</button></p>
+                <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a> | <button id="downloadData">Download Data</button></p>
                 <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">
 
             </div><!-- </col-lg-12> -->
