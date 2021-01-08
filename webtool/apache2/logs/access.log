@@ -772,3 +772,12 @@
 ::1 - - [07/Jan/2021:20:39:46 -0500] "GET /mainBootstrap.php HTTP/1.1" 200 63673
 ::1 - - [07/Jan/2021:20:39:47 -0500] "GET /assets/PHP/downloadDatabaseFiles.php?file=databaseTables HTTP/1.1" 200 11
 ::1 - - [07/Jan/2021:20:39:50 -0500] "GET /mainBootstrap.php HTTP/1.1" 200 63673
+::1 - - [07/Jan/2021:20:44:24 -0500] "GET /mainBootstrap.php HTTP/1.1" 200 63673
+::1 - - [07/Jan/2021:20:44:27 -0500] "GET /assets/PHP/downloadDatabaseFiles.php?file=databaseTables HTTP/1.1" 200 783
+::1 - - [07/Jan/2021:20:46:55 -0500] "GET /mainBootstrap.php HTTP/1.1" 200 63673
+::1 - - [07/Jan/2021:20:46:55 -0500] "GET /assets/css/pageStyles.css HTTP/1.1" 304 -
+::1 - - [07/Jan/2021:20:46:55 -0500] "GET /assets/javascript/tabControl.js HTTP/1.1" 304 -
+::1 - - [07/Jan/2021:20:46:57 -0500] "GET /assets/PHP/downloadDatabaseFiles.php?file=databaseTables HTTP/1.1" 200 783
+::1 - - [07/Jan/2021:20:47:15 -0500] "GET /assets/PHP/downloadDatabaseFiles.php?file=databaseTables HTTP/1.1" 200 783
+::1 - - [07/Jan/2021:20:52:38 -0500] "GET /mainBootstrap.php HTTP/1.1" 200 63638
+::1 - - [07/Jan/2021:20:52:40 -0500] "GET /assets/CSV%20Tables.zip HTTP/1.1" 200 81201
