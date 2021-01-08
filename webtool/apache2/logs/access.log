@@ -751,3 +751,5 @@
 127.0.0.1 - - [07/Jan/2021:20:13:22 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 3957
 127.0.0.1 - - [07/Jan/2021:20:13:41 -0500] "POST /assets/PHP/checkForZero.php HTTP/1.1" 200 18
 127.0.0.1 - - [07/Jan/2021:20:13:41 -0500] "POST /assets/PHP/setPurchaseCost.php HTTP/1.1" 200 10
+127.0.0.1 - - [07/Jan/2021:20:13:41 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 2590
+127.0.0.1 - - [07/Jan/2021:20:13:53 -0500] "GET /assets/pi_graph_pictures/Compact%20Sedan.jpg HTTP/1.1" 200 18643
