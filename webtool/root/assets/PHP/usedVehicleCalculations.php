@@ -115,10 +115,13 @@
         {
             $bodyCost = $vehicleBodyCost * $markupFactor;
 
-            $rate = $bodyCost / $writeOff;
-            if($i >= $vehicleAge)
+            for($i = 0; $i < 30; $i++)
             {
-                $sum += $rate;
+                $rate = $bodyCost / $writeOff;
+                if($i >= $vehicleAge)
+                {
+                    $sum += $rate;
+                }
             }
         }
 

@@ -132,7 +132,6 @@
 
                             <!-- <a href="getDatabaseInfo.php">Tableau Example</a> -->
                             <a href="logout.php" style="float:right;"> Log Out </a>
-                            <a href="assets/CSV Tables.zip" style="float:right;">Downlaod Database Files &nbsp</a>
                         </div><!-- </navBar> -->
                     </nav>
                 </header>
@@ -153,7 +152,7 @@
                                 <h3 class="detailedView"> Technology Group </h3>
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="vehicleBody" title="Vehicle body consideration">Vehicle Size:</label>
+                                        <label for="vehicleBody" title="Vehicle body consideration">Vehicle Size: <img src="assets/page_pictures/infoCallout.JPG"></label>
                                     </div>
                                     <div class="border">
                                         <select name="vehicleBody" class="selectMenu form-control" id="vehicleBodyMenu">
@@ -907,7 +906,9 @@ calculating the infrastructure for refueling these heavy-duty vehicles">Fueling 
 
             <div class="col-lg-12">
 
-                <p>© 2020 National Technology and Engineering Solutions of Sandia, LLC. | <a href="#">Link to documentation for calculations</a> | <a href="#">Link to analysis results</a> | <button id="downloadData">Download Data</button></p>
+                <p><a href="#">Link to documentation for calculations</a> | <button>Download Analysis Results</button> | <button id="downloadData">Download Raw Data</button></p>
+                <a href="assets/CSV Tables.zip" style="display:none;"></a>
+                <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p>
                 <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">
 
             </div><!-- </col-lg-12> -->
