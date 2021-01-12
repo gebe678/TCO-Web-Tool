@@ -906,7 +906,7 @@
 
             <div class="col-lg-12">
 
-                <p><a href="#">Link to documentation for calculations</a> | <button>Download Analysis Results</button> | <button id="downloadData">Download Raw Data</button></p>
+                <p><a href="#">Link to documentation for calculations</a> | <button id="downlaodAnalysisResults">Download Analysis Results</button> | <button id="downloadData">Download Raw Data</button></p>
                 <a href="assets/CSV Tables.zip" style="display:none;"></a>
                 <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p>
                 <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">

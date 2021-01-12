@@ -900,6 +900,15 @@ function linkFuelStartYearToModelYear()
     });
 }
 
+function downlaodAnalysisResults()
+{
+    let button = document.getElementById("downlaodAnalysisResults");
+
+    button.addEventListener("click", function(){
+        window.location.href = "assets/CSV Tables.zip";
+    });
+}
+
 function dropDownControlMain()
 {
     powertrainMenuModifier();
