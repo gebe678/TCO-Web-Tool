@@ -925,6 +925,7 @@ function dropDownControlMain()
     insuranceMenuModifier();
     apuModifier();
     linkFuelStartYearToModelYear();
+    downlaodAnalysisResults();
    // incrementalAnnualFuelModifier();
 }
 
