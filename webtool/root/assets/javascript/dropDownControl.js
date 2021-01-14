@@ -371,9 +371,9 @@ function vehicleFinanceModifier()
             interestRateLabel.style.display = "inline-block";
             downPayment.style.display = "inline-block";
 
-            downPaymentLabel.style.display = "block";
-            financeTerm.style.display = "block";
-            financeTermLabel.style.display = "block";
+            downPaymentLabel.style.display = "inline-block";
+            financeTerm.style.display = "inline-block";
+            financeTermLabel.style.display = "inline-block";
             
             financeTermNumber.style.display = "inline-block";
             downPaymentNumber.style.display = "inline-block";

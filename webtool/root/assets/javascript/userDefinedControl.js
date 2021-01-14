@@ -38,10 +38,83 @@ function fuelPriceUserDefined()
     });
 }
 
+function fuelMPGUserDefined()
+{
+    let mpgContainer = document.getElementById("userDefinedMPGContainer");
+    let fuelEconomy = document.getElementById("fuelCostInput");
+
+    fuelEconomy.addEventListener("change", function(){
+        if(fuelEconomy.selectedIndex === 1)
+        {
+            mpgContainer.style.display = "block";
+        }
+        else
+        {
+            mpgContainer.style.display = "none";
+        }
+    });
+}
+
+function depreciationUserDefined()
+{
+    let depreciation = document.getElementById("depreciationMenu");
+    let depreciationRate = document.getElementById("simpleDepreciationRate");
+
+    depreciation.addEventListener("change", function(){
+        if(depreciation.selectedIndex === 2)
+        {
+            depreciationRate.style.display = "block";
+        }
+        else
+        {
+            depreciationRate.style.display = "none";
+        }
+    });
+}
+
+function insuranceUserDefined()
+{
+    let insuranceType = document.getElementById("insuranceType");
+    let insuranceLiability = document.getElementById("insuranceLiabilityContainer");
+    let insuranceDeductable = document.getElementById("insuranceDeductableContainer");
+    let fixedInsurance = document.getElementById("fixedInsuranceContainer");
+    let vehicleSize = document.getElementById("vehicleClassSize");
+
+    insuranceType.addEventListener("change", function(){
+        if(vehicleSize.value === "HDV")
+        {
+            if(insuranceType.selectedIndex === 5)
+            {
+                fixedInsurance.style.display = "block";
+            }
+            else
+            {
+                fixedInsurance.style.display = "none";
+            }
+        }
+        else if(vehicleSize.value === "LDV")
+        {
+            if(insuranceType.selectedIndex === 5)
+            {
+                insuranceLiability.style.display = "block";
+                insuranceDeductable.style.display = "block";
+            }
+            else
+            {
+                insuranceLiability.style.display = "none";
+                insuranceDeductable.style.display = "none";
+            }
+        }
+    })
+}
+
 function userDefinedMain()
 {
     vehicleUserDefined();
     fuelPriceUserDefined();
+    fuelMPGUserDefined();
+    depreciationUserDefined();
+    insuranceUserDefined();
 }
 
 userDefinedMain();

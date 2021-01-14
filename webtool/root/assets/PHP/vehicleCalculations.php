@@ -83,10 +83,10 @@ function calculateSimpleDepreciation($numYears)
     
     $oldCost = $bodyCost[0];
 
-    for($i = 0; $i < $numYears + 1; $i++)
+    for($i = 1; $i < $numYears + 1; $i++)
     {
-        $bodyCost[$i] = $oldCost * $depreciationRate;
-        $oldCost = $oldCost - $bodyCost[$i];
+        $bodyCost[$i] = $oldCost * (1 - $depreciationRate);
+        $oldCost = $bodyCost[$i];
     }
 
     return $bodyCost;

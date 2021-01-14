@@ -25,6 +25,7 @@
         $AVERAGE = 600;
         $MIN = 300;
         $MAX = 1000;
+        $userDefined = $_POST["insuranceLiability"];
         // add new value for user defined
         // $SD1HIGH = 750;
         // $SD1LOW = 400;
@@ -44,6 +45,10 @@
         else if($insuranceType === "max")
         {
             $insuranceLiability = $MAX;
+        }
+        else if($insuranceType = "userDefined")
+        {
+            $insuranceLiability = $userDefined;
         }
         // else if($insuranceType === "SD1+")
         // {
@@ -101,6 +106,7 @@
             $transbus_less15 = 9000;
             $transbus_plus15 = 35000;
             $cls8ref = 7500;
+            $userDefined = $_POST["fixedInsurance"];
             // user defined -- custom fixed value
 
             $HDVTotalInsurance = 0;
@@ -143,6 +149,15 @@
                 $totalInsurance[$i] = $HDVTotalInsurance;
             }
         }
+        else if($insuranceType === "userDefined")
+        {
+            $HDVTotalInsurance = $_POST["fixedInsurance"];
+
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $totalInsurance[$i] = $HDVTotalInsurance;
+            }
+        }
 
         return $totalInsurance;
     }
@@ -152,7 +167,17 @@
         $totalInsurance;
         $residualValue;
 
-        $deductible = 500;
+        $insuranceType = $_POST["insuranceType"];
+
+        if($insuranceType === "userDefined")
+        {
+            $deductible = $_POST["insuranceDeductable"];
+        }
+        else
+        {
+            $deductible = 500;
+        }
+        
         // add user defined deductible
         $comprehensiveCutoff = .1;
         $comprehensivePremiumB = 0;
@@ -201,12 +226,7 @@
                 $residualValue = calculateAdvancedExponentialDepreciation($numYears);
 
                 break;
-            case "userDefined":
 
-                include "residualValueCalculations.php";
-                $residualValue = calculateUserDefinedDepreciation($numYears);
-
-                break;
             case "upper":
 
                 include "residualValueCalculations.php";

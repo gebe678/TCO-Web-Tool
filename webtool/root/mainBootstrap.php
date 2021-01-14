@@ -381,9 +381,9 @@
                                     <div class="inputContainer form-group" id="userDefinedFuelBlock" style="display:none;">
                                         <label for="userDefinedFuel" class="sliderLabel" title="">User Defined Fuel Cost
                                             Cost<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1000" value="0" class="slider"
+                                        <input type="range" min="0" max="1000" value="0" step=.01 class="slider"
                                             name="userDefinedFuel" id="userDefinedFuel">
-                                        <input type="number" min="0" max="1000" value="0" class="outputText">
+                                        <input type="number" min="0" max="1000" value="0" step=".01" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="dropDownMenu form-group">
@@ -444,6 +444,15 @@
                                         </div>
                                     </div><!-- </dropDownMenu> -->
 
+                                    <div class="inputContainer" style="display:none;" id="userDefinedMPGContainer">
+                                        <label for="userDefinedMPG" class="sliderLabel" id="userDefinedMPGLabel">MPG per
+                                            Gallon<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="10000000" value=".5" step=".1" class="slider"
+                                            name="userDefinedMPG" id="userDefinedMPG">
+                                        <input type="number" min="0" max="10000000" value=".5" step=".1"
+                                            class="outputText" id="userDefinedMPGNumber">
+                                    </div> <!-- </inputContainer -->
+
                                     <div class="inputContainer form-group">
                                         <label for="fuelEfficiencyDegradation" class="sliderLabel" title="Specify annual degradation to vehicle fuel economy due to wear-and-tear">Annual MPG
                                             Degradation %<img src="assets/page_pictures/infoCallout.JPG"></label>
@@ -463,15 +472,6 @@
                                             </select>
                                         </div>
                                     </div><!-- </dropDownMenu> -->
-
-                                    <div class="inputContainer" style="display:none;">
-                                        <label for="userDefinedMPG" class="sliderLabel" id="userDefinedMPGLabel">MPG per
-                                            Gallon<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="10000000" value=".5" step=".1" class="slider"
-                                            name="userDefinedMPG" id="userDefinedMPG">
-                                        <input type="number" min="0" max="10000000" value=".5" step=".1"
-                                            class="outputText" id="userDefinedMPGNumber">
-                                    </div> <!-- </inputContainer -->
 
                                 </div><!-- </technologyGroup> -->
 
@@ -596,15 +596,15 @@
                                                 id="depreciationMenu">
                                                 <option value="simple">Simple</option>
                                                 <option value="advanced" selected>Advanced Exponential</option>
-                                                <option value="userDefined" disabled>User Defined</option>
+                                                <option value="userDefined">User Defined</option>
                                                 <option value="upper" style="display: none;">High Confidence</option>
                                                 <option value="lower" style="display:none;">Low Confidence</option>
                                             </select>
                                         </div>
                                     </div><!-- </dropDownMenu> -->
 
-                                    <div class="inputContainer form-group">
-                                        <label for="depreciationRate" class="sliderLabel" title="Specify depreciation rate. The calculation is based on the simple depreciation model.">Simple Depreciation
+                                    <div class="inputContainer form-group" id="simpleDepreciationRate" style="display:none;">
+                                        <label for="depreciationRate" class="sliderLabel" title="Specify depreciation rate. The calculation is based on the simple depreciation model.">Depreciation
                                             Rate<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1" step=".01" value="0.09" class="slider"
                                             name="depreciationRate" id="depreciationRate">
@@ -637,24 +637,6 @@
                                         </div>
                                     </div><!-- </dropDownMenu> -->
 
-                                    <div class="inputContainer form-group">
-                                        <label for="interestRate" class="sliderLabel" id="interestRateLabel" title="Specify interest rate on vehicle loan">Interest
-                                            Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1" value=".046" step=".001" class="slider"
-                                            name="interestRate" id="interestRate">
-                                        <input type="number" min="0" max="1" value=".046" step=".001" class="outputText"
-                                            id="interestRateNumber">
-                                    </div><!-- </inputContainer> -->
-
-                                    <div class="inputContainer form-group">
-                                        <label for="downPayment" class="sliderLabel" id="downPaymentLabel" title="Specify down payment % of vehicle purchase price">Down
-                                            Payment %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1" value=".12" step=".001" class="slider"
-                                            name="downPayment" id="downPayment">
-                                        <input type="number" min="0" max="1" value=".12" step=".001" class="outputText"
-                                            id="downPaymentNumber">
-                                    </div><!-- </inputContainer> -->
-
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
                                             <label for="vehicleFinanced" title="Select if vehicle is financed">Financing<img src="assets/page_pictures/infoCallout.JPG"></label>
@@ -676,6 +658,24 @@
                                             id="financeTermNumber">
                                     </div><!-- </inputContainer> -->
 
+                                    <div class="inputContainer form-group">
+                                        <label for="interestRate" class="sliderLabel" id="interestRateLabel" title="Specify interest rate on vehicle loan">Interest
+                                            Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="1" value=".046" step=".001" class="slider"
+                                            name="interestRate" id="interestRate">
+                                        <input type="number" min="0" max="1" value=".046" step=".001" class="outputText"
+                                            id="interestRateNumber">
+                                    </div><!-- </inputContainer> -->
+
+                                    <div class="inputContainer form-group">
+                                        <label for="downPayment" class="sliderLabel" id="downPaymentLabel" title="Specify down payment % of vehicle purchase price">Down
+                                            Payment %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="1" value=".12" step=".001" class="slider"
+                                            name="downPayment" id="downPayment">
+                                        <input type="number" min="0" max="1" value=".12" step=".001" class="outputText"
+                                            id="downPaymentNumber">
+                                    </div><!-- </inputContainer> -->
+
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
                                             <label for="insuranceType" title="Select insurance cost. Min, avg and max represent costs for LDV. Variable and fixed represent costs for HDV. Variable insurance considers vehicle mileage travelled.">Insurance Type:<img src="assets/page_pictures/infoCallout.JPG"></label>
@@ -688,7 +688,7 @@
                                                 <option value="low">Low (Light Duty)</option>
                                                 <option value="variable">Variable (Heavy Duty)</option>
                                                 <option value="fixed">Fixed (Heavy Duty)</option>
-                                                <option value="userDefined" disabled>User Defined</option>
+                                                <option value="userDefined">User Defined</option>
                                                 <option value="min" style="display:none;">Minimum</option>
                                                 <option value="max" style="display:none;">Maximum</option>
                                                 <option value="SD1+" style="display:none;">SD1+</option>
@@ -696,6 +696,33 @@
                                             </select>
                                         </div>
                                     </div><!-- </dropDownMenu> -->
+
+                                    <div class="inputContainer" id="insuranceLiabilityContainer" style="display:none">
+                                        <label for="insuranceLiability" class="sliderLabel" id="insuranceLiabilityLabel" title="">Insurance
+                                        Liability <img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="1500" value="300" class="slider" name="insuranceLiability"
+                                            id="insuranceLiability">
+                                        <input type="number" min="0" max="1500" value="300" class="outputText"
+                                            id="insuranceLiabilityNumber">
+                                    </div><!-- </inputContainer> -->
+                                    
+                                    <div class="inputContainer" id="insuranceDeductableContainer" style="display:none">
+                                        <label for="insuranceDeductable" class="sliderLabel" id="insuranceDeductableLabel" title="">Insurance
+                                            Deductable<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="1000" value="500" class="slider" name="insuranceDeductable"
+                                            id="insuranceDeductable">
+                                        <input type="number" min="0" max="1000" value="500" class="outputText"
+                                            id="insuranceDeductableNumber">
+                                    </div><!-- </inputContainer> -->
+
+                                    <div class="inputContainer" id="fixedInsuranceContainer" style="display:none">
+                                        <label for="fixedInsurance" class="sliderLabel" id="fixedInsuranceLabel" title="">Fixed
+                                            Insurance<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="50000" value="10000" class="slider" name="fixedInsurance"
+                                            id="fixedInsurance">
+                                        <input type="number" min="0" max="50000" value="10000" class="outputText"
+                                            id="fixedInsuranceNumber">
+                                    </div><!-- </inputContainer> -->
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
