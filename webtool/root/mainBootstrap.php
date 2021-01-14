@@ -456,9 +456,9 @@
                                     <div class="inputContainer form-group">
                                         <label for="fuelEfficiencyDegradation" class="sliderLabel" title="Specify annual degradation to vehicle fuel economy due to wear-and-tear">Annual MPG
                                             Degradation %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1" value="0" step=".001" class="slider"
+                                        <input type="range" min="0" max="100" value="0" step=".1" class="slider"
                                             name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
-                                        <input type="number" min="0" max="1" value="0" step=".001" class="outputText">
+                                        <input type="number" min="0" max="100" value="0" step=".1" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="dropDownMenu form-group">
@@ -558,18 +558,18 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="discountRate" class="sliderLabel" title="Specify discounting % for net present value calculations">Discount Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min=".0" max="1" step=".00001" value="0" class="slider"
+                                        <input type="range" min="0" max="100" step=".1" value="2" class="slider"
                                             name="discountRate" id="discountRate">
-                                        <input type="number" min=".0" max="1" step=".00001" value="0"
-                                            class="outputText">
+                                        <input type="number" min="0" max="100" step=".1" value="2"
+                                            class="outputText" id="discountRateNumber">
                                     </div><!-- </inputContainer -->
 
                                     <div class="inputContainer form-group">
                                         <label for="annualRegistration" class="sliderLabel" title="Specify annual registration fee">Annual Registration
                                             Fee<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="100" max="100" value="100" class="slider"
+                                        <input type="range" min="100" max="1000" value="268" class="slider"
                                             name="annualRegistration" id="annualRegistration">
-                                        <input type="number" min="100" max="100" value="100" class="outputText">
+                                        <input type="number" min="100" max="1000" value="268" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
@@ -577,6 +577,14 @@
                                         <input type="range" min="0" max="100" step=".1" value="8.4" class="slider"
                                             name="salesTax" id="salesTax">
                                         <input type="number" min="0" max="100" step=".1" value="8.4"
+                                            class="outputText">
+                                    </div><!-- </inputContainer> -->
+
+                                    <div class="inputContainer form-group">
+                                        <label for="carbonEmission" class="sliderLabel" title="Specify tax for every ton of carbon emission">Carbon emissions tax, $/tonne<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <input type="range" min="0" max="1000" value="0" class="slider"
+                                            name="carbonEmission" id="carbonEmission">
+                                        <input type="number" min="0" max="1000" value="0"
                                             class="outputText">
                                     </div><!-- </inputContainer> -->
 
@@ -661,18 +669,18 @@
                                     <div class="inputContainer form-group">
                                         <label for="interestRate" class="sliderLabel" id="interestRateLabel" title="Specify interest rate on vehicle loan">Interest
                                             Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1" value=".046" step=".001" class="slider"
+                                        <input type="range" min="0" max="100" value="4.6" step=".1" class="slider"
                                             name="interestRate" id="interestRate">
-                                        <input type="number" min="0" max="1" value=".046" step=".001" class="outputText"
+                                        <input type="number" min="0" max="100" value="4.6" step=".1" class="outputText"
                                             id="interestRateNumber">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
                                         <label for="downPayment" class="sliderLabel" id="downPaymentLabel" title="Specify down payment % of vehicle purchase price">Down
                                             Payment %<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="1" value=".12" step=".001" class="slider"
+                                        <input type="range" min="0" max="100" value="1.2" step=".1" class="slider"
                                             name="downPayment" id="downPayment">
-                                        <input type="number" min="0" max="1" value=".12" step=".001" class="outputText"
+                                        <input type="number" min="0" max="100" value="1.2" step=".1" class="outputText"
                                             id="downPaymentNumber">
                                     </div><!-- </inputContainer> -->
 
@@ -698,7 +706,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer" id="insuranceLiabilityContainer" style="display:none">
-                                        <label for="insuranceLiability" class="sliderLabel" id="insuranceLiabilityLabel" title="">Insurance
+                                        <label for="insuranceLiability" class="sliderLabel" id="insuranceLiabilityLabel" title="Specify annual liability cost">Insurance
                                         Liability <img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1500" value="300" class="slider" name="insuranceLiability"
                                             id="insuranceLiability">
@@ -707,7 +715,7 @@
                                     </div><!-- </inputContainer> -->
                                     
                                     <div class="inputContainer" id="insuranceDeductableContainer" style="display:none">
-                                        <label for="insuranceDeductable" class="sliderLabel" id="insuranceDeductableLabel" title="">Insurance
+                                        <label for="insuranceDeductable" class="sliderLabel" id="insuranceDeductableLabel" title="Specify deductible amount">Insurance
                                             Deductable<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1000" value="500" class="slider" name="insuranceDeductable"
                                             id="insuranceDeductable">
@@ -716,7 +724,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer" id="fixedInsuranceContainer" style="display:none">
-                                        <label for="fixedInsurance" class="sliderLabel" id="fixedInsuranceLabel" title="">Fixed
+                                        <label for="fixedInsurance" class="sliderLabel" id="fixedInsuranceLabel" title="Specify annual insurance cost">Fixed
                                             Insurance<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="50000" value="10000" class="slider" name="fixedInsurance"
                                             id="fixedInsurance">

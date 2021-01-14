@@ -632,7 +632,7 @@ function calculateLowerDepreciation($numYears)
         include "getID.php";
 
         $depreciationType = $_POST["salvageValue"];
-        $setDiscountRate = $_POST["discountRate"];
+        $setDiscountRate = $_POST["discountRate"] / 100;
         $depreciationCost;
         $remainingCost;
         $vehicleEconomy = $_POST["vehicleCostInput"];
@@ -706,6 +706,7 @@ function calculateLowerDepreciation($numYears)
         include "getID.php";
 
         $vehicleEconomy = $_POST["vehicleCostInput"];
+        $downPayment = $_POST["downPayment"] / 100;
 
         if($vehicleEconomy === "autonomie")
         {
@@ -732,9 +733,9 @@ function calculateLowerDepreciation($numYears)
             return $vehiclePayment;
         }
 
-        $loanAmount = $startValue * (1 - $_POST["downPayment"]);
-        $interestRate = $_POST["interestRate"];
-        $monthlyPayment = $loanAmount * ($_POST["interestRate"] / 12) * pow((1 + $_POST["interestRate"] / 12), $financeTerm * 12) / ( pow( (1 + $interestRate / 12), $financeTerm * 12 ) - 1);
+        $loanAmount = $startValue * (1 - $downPayment);
+        $interestRate = $_POST["interestRate"] / 100;
+        $monthlyPayment = $loanAmount * ($interestRate / 12) * pow((1 + $interestRate / 12), $financeTerm * 12) / ( pow( (1 + $interestRate / 12), $financeTerm * 12 ) - 1);
         $vehiclePayment;
 
         for($i = 0; $i < $numYears; $i++)
@@ -742,7 +743,7 @@ function calculateLowerDepreciation($numYears)
             $vehiclePayment[$i] = 0;
             if($i === 0)
             {
-                $vehiclePayment[$i] = $startValue * $_POST["downPayment"];
+                $vehiclePayment[$i] = $startValue * $downPayment;
             }
 
             if($i < ($financeTerm))
@@ -774,7 +775,7 @@ function calculateLowerDepreciation($numYears)
 
         $financeCost;
         $principleCost;
-        $interestPortion = 1 + $_POST["interestRate"];
+        $interestPortion = 1 + $_POST["interestRate"] / 100;
         $vehicleEconomy = $_POST["vehicleCostInput"];
 
         if($vehicleEconomy === "autonomie")
@@ -787,7 +788,7 @@ function calculateLowerDepreciation($numYears)
         }
 
         $startValue = $vehicleValue * $_POST["markupFactor"];
-        $downPayment = $_POST["downPayment"];
+        $downPayment = $_POST["downPayment"] / 100;
         $financeTerm = $_POST["financeTerm"];
 
         if($financeTerm === '0')
@@ -801,7 +802,7 @@ function calculateLowerDepreciation($numYears)
         }
 
         $vehiclePayment = calculateVehiclePayments($numYears);
-        $loanAmount = $startValue * (1 - $_POST["downPayment"]);
+        $loanAmount = $startValue * (1 - $downPayment);
         $interestRate = .000001;
 
         $monthlyPayment = $loanAmount * ($interestRate / 12) * pow((1 + $interestRate / 12), $financeTerm * 12) / ( pow( (1 + $interestRate / 12), $financeTerm * 12 ) - 1);

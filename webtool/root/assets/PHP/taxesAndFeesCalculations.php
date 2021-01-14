@@ -31,9 +31,10 @@
         include "getID.php";
 
         $totalCost;
+        $carbonTax = caluclateCarbonEmission();
 
         $salesTax = $_POST["salesTax"] / 100;
-        $initialVehicleRegistration = 268;
+        $initialVehicleRegistration = $_POST["annualRegistration"];
         $documentationFee = 300;
         $annualVehicleRegistration = 68;
         $otherCosts = 87;
@@ -67,7 +68,7 @@
                 $totalCost[$i] += $vehicleCost * $salesTax + $initialVehicleRegistration + $documentationFee;
             }
             
-            $totalCost[$i] += $annualVehicleRegistration + $otherCosts;
+            $totalCost[$i] += $annualVehicleRegistration + $otherCosts + $carbonTax;
         }
         return $totalCost;
     }
@@ -77,9 +78,10 @@
         include "getID.php";
 
         $totalCost;
+        $carbonTax = caluclateCarbonEmission();
 
         $exciseTax = .12;
-        $salesTax = .084;
+        $salesTax = $_POST["salesTax"] / 100;
         $highwayUseTax = 0;
         $tolls = .03054;
         $permitsAndLicenses = .024432;
@@ -133,10 +135,90 @@
                 $totalCost[$i] += $vehicleCost * $salesTax;   /// This should only happen if a vehicle is new
             }
             
-            $totalCost[$i] += ($tolls + $permitsAndLicenses) * $annualVmtYears[$i] + $registration;
+            $totalCost[$i] += ($tolls + $permitsAndLicenses) * $annualVmtYears[$i] + $registration + $carbonTax;
         }
 
         return $totalCost;
+    }
+
+    function caluclateCarbonEmission()
+    {
+        include "getID.php";
+
+        $carbonTax = 0;
+        $utilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleBody' AND Model_Year LIKE '$modelYear'";
+        $PHEVUtilityFactor = $connect->query($utilityFactorQuery); $PHEVUtilityFactor = $PHEVUtilityFactor->fetch_assoc(); $PHEVUtilityFactor = $PHEVUtilityFactor["PHEV_Utility_Factor"];
+        $ldvUtilityFactor = calculate_LDV_PHEV_UtilityFactor();
+
+        $gasoline = 10800;
+        $premiumGasoline = 10800;
+        $diesel = 10700;
+        $hydrogen = 12000;
+        $electric = 16000;
+
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $gasElec = $ldvUtilityFactor * $electric + (1 - $ldvUtilityFactor) * $gasoline;
+            $premElec = $ldvUtilityFactor * $electric + (1 - $ldvUtilityFactor) * $premiumGasoline;
+            $dieselElec = $ldvUtilityFactor * $electric + (1 - $ldvUtilityFactor) * $diesel;
+        }
+        else if($_POST["vehicleClassSize"] === "HDV")
+        {
+            $gasElec = $PHEVUtilityFactor * $electric + (1 - $PHEVUtilityFactor) * $gasoline;
+            $premElec = $gasElec = $PHEVUtilityFactor * $electric + (1 - $PHEVUtilityFactor) * $premiumGasoline;
+            $dieselElec = $PHEVUtilityFactor * $electric + (1 - $PHEVUtilityFactor) * $diesel;
+        }
+
+        $cng = 8800;
+        $biofuel = 6500;
+
+        $co2PerMile = 0;
+        $co2CoEfficient = 0;
+
+        switch($fuelType)
+        {
+            case "Gasoline":
+                $co2CoEfficient = $gasoline;
+                break;
+            case "Premium_Gasoline":
+                $co2CoEfficient = $premiumGasoline;
+                break;
+            case "Diesel":
+                $co2CoEfficient = $diesel;
+                break;
+            case "CNG":
+                $co2CoEfficient = $cng;
+                break;
+            case "Biofuel":
+                $co2CoEfficient = $biofuel;
+                break;
+            case "Hydrogen":
+                $co2CoEfficient = $hydrogen;
+                break;
+            case "Electric":
+                $co2CoEfficient = $electric;
+                break;
+            case "Gas_Electric":
+                $co2CoEfficient = $gasElec;
+                break;
+            case "Diesel_Electric":
+                $co2CoEfficient = $dieselElec;
+                break;
+            case "Premium_Electric":
+                $co2CoEfficient = $premElec;
+                break;
+        }
+
+        $co2PerMile = $co2CoEfficient / $fuelMPG;
+
+        if($_POST["vehicleClassSize"] === "HDV")
+        {
+            $co2PerMile = $co2PerMile * (137453 / 120080);
+        }
+
+        $carbonTax = $co2PerMile / 1000000 * $_POST["carbonEmission"];
+
+        return $carbonTax;
     }
 
     function calculateNewTaxesAndFees($numYears)
@@ -154,4 +236,6 @@
 
         return $totalCost;
     }
+
+    caluclateCarbonEmission();
 ?>

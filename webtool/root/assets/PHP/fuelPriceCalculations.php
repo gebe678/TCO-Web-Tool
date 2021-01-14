@@ -332,7 +332,7 @@
         $MPGCost;
         $fuelPricePerMile;
         $annualFuelPrice;
-        $mpgYearDegradation = $_POST["fuelEfficiencyDegradation"];
+        $mpgYearDegradation = $_POST["fuelEfficiencyDegradation"] / 100;
         $fuelPriceType = $_POST["fuelPriceMethod"];
         $fuelModifier = 0;
 

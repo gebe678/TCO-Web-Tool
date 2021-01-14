@@ -14,7 +14,7 @@
     include "calculateNewOperationalCost.php";
 
     $analysisWindow = $_POST["analysisWindow"];
-    $discountRate = $_POST["discountRate"];
+    $discountRate = $_POST["discountRate"] / 100;
 
     $vehicleBodyCost;
     $financeCost;
