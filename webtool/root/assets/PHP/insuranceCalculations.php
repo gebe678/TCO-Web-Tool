@@ -25,6 +25,7 @@
         $AVERAGE = 600;
         $MIN = 300;
         $MAX = 1000;
+        // add new value for user defined
         // $SD1HIGH = 750;
         // $SD1LOW = 400;
 
@@ -100,6 +101,7 @@
             $transbus_less15 = 9000;
             $transbus_plus15 = 35000;
             $cls8ref = 7500;
+            // user defined -- custom fixed value
 
             $HDVTotalInsurance = 0;
 
@@ -151,6 +153,7 @@
         $residualValue;
 
         $deductible = 500;
+        // add user defined deductible
         $comprehensiveCutoff = .1;
         $comprehensivePremiumB = 0;
         $comprehensivePremiumA = 0;

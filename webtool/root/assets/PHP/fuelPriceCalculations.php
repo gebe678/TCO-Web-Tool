@@ -264,10 +264,15 @@
         include "getID.php";
 
         $fuelPriceType = $_POST["fuelPriceMethod"];
+        $fuelReferenceType = $_POST["fuelReference"];
         
         if($fuelPriceType == "increase")
         {
-            if($fuelType === "Diesel_Electric")
+            if($fuelReferenceType === "userDefined")
+            {
+                $totalCost[0] = $userDefinedFuel;
+            }
+            else if($fuelType === "Diesel_Electric")
             {
                 $dieselElec = calculateDieselElectricCost($numYears);
                 $totalCost[0] = $dieselElec[0];
@@ -287,7 +292,7 @@
                 $totalCost[0] = getEnergyUseData();
             }
         }
-        else if($fuelPriceType == "userDefined")
+        else if($fuelReferenceType == "userDefined")
         {
             $totalCost[0] = $userDefinedFuel;
         }
@@ -351,7 +356,7 @@
 
         if($powertrain === "BEV")
         {
-            if($vehicleInput == "autonomie")
+            if($fuelInput == "autonomie")
             {
                 if($_POST["vehicleClassSize"] === "LDV")
                 {
@@ -362,18 +367,18 @@
                     $MPGCost = $fuelMPG;
                 }
             }
-            else if($vehicleInput == "aeo")
+            else if($fuelInput == "aeo")
             {
                 $MPGCost = $bevAeoMPG;
             }
-            else if($vehicleInput == "real_world_today")
+            else if($fuelInput == "real_world_today")
             {
                 $MPGCost = $bevRealWorldMPG;
             }
         }
         else if($powertrain === "PHEV")
         {
-            if($vehicleInput == "autonomie")
+            if($fuelInput == "autonomie")
             {
                 if($_POST["vehicleClassSize"] === "LDV")
                 {
@@ -384,32 +389,32 @@
                     $MPGCost = $fuelMPG;
                 }
             }
-            else if($vehicleInput == "aeo")
+            else if($fuelInput == "aeo")
             {
                 $MPGCost = $phevAeoMPG;
             }
-            else if($vehicleInput == "real_world_today")
+            else if($fuelInput == "real_world_today")
             {
                 $MPGCost = $phevRealWorldMPG;
             }
         }
         else
         {
-            if($vehicleInput == "autonomie")
+            if($fuelInput == "autonomie")
             {
                 $MPGCost = $fuelMPG;
             }
-            else if($vehicleInput == "aeo")
+            else if($fuelInput == "aeo")
             {
                 $MPGCost = $fuelAeoMPG;
             }
-            else if($vehicleInput == "real_world_today")
+            else if($fuelInput == "real_world_today")
             {
                 $MPGCost = $fuelRealWorldMPG;
             }
         }
 
-        if($vehicleInput == "userDefined" or $MPGCost == 0)
+        if($fuelInput == "userDefined" or $MPGCost == 0)
         {
             $MPGCost = $_POST["userDefinedMPG"];
         }

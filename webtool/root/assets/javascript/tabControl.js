@@ -56,6 +56,7 @@ function toggleControl()
             
             detailedOptions.style.display = "inline-block";
             labelText.innerHTML = "Detailed View";
+            labelText.title = "Hide detailed input selectors for TCO calculations";
             //labelText.style.float = "left";
             //labelText.style.marginLeft = "20px";
             technologyGroup.style.backgroundColor = "#e4d1d1";
@@ -70,6 +71,7 @@ function toggleControl()
             }
             detailedOptions.style.display = "none";
             labelText.innerHTML = "Simplified View";
+            labelText.title = "Reveal detailed input selectors for TCO calculations";
            // labelText.style.float = "right";
             //labelText.style.marginRight = "20px";
             technologyGroup.style.backgroundColor = "white";

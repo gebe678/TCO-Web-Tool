@@ -31,15 +31,9 @@
         $customVmtValue = $_POST["customNewVMTValue"];
         $customVmtYear = $_POST["customNewVMTYear"] - 1;
         $customVmtValueUsed = $_POST["customVMTValue"];
-
-        if(!empty($_POST["idling"]))
-        {
-            $idling = 'true';
-        }
-        else
-        {
-            $idling = 'false';
-        }
+        $idling = $_POST["idling"];
+        $majorRepair = $_POST["majorLDVCheck"];
+        $vehicleFinanced = $_POST["vehicleFinanced"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -48,24 +42,6 @@
         else
         {
             $usedVehicle = "false";
-        }
-
-        if(!empty($_POST["majorLDVCheck"]))
-        {
-            $majorRepair = "true";
-        }
-        else
-        {
-            $majorRepair = "false";
-        }
-
-        if(!empty($_POST["vehicleFinanced"]))
-        {
-            $vehicleFinanced = "true";
-        }
-        else
-        {
-            $vehicleFinanced = "false";
         }
 
         if(!empty($_POST["customNewVmt"]))
@@ -136,15 +112,9 @@
         $customVmtValue = $_POST["customNewVMTValue"];
         $customVmtYear = $_POST["customNewVMTYear"] - 1;
         $customVmtValueUsed = $_POST["customVMTValue"];
-
-        if(!empty($_POST["idling"]))
-        {
-            $idling = 'true';
-        }
-        else
-        {
-            $idling = 'false';
-        }
+        $idling = $_POST["idling"];
+        $majorRepair = $_POST["majorLDVCheck"];
+        $vehicleFinanced = $_POST["vehicleFinanced"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -153,24 +123,6 @@
         else
         {
             $usedVehicle = "false";
-        }
-
-        if(!empty($_POST["majorLDVCheck"]))
-        {
-            $majorRepair = "true";
-        }
-        else
-        {
-            $majorRepair = "false";
-        }
-
-        if(!empty($_POST["vehicleFinanced"]))
-        {
-            $vehicleFinanced = "true";
-        }
-        else
-        {
-            $vehicleFinanced = "false";
         }
 
         if(!empty($_POST["customNewVmt"]))
@@ -398,16 +350,9 @@
         $customVmtValue = $_POST["customNewVMTValue"];
         $customVmtYear = $_POST["customNewVMTYear"] - 1;
         $customVmtValueUsed = $_POST["customVMTValue"];
-
-
-        if(!empty($_POST["idling"]))
-        {
-            $idling = 'true';
-        }
-        else
-        {
-            $idling = 'false';
-        }
+        $idling = $_POST["idling"];
+        $majorRepair = $_POST["majorLDVCheck"];
+        $vehicleFinanced = $_POST["vehicleFinanced"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -416,24 +361,6 @@
         else
         {
             $usedVehicle = "false";
-        }
-
-        if(!empty($_POST["majorLDVCheck"]))
-        {
-            $majorRepair = "true";
-        }
-        else
-        {
-            $majorRepair = "false";
-        }
-
-        if(!empty($_POST["vehicleFinanced"]))
-        {
-            $vehicleFinanced = "true";
-        }
-        else
-        {
-            $vehicleFinanced = "false";
         }
 
         if(!empty($_POST["customNewVmt"]))

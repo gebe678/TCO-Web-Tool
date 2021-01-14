@@ -365,7 +365,7 @@ function vehicleFinanceModifier()
     let interestRateNumber = document.getElementById("interestRateNumber");
 
     financeCheck.addEventListener("click", function(){
-        if(financeCheck.checked)
+        if(financeCheck.selectedIndex === 0)
         {
             interestRate.style.display = "inline-block";
             interestRateLabel.style.display = "inline-block";
@@ -392,6 +392,10 @@ function vehicleFinanceModifier()
             financeTermNumber.style.display = "none";
             downPaymentNumber.style.display = "none";
             interestRateNumber.style.display = "none";
+
+
+            financeTermNumber.value = 0;
+            financeTerm.value = 0;
         }
     });
 }
@@ -731,26 +735,26 @@ function apuModifier()
     });
 }
 
-function definedFuel()
-{
-    let userDefinedFuel = document.getElementById("userDefinedFuel");
-    let fuelPriceMethod = document.getElementById("fuelPriceMethod");
+// function definedFuel()
+// {
+//     let userDefinedFuel = document.getElementById("userDefinedFuel");
+//     let fuelPriceMethod = document.getElementById("fuelPriceMethod");
 
-    fuelPriceMethod.addEventListener("change", function(){
-        event.preventDefault();
-        if(fuelPriceMethod.selectedIndex == 2)
-        {
-            let value = prompt("please enter a starting fuel value", "2.50");
+//     fuelPriceMethod.addEventListener("change", function(){
+//         event.preventDefault();
+//         if(fuelPriceMethod.selectedIndex == 2)
+//         {
+//             let value = prompt("please enter a starting fuel value", "2.50");
 
-            if(isNaN(value))
-            {
-                value = prompt("Input entered not a number", "2.50");
-            }
+//             if(isNaN(value))
+//             {
+//                 value = prompt("Input entered not a number", "2.50");
+//             }
 
-            userDefinedFuel.value = value;
-        }
-    });
-}
+//             userDefinedFuel.value = value;
+//         }
+//     });
+// }
 
 function definedPurchaseCost()
 {
@@ -916,7 +920,7 @@ function dropDownControlMain()
     vmtMenuModifier();
     bevMenuModifier();
     phevMenuModifier();
-    definedFuel();
+   // definedFuel();
     definedPurchaseCost();
     maxYear();
     resetFormOnPageRefresh();

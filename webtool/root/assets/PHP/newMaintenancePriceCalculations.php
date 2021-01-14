@@ -221,7 +221,7 @@
 
         $ldvRepairCurve;
 
-        if(isset($_POST["majorLDVCheck"]))
+        if($_POST["majorLDVCheck"] === "true")
         {
             $majorRepairCost = calculateNewMajorRepair($numYears);
         }

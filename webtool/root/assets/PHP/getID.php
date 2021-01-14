@@ -35,6 +35,7 @@
 
     // vehicle input data
     $vehicleInput = $_POST["vehicleCostInput"];
+    $fuelInput = $_POST["fuelCostInput"];
 
     // vehicle body data
     $markupFactor = $_POST["markupFactor"];

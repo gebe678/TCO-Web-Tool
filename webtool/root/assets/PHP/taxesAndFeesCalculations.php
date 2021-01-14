@@ -32,7 +32,7 @@
 
         $totalCost;
 
-        $salesTax = .084;
+        $salesTax = $_POST["salesTax"] / 100;
         $initialVehicleRegistration = 268;
         $documentationFee = 300;
         $annualVehicleRegistration = 68;
