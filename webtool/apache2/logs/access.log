@@ -520,3 +520,8 @@
 127.0.0.1 - - [18/Jan/2021:15:00:40 -0500] "GET /phpmyadmin/sql.php?db=tco_vehicle_information&table=simplified_view_cost_components&server=1&target=&token=7d62595b4a417654d653bfa1a7e083a8 HTTP/1.1" 200 256673
 127.0.0.1 - - [18/Jan/2021:15:00:41 -0500] "GET /phpmyadmin/favicon.ico HTTP/1.1" 200 18902
 127.0.0.1 - - [18/Jan/2021:15:00:41 -0500] "GET /phpmyadmin/index.php?ajax_request=1&recent_table=1&token=7d62595b4a417654d653bfa1a7e083a8 HTTP/1.1" 200 292
+127.0.0.1 - - [18/Jan/2021:15:01:37 -0500] "GET /phpmyadmin/db_structure.php?server=1&db=tco_vehicle_information&token=7d62595b4a417654d653bfa1a7e083a8&ajax_request=true&ajax_page_request=true&menuHashes=695a0478&_nocache=1611000097511665147 HTTP/1.1" 200 82875
+127.0.0.1 - - [18/Jan/2021:15:01:38 -0500] "GET /phpmyadmin/js/get_scripts.js.php?scripts[]=db_structure.js HTTP/1.1" 200 5367
+127.0.0.1 - - [18/Jan/2021:15:01:42 -0500] "GET /phpmyadmin/sql.php?db=tco_vehicle_information&token=7d62595b4a417654d653bfa1a7e083a8&goto=db_structure.php&table=simplified_view_cost_components&sql_query=TRUNCATE+%60simplified_view_cost_components%60&message_to_show=Table+simplified_view_cost_components+has+been+emptied&is_js_confirmed=1&ajax_request=true&_nocache=161100010250062774 HTTP/1.1" 200 1767
+127.0.0.1 - - [18/Jan/2021:15:01:44 -0500] "GET /phpmyadmin/sql.php?db=tco_vehicle_information&token=7d62595b4a417654d653bfa1a7e083a8&goto=db_structure.php&table=simplified_view_cost_components&pos=0&ajax_request=true&ajax_page_request=true&menuHashes=695a0478-fceaec9a&_nocache=1611000104000394759 HTTP/1.1" 200 8080
+127.0.0.1 - - [18/Jan/2021:15:01:44 -0500] "GET /phpmyadmin/index.php?ajax_request=1&recent_table=1&token=7d62595b4a417654d653bfa1a7e083a8 HTTP/1.1" 200 292
