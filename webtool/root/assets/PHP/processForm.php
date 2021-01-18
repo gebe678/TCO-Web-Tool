@@ -147,9 +147,8 @@
         $uTaxes = calculateUsedTaxesCost();
         $uMaintenance = calculateUsedMaintenance();
         $uRepair = calculateUsedRepair();
-        $uOperational = calculateUsedOperationalCost();
 
-        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uOperational);
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair);
     }
 
     echo json_encode($TCO_information);
@@ -165,7 +164,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainBody[0] = calculateBodyCost("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainBody[0] = calculateBodyCost("ICE-SI");
+        }
+        else
+        {
+            $powertrainBody[0] = 0;
+        }
         $powertrainBody[1] = calculateBodyCost("ICE-CI");
         $powertrainBody[2] = calculateBodyCost("HEV-SI");
         $powertrainBody[3] = calculateBodyCost("PHEV");
@@ -179,7 +185,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainFinance[0] = calculateFinancingCost("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainFinance[0] = calculateFinancingCost("ICE-SI");
+        }
+        else
+        {
+            $powertrainFinance[0] = 0;
+        }
         $powertrainFinance[1] = calculateFinancingCost("ICE-CI");
         $powertrainFinance[2] = calculateFinancingCost("HEV-SI");
         $powertrainFinance[3] = calculateFinancingCost("PHEV");
@@ -193,7 +206,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainFuel[0] = calculateFuelCost("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainFuel[0] = calculateFuelCost("ICE-SI");
+        }
+        else
+        {
+            $powertrainFuel[0] = 0;
+        }
         $powertrainFuel[1] = calculateFuelCost("ICE-CI");
         $powertrainFuel[2] = calculateFuelCost("HEV-SI");
         $powertrainFuel[3] = calculateFuelCost("PHEV");
@@ -207,7 +227,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainInsurance[0] = calculateInsruance("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainInsurance[0] = calculateInsruance("ICE-SI");
+        }
+        else
+        {
+            $powertrainInsurance[0] = 0;
+        }
         $powertrainInsurance[1] = calculateInsruance("ICE-CI");
         $powertrainInsurance[2] = calculateInsruance("HEV-SI");
         $powertrainInsurance[3] = calculateInsruance("PHEV");
@@ -221,7 +248,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainTaxes[0] = calculateTaxes();
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainTaxes[0] = calculateTaxes("ICE-SI");
+        }
+        else
+        {
+            $powertrainTaxes[0] = 0;
+        }
         $powertrainTaxes[1] = calculateTaxes();
         $powertrainTaxes[2] = calculateTaxes();
         $powertrainTaxes[3] = calculateTaxes();
@@ -235,7 +269,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainMaintenance[0] = calculateMaintenance("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainMaintenance[0] = calculateMaintenance("ICE-SI");
+        }
+        else
+        {
+            $powertrainMaintenance[0] = 0;
+        }
         $powertrainMaintenance[1] = calculateMaintenance("ICE-CI");
         $powertrainMaintenance[2] = calculateMaintenance("HEV-SI");
         $powertrainMaintenance[3] = calculateMaintenance("PHEV");
@@ -249,7 +290,14 @@
     {
         include_once "powertrainData.php";
 
-        $powertrainRepair[0] = calculateRepair("ICE-SI");
+        if($_POST["vehicleClassSize"] === "LDV")
+        {
+            $powertrainRepair[0] = calculateRepair("ICE-SI");
+        }
+        else
+        {
+            $powertrainRepair[0] = 0;
+        }
         $powertrainRepair[1] = calculateRepair("ICE-CI");
         $powertrainRepair[2] = calculateRepair("HEV-SI");
         $powertrainRepair[3] = calculateRepair("PHEV");

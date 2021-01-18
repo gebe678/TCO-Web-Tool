@@ -230,7 +230,7 @@ function submittedAjaxForm()
             var encodedUri = encodeURI(csvContent);
             var link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", "vehicleCostInformation.csv");
+            link.setAttribute("download", "TCO_Results.csv");
             document.body.appendChild(link); // Required for FF
 
             if(dataDownload === true)
@@ -263,13 +263,13 @@ function submittedAjaxForm()
 
                 for(let i = 0; i < 7; i++)
                 {
-                    body[i] = vehicleInformation[9][i];
-                    finance[i] = vehicleInformation[10][i];
-                    fuel[i] = vehicleInformation[11][i];
-                    insurance[i] = vehicleInformation[12][i];
-                    tax[i] = vehicleInformation[13][i];
-                    maintenance[i] = vehicleInformation[14][i];
-                    repair[i] = vehicleInformation[15][i];
+                    body[i] = vehicleInformation[10][i];
+                    finance[i] = vehicleInformation[11][i];
+                    fuel[i] = vehicleInformation[12][i];
+                    insurance[i] = vehicleInformation[13][i];
+                    tax[i] = vehicleInformation[14][i];
+                    maintenance[i] = vehicleInformation[15][i];
+                    repair[i] = vehicleInformation[16][i];
                 }
             }
             else if(showModelYearGraph.checked)
@@ -278,13 +278,13 @@ function submittedAjaxForm()
 
                 for(let i = 0; i < 7; i++)
                 {
-                    body[i] = vehicleInformation[9][i];
-                    finance[i] = vehicleInformation[10][i];
-                    fuel[i] = vehicleInformation[11][i];
-                    insurance[i] = vehicleInformation[12][i];
-                    tax[i] = vehicleInformation[13][i];
-                    maintenance[i] = vehicleInformation[14][i];
-                    repair[i] = vehicleInformation[15][i];
+                    body[i] = vehicleInformation[10][i];
+                    finance[i] = vehicleInformation[11][i];
+                    fuel[i] = vehicleInformation[12][i];
+                    insurance[i] = vehicleInformation[13][i];
+                    tax[i] = vehicleInformation[14][i];
+                    maintenance[i] = vehicleInformation[15][i];
+                    repair[i] = vehicleInformation[16][i];
                 }
             }
             else if(showUsedVehicleGraph.checked)
@@ -296,7 +296,6 @@ function submittedAjaxForm()
                 tax[0] = vehicleInformation[14];
                 maintenance[0] = vehicleInformation[15];
                 repair[0] = vehicleInformation[16];
-                operational[0] = vehicleInformation[17];
             }
             else
             {
@@ -319,7 +318,7 @@ function submittedAjaxForm()
 
             if(showUsedVehicleGraph.checked)
             {
-                usedVehicleGraph(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, body, finance, fuel, insurance, tax, maintenance, repair, operational, 0);
+                usedVehicleGraph(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, body, finance, fuel, insurance, tax, maintenance, repair, 0, 0);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);

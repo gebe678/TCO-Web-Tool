@@ -444,7 +444,7 @@
                                         </div>
                                     </div><!-- </dropDownMenu> -->
 
-                                    <div class="inputContainer" style="display:none;" id="userDefinedMPGContainer">
+                                    <div class="inputContainer" id="userDefinedMPGContainer" style="display:none;">
                                         <label for="userDefinedMPG" class="sliderLabel" id="userDefinedMPGLabel">MPG per
                                             Gallon<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="10000000" value=".5" step=".1" class="slider"
@@ -964,7 +964,7 @@
 
             <div class="col-lg-12">
 
-                <p><a href="#">Link to documentation for calculations</a> | <button id="downlaodAnalysisResults">Download Analysis Results</button> | <button id="downloadData">Download Raw Data</button></p>
+                <p><a href="#">Link to documentation for calculations</a> | <button id="downloadData">Download Analysis Results</button> | <button id="downlaodAnalysisResults">Download Raw Data</button></p>
                 <a href="assets/CSV Tables.zip" style="display:none;"></a>
                 <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p>
                 <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">
