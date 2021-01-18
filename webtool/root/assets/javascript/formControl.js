@@ -267,8 +267,8 @@ function submittedAjaxForm()
 
             downloadData.push([]);
 
-            downloadData.push(vehicleLabel.concat(vehicleDataMiles));
-            downloadData.push(financeLabel.concat(financingDataMiles));
+            downloadData.push(vehicleLabelMiles.concat(vehicleDataMiles));
+            downloadData.push(financeLabelMiles.concat(financingDataMiles));
             downloadData.push(annualFuelLabelMiles.concat(annualFuelDataMiles));
             downloadData.push(insuranceLabelMiles.concat(insuranceDataMiles));
             downloadData.push(taxesLabelMiles.concat(taxDataMiles));
