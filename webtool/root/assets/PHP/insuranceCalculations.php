@@ -239,6 +239,11 @@
                 $residualValue = calculateLowerDepreciation($numYears);
 
                 break;
+
+            case "userDefined":
+
+                include "residualValueCalculations.php";
+                $residualValue = calculateSimpleDepreciation($numYears);
         }
 
         for($i = 0; $i < $numYears; $i++)

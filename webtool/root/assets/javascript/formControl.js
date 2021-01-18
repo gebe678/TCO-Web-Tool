@@ -252,6 +252,8 @@ function submittedAjaxForm()
             let repairLabelMiles = ["Repair Miles"];
             let operationalLabelMiles = ["operational Miles"];
             let laborLabelMiles = ["Labor Miles"];
+
+            let testFormArr = dataForm.split("&");
             
             downloadData.push(csvTitle);
             downloadData.push(vehicleLabel.concat(vehicleData));
@@ -276,6 +278,19 @@ function submittedAjaxForm()
             downloadData.push(repairLabelMiles.concat(repairDataMiles));
             downloadData.push(operationalLabelMiles.concat(operationalDataMiles));
             downloadData.push(laborLabelMiles.concat(laborDataMiles));
+
+            downloadData.push([]);
+
+            for(let i = 0; i < testFormArr.length; i++)
+            {
+                let allData = testFormArr[i].split("=");
+                let obj = document.getElementsByName(allData[0]);
+                if(obj[0].style.display === "none")
+                {
+                    continue;
+                }
+                downloadData.push(allData);
+            }
 
             let csvContent = "data:text/csv;charset=utf-8,";
 

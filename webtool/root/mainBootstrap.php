@@ -252,7 +252,7 @@
                                         <label for="insuranceProportional" class="sliderLabel">Insurance Proportional
                                             Rate<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1" step=".01" value="0.04" class="slider"
-                                            name="insuranceProportional" id="insuranceProportional">
+                                            name="insuranceProportional" id="insuranceProportional" style="display:none;">
                                         <input type="number" min="0" max="1" step=".01" value="0.04" class="outputText">
                                     </div> <!-- </inputContainer -->
 
@@ -268,28 +268,28 @@
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="biofuelCost" class="sliderLabel">Biofuel Cost Parity</label>
                                         <input type="range" min="1" max="30" value="15" class="slider"
-                                            name="biofuelCost" id="biofuelCost">
+                                            name="biofuelCost" id="biofuelCost" style="display: none;">
                                         <input type="number" min="1" max="30" value="15" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="biofuelPremium" class="sliderLabel">Biofuel Premium Cost</label>
                                         <input type="range" min="1" max="10" value="1" class="slider"
-                                            name="biofuelPremium" id="biofuelPremium">
+                                            name="biofuelPremium" id="biofuelPremium" style="display: none;">
                                         <input type="number" min="1" max="10" value="1" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="hydrogenCost" class="sliderLabel">Hydrogen to $5kg</label>
                                         <input type="range" min="1" max="30" value="15" class="slider"
-                                            name="hydrogenCost" id="hydrogenCost">
+                                            name="hydrogenCost" id="hydrogenCost" style="display: none;">
                                         <input type="number" min="1" max="30" value="15" class="outputText">
                                     </div><!-- </inputContainer -->
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="hydrogenPremium" class="sliderLabel">Hydrogen Premium Cost</label>
                                         <input type="range" min="1" max="10" value="5" class="slider"
-                                            name="hydrogenPremium" id="hydrogenPremium">
+                                            name="hydrogenPremium" id="hydrogenPremium" style="display: none;">
                                         <input type="number" min="1" max="10" value="5" class="outputText">
                                     </div><!-- </inputContainer -->
 
@@ -299,7 +299,7 @@
                                         </div>
                                         <div class="border">
                                             <select name="fuelPriceMethod" class="selectMenu form-control"
-                                                id="fuelPriceMethod">
+                                                id="fuelPriceMethod" style="display: none;">
                                                 <option value="defined">Thrid Party Prices</option>
                                                 <option value="increase" selected>Annual Incremental Change</option>
                                                 <option value="userDefined">User Defined Increase</option>
@@ -350,7 +350,7 @@
                                             <label for="years" title="Year fuel cost begins before changing through the % increase">Fuel Starting Cost Year:<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         </div>
                                         <div class="border">
-                                            <select name="fuelYear" class="selectMenu form-control" id="fuelStartYear">
+                                            <select name="fuelYear" class="selectMenu form-control" id="fuelStartYear" style="display: none;">
                                                 <option value="2020">2020</option>
                                                 <option value="2025">2025</option>
                                                 <option value="2030">2030</option>
@@ -493,7 +493,7 @@
                                         </div>
                                         <div class="border">
                                             <select name="regionality" class="selectMenu form-control"
-                                                id="regionalityMenu">
+                                                id="regionalityMenu" style="display: none;">
                                                 <option value="Alabama">Alabama</option>
                                                 <option value="Alaska">Alaska</option>
                                                 <option value="Arizona">Arizona</option>
@@ -622,7 +622,7 @@
                                     <div class="inputContainer form-group" style="display:none;">
                                         <label for="writeOff" class="sliderLabel" title="Specify the year of ownership where the remaining value of the vehicle is written off.">Vehicle Write Off<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="1" max="30" value="10" class="slider" name="writeOff"
-                                            id="writeOff">
+                                            id="writeOff" style="display: none;">
                                         <input type="number" min="1" max="30" value="10" class="outputText">
                                     </div><!-- </inputContainer> -->
 
@@ -709,7 +709,7 @@
                                         <label for="insuranceLiability" class="sliderLabel" id="insuranceLiabilityLabel" title="Specify annual liability cost">Insurance
                                         Liability <img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1500" value="300" class="slider" name="insuranceLiability"
-                                            id="insuranceLiability">
+                                            id="insuranceLiability" style="display: none;">
                                         <input type="number" min="0" max="1500" value="300" class="outputText"
                                             id="insuranceLiabilityNumber">
                                     </div><!-- </inputContainer> -->
@@ -718,7 +718,7 @@
                                         <label for="insuranceDeductable" class="sliderLabel" id="insuranceDeductableLabel" title="Specify deductible amount">Insurance
                                             Deductable<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1000" value="500" class="slider" name="insuranceDeductable"
-                                            id="insuranceDeductable">
+                                            id="insuranceDeductable" style="display: none;">
                                         <input type="number" min="0" max="1000" value="500" class="outputText"
                                             id="insuranceDeductableNumber">
                                     </div><!-- </inputContainer> -->
@@ -727,7 +727,7 @@
                                         <label for="fixedInsurance" class="sliderLabel" id="fixedInsuranceLabel" title="Specify annual insurance cost">Fixed
                                             Insurance<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="50000" value="10000" class="slider" name="fixedInsurance"
-                                            id="fixedInsurance">
+                                            id="fixedInsurance" style="display: none;">
                                         <input type="number" min="0" max="50000" value="10000" class="outputText"
                                             id="fixedInsuranceNumber">
                                     </div><!-- </inputContainer> -->
@@ -876,21 +876,21 @@
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="laborCost" class="sliderLabel">Labor Cost Per Mile<img src="assets/page_pictures/infoCallout.JPG"></label>
                                         <input type="range" min="0" max="1" value=".6" step="0.01" class="slider"
-                                            name="laborCost" id="laborCost">
+                                            name="laborCost" id="laborCost" style="display: none;">
                                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="payloadCost" class="sliderLabel">Payload Cost</label>
                                         <input type="range" min="0" max="1" step=".01" value=".05" class="slider"
-                                            name="payloadCost" id="payloadCost">
+                                            name="payloadCost" id="payloadCost" style="display: none;">
                                         <input type="number" min="0" max="1" step=".01" value=".05" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="chargingTime" class="sliderLabel">Charging Time Cost</label>
                                         <input type="range" min="0" max="1" step=".01" value=".02" class="slider"
-                                            name="chargingTime" id="chargingTime">
+                                            name="chargingTime" id="chargingTime" style="display: none;">
                                         <input type="number" min="0" max="1" step=".01" value=".02" class="outputText">
                                     </div><!-- </inputContainer> -->
 

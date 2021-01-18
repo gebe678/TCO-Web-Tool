@@ -428,6 +428,10 @@ function calculateLowerDepreciation($numYears)
         {
             $depreciation = calculateLowerDepreciation($numYears);
         }
+        else if($depreciationType === "userDefined")
+        {
+            $depreciation = calculateSimpleDepreciation($numYears);
+        }
 
         return $depreciation;
     }

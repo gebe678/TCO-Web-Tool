@@ -34,6 +34,13 @@
         $idling = $_POST["idling"];
         $majorRepair = $_POST["majorLDVCheck"];
         $vehicleFinanced = $_POST["vehicleFinanced"];
+        $userDefinedFuel = $_POST["userDefinedFuel"];
+        $userDefinedPurchaseCost = $_POST["purchaseCost"];
+        $userDefinedMPG = $_POST["userDefinedMPG"];
+        $userDefinedInsuranceLiability = $_POST["insuranceLiability"];
+        $userDefinedInsuranceDeductable = $_POST["insuranceDeductable"];
+        $userDefinedFixedInsurance = $_POST["fixedInsurance"];
+        $carbonEmission = $_POST["carbonEmission"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -71,7 +78,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $result = $connect->query($checkForSuccessQuery);
 
@@ -115,6 +124,13 @@
         $idling = $_POST["idling"];
         $majorRepair = $_POST["majorLDVCheck"];
         $vehicleFinanced = $_POST["vehicleFinanced"];
+        $userDefinedFuel = $_POST["userDefinedFuel"];
+        $userDefinedPurchaseCost = $_POST["purchaseCost"];
+        $userDefinedMPG = $_POST["userDefinedMPG"];
+        $userDefinedInsuranceLiability = $_POST["insuranceLiability"];
+        $userDefinedInsuranceDeductable = $_POST["insuranceDeductable"];
+        $userDefinedFixedInsurance = $_POST["fixedInsurance"];
+        $carbonEmission = $_POST["carbonEmission"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -152,7 +168,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $financingQuery = "SELECT Financing FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -163,7 +181,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $fuelQuery = "SELECT Annual_Fuel FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -174,7 +194,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $insuranceQuery = "SELECT Insurance FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -185,7 +207,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $taxesQuery = "SELECT Taxes_And_Fees FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -196,7 +220,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $maintenanceQuery = "SELECT Maintenance FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -207,7 +233,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $repairQuery = "SELECT Repair FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -218,7 +246,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $operationalQuery = "SELECT Operational FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -229,7 +259,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $laborQuery = "SELECT Labor FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -240,7 +272,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $vmtQuery = "SELECT VMT FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -251,7 +285,9 @@
         AND Annual_Registration_Fee LIKE '$annualRegistration' AND Sales_Tax_And_Title LIKE '$salesTaxAndTitle' AND Insurance_Fixed_Rate LIKE '$insuranceFixed' AND Simple_Depreciation_Rate LIKE '$depreciationRate'
         AND Depreciation LIKE '$depreciation' AND Salvage_Value LIKE '$salvageValue' AND Finance_Term LIKE '$financeTerm' AND Used_Vehicle_Toggle LIKE '$usedVehicle' AND Major_Repair_Toggle LIKE '$majorRepair'
         AND Age_Of_Used_Car LIKE '$usedVehicleYear' AND Vehicle_Financed_Toggle LIKE '$vehicleFinanced' AND Bev_Range LIKE '$bevRange' AND Phev_Range LIKE '$phevRange' AND VMT_Type LIKE '$vmtType'
-        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'";
+        AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
+        AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
+        AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission'";
 
         $vehicleResult = $connect->query($vehicleQuery);
         $financingResult = $connect->query($financingQuery);
@@ -353,6 +389,13 @@
         $idling = $_POST["idling"];
         $majorRepair = $_POST["majorLDVCheck"];
         $vehicleFinanced = $_POST["vehicleFinanced"];
+        $userDefinedFuel = $_POST["userDefinedFuel"];
+        $userDefinedPurchaseCost = $_POST["purchaseCost"];
+        $userDefinedMPG = $_POST["userDefinedMPG"];
+        $userDefinedInsuranceLiability = $_POST["insuranceLiability"];
+        $userDefinedInsuranceDeductable = $_POST["insuranceDeductable"];
+        $userDefinedFixedInsurance = $_POST["fixedInsurance"];
+        $carbonEmission = $_POST["carbonEmission"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -386,14 +429,16 @@
         Fuel_Reference, Premium_Gasoline_Markup, Hydrogen_Success, Vehicle_Cost_Input, Fuel_Economy_Input, Idling_Cost_Toggle, APU, Vehicle_Incentive, Interest_Rate_Percent, Down_Payment_Percent,
         Insurance_Type, Bus_Occupancy, Annual_MPG_Degradation, Analysis_Window, Discount_Rate, Annual_Registration_Fee, Sales_Tax_And_Title, Insurance_Fixed_Rate, Simple_Depreciation_Rate,
         Depreciation, Salvage_Value, Finance_Term, Used_Vehicle_Toggle, Major_Repair_Toggle, Age_Of_Used_Car, Vehicle_Financed_Toggle, Bev_Range, Phev_Range, VMT_Type, Custom_New_Vmt_Toggle,
-        Custom_New_Vmt_Value, Custom_New_Vmt_Year, Custom_Vmt, Custom_Vmt_Value)
+        Custom_New_Vmt_Value, Custom_New_Vmt_Year, Custom_Vmt, Custom_Vmt_Value, User_Defined_Fuel, User_Defined_Purchase_Cost, User_Defined_MPG, User_Defined_Insurance_Liability,
+        User_Defined_Insurance_Deductable, User_Defined_Fixed_Insurance, Carbon_Emission)
 
         VALUES($year, $vehicle, $finance, $fuel, $insurance, $taxes, $maintenance, $repair, $operational, $infrastructure, $labor, 
         $vmt, '$vehicleBody', '$powertrain', '$modelYear', '$fuelType', '$technology', '$writeOff', '$annualFuelPriceIncrease', '$fuelPriceType', '$fuelInfrastructure',
         '$fuelReference', '$premiumGasMarkup', '$hydrogenSuccess', '$vehicleInput', '$fuelCostInput', '$idling', '$apu', '$vehicleIncentive', '$interestRate', '$downPayment',
         '$insuranceType', '$busOccupancy', '$fuelEfficiencyDegradation', '$analysisWindow', '$discountRate', '$annualRegistration', '$salesTaxAndTitle', '$insuranceFixed', '$depreciationRate',
         '$depreciation', '$salvageValue', '$financeTerm', '$usedVehicle', '$majorRepair', '$usedVehicleYear', '$vehicleFinanced', '$bevRange', '$phevRange', '$vmtType', '$customNewVMT',
-        '$customVmtValue', '$customVmtYear', '$customVMT', '$customVmtValueUsed')";
+        '$customVmtValue', '$customVmtYear', '$customVMT', '$customVmtValueUsed', '$userDefinedFuel', '$userDefinedPurchaseCost', '$userDefinedMPG', '$userDefinedInsuranceLiability',
+        '$userDefinedInsuranceDeductable', '$userDefinedFixedInsurance', '$carbonEmission')";
 
 
         $sqli = $connect->query($insertData);
