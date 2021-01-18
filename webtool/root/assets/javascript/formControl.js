@@ -133,6 +133,17 @@ function submittedAjaxForm()
     let laborData = [];
     let vmtData = [];
 
+    let vehicleDataMiles = [];
+    let financingDataMiles = [];
+    let annualFuelDataMiles = [];
+    let insuranceDataMiles = [];
+    let taxDataMiles = [];
+    let maintenanceDataMiles = [];
+    let repairDataMiles = [];
+    let operationalDataMiles = [];
+    let laborDataMiles = [];
+    let milesDrivenInt = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000, 150000, 160000, 170000, 180000, 190000, 200000, 210000, 220000, 230000, 240000, 250000, 260000, 270000, 280000, 290000, 300000];
+
     let body = [];
     let finance = [];
     let fuel = [];
@@ -165,6 +176,10 @@ function submittedAjaxForm()
             console.log(data);
             let vehicleInformation = jQuery.parseJSON(data);
 
+            
+            let totalVmt = vehicleInformation[9][0];
+            let counter = 0;
+
             for(let i = 0; i < 30; i++)
             {
                 vehicleData[i] = vehicleInformation[0][i];
@@ -177,6 +192,22 @@ function submittedAjaxForm()
                 operationalData[i] = vehicleInformation[7][i];
                 laborData[i] = vehicleInformation[8][i];
                 vmtData[i] = vehicleInformation[9][i];
+
+                if(milesDrivenInt[i] > totalVmt)
+                {
+                  counter++;
+                  totalVmt += vmtData[counter];
+                }
+
+                vehicleDataMiles[i] = vehicleInformation[0][i] / vmtData[counter];
+                financingDataMiles[i] = vehicleInformation[1][i] / vmtData[counter];
+                annualFuelDataMiles[i] = vehicleInformation[2][i] / vmtData[counter];
+                insuranceDataMiles[i] = vehicleInformation[3][i] / vmtData[counter];
+                taxDataMiles[i] = parseFloat(vehicleInformation[4][i]) / vmtData[counter];
+                maintenanceDataMiles[i] = vehicleInformation[5][i] / vmtData[counter];
+                repairDataMiles[i] = vehicleInformation[6][i] / vmtData[counter];
+                operationalDataMiles[i] = vehicleInformation[7][i] / vmtData[counter];
+                laborDataMiles[i] = vehicleInformation[8][i] / vmtData[counter];
             }
 
             switch(bodyType.selectedIndex)
@@ -200,8 +231,10 @@ function submittedAjaxForm()
             }
 
             let downloadData = [];
+            let csvTitle = ["Vehicle Analysis Results"]
             let vehicleLabel = ["Depreciation"];
             let financeLabel = ["Financing"];
+            let annualFuelLabel = ["Annual Fueling Cost"];
             let insuranceLabel = ["Insurance"];
             let taxesLabel = ["Taxes and Fees"];
             let maintenanceLabel = ["Maintenance"];
@@ -210,15 +243,39 @@ function submittedAjaxForm()
             let laborLabel = ["Labor"];
             let vmtLabel = ["Vehicle Miles Traveled"];
 
+            let vehicleLabelMiles = ["Depreciation Miles"];
+            let financeLabelMiles = ["Financing Miles"];
+            let annualFuelLabelMiles = ["Annual Fueling Cost Miles"];
+            let insuranceLabelMiles = ["Insurance Miles"];
+            let taxesLabelMiles = ["Taxes and Fees Miles"];
+            let maintenanceLabelMiles = ["Maintenance Miles"];
+            let repairLabelMiles = ["Repair Miles"];
+            let operationalLabelMiles = ["operational Miles"];
+            let laborLabelMiles = ["Labor Miles"];
+            
+            downloadData.push(csvTitle);
             downloadData.push(vehicleLabel.concat(vehicleData));
             downloadData.push(financeLabel.concat(financingData));
-            downloadData.push(insuranceLabel.concat(annualFuelData));
-            downloadData.push(taxesLabel.concat(insuranceData));
-            downloadData.push(maintenanceLabel.concat(taxData));
-            downloadData.push(repairLabel.concat(maintenanceData));
-            downloadData.push(operationalLabel.concat(repairData));
+            downloadData.push(annualFuelLabel.concat(annualFuelData));
+            downloadData.push(insuranceLabel.concat(insuranceData));
+            downloadData.push(taxesLabel.concat(taxData));
+            downloadData.push(maintenanceLabel.concat(maintenanceData));
+            downloadData.push(repairLabel.concat(repairData));
+            downloadData.push(operationalLabel.concat(operationalData));
             downloadData.push(laborLabel.concat(laborData));
             downloadData.push(vmtLabel.concat(vmtData));
+
+            downloadData.push([]);
+
+            downloadData.push(vehicleLabel.concat(vehicleDataMiles));
+            downloadData.push(financeLabel.concat(financingDataMiles));
+            downloadData.push(annualFuelLabelMiles.concat(annualFuelDataMiles));
+            downloadData.push(insuranceLabelMiles.concat(insuranceDataMiles));
+            downloadData.push(taxesLabelMiles.concat(taxDataMiles));
+            downloadData.push(maintenanceLabelMiles.concat(maintenanceDataMiles));
+            downloadData.push(repairLabelMiles.concat(repairDataMiles));
+            downloadData.push(operationalLabelMiles.concat(operationalDataMiles));
+            downloadData.push(laborLabelMiles.concat(laborDataMiles));
 
             let csvContent = "data:text/csv;charset=utf-8,";
 
