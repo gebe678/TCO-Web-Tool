@@ -275,8 +275,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
             },
             scales:
             {
-              xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
-              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}}]
+              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
             },
             plugins:
             {
@@ -666,7 +665,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
         title:
         {
           display: true,
-          text: "TCO Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Powertrains",
+          text: "Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Powertrains",
           fontFamily: "sans-serif",
           fontColor: "black",
           fontSize: 20,
@@ -777,7 +776,7 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
         title:
         {
           display: true,
-          text: "TCO Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Model Years",
+          text: "Comparison Across " + bodyName.options[bodyName.selectedIndex].text + " Model Years",
           fontFamily: "sans-serif",
           fontColor: "black",
           fontSize: 20,

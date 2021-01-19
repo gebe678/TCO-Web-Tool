@@ -749,7 +749,7 @@ function calculateAdvancedExponentialDepreciationUsed($numYears)
         return $sum;
     }
 
-    function caluclateCarbonEmissionPowertrain()
+    function caluclateCarbonEmissionUsed()
     {
         include "getID.php";
 
@@ -839,7 +839,7 @@ function calculateAdvancedExponentialDepreciationUsed($numYears)
         if($_POST["vehicleClassSize"] === "LDV")
         {
             $totalCost;
-            $carbonTax = caluclateCarbonEmission();
+            $carbonTax = caluclateCarbonEmissionUsed();
     
             $salesTax = $_POST["salesTax"] / 100;
             $initialVehicleRegistration = $_POST["annualRegistration"];
@@ -1129,7 +1129,7 @@ function calculateAdvancedExponentialDepreciationUsed($numYears)
         return $sum;
     }
 
-    function calculateNewMajorRepairModelYear($numYears)
+    function calculateNewMajorRepairUsed($numYears)
     {
         include "connectDatabase.php";
 
@@ -1247,7 +1247,7 @@ function calculateAdvancedExponentialDepreciationUsed($numYears)
     
             if($_POST["majorLDVCheck"] === "true")
             {
-                $majorRepairCost = calculateNewMajorRepairModelYear($numYears);
+                $majorRepairCost = calculateNewMajorRepairUsed($numYears);
             }
             else
             {

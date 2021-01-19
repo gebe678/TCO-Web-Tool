@@ -153,7 +153,7 @@
                                 <h3 class="detailedView"> Technology Group </h3>
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="vehicleBody" title="Select the type/vocation of vehicle">Vehicle Type: <img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="vehicleBody" title="Select the type/vocation of vehicle">Vehicle Type: <img class="infoCalloutChange" src="assets/page_pictures/infoCallout.JPG"></label>
                                     </div>
                                     <div class="border">
                                         <select name="vehicleBody" class="selectMenu form-control" id="vehicleBodyMenu">
@@ -180,7 +180,7 @@
 
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="powertrain" title="Select the powertrain of vehicle.&#013; ICE-SI: conventional gasoline,&#013; ICE-CI: conventional diesel,&#013; HEV: hybrid electric,&#013; PHEV: plug-in hybrid electric,&#013; FCEV: fuel cell,&#013; BEV: battery electric.">Powertrain:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="powertrain" title="Select the powertrain of vehicle.&#013; ICE-SI: conventional gasoline,&#013; ICE-CI: conventional diesel,&#013; HEV: hybrid electric,&#013; PHEV: plug-in hybrid electric,&#013; FCEV: fuel cell,&#013; BEV: battery electric.">Powertrain:<img class="infoCalloutChange" src="assets/page_pictures/infoCallout.JPG"></label>
                                     </div>
                                     <div class="border">
                                         <select name="powertrain" class="selectMenu form-control" id="powertrainMenu">
@@ -196,7 +196,7 @@
 
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label name="modelYear" title="Select the model year of vehicle. Fuel efficiency and cost for future MY vehicles are based on Autonomie simulations.">Model Year:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label name="modelYear" title="Select the model year of vehicle. Fuel efficiency and cost for future MY vehicles are based on Autonomie simulations.">Model Year:<img class="infoCalloutChange" src="assets/page_pictures/infoCallout.JPG"></label>
                                     </div>
                                     <div class="border">
                                         <select name="modelYear" class="selectMenu form-control" id="modelYearMenu">
@@ -217,7 +217,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="Fuel" title="Select the compatible fuel for powertrain.">Fuel type:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="Fuel" title="Select the compatible fuel for powertrain.">Fuel type:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="fuel" class="selectMenu form-control" id="fuelTypes">
@@ -237,7 +237,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="technology" title="Select the rate of technology progress. Influences the vehicle efficiency and cost values of selected MY vehicle.">Technology Progress:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="technology" title="Select the rate of technology progress. Influences the vehicle efficiency and cost values of selected MY vehicle.">Technology Progress:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="technology" class="selectMenu form-control"
@@ -258,7 +258,7 @@
 
                                     <div class="inputContainer form-group" style="display: none;">
                                         <label for="markupFactor" class="sliderLabel">Purchase Price Markup
-                                            Factor<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Factor<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="1" max="2" step=".01" value="1.5" class="slider"
                                             name="markupFactor" id="markupFactor">
                                         <input type="number" min="1" max="2" step=".01" value="1.5" class="outputText"
@@ -295,7 +295,7 @@
 
                                     <div class="dropDownMenu form-group" style="display:none;">
                                         <div class="label">
-                                            <label for="fuelPriceMethod" title="Method for calculating fuel prices for the vehicle">Fuel Price:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="fuelPriceMethod" title="Method for calculating fuel prices for the vehicle">Fuel Price:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelPriceMethod" class="selectMenu form-control"
@@ -309,7 +309,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="premiumGasModifier" class="sliderLabel" title="Specify the  added costto premium gasoline. Applicable only to Luxury vehicles.">Premium Gasoline
-                                            Markup $<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Markup $<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="1" step=".01" value=".40" class="slider"
                                             name="premiumGasModifier" id="premiumGasModifier">
                                         <input type="number" min="0" max="1" step=".01" value=".40" class="outputText">
@@ -317,7 +317,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="hydrogenSuccessFactor" title="Select scenario fof hydrogen technology progress. Affects hydrogen fuel prices and is applicable only to FCEV">Hydrogen Success:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="hydrogenSuccessFactor" title="Select scenario fof hydrogen technology progress. Affects hydrogen fuel prices and is applicable only to FCEV">Hydrogen Success:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="hydrogenSuccessFactor" class="selectMenu form-control"
@@ -330,7 +330,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="annualFuelPriceIncrease" class="sliderLabel" title="Specify the annual rate of fuel price increase">Annual Fuel Price
-                                            Change %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Change %<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="-100" max="100" value="0" class="slider"
                                             name="annualFuelPriceIncrease" id="annualFuelPriceIncrease">
                                         <input type="number" min="-100" max="100" value="0" class="outputText"
@@ -339,7 +339,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="fuelInfrastructure" class="sliderLabel" title="Specify additional annual costfor standingup infrastructure">Fueling Infrastructure
-                                            Cost<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Cost<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="1000" value="0" class="slider"
                                             name="fuelInfrastructure" id="fuelInfrastructure">
                                         <input type="number" min="0" max="1000" value="0" class="outputText">
@@ -347,7 +347,7 @@
 
                                     <div class="dropDownMenu form-group" style="display:none;">
                                         <div class="label">
-                                            <label for="years" title="Year fuel cost begins before changing through the % increase">Fuel Starting Cost Year:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="years" title="Year fuel cost begins before changing through the % increase">Fuel Starting Cost Year:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelYear" class="selectMenu form-control" id="fuelStartYear" style="display: none;">
@@ -364,7 +364,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelReference" title="select the fuel data. AEO options: Reflects the Annual Energy Outlook projection from EIA for the selected MY and increased annual using the Annual Fuel Price change slider. User defined: Enter custom fuel price at the first year of operation. Annual Fuel Price slider is used to expand entry to subsequent years.">Fuel Price<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="fuelReference" title="select the fuel data. AEO options: Reflects the Annual Energy Outlook projection from EIA for the selected MY and increased annual using the Annual Fuel Price change slider. User defined: Enter custom fuel price at the first year of operation. Annual Fuel Price slider is used to expand entry to subsequent years.">Fuel Price<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelReference" class="selectMenu form-control"
@@ -380,7 +380,7 @@
 
                                     <div class="inputContainer form-group" id="userDefinedFuelBlock" style="display:none;">
                                         <label for="userDefinedFuel" class="sliderLabel" title="">User Defined Fuel Cost
-                                            Cost<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Cost<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="1000" value="0" step=.01 class="slider"
                                             name="userDefinedFuel" id="userDefinedFuel">
                                         <input type="number" min="0" max="1000" value="0" step=".01" class="outputText">
@@ -388,7 +388,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vehicleCostInput" title="Select input for vehicle cost">Vehicle Cost<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="vehicleCostInput" title="Select input for vehicle cost">Vehicle Cost<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="vehicleCostInput" class="selectMenu form-control"
@@ -403,7 +403,7 @@
 
                                     <div class="inputContainer form-group" id="purchaseCostContainer">
                                         <label for="purchaseCost" class="sliderLabel" id="purchaseLabel" title="user defined vehicle starting price" style="display:none;"> User Defined Purchase
-                                            Cost<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Cost<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="10000000" value="19095" class="slider"
                                             name="purchaseCost" id="purchaseCost" style="display:none;">
                                         <input type="number" min="0" max="10000000" value="19095" class="outputText"
@@ -411,7 +411,7 @@
                                     </div> <!-- </inputContainer -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="vehicleIncentive" class="sliderLabel" title="Specify incentive to offset the vehicle purchase cost">Vehicle Incentive<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="vehicleIncentive" class="sliderLabel" title="Specify incentive to offset the vehicle purchase cost">Vehicle Incentive<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="1000000000" value="0" class="slider"
                                             name="vehicleIncentive" id="vehicleIncentive">
                                         <input type="number" min="0" max="1000000000" value="0" class="outputText">
@@ -419,7 +419,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="APU" title="Specify if heavy duty ICE-CI and HEV have an auxiliary power unit to handle hotelinngloads.Lowers fuel consumption in exchange for one-time APU equipment cost.">APU<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="APU" title="Specify if heavy duty ICE-CI and HEV have an auxiliary power unit to handle hotelinngloads.Lowers fuel consumption in exchange for one-time APU equipment cost.">APU<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="APU" class="selectMenu form-control" id="APU">
@@ -431,7 +431,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="fuelCostInput" title="Simulation for costs of fuel for chosen fuel type">Fuel Economy Input<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="fuelCostInput" title="Simulation for costs of fuel for chosen fuel type">Fuel Economy Input<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="fuelCostInput" class="selectMenu form-control"
@@ -455,7 +455,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="fuelEfficiencyDegradation" class="sliderLabel" title="Specify annual degradation to vehicle fuel economy due to wear-and-tear">Annual MPG
-                                            Degradation %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Degradation %<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         <input type="range" min="0" max="100" value="0" step=".1" class="slider"
                                             name="fuelEfficiencyDegradation" id="fuelEfficiencyDegradation">
                                         <input type="number" min="0" max="100" value="0" step=".1" class="outputText">
@@ -463,7 +463,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="idling" title="Specify if HDV idling cost is accounted for. Idle cost reflects fuel use from hoteling loads of Sleeper Cab HDV">Idling Costs<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="idling" title="Specify if HDV idling cost is accounted for. Idle cost reflects fuel use from hoteling loads of Sleeper Cab HDV">Idling Costs<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="idling" class="selectMenu form-control" id="idling">
@@ -549,7 +549,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="analysisWindow" class="sliderLabel" title="Specify length of ownership period.">Analysis Window<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="analysisWindow" class="sliderLabel" title="Specify length of ownership period.">Analysis Window<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="5" max="30" value="30" class="slider"
                                             name="analysisWindow" id="analysisWindow">
                                         <input type="number" min="5" max="30" value="30" class="outputText"
@@ -557,7 +557,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="discountRate" class="sliderLabel" title="Specify discounting % for net present value calculations">Discount Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="discountRate" class="sliderLabel" title="Specify discounting % for net present value calculations">Discount Rate %<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="100" step=".1" value="2" class="slider"
                                             name="discountRate" id="discountRate">
                                         <input type="number" min="0" max="100" step=".1" value="2"
@@ -566,14 +566,14 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="annualRegistration" class="sliderLabel" title="Specify annual registration fee">Annual Registration
-                                            Fee<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Fee<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="100" max="1000" value="268" class="slider"
                                             name="annualRegistration" id="annualRegistration">
                                         <input type="number" min="100" max="1000" value="268" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="salesTax" class="sliderLabel" title="Specify sales tax %">Sales Tax %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="salesTax" class="sliderLabel" title="Specify sales tax %">Sales Tax %<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="100" step=".1" value="8.4" class="slider"
                                             name="salesTax" id="salesTax">
                                         <input type="number" min="0" max="100" step=".1" value="8.4"
@@ -581,7 +581,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="carbonEmission" class="sliderLabel" title="Specify tax for every ton of carbon emission">Carbon emissions tax, $/tonne<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="carbonEmission" class="sliderLabel" title="Specify tax for every ton of carbon emission">Carbon emissions tax, $/tonne<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="1000" value="0" class="slider"
                                             name="carbonEmission" id="carbonEmission">
                                         <input type="number" min="0" max="1000" value="0"
@@ -589,7 +589,7 @@
                                     </div><!-- </inputContainer> -->
 
                                     <div class="inputContainer">
-                                        <label for="insuranceFixed" class="sliderLabel" title="Fixed insurance rate">Insurance Fixed Rate<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="insuranceFixed" class="sliderLabel" title="Fixed insurance rate">Insurance Fixed Rate<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="100" max="500" value="400" class="slider"
                                             name="insuranceFixed" id="insuranceFixed">
                                         <input type="number" min="100" max="500" value="400" class="outputText">
@@ -597,7 +597,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="depreciation" title="Select depreciation calculation method">Depreciation:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="depreciation" title="Select depreciation calculation method">Depreciation:<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="depreciation" class="selectMenu form-control"
@@ -613,14 +613,14 @@
 
                                     <div class="inputContainer form-group" id="simpleDepreciationRate" style="display:none;">
                                         <label for="depreciationRate" class="sliderLabel" title="Specify depreciation rate. The calculation is based on the simple depreciation model.">Depreciation
-                                            Rate<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Rate<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="1" step=".01" value="0.09" class="slider"
                                             name="depreciationRate" id="depreciationRate">
                                         <input type="number" min="0" max="1" step=".01" value="0.09" class="outputText">
                                     </div> <!-- </inputContainer> -->
 
                                     <div class="inputContainer form-group" style="display:none;">
-                                        <label for="writeOff" class="sliderLabel" title="Specify the year of ownership where the remaining value of the vehicle is written off.">Vehicle Write Off<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="writeOff" class="sliderLabel" title="Specify the year of ownership where the remaining value of the vehicle is written off.">Vehicle Write Off<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="1" max="30" value="10" class="slider" name="writeOff"
                                             id="writeOff" style="display: none;">
                                         <input type="number" min="1" max="30" value="10" class="outputText">
@@ -628,7 +628,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="salvageValue" title="Select components of residual value to account for at the end of ownership period.">Salvage Value<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="salvageValue" title="Select components of residual value to account for at the end of ownership period.">Salvage Value<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="salvageValue" class="selectMenu form-control"
@@ -647,7 +647,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vehicleFinanced" title="Select if vehicle is financed">Financing<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="vehicleFinanced" title="Select if vehicle is financed">Financing<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="vehicleFinanced" class="selectMenu form-control" id="vehicleFinanced">
@@ -659,7 +659,7 @@
 
                                     <div class="inputContainer">
                                         <label for="financeTerm" class="sliderLabel" id="financeTermLabel" title="Specify length of financing">Finance
-                                            Term<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Term<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="30" value="4" class="slider" name="financeTerm"
                                             id="financeTerm">
                                         <input type="number" min="0" max="30" value="4" class="outputText"
@@ -668,7 +668,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="interestRate" class="sliderLabel" id="interestRateLabel" title="Specify interest rate on vehicle loan">Interest
-                                            Rate %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Rate %<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="100" value="4.6" step=".1" class="slider"
                                             name="interestRate" id="interestRate">
                                         <input type="number" min="0" max="100" value="4.6" step=".1" class="outputText"
@@ -677,7 +677,7 @@
 
                                     <div class="inputContainer form-group">
                                         <label for="downPayment" class="sliderLabel" id="downPaymentLabel" title="Specify down payment % of vehicle purchase price">Down
-                                            Payment %<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Payment %<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="100" value="1.2" step=".1" class="slider"
                                             name="downPayment" id="downPayment">
                                         <input type="number" min="0" max="100" value="1.2" step=".1" class="outputText"
@@ -686,7 +686,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="insuranceType" title="Select insurance cost. Min, avg and max represent costs for LDV. Variable and fixed represent costs for HDV. Variable insurance considers vehicle mileage travelled.">Insurance Type:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="insuranceType" title="Select insurance cost. Min, avg and max represent costs for LDV. Variable and fixed represent costs for HDV. Variable insurance considers vehicle mileage travelled.">Insurance Type:<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="insuranceType" class="selectMenu form-control"
@@ -707,7 +707,7 @@
 
                                     <div class="inputContainer" id="insuranceLiabilityContainer" style="display:none">
                                         <label for="insuranceLiability" class="sliderLabel" id="insuranceLiabilityLabel" title="Specify annual liability cost">Insurance
-                                        Liability <img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        Liability <img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="1500" value="300" class="slider" name="insuranceLiability"
                                             id="insuranceLiability" style="display: none;">
                                         <input type="number" min="0" max="1500" value="300" class="outputText"
@@ -716,7 +716,7 @@
                                     
                                     <div class="inputContainer" id="insuranceDeductableContainer" style="display:none">
                                         <label for="insuranceDeductable" class="sliderLabel" id="insuranceDeductableLabel" title="Specify deductible amount">Insurance
-                                            Deductable<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Deductable<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="1000" value="500" class="slider" name="insuranceDeductable"
                                             id="insuranceDeductable" style="display: none;">
                                         <input type="number" min="0" max="1000" value="500" class="outputText"
@@ -725,7 +725,7 @@
 
                                     <div class="inputContainer" id="fixedInsuranceContainer" style="display:none">
                                         <label for="fixedInsurance" class="sliderLabel" id="fixedInsuranceLabel" title="Specify annual insurance cost">Fixed
-                                            Insurance<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            Insurance<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="50000" value="10000" class="slider" name="fixedInsurance"
                                             id="fixedInsurance" style="display: none;">
                                         <input type="number" min="0" max="50000" value="10000" class="outputText"
@@ -734,7 +734,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="majorLDVCheck"  title="Select if the vehicle incurs additional end of life repairs. Applicable only for LDVs">Consider major EOL repair<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="majorLDVCheck"  title="Select if the vehicle incurs additional end of life repairs. Applicable only for LDVs">Consider major EOL repair<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="majorLDVCheck" class="selectMenu form-control" id="majorLDVCheck">
@@ -746,7 +746,7 @@
 
                                     <div class="usedVehicleInputs form-group">
                                         <div class="checkboxContainer">
-                                            <label class="sliderLabel" for="usedVehicle" title="Preform analysis for a used vehicle">Analyze Used Car<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label class="sliderLabel" for="usedVehicle" title="Preform analysis for a used vehicle">Analyze Used Car<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                             <input type="checkbox" id="usedVehicle" class="togglePowertrain"
                                                 name="usedVehicle">
                                             <label for="usedVehicle" class="togglePowertrainLabel"></label>
@@ -754,20 +754,20 @@
                                     </div><!-- </usedVehicleInputs> -->
 
                                     <div class="inputContainer form-group" id="usedVehicleContainer">
-                                        <label for="usedVehicleYear" class="sliderLabel" title="specify age of used vehicle at the time of purchase">Age of used car, "yr"<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="range" min="0" max="15" value="0" class="slider"
+                                        <label for="usedVehicleYear" class="sliderLabel" title="specify age of used vehicle at the time of purchase">Age of used car, "yr"<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
+                                        <input type="range" min="0" max="15" value="2" class="slider"
                                             name="usedVehicleYear" id="usedVehicleYear">
-                                        <input type="number" min="0" max="15" value="0" class="outputText">
+                                        <input type="number" min="0" max="15" value="2" class="outputText">
                                     </div><!-- </inputContainer> -->
 
                                     <div class="checkboxContainer form-group" id="customVMTCheck">
-                                        <label class="sliderLabel" for="customVMT" title="use custom value for VMT. Applicable for used vehicle analysis only.">Change label to: use custom VMT (used vehicle)<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label class="sliderLabel" for="customVMT" title="use custom value for VMT. Applicable for used vehicle analysis only.">Change label to: use custom VMT (used vehicle)<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="checkbox" id="customVMT" class="togglePowertrain" name="customVMT">
                                         <label for="customVMT" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkboxContainer> -->
 
                                     <div class="customVMTValues form-group" id="customVMTValues">
-                                        <label for="customVMTValue" class="usedVehicleLabel" title="Custom VMT starting year for used vehicle">Custom VMT Value<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="customVMTValue" class="usedVehicleLabel" title="Custom VMT starting year for used vehicle">Custom VMT Value<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="text" name="customVMTValue" id="customVMTValue" value="1">
                                     </div><!-- </customVMTValues> -->
 
@@ -787,7 +787,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="busOccupancy" title="Select occupancy of Bus">Bus Occupancy:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="busOccupancy" title="Select occupancy of Bus">Bus Occupancy:<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="busOccupancy" class="selectMenu form-control"
@@ -800,7 +800,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="bevRange" title="Select BEV range. Affects vehicle purchase price, mpg and weight">Bev Range:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="bevRange" title="Select BEV range. Affects vehicle purchase price, mpg and weight">Bev Range:<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="bevRange" class="selectMenu form-control" id="bevRangeMenu">
@@ -814,7 +814,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="phevRange" Title="Select PHEV range. Short and long reflects 20 and 50 all-electric miles range respectively. Applicable only for LDVs. Affects vehicle purchase price, mpg and weight">PHEV Range:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="phevRange" Title="Select PHEV range. Short and long reflects 20 and 50 all-electric miles range respectively. Applicable only for LDVs. Affects vehicle purchase price, mpg and weight">PHEV Range:<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="phevRange" class="selectMenu form-control" id="phevRangeMenu">
@@ -827,7 +827,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vmt" title="select profile for vehicle miles travelled.">VMT:<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                            <label for="vmt" title="select profile for vehicle miles travelled.">VMT:<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="vmt" class="selectMenu form-control" id="vmtMenu">
@@ -860,21 +860,21 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="checkboxContainer form-group" id="customNewVmtCheck">
-                                        <label class="sliderLabel" for="customNewVmt" title="use custom value for VMT. Applicable for new vehicle analysis only.">Use custom VMT (new vehicle)<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label class="sliderLabel" for="customNewVmt" title="use custom value for VMT. Applicable for new vehicle analysis only.">Use custom VMT (new vehicle)<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         <input type="checkbox" id="customNewVmt" class="togglePowertrain"
                                             name="customNewVmt">
                                         <label for="customNewVmt" class="togglePowertrainLabel"></label>
                                     </div><!-- </checkBoxContainer> -->
 
                                     <div class="customNewVMTValues form-group" id="customNewVMTValues">
-                                        <label for="customNewVMTValue" class="usedVehicleLabel" title="Specify vehicle VMT. The built-in VMT profile is scaled to this input at the first year of ownership.">Custom VMT Value<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="customNewVMTValue" class="usedVehicleLabel" title="Specify vehicle VMT. The built-in VMT profile is scaled to this input at the first year of ownership.">Custom VMT Value<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         <input type="text" name="customNewVMTValue" id="customNewVMTValue" value="1">
-                                        <label for="customNewVMTYear" class="usedVehicleLabel" style="display:none" title="Year the VMT schedule should begin">Custom VMT Year<img src="assets/page_pictures/infoCallout.JPG"></label>
-                                        <input type="text" name="customNewVMTYear" id="customNewVMTYear" value="1">
+                                        <label for="customNewVMTYear" class="usedVehicleLabel" style="display:none" title="Year the VMT schedule should begin">Custom VMT Year<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                        <input type="text" name="customNewVMTYear" id="customNewVMTYear" style="display:none;" value="1">
                                     </div><!-- </customNewVMTValues> -->
 
                                     <div class="inputContainer form-group" style="display: none;">
-                                        <label for="laborCost" class="sliderLabel">Labor Cost Per Mile<img src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="laborCost" class="sliderLabel">Labor Cost Per Mile<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         <input type="range" min="0" max="1" value=".6" step="0.01" class="slider"
                                             name="laborCost" id="laborCost" style="display: none;">
                                         <input type="number" min="0" max="1" value=".6" step="0.01" class="outputText">

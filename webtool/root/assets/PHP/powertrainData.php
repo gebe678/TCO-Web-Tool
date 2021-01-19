@@ -801,7 +801,7 @@ function calculateAdvancedExponentialDepreciationPowertrain($numYears, $powertra
         if($_POST["vehicleClassSize"] === "LDV")
         {
             $totalCost;
-            $carbonTax = caluclateCarbonEmission();
+            $carbonTax = caluclateCarbonEmissionPowertrain();
     
             $salesTax = $_POST["salesTax"] / 100;
             $initialVehicleRegistration = $_POST["annualRegistration"];

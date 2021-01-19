@@ -45,6 +45,7 @@ function toggleControl()
     let detailedTechnologyGroup = document.querySelector(".detailedView .technologyGroup");
     let detailedOptions = document.querySelector(".detailedOptions");
     let form = document.getElementById("vehicleInfoForm");
+    let img = document.getElementsByClassName("infoCalloutChange");
 
     toggle.addEventListener("click", function(){
         if(toggle.checked)
@@ -52,6 +53,11 @@ function toggleControl()
             for(let i = 0;  i < detailedView.length; i++)
             {
                 detailedView[i].style.display = "block";
+            }
+
+            for(let i = 0; i < img.length; i++)
+            {
+                img[i].src = "assets/page_pictures/infoCalloutTechnology.JPG";
             }
             
             detailedOptions.style.display = "inline-block";
@@ -69,6 +75,12 @@ function toggleControl()
             {
                 detailedView[i].style.display = "none";
             }
+
+            for(let i = 0; i < img.length; i++)
+            {
+                img[i].src = "assets/page_pictures/infoCallout.JPG";
+            }
+
             detailedOptions.style.display = "none";
             labelText.innerHTML = "Simplified View";
             labelText.title = "Reveal detailed input selectors for TCO calculations";
