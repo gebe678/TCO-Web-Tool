@@ -15,6 +15,7 @@
 
     $analysisWindow = $_POST["analysisWindow"];
     $discountRate = $_POST["discountRate"] / 100;
+    $vehicleTco = $_POST["vehicleGraphControl"];
 
     $vehicleBodyCost;
     $financeCost;
@@ -30,7 +31,15 @@
 
     if(!checkDatabase())
     {
-        $vehicle = calculateDepreciation($analysisWindow);
+        if($vehicleTco === "depreciation")
+        {
+            $vehicle = calculateDepreciation($analysisWindow);
+        }
+        else if($vehicleTco === "vehiclePayment")
+        {
+            $vehicle = calculateVehiclePayments($analysisWindow);
+        }
+        
         $financeCost = calculateInterestPayment($analysisWindow);
         $annualFuelCost = calculateAnnualFuelCost($analysisWindow);
         $insuranceCost = calculateNewInsuranceCost($analysisWindow);
@@ -72,7 +81,7 @@
 
         for($i = 0; $i < $analysisWindow; $i++)
         {
-            writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
+           // writeData($i, $vehicle[$i], $financeCost[$i], $annualFuelCost[$i], $insuranceCost[$i], $taxesAndFees[$i], $maintenance[$i], $repair[$i], $operational[$i], $infrastructure, $labor[$i], $vehicleVmt[$i]);
         }
     }
     else

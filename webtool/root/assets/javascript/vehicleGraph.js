@@ -167,7 +167,68 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
 function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedOperational, usedLabor)
 {
     $("#usedVehicleChart").remove();
-    $(".canvasContainer").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
+    let first = document.querySelector(".first");
+    let second = document.querySelector(".second");
+    let third = document.querySelector(".third");
+
+    // if(!first.hasChildNodes())
+    // {
+    //   $(".first").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!second.hasChildNodes())
+    // {
+    //   $(".second").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!third.hasChildNodes())
+    // {
+    //   $(".third").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
+    // }
+
+    if(!(first.classList.contains("powertrainGraphContainer") || first.classList.contains("modelYearGraphContainer")))
+    {
+      first.classList.add("usedVehicleGraphContainer");
+
+      if(second.classList.contains("usedVehicleGraphContainer"))
+      {
+        second.classList.remove("usedVehicleGraphContainer");
+      }
+
+      if(third.classList.contains("usedVehicleGraphContainer"))
+      {
+        third.classList.remove("usedVehicleGraphContainer");
+      }
+
+    }
+    else if(!(second.classList.contains("powertrainGraphContainer") || second.classList.contains("modelYearGraphContainer")))
+    {
+      second.classList.add("usedVehicleGraphContainer");
+
+      if(first.classList.contains("usedVehicleGraphContainer"))
+      {
+        first.classList.remove("usedVehicleGraphContainer");
+      }
+
+      if(third.classList.contains("usedVehicleGraphContainer"))
+      {
+        third.classList.remove("usedVehicleGraphContainer");
+      }
+    }
+    else
+    {
+      third.classList.add("usedVehicleGraphContainer");
+
+      if(first.classList.contains("usedVehicleGraphContainer"))
+      {
+        first.classList.remove("usedVehicleGraphContainer");
+      }
+
+      if(second.classList.contains("usedVehicleGraphContainer"))
+      {
+        second.classList.remove("usedVehicleGraphContainer");
+      }
+    }
+
+    $(".usedVehicleGraphContainer").append("<canvas id='usedVehicleChart'>canvas is not supported in your browser</canvas>");
 
     let canvas = document.getElementById("usedVehicleChart");
 
@@ -275,6 +336,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
             },
             scales:
             {
+              xAxes: [{stacked: true, scaledLabel:{display:true, labelString: ""}}],
               yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
             },
             plugins:
@@ -288,6 +350,17 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
 function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
 {
     let canvas = document.getElementById("vehicleGraph");
+    let age = document.getElementById("usedVehicle");
+    let viewAge = "";
+
+    if(!age.checked)
+    {
+      viewAge = "New";
+    }
+    else
+    {
+      viewAge = "Used";
+    }
 
     // let years = document.querySelectorAll(".costComponents.year");
     let year = [];
@@ -398,7 +471,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           title:
           {
             display: true,
-            text: "Annual TCO Comparison Over Years Of Ownership " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
+            text: "Annual TCO For " + viewAge + " " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
             fontFamily: "sans-serif",
             fontColor: "black",
             fontSize: 20,
@@ -451,6 +524,18 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
 
         // vmt data by year
         let vmtCost = [];
+
+        let age = document.getElementById("usedVehicle");
+        let viewAge = "";
+    
+        if(!age.checked)
+        {
+          viewAge = "New";
+        }
+        else
+        {
+          viewAge = "Used";
+        }
 
         let milesDriven = ["10k", "20k", "30k", "40k", "50k", "60k", "70k", "80k", "90k", "100k", "110k", "120k", "130k", "140k", "150k", "160k", "170k", "180k", "190k", "200k", "210k", "220k", "230k", "240k", "250k", "260k", "270k", "280k", "290k", "300k"];
         let milesDrivenInt = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000, 150000, 160000, 170000, 180000, 190000, 200000, 210000, 220000, 230000, 240000, 250000, 260000, 270000, 280000, 290000, 300000];
@@ -556,7 +641,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             title:
             {
               display: true,
-              text: "Annual TCO Costs Per Mile Over Years Of Ownership " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
+              text: "Per Mile TCO For " + viewAge + " " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text,
               fontFamily: "sans-serif",
               fontColor: "black",
               fontSize: 20,
@@ -578,7 +663,76 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
 function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair)
 {
     $("#powertrainGraph").remove();
-    $(".canvasContainer").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
+  
+    let first = document.querySelector(".first");
+    let second = document.querySelector(".second");
+    let third = document.querySelector(".third");
+
+    // console.log(second.hasChildNodes());
+    // if(!first.hasAttributes())
+    // {
+    //   console.log("first is empty");
+    //   //$("#first").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!second.hasAttributes())
+    // {
+    //   console.log("second is empty");
+    //   //$("#second").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!third.hasAttributes())
+    // {
+    //   console.log("third is empty");
+    //   //$("#third").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
+    // }
+    // else
+    // {
+    //   console.log("this is not what I expected");
+    // }
+
+    if(!(first.classList.contains("usedVehicleGraphContainer") || first.classList.contains("modelYearGraphContainer")))
+    {
+      first.classList.add("powertrainGraphContainer");
+
+      if(second.classList.contains("powertrainGraphContainer"))
+      {
+        second.classList.remove("powertrainGraphContainer");
+      }
+
+      if(third.classList.contains("powertrainGraphContainer"))
+      {
+        third.classList.remove("powertrainGraphContainer");
+      }
+    }
+    else if(!(second.classList.contains("usedVehicleGraphContainer") || second.classList.contains("modelYearGraphContainer")))
+    {
+      second.classList.add("powertrainGraphContainer");
+
+      if(first.classList.contains("powertrainGraphContainer"))
+      {
+        first.classList.remove("powertrainGraphContainer");
+      }
+
+      if(third.classList.contains("powertrainGraphContainer"))
+      {
+        third.classList.remove("powertrainGraphContainer");
+      }
+    }
+    else
+    {
+      third.classList.add("powertrainGraphContainer");
+
+      if(second.classList.contains("powertrainGraphContainer"))
+      {
+        second.classList.remove("powertrainGraphContainer");
+      }
+
+      if(first.classList.contains("powertrainGraphContainer"))
+      {
+        first.classList.remove("powertrainGraphContainer");
+      }
+    }
+
+    $(".powertrainGraphContainer").append("<canvas id='powertrainGraph'>canvas is not supported in your browser</canvas>");
 
     canvas = document.getElementById("powertrainGraph");
 
@@ -674,7 +828,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"}}]
           },
           plugins:
           {
@@ -690,7 +844,68 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
 function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair)
 {
     $("#modelYearGraph").remove();
-    $(".canvasContainer").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+
+    let first = document.querySelector(".first");
+    let second = document.querySelector(".second");
+    let third = document.querySelector(".third");
+
+    if(!(first.classList.contains("usedVehicleGraphContainer") || first.classList.contains("powertrainGraphContainer")))
+    {
+      first.classList.add("modelYearGraphContainer");
+
+      if(second.classList.contains("modelYearGraphContainer"))
+      {
+        second.classList.remove("modelYearGraphContainer");
+      }
+
+      if(third.classList.contains("modelYearGraphContainer"))
+      {
+        third.classList.remove("modelYearGraphContainer");
+      }
+    }
+    else if(!(second.classList.contains("usedVehicleGraphContainer") || second.classList.contains("powertrainGraphContainer")))
+    {
+      second.classList.add("modelYearGraphContainer");
+
+      if(first.classList.contains("modelYearGraphContainer"))
+      {
+        first.classList.remove("modelYearGraphContainer");
+      }
+
+      if(third.classList.contains("modelYearGraphContainer"))
+      {
+        third.classList.remove("modelYearGraphContainer");
+      }
+    }
+    else
+    {
+      third.classList.add("modelYearGraphContainer");
+
+      if(second.classList.contains("modelYearGraphContainer"))
+      {
+        second.classList.remove("modelYearGraphContainer");
+      }
+
+      if(first.classList.contains("modelYearGraphContainer"))
+      {
+        first.classList.remove("modelYearGraphContainer");
+      }
+    }
+
+    $(".modelYearGraphContainer").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+
+    // if(!first.hasChildNodes())
+    // {
+    //   $(".first").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!second.hasChildNodes())
+    // {
+    //   $(".second").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+    // }
+    // else if(!third.hasChildNodes())
+    // {
+    //   $(".third").append("<canvas id='modelYearGraph'>canvas is not supported in your browser</canvas>");
+    // }
 
     canvas = document.getElementById("modelYearGraph");
 
@@ -785,7 +1000,7 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Model Year"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"}}]
           },
           plugins:
           {

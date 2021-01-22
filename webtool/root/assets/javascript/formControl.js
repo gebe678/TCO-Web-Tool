@@ -121,7 +121,14 @@ function submittedAjaxForm()
 {
     let form = document.getElementById("vehicleInfoForm");
     let canvas = document.querySelector(".canvasContainer");
+    let age = document.getElementById("usedVehicle");
+    let usedYear = document.getElementById("usedVehicleYear");
 
+    let first = document.querySelector(".first");
+    let second = document.querySelector(".second");
+    let third = document.querySelector(".third");
+
+    let year = [];
     let vehicleData = [];
     let financingData = [];
     let annualFuelData = [];
@@ -179,19 +186,25 @@ function submittedAjaxForm()
             
             let totalVmt = vehicleInformation[9][0];
             let counter = 0;
+            let startYear = 0;
+            if(age.checked)
+            {
+                startYear = parseFloat(usedYear.value);
+            }
 
             for(let i = 0; i < 30; i++)
             {
-                vehicleData[i] = vehicleInformation[0][i];
-                financingData[i] = vehicleInformation[1][i];
-                annualFuelData[i] = vehicleInformation[2][i];
-                insuranceData[i] = vehicleInformation[3][i];
-                taxData[i] = parseFloat(vehicleInformation[4][i]);
-                maintenanceData[i] = vehicleInformation[5][i];
-                repairData[i] = vehicleInformation[6][i];
-                operationalData[i] = vehicleInformation[7][i];
-                laborData[i] = vehicleInformation[8][i];
-                vmtData[i] = vehicleInformation[9][i];
+                year[i] = i + 1;
+                vehicleData[i] = vehicleInformation[0][i + startYear];
+                financingData[i] = vehicleInformation[1][i + startYear];
+                annualFuelData[i] = vehicleInformation[2][i + startYear];
+                insuranceData[i] = vehicleInformation[3][i + startYear];
+                taxData[i] = parseFloat(vehicleInformation[4][i + startYear]);
+                maintenanceData[i] = vehicleInformation[5][i + startYear];
+                repairData[i] = vehicleInformation[6][i + startYear];
+                operationalData[i] = vehicleInformation[7][i + startYear];
+                laborData[i] = vehicleInformation[8][i + startYear];
+                vmtData[i] = vehicleInformation[9][i + startYear];
 
                 if(milesDrivenInt[i] > totalVmt)
                 {
@@ -230,8 +243,22 @@ function submittedAjaxForm()
                     break;
             }
 
+            if(!age.checked)
+            {
+              viewAge = "New";
+            }
+            else
+            {
+              viewAge = "Used";
+            }
+
+            let bodyName = document.getElementById("vehicleBodyMenu");
+            let powertrainName = document.getElementById("powertrainMenu");
+
             let downloadData = [];
             let csvTitle = ["Vehicle Analysis Results"]
+            let costTitle = ["Annual TCO For " + viewAge + " " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text];
+            let yearLabel = ["Year"];
             let vehicleLabel = ["Depreciation"];
             let financeLabel = ["Financing"];
             let annualFuelLabel = ["Annual Fueling Cost"];
@@ -243,6 +270,7 @@ function submittedAjaxForm()
             let laborLabel = ["Labor"];
             let vmtLabel = ["Vehicle Miles Traveled"];
 
+            let costMilesTitle = ["Per Mile TCO For " + viewAge + " " + powertrainName.options[powertrainName.selectedIndex].text + " " + bodyName.options[bodyName.selectedIndex].text];
             let vehicleLabelMiles = ["Depreciation Miles"];
             let financeLabelMiles = ["Financing Miles"];
             let annualFuelLabelMiles = ["Annual Fueling Cost Miles"];
@@ -256,6 +284,8 @@ function submittedAjaxForm()
             let testFormArr = dataForm.split("&");
             
             downloadData.push(csvTitle);
+            downloadData.push(costTitle);
+            downloadData.push(yearLabel.concat(year));
             downloadData.push(vehicleLabel.concat(vehicleData));
             downloadData.push(financeLabel.concat(financingData));
             downloadData.push(annualFuelLabel.concat(annualFuelData));
@@ -269,6 +299,8 @@ function submittedAjaxForm()
 
             downloadData.push([]);
 
+            downloadData.push(costMilesTitle);
+            downloadData.push(["Miles Driven", "10k", "20k", "30k", "40k", "50k", "60k", "70k", "80k", "90k", "100k", "110k", "120k", "130k", "140k", "150k", "160k", "170k", "180k", "190k", "200k", "210k", "220k", "230k", "240k", "250k", "260k", "270k", "280k", "290k", "300k"]);
             downloadData.push(vehicleLabelMiles.concat(vehicleDataMiles));
             downloadData.push(financeLabelMiles.concat(financingDataMiles));
             downloadData.push(annualFuelLabelMiles.concat(annualFuelDataMiles));
@@ -281,6 +313,7 @@ function submittedAjaxForm()
 
             downloadData.push([]);
 
+            downloadData.push(["Input Selections"]);
             for(let i = 0; i < testFormArr.length; i++)
             {
                 let allData = testFormArr[i].split("=");
@@ -310,7 +343,7 @@ function submittedAjaxForm()
                 link.click(); // This will download the data file named "my_data.csv".
             }
 
-            for(let i = 0; i < 30; i++)
+            for(let i = startYear; i < 30; i++)
             {
                 if(vmtData[i] === 0)
                 {
@@ -329,10 +362,35 @@ function submittedAjaxForm()
             //imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
             fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData);
 
-            if(showPowertrainGraph.checked)
+            
+            if(!showPowertrainGraph.checked)
+            {
+                $("#powertrainGraph").remove();
+                first.classList.remove("powertrainGraphContainer");
+                second.classList.remove("powertrainGraphContainer");
+                third.classList.remove("powertrainGraphContainer");
+    
+            }
+
+            if(!showModelYearGraph.checked)
             {
                 $("#modelYearGraph").remove();
+                first.classList.remove("modelYearGraphContainer");
+                second.classList.remove("modelYearGraphContainer");
+                third.classList.remove("modelYearGraphContainer");
+            }
 
+            if(!showUsedVehicleGraph.checked)
+            {
+                $("#usedVehicleGrpah").remove();
+                first.classList.remove("usedVehicleGraphContainer");
+                second.classList.remove("usedVehicleGraphContainer");
+                third.classList.remove("usedVehicleGraphContainer");
+            }
+
+            if(showPowertrainGraph.checked)
+            {
+                
                 for(let i = 0; i < 7; i++)
                 {
                     body[i] = vehicleInformation[10][i];
@@ -344,10 +402,9 @@ function submittedAjaxForm()
                     repair[i] = vehicleInformation[16][i];
                 }
             }
+
             else if(showModelYearGraph.checked)
             {
-                $("#powertrainGraph").remove();
-
                 for(let i = 0; i < 7; i++)
                 {
                     body[i] = vehicleInformation[10][i];
@@ -369,12 +426,12 @@ function submittedAjaxForm()
                 maintenance[0] = vehicleInformation[15];
                 repair[0] = vehicleInformation[16];
             }
-            else
-            {
-                $("#powertrainGraph").remove();
-                $("#modelYearGraph").remove();
-                $("#usedVehicleChart").remove();
-            }
+            // else
+            // {
+            //     $("#powertrainGraph").remove();
+            //     $("#modelYearGraph").remove();
+            //     $("#usedVehicleChart").remove();
+            // }
 
             canvas.style.display = "block";
 
@@ -390,7 +447,7 @@ function submittedAjaxForm()
 
             if(showUsedVehicleGraph.checked)
             {
-                usedVehicleGraph(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, body, finance, fuel, insurance, tax, maintenance, repair, 0, 0);
+                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], body, finance, fuel, insurance, tax, maintenance, repair, 0, 0);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);

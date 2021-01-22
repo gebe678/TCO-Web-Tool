@@ -686,6 +686,19 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
+                                            <label for="vehicleGraphControl" title="Show vehicle payments in place of depreciation cost in the annual TCO">Vehicle TCO Type<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
+                                        </div>
+                                        <div class="border">
+                                            <select name="vehicleGraphControl" class="selectMenu form-control"
+                                                id="vehicleGraphControl">
+                                                <option value="depreciation">Show Vehicle Depreciation</option>
+                                                <option value="vehiclePayment">Show Vehicle Payments</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- </dropDownMenu> -->
+
+                                    <div class="dropDownMenu form-group">
+                                        <div class="label">
                                             <label for="insuranceType" title="Select insurance cost. Min, avg and max represent costs for LDV. Variable and fixed represent costs for HDV. Variable insurance considers vehicle mileage travelled.">Insurance Type:<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
@@ -943,18 +956,61 @@
             <div class="col-lg-12">
 
                 <!--canvas id's for showing the data from the vehicle cost visually-->
-                <div class="pieChartContainer">
-                    <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
-                </div><!-- </pieChartContainer> -->
-
                 <div class="canvasContainer">
-                    <canvas id="tornadoChart">canvas is not supported in your browser</canvas>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <div class="pieChartContainer">
+                                <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
+                            </div><!-- </pieChartContainer> -->
+
+                        </div><!--</col-lg-6>-->
+
+                        <div class="col-lg-6">
+
+                            <div class="first">
+
+                                <!-- <canvas id="powertrainGraph">canvas is not supported in your browser</canvas> -->
+
+                            </div><!-- </first> -->
+
+                        </div><!--</col-lg-6>-->
+
+                    </div> <!-- </row> -->
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                            <div class="second">
+
+                                <!-- <canvas id="modelYearGraph">canvas is not supported in your browser</canvas> -->
+
+                            </div><!-- </second> -->
+
+                        </div><!--</col-lg-6>-->
+
+                        <div class="col-lg-6">
+
+                            <div class="third">
+
+                                <!-- <canvas id="usedVehicleChart">canvas is not supported in your browser</canvas> -->
+
+                            </div><!-- </third> -->
+
+                        </div><!--</col-lg-6>-->
+
+                    </div> <!-- </row> -->
+
+                    <!-- <canvas id="tornadoChart">canvas is not supported in your browser</canvas>
                     <canvas id="usedVehicleChart">canvas is not supported in your browser</canvas>
                     <canvas id="powertrainGraph">canvas is not supported in your browser</canvas>
                     <canvas id="modelYearGraph">canvas is not supported in your browser</canvas>
                     <canvas id="vehicleGraph">canvas is not supported in your browser</canvas>
-                    <canvas id="perMileGraph">canvas is not supported in your browser</canvas>
-                </div>
+                    <canvas id="perMileGraph">canvas is not supported in your browser</canvas> -->
+                </div> <!-- </canvasContainer> -->
 
             </div><!-- </col-lg-12> -->
 
