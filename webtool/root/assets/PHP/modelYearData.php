@@ -254,6 +254,10 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         $sum = 0;
         for($i = 0; $i < 5; $i++)
         {
+            if($startValue === 0)
+            {
+                continue;
+            }
            $remainingCost[$i] = $remainingCost[$i] * ($startValue - $discountRate2) / ($startValue - $discountRate);
            $sum += $remainingCost[$i];
         }

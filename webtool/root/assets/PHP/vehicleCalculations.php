@@ -721,7 +721,16 @@ function calculateLowerDepreciation($numYears)
             $vehicleValue = $_POST["purchaseCost"];
         }
 
-        $startValue = $vehicleValue * $_POST["markupFactor"];
+        if(empty($_POST["usedVehicle"]))
+        {
+            $startValue = $vehicleValue * $_POST["markupFactor"];
+        }
+        else
+        {
+            $dep = calculateDepreciation($numYears);
+            $startValue = $dep[$_POST["usedVehicleYear"]];
+        }
+        
         $financeTerm = $_POST["financeTerm"];
 
         if($financeTerm === '0')
@@ -791,7 +800,16 @@ function calculateLowerDepreciation($numYears)
             $vehicleValue = $_POST["purchaseCost"];
         }
 
-        $startValue = $vehicleValue * $_POST["markupFactor"];
+        if(empty($_POST["usedVehicle"]))
+        {
+            $startValue = $vehicleValue * $_POST["markupFactor"];
+        }
+        else
+        {
+            $dep = calculateDepreciation($numYears);
+            $startValue = $dep[$_POST["usedVehicleYear"]];
+        }
+
         $downPayment = $_POST["downPayment"] / 100;
         $financeTerm = $_POST["financeTerm"];
 
