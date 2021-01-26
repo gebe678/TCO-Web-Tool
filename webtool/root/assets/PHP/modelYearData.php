@@ -190,7 +190,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
     return $advancedExponentionalValues;
 }
 
-    function calculateBodyCost($modelYear)
+    function calculateBodyCostModelYear($modelYear)
     {
         include "connectDatabase.php";
 
@@ -265,7 +265,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $sum;
     }
 
-    function calculateFinancingCost($modelYear)
+    function calculateFinancingCostModelYear($modelYear)
     {
         include "connectDatabase.php";
 
@@ -328,7 +328,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
     }
 
     // Fix function to calculate the fuel type based on the powertrain!!!!
-    function calculateFuelCost($modelYear)
+    function calculateFuelCostModelYear($modelYear)
     {
         include "connectDatabase.php";
         include_once "getFuelCostData.php";
@@ -461,7 +461,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $sum;
     }
 
-    function calculateInsruance($modelYear)
+    function calculateInsuranceModelYear($modelYear)
     {
         include "connectDatabase.php";
 
@@ -796,7 +796,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $carbonTax;
     }
 
-    function calculateTaxes()
+    function calculateTaxesModelYear()
     {
         include "getID.php";
         $numYears = 5;
@@ -912,7 +912,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $sum;
     }
 
-    function calculateMaintenance($modelYear)
+    function calculateMaintenanceModelYear($modelYear)
     {
         include "connectDatabase.php";
         $numYears = 5;
@@ -1183,7 +1183,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $smoothedMaintenanceCost;
     }
 
-    function calculateRepair($modelYear)
+    function calculateRepairModelYear($modelYear)
     {
         $sum = 0;
         $numYears = 5;

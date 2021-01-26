@@ -123,7 +123,7 @@
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt);
     }
     
-    else if(!empty($_POST["showPowertrainGraph"]))
+    else if(!empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]) AND empty($_POST["usedVehicle"]))
     {
         $pBody = calculatePowertrainBody();
         $pFinance = calculatePowerTrainFinance();
@@ -136,7 +136,7 @@
 
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair, $pLabor);
     }
-    else if(!empty($_POST["showModelYearGraph"]))
+    else if(!empty($_POST["showModelYearGraph"]) AND empty($_POST["showPowertrainGraph"]) AND empty($_POST["usedVehicle"]))
     {
         $mBody = calculateModelYearBody();
         $mFinance = calculateModelYearFinancing();
@@ -149,7 +149,7 @@
 
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair, $mLabor);
     }
-    else if(!empty($_POST["usedVehicle"]))
+    else if(!empty($_POST["usedVehicle"]) AND empty($_POST["showModelYearGraph"]) AND empty($_POST["showPowertrainGraph"]))
     {
         $uBody = calculateUsedBodyCost();
         $uFinance = calculateUsedFinancingCost();
@@ -161,6 +161,103 @@
         $uLabor = calculateNewLaborCostUsed();
 
         $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uLabor);
+    }
+    else if(!empty($_POST["showPowertrainGraph"]) AND !empty($_POST["showModelYearGraph"]) AND empty($_POST["usedVehicle"]))
+    {
+        $pBody = calculatePowertrainBody();
+        $pFinance = calculatePowerTrainFinance();
+        $pFuel = calculatePowertrainFUel();
+        $pInsurance = calculatePowertrainInsurance();
+        $pTaxes = calculatePowertrainTaxes();
+        $pMaintenance = calculatePowertrainMaintenance();
+        $pRepair = calculatePowertrainRepair();
+        $pLabor = calculatePowertrainLabor();
+
+        $mBody = calculateModelYearBody();
+        $mFinance = calculateModelYearFinancing();
+        $mFuel = calculateModelYearFuel();
+        $mInsurance = calculateModelYearInsurance();
+        $mTaxes = calculateModelYearTaxes();
+        $mMaintenance = calculateModelYearMaintenance();
+        $mRepair = calculateModelYearRepair();
+        $mLabor = calculateModelYearLabor();
+
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair, $pLabor, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair, $mLabor);
+    }
+    else if(!empty($_POST["showPowertrainGraph"]) AND empty($_POST["showModelYearGraph"]) AND !empty($_POST["usedVehicle"]))
+    {
+        $pBody = calculatePowertrainBody();
+        $pFinance = calculatePowerTrainFinance();
+        $pFuel = calculatePowertrainFUel();
+        $pInsurance = calculatePowertrainInsurance();
+        $pTaxes = calculatePowertrainTaxes();
+        $pMaintenance = calculatePowertrainMaintenance();
+        $pRepair = calculatePowertrainRepair();
+        $pLabor = calculatePowertrainLabor();
+
+        $uBody = calculateUsedBodyCost();
+        $uFinance = calculateUsedFinancingCost();
+        $uFuel = calculateUsedFuelCost();
+        $uInsurance = calculateUsedInsuranceCost();
+        $uTaxes = calculateUsedTaxesCost();
+        $uMaintenance = calculateUsedMaintenance();
+        $uRepair = calculateUsedRepair();
+        $uLabor = calculateNewLaborCostUsed();
+
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair, $pLabor, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uLabor);
+    }
+    else if(!empty($_POST["showModelYearGraph"]) AND empty($_POST["showPowertrainGraph"]) AND !empty($_POST["usedVehicle"]))
+    {
+        $mBody = calculateModelYearBody();
+        $mFinance = calculateModelYearFinancing();
+        $mFuel = calculateModelYearFuel();
+        $mInsurance = calculateModelYearInsurance();
+        $mTaxes = calculateModelYearTaxes();
+        $mMaintenance = calculateModelYearMaintenance();
+        $mRepair = calculateModelYearRepair();
+        $mLabor = calculateModelYearLabor();
+
+        $uBody = calculateUsedBodyCost();
+        $uFinance = calculateUsedFinancingCost();
+        $uFuel = calculateUsedFuelCost();
+        $uInsurance = calculateUsedInsuranceCost();
+        $uTaxes = calculateUsedTaxesCost();
+        $uMaintenance = calculateUsedMaintenance();
+        $uRepair = calculateUsedRepair();
+        $uLabor = calculateNewLaborCostUsed();
+
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair, $mLabor, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uLabor);
+    }
+    else if(!empty($_POST["showPowertrainGraph"]) AND !empty($_POST["showModelYearGraph"]) AND !empty($_POST["usedVehicle"]))
+    {
+        $pBody = calculatePowertrainBody();
+        $pFinance = calculatePowerTrainFinance();
+        $pFuel = calculatePowertrainFUel();
+        $pInsurance = calculatePowertrainInsurance();
+        $pTaxes = calculatePowertrainTaxes();
+        $pMaintenance = calculatePowertrainMaintenance();
+        $pRepair = calculatePowertrainRepair();
+        $pLabor = calculatePowertrainLabor();
+
+        $mBody = calculateModelYearBody();
+        $mFinance = calculateModelYearFinancing();
+        $mFuel = calculateModelYearFuel();
+        $mInsurance = calculateModelYearInsurance();
+        $mTaxes = calculateModelYearTaxes();
+        $mMaintenance = calculateModelYearMaintenance();
+        $mRepair = calculateModelYearRepair();
+        $mLabor = calculateModelYearLabor();
+
+        $uBody = calculateUsedBodyCost();
+        $uFinance = calculateUsedFinancingCost();
+        $uFuel = calculateUsedFuelCost();
+        $uInsurance = calculateUsedInsuranceCost();
+        $uTaxes = calculateUsedTaxesCost();
+        $uMaintenance = calculateUsedMaintenance();
+        $uRepair = calculateUsedRepair();
+        $uLabor = calculateNewLaborCostUsed();
+
+        $TCO_information = array($vehicle, $financeCost, $annualFuelCost, $insuranceCost, $taxesAndFees, $maintenance, $repair, $operational, $labor, $vehicleVmt, $pBody, $pFinance, $pFuel, $pInsurance, $pTaxes, $pMaintenance, $pRepair, $pLabor, $mBody, $mFinance, $mFuel, $mInsurance, $mTaxes, $mMaintenance, $mRepair, $mLabor, $uBody, $uFinance, $uFuel, $uInsurance, $uTaxes, $uMaintenance, $uRepair, $uLabor);
     }
 
     echo json_encode($TCO_information);
@@ -178,17 +275,17 @@
 
         if($_POST["vehicleClassSize"] === "LDV")
         {
-            $powertrainBody[0] = calculateBodyCost("ICE-SI");
+            $powertrainBody[0] = calculateBodyCostPowertrain("ICE-SI");
         }
         else
         {
             $powertrainBody[0] = 0;
         }
-        $powertrainBody[1] = calculateBodyCost("ICE-CI");
-        $powertrainBody[2] = calculateBodyCost("HEV-SI");
-        $powertrainBody[3] = calculateBodyCost("PHEV");
-        $powertrainBody[4] = calculateBodyCost("FCEV");
-        $powertrainBody[5] = calculateBodyCost("BEV");
+        $powertrainBody[1] = calculateBodyCostPowertrain("ICE-CI");
+        $powertrainBody[2] = calculateBodyCostPowertrain("HEV-SI");
+        $powertrainBody[3] = calculateBodyCostPowertrain("PHEV");
+        $powertrainBody[4] = calculateBodyCostPowertrain("FCEV");
+        $powertrainBody[5] = calculateBodyCostPowertrain("BEV");
 
         return $powertrainBody;
     }
@@ -368,11 +465,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearBody[0] = calculateBodyCost("2020");
-        $modelYearBody[1] = calculateBodyCost("2025");
-        $modelYearBody[2] = calculateBodyCost("2030");
-        $modelYearBody[3] = calculateBodyCost("2035");
-        $modelYearBody[4] = calculateBodyCost("2050");
+        $modelYearBody[0] = calculateBodyCostModelYear("2020");
+        $modelYearBody[1] = calculateBodyCostModelYear("2025");
+        $modelYearBody[2] = calculateBodyCostModelYear("2030");
+        $modelYearBody[3] = calculateBodyCostModelYear("2035");
+        $modelYearBody[4] = calculateBodyCostModelYear("2050");
 
         return $modelYearBody;
     }
@@ -381,11 +478,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearFinancing[0] = calculateFinancingCost("2020");
-        $modelYearFinancing[1] = calculateFinancingCost("2025");
-        $modelYearFinancing[2] = calculateFinancingCost("2030");
-        $modelYearFinancing[3] = calculateFinancingCost("2035");
-        $modelYearFinancing[4] = calculateFinancingCost("2050");
+        $modelYearFinancing[0] = calculateFinancingCostModelYear("2020");
+        $modelYearFinancing[1] = calculateFinancingCostModelYear("2025");
+        $modelYearFinancing[2] = calculateFinancingCostModelYear("2030");
+        $modelYearFinancing[3] = calculateFinancingCostModelYear("2035");
+        $modelYearFinancing[4] = calculateFinancingCostModelYear("2050");
 
         return $modelYearFinancing;
     }
@@ -393,11 +490,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearFuel[0] = calculateFuelCost("2020");
-        $modelYearFuel[1] = calculateFuelCost("2025");
-        $modelYearFuel[2] = calculateFuelCost("2030");
-        $modelYearFuel[3] = calculateFuelCost("2035");
-        $modelYearFuel[4] = calculateFuelCost("2050");
+        $modelYearFuel[0] = calculateFuelCostModelYear("2020");
+        $modelYearFuel[1] = calculateFuelCostModelYear("2025");
+        $modelYearFuel[2] = calculateFuelCostModelYear("2030");
+        $modelYearFuel[3] = calculateFuelCostModelYear("2035");
+        $modelYearFuel[4] = calculateFuelCostModelYear("2050");
 
         return $modelYearFuel;
     }
@@ -406,11 +503,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearInsurance[0] = calculateInsruance("2020");
-        $modelYearInsurance[1] = calculateInsruance("2025");
-        $modelYearInsurance[2] = calculateInsruance("2030");
-        $modelYearInsurance[3] = calculateInsruance("2035");
-        $modelYearInsurance[4] = calculateInsruance("2050");
+        $modelYearInsurance[0] = calculateInsuranceModelYear("2020");
+        $modelYearInsurance[1] = calculateInsuranceModelYear("2025");
+        $modelYearInsurance[2] = calculateInsuranceModelYear("2030");
+        $modelYearInsurance[3] = calculateInsuranceModelYear("2035");
+        $modelYearInsurance[4] = calculateInsuranceModelYear("2050");
 
         return $modelYearInsurance;
     }
@@ -419,11 +516,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearTaxes[0] = calculateTaxes("2020");
-        $modelYearTaxes[1] = calculateTaxes("2025");
-        $modelYearTaxes[2] = calculateTaxes("2030");
-        $modelYearTaxes[3] = calculateTaxes("2035");
-        $modelYearTaxes[4] = calculateTaxes("2050");
+        $modelYearTaxes[0] = calculateTaxesModelYear("2020");
+        $modelYearTaxes[1] = calculateTaxesModelYear("2025");
+        $modelYearTaxes[2] = calculateTaxesModelYear("2030");
+        $modelYearTaxes[3] = calculateTaxesModelYear("2035");
+        $modelYearTaxes[4] = calculateTaxesModelYear("2050");
 
         return $modelYearTaxes;
     }
@@ -432,11 +529,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearMaintenance[0] = calculateMaintenance("2020");
-        $modelYearMaintenance[1] = calculateMaintenance("2025");
-        $modelYearMaintenance[2] = calculateMaintenance("2030");
-        $modelYearMaintenance[3] = calculateMaintenance("2035");
-        $modelYearMaintenance[4] = calculateMaintenance("2050");
+        $modelYearMaintenance[0] = calculateMaintenanceModelYear("2020");
+        $modelYearMaintenance[1] = calculateMaintenanceModelYear("2025");
+        $modelYearMaintenance[2] = calculateMaintenanceModelYear("2030");
+        $modelYearMaintenance[3] = calculateMaintenanceModelYear("2035");
+        $modelYearMaintenance[4] = calculateMaintenanceModelYear("2050");
 
         return $modelYearMaintenance;
     }
@@ -445,11 +542,11 @@
     {
         include_once "modelYearData.php";
 
-        $modelYearRepair[0] = calculateRepair("2020");
-        $modelYearRepair[1] = calculateRepair("2025");
-        $modelYearRepair[2] = calculateRepair("2030");
-        $modelYearRepair[3] = calculateRepair("2035");
-        $modelYearRepair[4] = calculateRepair("2050");
+        $modelYearRepair[0] = calculateRepairModelYear("2020");
+        $modelYearRepair[1] = calculateRepairModelYear("2025");
+        $modelYearRepair[2] = calculateRepairModelYear("2030");
+        $modelYearRepair[3] = calculateRepairModelYear("2035");
+        $modelYearRepair[4] = calculateRepairModelYear("2050");
 
         return $modelYearRepair;
     }

@@ -151,15 +151,35 @@ function submittedAjaxForm()
     let laborDataMiles = [];
     let milesDrivenInt = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000, 150000, 160000, 170000, 180000, 190000, 200000, 210000, 220000, 230000, 240000, 250000, 260000, 270000, 280000, 290000, 300000];
 
-    let body = [];
-    let finance = [];
-    let fuel = [];
-    let insurance = [];
-    let tax = [];
-    let maintenance = [];
-    let repair = [];
-    let operational = [];
-    let labor = [];
+    let pBody = [];
+    let pFinance = [];
+    let pFuel = [];
+    let pInsurance = [];
+    let pTax = [];
+    let pMaintenance = [];
+    let pRepair = [];
+    let pOperational = [];
+    let pLabor = [];
+
+    let mBody = [];
+    let mFinance = [];
+    let mFuel = [];
+    let mInsurance = [];
+    let mTax = [];
+    let mMaintenance = [];
+    let mRepair = [];
+    let mOperational = [];
+    let mLabor = [];
+
+    let uBody = [];
+    let uFinance = [];
+    let uFuel = [];
+    let uInsurance = [];
+    let uTax = [];
+    let uMaintenance = [];
+    let uRepair = [];
+    let uOperational = [];
+    let uLabor = [];
 
     canvas.style.display = "none";
 
@@ -381,52 +401,156 @@ function submittedAjaxForm()
 
             if(!showUsedVehicleGraph.checked)
             {
-                $("#usedVehicleGrpah").remove();
+                $("#usedVehicleChart").remove();
                 first.classList.remove("usedVehicleGraphContainer");
                 second.classList.remove("usedVehicleGraphContainer");
                 third.classList.remove("usedVehicleGraphContainer");
             }
 
-            if(showPowertrainGraph.checked)
+            if(showPowertrainGraph.checked && !showModelYearGraph.checked && !showUsedVehicleGraph.checked)
             {
                 
                 for(let i = 0; i < 7; i++)
                 {
-                    body[i] = vehicleInformation[10][i];
-                    finance[i] = vehicleInformation[11][i];
-                    fuel[i] = vehicleInformation[12][i];
-                    insurance[i] = vehicleInformation[13][i];
-                    tax[i] = vehicleInformation[14][i];
-                    maintenance[i] = vehicleInformation[15][i];
-                    repair[i] = vehicleInformation[16][i];
-                    labor[i] = vehicleInformation[17][i];
+                    pBody[i] = vehicleInformation[10][i];
+                    pFinance[i] = vehicleInformation[11][i];
+                    pFuel[i] = vehicleInformation[12][i];
+                    pInsurance[i] = vehicleInformation[13][i];
+                    pTax[i] = vehicleInformation[14][i];
+                    pMaintenance[i] = vehicleInformation[15][i];
+                    pRepair[i] = vehicleInformation[16][i];
+                    pLabor[i] = vehicleInformation[17][i];
                 }
             }
-
-            else if(showModelYearGraph.checked)
+            else if(!showPowertrainGraph.checked && showModelYearGraph.checked && !showUsedVehicleGraph.checked)
             {
                 for(let i = 0; i < 7; i++)
                 {
-                    body[i] = vehicleInformation[10][i];
-                    finance[i] = vehicleInformation[11][i];
-                    fuel[i] = vehicleInformation[12][i];
-                    insurance[i] = vehicleInformation[13][i];
-                    tax[i] = vehicleInformation[14][i];
-                    maintenance[i] = vehicleInformation[15][i];
-                    repair[i] = vehicleInformation[16][i];
-                    labor[i] = vehicleInformation[17][i];
+                    mBody[i] = vehicleInformation[10][i];
+                    mFinance[i] = vehicleInformation[11][i];
+                    mFuel[i] = vehicleInformation[12][i];
+                    mInsurance[i] = vehicleInformation[13][i];
+                    mTax[i] = vehicleInformation[14][i];
+                    mMaintenance[i] = vehicleInformation[15][i];
+                    mRepair[i] = vehicleInformation[16][i];
+                    mLabor[i] = vehicleInformation[17][i];
                 }
             }
-            else if(showUsedVehicleGraph.checked)
+            else if(!showPowertrainGraph.checked && !showModelYearGraph.checked && showUsedVehicleGraph.checked)
             {
-                body[0] = vehicleInformation[10];
-                finance[0] = vehicleInformation[11];
-                fuel[0] = vehicleInformation[12];
-                insurance[0] = vehicleInformation[13];
-                tax[0] = vehicleInformation[14];
-                maintenance[0] = vehicleInformation[15];
-                repair[0] = vehicleInformation[16];
-                labor[0] = vehicleInformation[17];
+                uBody[0] = vehicleInformation[10];
+                uFinance[0] = vehicleInformation[11];
+                uFuel[0] = vehicleInformation[12];
+                uInsurance[0] = vehicleInformation[13];
+                uTax[0] = vehicleInformation[14];
+                uMaintenance[0] = vehicleInformation[15];
+                uRepair[0] = vehicleInformation[16];
+                uLabor[0] = vehicleInformation[17];
+            }
+            else if(showPowertrainGraph.checked && showModelYearGraph.checked && !showUsedVehicleGraph.checked)
+            {
+                
+                for(let i = 0; i < 7; i++)
+                {
+                    pBody[i] = vehicleInformation[10][i];
+                    pFinance[i] = vehicleInformation[11][i];
+                    pFuel[i] = vehicleInformation[12][i];
+                    pInsurance[i] = vehicleInformation[13][i];
+                    pTax[i] = vehicleInformation[14][i];
+                    pMaintenance[i] = vehicleInformation[15][i];
+                    pRepair[i] = vehicleInformation[16][i];
+                    pLabor[i] = vehicleInformation[17][i];
+
+                    mBody[i] = vehicleInformation[18][i];
+                    mFinance[i] = vehicleInformation[19][i];
+                    mFuel[i] = vehicleInformation[20][i];
+                    mInsurance[i] = vehicleInformation[21][i];
+                    mTax[i] = vehicleInformation[22][i];
+                    mMaintenance[i] = vehicleInformation[23][i];
+                    mRepair[i] = vehicleInformation[24][i];
+                    mLabor[i] = vehicleInformation[25][i];
+                }
+            }
+            else if(showPowertrainGraph.checked && !showModelYearGraph.checked && showUsedVehicleGraph.checked)
+            {
+                
+                for(let i = 0; i < 7; i++)
+                {
+                    pBody[i] = vehicleInformation[10][i];
+                    pFinance[i] = vehicleInformation[11][i];
+                    pFuel[i] = vehicleInformation[12][i];
+                    pInsurance[i] = vehicleInformation[13][i];
+                    pTax[i] = vehicleInformation[14][i];
+                    pMaintenance[i] = vehicleInformation[15][i];
+                    pRepair[i] = vehicleInformation[16][i];
+                    pLabor[i] = vehicleInformation[17][i];
+
+                    uBody[i] = vehicleInformation[18][i];
+                    uFinance[i] = vehicleInformation[19][i];
+                    uFuel[i] = vehicleInformation[20][i];
+                    uInsurance[i] = vehicleInformation[21][i];
+                    uTax[i] = vehicleInformation[22][i];
+                    uMaintenance[i] = vehicleInformation[23][i];
+                    uRepair[i] = vehicleInformation[24][i];
+                    uLabor[i] = vehicleInformation[25][i];
+                }
+            }
+            else if(!showPowertrainGraph.checked && showModelYearGraph.checked && showUsedVehicleGraph.checked)
+            {
+                
+                for(let i = 0; i < 7; i++)
+                {
+                    mBody[i] = vehicleInformation[10][i];
+                    mFinance[i] = vehicleInformation[11][i];
+                    mFuel[i] = vehicleInformation[12][i];
+                    mInsurance[i] = vehicleInformation[13][i];
+                    mTax[i] = vehicleInformation[14][i];
+                    mMaintenance[i] = vehicleInformation[15][i];
+                    mRepair[i] = vehicleInformation[16][i];
+                    mLabor[i] = vehicleInformation[17][i];
+
+                    uBody[i] = vehicleInformation[18][i];
+                    uFinance[i] = vehicleInformation[19][i];
+                    uFuel[i] = vehicleInformation[20][i];
+                    uInsurance[i] = vehicleInformation[21][i];
+                    uTax[i] = vehicleInformation[22][i];
+                    uMaintenance[i] = vehicleInformation[23][i];
+                    uRepair[i] = vehicleInformation[24][i];
+                    uLabor[i] = vehicleInformation[25][i];
+                }
+            }
+            else if(showPowertrainGraph.checked && showModelYearGraph.checked && showUsedVehicleGraph.checked)
+            {
+                
+                for(let i = 0; i < 7; i++)
+                {
+                    pBody[i] = vehicleInformation[10][i];
+                    pFinance[i] = vehicleInformation[11][i];
+                    pFuel[i] = vehicleInformation[12][i];
+                    pInsurance[i] = vehicleInformation[13][i];
+                    pTax[i] = vehicleInformation[14][i];
+                    pMaintenance[i] = vehicleInformation[15][i];
+                    pRepair[i] = vehicleInformation[16][i];
+                    pLabor[i] = vehicleInformation[17][i];
+
+                    mBody[i] = vehicleInformation[18][i];
+                    mFinance[i] = vehicleInformation[19][i];
+                    mFuel[i] = vehicleInformation[20][i];
+                    mInsurance[i] = vehicleInformation[21][i];
+                    mTax[i] = vehicleInformation[22][i];
+                    mMaintenance[i] = vehicleInformation[23][i];
+                    mRepair[i] = vehicleInformation[24][i];
+                    mLabor[i] = vehicleInformation[25][i];
+
+                    uBody[i] = vehicleInformation[26][i];
+                    uFinance[i] = vehicleInformation[27][i];
+                    uFuel[i] = vehicleInformation[28][i];
+                    uInsurance[i] = vehicleInformation[29][i];
+                    uTax[i] = vehicleInformation[30][i];
+                    uMaintenance[i] = vehicleInformation[31][i];
+                    uRepair[i] = vehicleInformation[32][i];
+                    uLabor[i] = vehicleInformation[33][i];
+                }
             }
             // else
             // {
@@ -439,17 +563,17 @@ function submittedAjaxForm()
 
             if(showPowertrainGraph.checked)
             {
-                powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor);
+                powertrainGraph(pBody, pFinance, pFuel, pInsurance, pTax, pMaintenance, pRepair, pLabor);
             }
 
             if(showModelYearGraph.checked)
             {
-                modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor);
+                modelYearGraph(mBody, mFinance, mFuel, mInsurance, mTax, mMaintenance, mRepair, mLabor);
             }
 
             if(showUsedVehicleGraph.checked)
             {
-                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], body, finance, fuel, insurance, tax, maintenance, repair, 0, labor);
+                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], uBody, uFinance, uFuel, uInsurance, uTax, uMaintenance, uRepair, 0, uLabor);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);

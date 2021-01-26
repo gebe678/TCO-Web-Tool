@@ -190,7 +190,7 @@ function calculateAdvancedExponentialDepreciationPowertrain($numYears, $powertra
     return $advancedExponentionalValues;
 }
 
-    function calculateBodyCost($powertrainType)
+    function calculateBodyCostPowertrain($powertrainType)
     {
         include "connectDatabase.php";
 
