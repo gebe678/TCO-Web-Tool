@@ -183,7 +183,6 @@ function submittedAjaxForm()
             console.log(data);
             let vehicleInformation = jQuery.parseJSON(data);
 
-            
             let totalVmt = vehicleInformation[9][0];
             let counter = 0;
             let startYear = 0;
@@ -400,6 +399,7 @@ function submittedAjaxForm()
                     tax[i] = vehicleInformation[14][i];
                     maintenance[i] = vehicleInformation[15][i];
                     repair[i] = vehicleInformation[16][i];
+                    labor[i] = vehicleInformation[17][i];
                 }
             }
 
@@ -414,6 +414,7 @@ function submittedAjaxForm()
                     tax[i] = vehicleInformation[14][i];
                     maintenance[i] = vehicleInformation[15][i];
                     repair[i] = vehicleInformation[16][i];
+                    labor[i] = vehicleInformation[17][i];
                 }
             }
             else if(showUsedVehicleGraph.checked)
@@ -425,6 +426,7 @@ function submittedAjaxForm()
                 tax[0] = vehicleInformation[14];
                 maintenance[0] = vehicleInformation[15];
                 repair[0] = vehicleInformation[16];
+                labor[0] = vehicleInformation[17];
             }
             // else
             // {
@@ -437,17 +439,17 @@ function submittedAjaxForm()
 
             if(showPowertrainGraph.checked)
             {
-                powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair);
+                powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor);
             }
 
             if(showModelYearGraph.checked)
             {
-                modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair);
+                modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor);
             }
 
             if(showUsedVehicleGraph.checked)
             {
-                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], body, finance, fuel, insurance, tax, maintenance, repair, 0, 0);
+                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], body, finance, fuel, insurance, tax, maintenance, repair, 0, labor);
             }
 
             vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);

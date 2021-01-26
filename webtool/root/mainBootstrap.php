@@ -970,11 +970,6 @@
 
                         <div class="col-lg-6">
 
-                            <div class="first">
-
-                                <!-- <canvas id="powertrainGraph">canvas is not supported in your browser</canvas> -->
-
-                            </div><!-- </first> -->
 
                         </div><!--</col-lg-6>-->
 
@@ -984,25 +979,39 @@
 
                         <div class="col-lg-6">
 
-                            <div class="second">
+                            <div class="first">
 
                                 <!-- <canvas id="modelYearGraph">canvas is not supported in your browser</canvas> -->
 
-                            </div><!-- </second> -->
+                            </div><!-- </first> -->
 
                         </div><!--</col-lg-6>-->
 
                         <div class="col-lg-6">
 
-                            <div class="third">
+                            <div class="second">
 
                                 <!-- <canvas id="usedVehicleChart">canvas is not supported in your browser</canvas> -->
 
-                            </div><!-- </third> -->
+                            </div><!-- </second> -->
 
                         </div><!--</col-lg-6>-->
 
                     </div> <!-- </row> -->
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+
+                        <div class="third">
+
+                            <!-- <canvas id="powertrainGraph">canvas is not supported in your browser</canvas> -->
+
+                        </div><!-- </third> -->
+
+                        </div><!-- </col-lg-6> -->
+
+                    </div><!-- </row> -->
 
                     <!-- <canvas id="tornadoChart">canvas is not supported in your browser</canvas>
                     <canvas id="usedVehicleChart">canvas is not supported in your browser</canvas>
