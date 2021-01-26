@@ -485,14 +485,14 @@ function submittedAjaxForm()
                     pRepair[i] = vehicleInformation[16][i];
                     pLabor[i] = vehicleInformation[17][i];
 
-                    uBody[i] = vehicleInformation[18][i];
-                    uFinance[i] = vehicleInformation[19][i];
-                    uFuel[i] = vehicleInformation[20][i];
-                    uInsurance[i] = vehicleInformation[21][i];
-                    uTax[i] = vehicleInformation[22][i];
-                    uMaintenance[i] = vehicleInformation[23][i];
-                    uRepair[i] = vehicleInformation[24][i];
-                    uLabor[i] = vehicleInformation[25][i];
+                    uBody[0] = vehicleInformation[18];
+                    uFinance[0] = vehicleInformation[19];
+                    uFuel[0] = vehicleInformation[20];
+                    uInsurance[0] = vehicleInformation[21];
+                    uTax[0] = vehicleInformation[22];
+                    uMaintenance[0] = vehicleInformation[23];
+                    uRepair[0] = vehicleInformation[24];
+                    uLabor[0] = vehicleInformation[25];
                 }
             }
             else if(!showPowertrainGraph.checked && showModelYearGraph.checked && showUsedVehicleGraph.checked)
@@ -509,14 +509,14 @@ function submittedAjaxForm()
                     mRepair[i] = vehicleInformation[16][i];
                     mLabor[i] = vehicleInformation[17][i];
 
-                    uBody[i] = vehicleInformation[18][i];
-                    uFinance[i] = vehicleInformation[19][i];
-                    uFuel[i] = vehicleInformation[20][i];
-                    uInsurance[i] = vehicleInformation[21][i];
-                    uTax[i] = vehicleInformation[22][i];
-                    uMaintenance[i] = vehicleInformation[23][i];
-                    uRepair[i] = vehicleInformation[24][i];
-                    uLabor[i] = vehicleInformation[25][i];
+                    uBody[0] = vehicleInformation[18];
+                    uFinance[0] = vehicleInformation[19];
+                    uFuel[0] = vehicleInformation[20];
+                    uInsurance[0] = vehicleInformation[21];
+                    uTax[0] = vehicleInformation[22];
+                    uMaintenance[0] = vehicleInformation[23];
+                    uRepair[0] = vehicleInformation[24];
+                    uLabor[0] = vehicleInformation[25];
                 }
             }
             else if(showPowertrainGraph.checked && showModelYearGraph.checked && showUsedVehicleGraph.checked)
@@ -542,14 +542,14 @@ function submittedAjaxForm()
                     mRepair[i] = vehicleInformation[24][i];
                     mLabor[i] = vehicleInformation[25][i];
 
-                    uBody[i] = vehicleInformation[26][i];
-                    uFinance[i] = vehicleInformation[27][i];
-                    uFuel[i] = vehicleInformation[28][i];
-                    uInsurance[i] = vehicleInformation[29][i];
-                    uTax[i] = vehicleInformation[30][i];
-                    uMaintenance[i] = vehicleInformation[31][i];
-                    uRepair[i] = vehicleInformation[32][i];
-                    uLabor[i] = vehicleInformation[33][i];
+                    uBody[0] = vehicleInformation[26];
+                    uFinance[0] = vehicleInformation[27];
+                    uFuel[0] = vehicleInformation[28];
+                    uInsurance[0] = vehicleInformation[29];
+                    uTax[0] = vehicleInformation[30];
+                    uMaintenance[0] = vehicleInformation[31];
+                    uRepair[0] = vehicleInformation[32];
+                    uLabor[0] = vehicleInformation[33];
                 }
             }
             // else
