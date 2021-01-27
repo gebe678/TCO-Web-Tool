@@ -337,7 +337,18 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
             scales:
             {
               xAxes: [{stacked: true, scaledLabel:{display:true, labelString: ""}}],
-              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"}}]
+              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"},
+              ticks:
+              {
+                beginAtZero:true,
+                userCallback: function(value, index, values)
+                {
+                    value = value.toString();
+                    value = value.split(/(?=(?:...)*$)/);
+                    value = value.join(',');
+                    return value;
+                }
+            }}]
             },
             plugins:
             {
@@ -480,7 +491,19 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}, 
+          
+            ticks:
+            {
+              beginAtZero:true,
+              userCallback: function(value, index, values)
+              {
+                  value = value.toString();
+                  value = value.split(/(?=(?:...)*$)/);
+                  value = value.join(',');
+                  return value;
+              }
+            }}]
           },
           plugins:
           {
@@ -650,7 +673,19 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
               scales:
               {
                 xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Miles Driven"}}],
-                yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"}}]
+                yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"},
+
+                ticks:
+                {
+                  beginAtZero:true,
+                  userCallback: function(value, index, values)
+                  {
+                      value = value.toString();
+                      value = value.split(/(?=(?:...)*$)/);
+                      value = value.join(',');
+                      return value;
+                  }
+                }}]
               },
               plugins:
               {
@@ -835,7 +870,18 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"},
+            ticks:
+            {
+              beginAtZero:true,
+              userCallback: function(value, index, values)
+              {
+                  value = value.toString();
+                  value = value.split(/(?=(?:...)*$)/);
+                  value = value.join(',');
+                  return value;
+              }
+          }}]
           },
           plugins:
           {
@@ -1014,7 +1060,18 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Model Year"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"}}]
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"},
+            ticks:
+            {
+              beginAtZero:true,
+              userCallback: function(value, index, values)
+              {
+                  value = value.toString();
+                  value = value.split(/(?=(?:...)*$)/);
+                  value = value.join(',');
+                  return value;
+              }
+          }}]
           },
           plugins:
           {

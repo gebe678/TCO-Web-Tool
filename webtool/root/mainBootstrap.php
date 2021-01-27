@@ -180,7 +180,7 @@
 
                                 <div class="dropDownMenu form-group">
                                     <div class="label">
-                                        <label for="powertrain" title="Select the powertrain of vehicle.&#013; ICE-SI: conventional gasoline,&#013; ICE-CI: conventional diesel,&#013; HEV: hybrid electric,&#013; PHEV: plug-in hybrid electric,&#013; FCEV: fuel cell,&#013; BEV: battery electric.">Powertrain:<img class="infoCalloutChange" src="assets/page_pictures/infoCallout.JPG"></label>
+                                        <label for="powertrain" title="Select the powertrain of vehicle.&#013; ICE-SI: conventional gasoline,&#013; ICE-CI: conventional diesel,&#013; HEV: hybrid electric,&#013; PHEV: plug-in hybrid electric,&#013; FCEV: fuel cell,&#013; BEV: battery electric.&#013;Impacts maintenance calculations. For HDV, maintenance and repair results are bundled together Maintenance in the output plots below.">Powertrain:<img class="infoCalloutChange" src="assets/page_pictures/infoCallout.JPG"></label>
                                     </div>
                                     <div class="border">
                                         <select name="powertrain" class="selectMenu form-control" id="powertrainMenu">
@@ -960,18 +960,18 @@
 
                     <div class="row">
 
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
 
                             <div class="pieChartContainer">
                                 <canvas id="piChartGraph">canvas is not supported in your browser</canvas>
                             </div><!-- </pieChartContainer> -->
 
-                        </div><!--</col-lg-6>-->
+                        </div><!--</col-lg-12>-->
 
-                        <div class="col-lg-6">
+                        <!-- <div class="col-lg-6"> -->
 
 
-                        </div><!--</col-lg-6>-->
+                        <!-- </div></col-lg-6> -->
 
                     </div> <!-- </row> -->
 

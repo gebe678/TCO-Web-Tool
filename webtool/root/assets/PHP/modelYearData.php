@@ -619,6 +619,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         else
         {
             $totalInsurance;
+            $sum = 0;
             
             $vmtType = $_POST["vmt"];
             $vmtQuery = "SELECT $vmtType FROM annual_vmt";
@@ -647,7 +648,9 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
                 $insuranceLiability = $HDVInsuranceFixedCosts * $annualVmtYears[$i];
                 $insurancePhysicalDamage = ($HDVPhysicalDamageInsruance * 12) * $HDVRetainedValue[$i] / 1000;
                 $totalInsurance[$i] = $insuranceLiability + $insurancePhysicalDamage;
+                $sum += $totalInsurance[$i];
             }
+            return $sum;
         }
         else if($insuranceType === "fixed")
         {
@@ -796,11 +799,32 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
         return $carbonTax;
     }
 
-    function calculateTaxesModelYear()
+    function calculateTaxesModelYear($modelYear)
     {
-        include "getID.php";
+        include "connectDatabase.php";
+
+        $vmtType = $_POST["vmt"];
+
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+        $i = 0;
+        $h = $connect->query($vmtQuery);
+        while($vmtYear = $h->fetch_assoc())
+        {
+            $annualVmtYears[$i] = $vmtYear[$vmtType];
+            $i++;
+        }
+
         $numYears = 5;
         $sum = 0;
+
+        $powertrain = $_POST["powertrain"];
+        $powertrainType = $powertrain;
+        $vehicleBody = $_POST["vehicleBody"];
+        $technology = $_POST["technology"];
+
+        $vehicleBodyCostQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrainType' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+        $vehicleConnect = $connect->query($vehicleBodyCostQuery);
+        $vehicleBodyCost = $vehicleConnect->fetch_assoc(); $vehicleBodyCost = $vehicleBodyCost["Body_Cost"];
 
         if($_POST["vehicleClassSize"] === "LDV")
         {
@@ -813,7 +837,10 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
             $annualVehicleRegistration = 68;
             $otherCosts = 87;
     
-            $vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+            //$vehicleCost = $vehicleBodyCost * $_POST["markupFactor"];
+            $vehicleBodyCostQuery = "SELECT Body_Cost FROM vehicle_body_cost WHERE Powertrain LIKE '$powertrainType' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Year LIKE '$modelYear'";
+            $vehicleConnect = $connect->query($vehicleBodyCostQuery);
+            $vehicleCost = $vehicleConnect->fetch_assoc(); $vehicleBodyCost = $vehicleCost["Body_Cost"];
     
             if($powertrain === "BEV")
             {
@@ -839,7 +866,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
     
                 if($i === 0 )
                 {
-                    $totalCost[$i] += $vehicleCost * $salesTax + $initialVehicleRegistration + $documentationFee;
+                    $totalCost[$i] += floatval($vehicleCost) * floatval($salesTax) + floatval($initialVehicleRegistration) + floatval($documentationFee);
                 }
                 
                 $totalCost[$i] += $annualVehicleRegistration + $otherCosts + $carbonTax;
@@ -1288,11 +1315,27 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
 
     function calculateExtraChargingTimeModelYear($numYears, $modelYear)
     {
-        include "getID.php";
+        include "connectDatabase.php";
         $totalCost;
 
         $technology = $_POST["technology"];
         $vehicleSize = $_POST["vehicleBody"];
+        $powertrain = $_POST["powertrain"];
+        $vehicleBody = $vehicleSize;
+        $vmtType = $_POST["vmt"];
+        $vmtQuery = "SELECT $vmtType FROM annual_vmt";
+
+        $i = 0;
+        $h = $connect->query($vmtQuery);
+        while($vmtYear = $h->fetch_assoc())
+        {
+            $annualVmtYears[$i] = $vmtYear[$vmtType];
+            $i++;
+        }
+
+        $fuelMPGQuery = "SELECT MPG FROM vehicle_mpg WHERE Powertrain LIKE '$powertrain' AND Size LIKE '$vehicleBody' AND Technology LIKE '$technology' AND Model_Size LIKE '$modelYear'";
+
+        $fuelMPG = $connect->query($fuelMPGQuery); $fuelMPG = $fuelMPG->fetch_assoc(); $fuelMPG = $fuelMPG["MPG"];
 
         $utilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleSize' AND Model_Year LIKE '$modelYear'";
         $utilityFactor = $connect->query($utilityFactorQuery); $utilityFactor = $utilityFactor->fetch_assoc(); $utilityFactor = $utilityFactor["PHEV_Utility_Factor"];
