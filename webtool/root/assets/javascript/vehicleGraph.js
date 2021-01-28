@@ -312,7 +312,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
             },
             {
               data: operationalCost,
-              label: "operational",
+              label: "Operational",
               backgroundColor: " #c267f5"
             },
             {
@@ -466,7 +466,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
           },
           {
             data: operationalCosts,
-            label: "operational",
+            label: "Operational",
             backgroundColor: " #c267f5"
           },
           {
@@ -648,7 +648,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
               },
               {
                 data: operationalCosts,
-                label: "operational",
+                label: "Operational",
                 backgroundColor: " #c267f5"
               },
               {

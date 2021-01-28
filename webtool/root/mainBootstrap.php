@@ -900,12 +900,48 @@
                                         <input type="number" min="0" max="1" step=".01" value=".05" class="outputText">
                                     </div><!-- </inputContainer> -->
 
-                                    <div class="inputContainer form-group" style="display: none;">
-                                        <label for="chargingTime" class="sliderLabel">Charging Time Cost</label>
-                                        <input type="range" min="0" max="1" step=".01" value=".02" class="slider"
-                                            name="chargingTime" id="chargingTime" style="display: none;">
-                                        <input type="number" min="0" max="1" step=".01" value=".02" class="outputText">
+                                    <div class="dropDownMenu form-group">
+                                        <div class="label">
+                                            <label for="additionalLaborCosts" title="account for costs due to miscellaneous labor per mile and charging downtime">Additional Labor Costs<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                        </div>
+                                        <div class="border">
+                                            <select name="additionalLaborCosts" class="selectMenu form-control" id="additionalLaborCosts">
+                                                <option value="true">True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- </dropDownMenu> -->
+
+                                    <div class="inputContainer form-group">
+                                        <label for="miscLaborCost" class="sliderLabel">Charging Time Cost</label>
+                                        <input type="range" min="0" max="1.5" step=".01" value=".78" class="slider"
+                                            name="miscLaborCost" id="miscLaborCost">
+                                        <input type="number" min="0" max="1.5" step=".01" value=".78" class="outputText">
                                     </div><!-- </inputContainer> -->
+
+                                    <div class="dropDownMenu form-group">
+                                        <div class="label">
+                                            <label for="chargeRate" title="select charging power for heavy duty electric vehicles. Affects charging downtime costs">Charge Rate<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                        </div>
+                                        <div class="border">
+                                            <select name="chargeRate" class="selectMenu form-control" id="chargeRate">
+                                                <option value="50">50</option>
+                                                <option value="450">450</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- </dropDownMenu> -->
+
+                                    <div class="dropDownMenu form-group">
+                                        <div class="label">
+                                            <label for="additionalOperational" title="account for costs due to payload loss and downtime">Additional Operational Costs<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                        </div>
+                                        <div class="border">
+                                            <select name="additionalOperational" class="selectMenu form-control" id="additionalOperational">
+                                                <option value="true">True</option>
+                                                <option value="false">False</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- </dropDownMenu> -->
 
                                 </div><!-- </behaviorGroup> -->
 
