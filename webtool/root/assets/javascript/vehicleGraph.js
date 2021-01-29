@@ -164,7 +164,7 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
 //   })
 // }
 
-function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedOperational, usedLabor)
+function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedLabor, usedOperational)
 {
     $("#usedVehicleChart").remove();
     let first = document.querySelector(".first");
@@ -695,7 +695,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         });
 }
 
-function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor)
+function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
 {
     $("#powertrainGraph").remove();
   
@@ -780,6 +780,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
     maintenanceCosts = [];
     repairCosts = [];
     laborCosts = [];
+    operationalCosts = [];
     totalCost = [];
 
     for(let i = 0; i < 6; i++)
@@ -792,8 +793,9 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
       maintenanceCosts[i] = parseInt(maintenance[i]);
       repairCosts[i] = parseInt(repair[i]);
       laborCosts[i] = parseInt(labor[i]);
+      operationalCosts[i] = parseInt(operational[i]);
 
-      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i] + laborCosts[i];
+      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i] + laborCosts[i] + operationalCosts[i];
     }
 
     powertrain[0] = "ICE-SI";
@@ -853,6 +855,11 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
             data: laborCosts,
             label: "Labor",
             backgroundColor: "#03fc3d"
+          },
+          {
+            data: operationalCosts,
+            label: "Operational",
+            backgroundColor: "#c267f5"
           }
         ]
       },
@@ -894,7 +901,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
     });
 }
 
-function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor)
+function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
 {
     $("#modelYearGraph").remove();
 
@@ -971,6 +978,7 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
     maintenanceCosts = [];
     repairCosts = [];
     laborCosts = [];
+    operationalCosts = [];
     totalCost = [];
 
     for(let i = 0; i < 5; i++)
@@ -983,8 +991,9 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
       maintenanceCosts[i] = parseInt(maintenance[i]);
       repairCosts[i] = parseInt(repair[i]);
       laborCosts[i] = parseInt(labor[i]);
+      operationalCosts[i] = parseInt(operational[i]);
 
-      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i] + laborCosts[i];
+      totalCost[i] = bodyCosts[i] + financeCosts[i] + fuelCosts[i] + insuranceCosts[i] + taxCosts[i] + maintenanceCosts[i] + repairCosts[i] + laborCosts[i] + operationalCosts[i];
     }
 
     modelYear[0] = "2020";
@@ -1043,6 +1052,11 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
             data: laborCosts,
             label: "Labor",
             backgroundColor: "#03fc3d"
+          },
+          {
+            data: operationalCosts,
+            label: "Operational",
+            backgroundColor: "#c267f5"
           }
         ]
       },

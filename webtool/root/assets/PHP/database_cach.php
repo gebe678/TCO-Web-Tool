@@ -46,6 +46,7 @@
         $miscLaborCost = $_POST["miscLaborCost"];
         $chargeRate = $_POST["chargeRate"];
         $additionalOperational = $_POST["additionalOperational"];
+        $averageDowntime = $_POST["averageDowntime"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -86,7 +87,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $result = $connect->query($checkForSuccessQuery);
 
@@ -142,6 +144,7 @@
         $miscLaborCost = $_POST["miscLaborCost"];
         $chargeRate = $_POST["chargeRate"];
         $additionalOperational = $_POST["additionalOperational"];
+        $averageDowntime = $_POST["averageDowntime"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -182,7 +185,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $financingQuery = "SELECT Financing FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -196,7 +200,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $fuelQuery = "SELECT Annual_Fuel FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -210,7 +215,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $insuranceQuery = "SELECT Insurance FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -224,7 +230,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $taxesQuery = "SELECT Taxes_And_Fees FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -238,7 +245,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $maintenanceQuery = "SELECT Maintenance FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -252,7 +260,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $repairQuery = "SELECT Repair FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -266,7 +275,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $operationalQuery = "SELECT Operational FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -280,7 +290,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $laborQuery = "SELECT Labor FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -294,7 +305,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $vmtQuery = "SELECT VMT FROM simplified_view_cost_components WHERE Vehicle_Body LIKE '$vehicleBody' AND Powertrain LIKE '$powertrain' AND Model_Year LIKE '$modelYear'
         AND Fuel LIKE '$fuelType' AND Technology_Progress LIKE '$technology' AND Vehicle_Write_Off LIKE '$writeOff' AND Incremental_Annual_Fuel_Price_Change LIKE '$annualFuelPriceIncrease'
@@ -308,7 +320,8 @@
         AND Custom_New_Vmt_Toggle LIKE '$customNewVMT' AND Custom_New_Vmt_Value LIKE '$customVmtValue' AND Custom_New_Vmt_Year LIKE '$customVmtYear' AND Custom_Vmt LIKE '$customVMT' AND Custom_Vmt_Value LIKE '$customVmtValueUsed'
         AND User_Defined_Fuel LIKE '$userDefinedFuel' AND User_Defined_Purchase_Cost LIKE '$userDefinedPurchaseCost' AND User_Defined_MPG LIKE '$userDefinedMPG' AND User_Defined_Insurance_Liability LIKE '$userDefinedInsuranceLiability'
         AND User_Defined_Insurance_Deductable LIKE '$userDefinedInsuranceDeductable' AND User_Defined_Fixed_Insurance LIKE '$userDefinedFixedInsurance' AND Carbon_Emission LIKE '$carbonEmission' AND Vehicle_TCO_Type LIKE '$vehicleTCOType'
-        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'";
+        AND Additional_Labor_Costs LIKE '$additionalLaborCosts' AND Misc_Labor_Cost LIKE '$miscLaborCost' AND Charging_Rate LIKE '$chargeRate' AND Additional_Operational_Costs LIKE '$additionalOperational'
+        AND Average_Down_Time LIKE '$averageDowntime'";
 
         $vehicleResult = $connect->query($vehicleQuery);
         $financingResult = $connect->query($financingQuery);
@@ -422,6 +435,7 @@
         $miscLaborCost = $_POST["miscLaborCost"];
         $chargeRate = $_POST["chargeRate"];
         $additionalOperational = $_POST["additionalOperational"];
+        $averageDowntime = $_POST["averageDowntime"];
 
         if(!empty($_POST["usedVehicle"]))
         {
@@ -456,7 +470,8 @@
         Insurance_Type, Bus_Occupancy, Annual_MPG_Degradation, Analysis_Window, Discount_Rate, Annual_Registration_Fee, Sales_Tax_And_Title, Insurance_Fixed_Rate, Simple_Depreciation_Rate,
         Depreciation, Salvage_Value, Finance_Term, Used_Vehicle_Toggle, Major_Repair_Toggle, Age_Of_Used_Car, Vehicle_Financed_Toggle, Bev_Range, Phev_Range, VMT_Type, Custom_New_Vmt_Toggle,
         Custom_New_Vmt_Value, Custom_New_Vmt_Year, Custom_Vmt, Custom_Vmt_Value, User_Defined_Fuel, User_Defined_Purchase_Cost, User_Defined_MPG, User_Defined_Insurance_Liability,
-        User_Defined_Insurance_Deductable, User_Defined_Fixed_Insurance, Carbon_Emission, Vehicle_TCO_Type, Additional_Labor_Costs, Misc_Labor_Cost, Charging_Rate, Additional_Operational_Costs)
+        User_Defined_Insurance_Deductable, User_Defined_Fixed_Insurance, Carbon_Emission, Vehicle_TCO_Type, Additional_Labor_Costs, Misc_Labor_Cost, Charging_Rate, Additional_Operational_Costs,
+        Average_Down_Time)
 
         VALUES($year, $vehicle, $finance, $fuel, $insurance, $taxes, $maintenance, $repair, $operational, $infrastructure, $labor, 
         $vmt, '$vehicleBody', '$powertrain', '$modelYear', '$fuelType', '$technology', '$writeOff', '$annualFuelPriceIncrease', '$fuelPriceType', '$fuelInfrastructure',
@@ -464,7 +479,8 @@
         '$insuranceType', '$busOccupancy', '$fuelEfficiencyDegradation', '$analysisWindow', '$discountRate', '$annualRegistration', '$salesTaxAndTitle', '$insuranceFixed', '$depreciationRate',
         '$depreciation', '$salvageValue', '$financeTerm', '$usedVehicle', '$majorRepair', '$usedVehicleYear', '$vehicleFinanced', '$bevRange', '$phevRange', '$vmtType', '$customNewVMT',
         '$customVmtValue', '$customVmtYear', '$customVMT', '$customVmtValueUsed', '$userDefinedFuel', '$userDefinedPurchaseCost', '$userDefinedMPG', '$userDefinedInsuranceLiability',
-        '$userDefinedInsuranceDeductable', '$userDefinedFixedInsurance', '$carbonEmission', '$vehicleTCOType', '$additionalLaborCosts', '$miscLaborCost', '$chargeRate', '$additionalOperational')";
+        '$userDefinedInsuranceDeductable', '$userDefinedFixedInsurance', '$carbonEmission', '$vehicleTCOType', '$additionalLaborCosts', '$miscLaborCost', '$chargeRate', '$additionalOperational',
+        '$averageDowntime')";
 
 
         $sqli = $connect->query($insertData);

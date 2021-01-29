@@ -943,6 +943,13 @@
                                         </div>
                                     </div><!-- </dropDownMenu> -->
 
+                                    <div class="inputContainer form-group">
+                                        <label for="averageDowntime" class="sliderLabel">Average Downtime %</label>
+                                        <input type="range" min="0" max="20" step="1" value="10" class="slider"
+                                            name="averageDowntime" id="averageDowntime">
+                                        <input type="number" min="0" max="20" step="1" value="10" class="outputText">
+                                    </div><!-- </inputContainer> -->
+
                                 </div><!-- </behaviorGroup> -->
 
                             </div><!-- </detailedView> -->

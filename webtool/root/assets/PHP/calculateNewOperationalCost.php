@@ -98,7 +98,7 @@
     {
         include "getID.php";
 
-        $averageDowntime = .1048;
+        $averageDowntime = $_POST["averageDowntime"] / 100; //.1048;
         $downtimeOppurtunityCost;
 
         for($i = 0; $i < $numYears; $i++)

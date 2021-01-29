@@ -22,11 +22,12 @@
         $technology = $_POST["technology"];
         $vehicleSize = $_POST["vehicleBody"];
         $modelYear = $_POST["modelYear"];
+        $chargingTime = $_POST["chargeRate"];
 
         $utilityFactorQuery = "SELECT PHEV_Utility_Factor FROM hdv_phev_utility_factor WHERE Technology LIKE '$technology' AND Size LIKE '$vehicleSize' AND Model_Year LIKE '$modelYear'";
         $utilityFactor = $connect->query($utilityFactorQuery); $utilityFactor = $utilityFactor->fetch_assoc(); $utilityFactor = $utilityFactor["PHEV_Utility_Factor"];
 
-        $costPerMile = ((37.95 / $fuelMPG) / 50) * 30;
+        $costPerMile = ((37.95 / $fuelMPG) / $chargingTime) * 30;
 
         for($i = 0; $i < $numYears; $i++)
         {
@@ -56,7 +57,7 @@
         $downTime;
         $extraCharge;
 
-        $laborCostPerMile = .789968;
+        $laborCostPerMile = $_POST["miscLaborCost"];//.789968;
 
         $chargingTime = calculateExtraChargingTime($numYears);
 
@@ -69,6 +70,14 @@
         }
         else
         {
+            for($i = 0; $i < $numYears; $i++)
+            {
+                $totalCost[$i] = 0;
+            }
+        }
+
+        if($_POST["additionalLaborCosts"] === "false")
+        {   
             for($i = 0; $i < $numYears; $i++)
             {
                 $totalCost[$i] = 0;
