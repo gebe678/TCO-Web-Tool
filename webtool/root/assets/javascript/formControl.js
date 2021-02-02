@@ -79,16 +79,20 @@ function checkForZero()
         }).done(function(data){
             if(data === "vehicle yes fuel no")
             {
-                let value = prompt("No vehilce information for your selection. Please enter vehicle body price", "127030.29");
+                //let value = prompt("No vehicle information for your selection. Please enter vehicle body price", "127030.29");
+                let value  = 1;
+                alert("There is no vehicle information for your selection");
                 if(isNaN(value))
                 {
-                    value = prompt("Input entered not a number", "127030.29");
+                   // value = prompt("Input entered not a number", "127030.29");
                 }
                 bodyCostPlugin.value = value;
             }
             else if(data === "vehicle no fuel yes")
             {
-                let value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                // let value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                let value = 1;
+                alert("There is no fuel information availiable for your selection");
                 if(isNaN(value))
                 {
                     value = prompt("Input entered not a number", "27.63");
@@ -97,14 +101,17 @@ function checkForZero()
             }
             else if(data === "vehicle yes fuel yes")
             {
-                let value = prompt("No vehilce information for your selection. Please enter vehicle body price", "127030.29");
+                //let value = prompt("No vehilce information for your selection. Please enter vehicle body price", "127030.29");
+                let value = 1;
+                alert("There is no vehicle information availiable for your selection");
                 if(isNaN(value))
                 {
                     value = prompt("Input entered not a number", "127030.29");
                 }
                 bodyCostPlugin.value = value;
 
-                value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                //value = prompt("No fuel information for your selection. Please enter a fuel price", "27.63");
+                alert("There is no fuel information availiable for your selection");
                 if(isNaN(value))
                 {
                     value = prompt("Input entered not a number", "27.63");

@@ -317,7 +317,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="hydrogenSuccessFactor" title="Select scenario fof hydrogen technology progress. Affects hydrogen fuel prices and is applicable only to FCEV">Hydrogen Success:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
+                                            <label for="hydrogenSuccessFactor" title="Select scenario for hydrogen technology progress. Affects hydrogen fuel prices and is applicable only to FCEV">Hydrogen Success:<img src="assets/page_pictures/infoCalloutTechnology.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="hydrogenSuccessFactor" class="selectMenu form-control"
