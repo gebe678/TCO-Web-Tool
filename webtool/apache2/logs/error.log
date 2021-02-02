@@ -1,10 +1,6 @@
-[Mon Feb 01 17:19:02.242932 2021] [mpm_winnt:notice] [pid 11668:tid 832] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
-[Mon Feb 01 17:19:02.243929 2021] [mpm_winnt:notice] [pid 11668:tid 832] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
-[Mon Feb 01 17:19:02.243929 2021] [core:notice] [pid 11668:tid 832] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Test/TCO-Web-Tool/webtool/apache2'
-[Mon Feb 01 17:19:02.251909 2021] [mpm_winnt:notice] [pid 11668:tid 832] AH00418: Parent: Created child process 18348
-[Mon Feb 01 17:19:03.523534 2021] [mpm_winnt:notice] [pid 18348:tid 852] AH00354: Child: Starting 64 worker threads.
-[Mon Feb 01 17:40:30.119613 2021] [:error] [pid 18348:tid 1332] [client ::1:52930] PHP Notice:  Undefined index: username in C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool\\root\\login_nice_form.php on line 14, referer: http://localhost:8080/login_nice_form.php
-[Mon Feb 01 17:40:30.120483 2021] [:error] [pid 18348:tid 1332] [client ::1:52930] PHP Notice:  Undefined index: password in C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool\\root\\login_nice_form.php on line 15, referer: http://localhost:8080/login_nice_form.php
-[Mon Feb 01 17:40:30.123499 2021] [:error] [pid 18348:tid 1332] [client ::1:52930] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool\\root\\login_nice_form.php on line 25, referer: http://localhost:8080/login_nice_form.php
-[Mon Feb 01 17:40:58.104835 2021] [:error] [pid 18348:tid 1332] [client ::1:52933] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool\\root\\login_nice_form.php on line 25, referer: http://localhost:8080/login_nice_form.php
-[Mon Feb 01 17:41:08.618344 2021] [:error] [pid 18348:tid 1332] [client ::1:52949] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool\\root\\login_nice_form.php on line 25, referer: http://localhost:8080/login_nice_form.php
+[Tue Feb 02 13:21:52.983206 2021] [mpm_winnt:notice] [pid 14900:tid 904] AH00455: Apache/2.4.6 (Win32) PHP/5.4.17 configured -- resuming normal operations
+[Tue Feb 02 13:21:52.984204 2021] [mpm_winnt:notice] [pid 14900:tid 904] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
+[Tue Feb 02 13:21:52.984204 2021] [core:notice] [pid 14900:tid 904] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Test\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Test/TCO-Web-Tool/webtool/apache2'
+[Tue Feb 02 13:21:52.991185 2021] [mpm_winnt:notice] [pid 14900:tid 904] AH00418: Parent: Created child process 7220
+[Tue Feb 02 13:21:54.175018 2021] [mpm_winnt:notice] [pid 7220:tid 836] AH00354: Child: Starting 64 worker threads.
+[Tue Feb 02 13:26:37.870862 2021] [:error] [pid 7220:tid 1344] [client 127.0.0.1:56422] script 'C:/Users/warri/Desktop/Test/TCO-Web-Tool/webtool/root/signup_page_nice_form.php' not found or unable to stat

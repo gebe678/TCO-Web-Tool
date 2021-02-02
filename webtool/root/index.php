@@ -1,7 +1,7 @@
 <?php
     include "assets/PHP/connectDatabase.php";
 
-    session_start();
+	session_start();
 
     if(isset($_SESSION["userid"]) && $_SESSION["userid"] === true)
     {
@@ -9,9 +9,9 @@
     }
     
     if(isset($_POST["submit"]))
-    {    
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+    {
+        $username = $_POST["email"];
+        $password = $_POST["pass"];
     
         $usernameQuery = "SELECT username FROM users";
         $passwordQuery = "SELECT userPassword FROM users";
@@ -56,40 +56,104 @@
     }
 ?>
 
-<!DOCTYPE <html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V1</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/img-01.png" alt="IMG">
+				</div>
 
-<html>
+				<form class="login100-form validate-form" action="" method="post" name="signinForm" id="signinForm">
+					<span class="login100-form-title">
+						Member Login
+					</span>
 
-    <head>
-        <title>Landing Page</title>
-        <meta charset="utf8">
-        <link rel="stylesheet" href="assets/css/loginStyles.css">
-    </head>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-    <body>
-        <div class="signinBox">
-            <div class="formContainer">
-                <form action="" method="post" name="signinForm" id="signinForm">
-                    <div class="userName">
-                        <div class="labelBox">
-                            <label for="username">User Name</label>
-                        </div>
-                        <input type="text" name="username" id="username">
-                    </div>
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<input type="submit" name="submit" class="login100-form-btn" value="Login">
+							<!-- Login -->
+						<!-- </button> -->
+					</div>
 
-                    <div class="password">
-                        <div class="labelBox">
-                            <label for="password">Password</label>
-                        </div>
-                        <input type="password" name="password" id="password">
-                    </div>
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Forgot
+						</span>
+						<a class="txt2" href="#">
+							Username / Password?
+						</a>
+					</div>
 
-                    <input type="submit" name="submit">
-                </form>
+					<div class="text-center p-t-136">
+						<a class="txt2" href="signupPage.php">
+							Create your Account
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
 
-                <a href="signupPage.php">Click to sign up</a>
-            </div>
-        </div>
-    </body>
+	
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
 
+</body>
 </html>
