@@ -37,3 +37,6 @@ Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)
 2021-01-14 12:30:59 13856 [Note] Event Scheduler: Loaded 0 events
 2021-01-14 12:30:59 13856 [Note] C:\Users\warri\Desktop\Test\TCO-Web-Tool\webtool/mysql/bin/mysqld_usbwv8.exe: ready for connections.
 Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)
+2021-02-05 11:17:56 21336 [Note] Event Scheduler: Loaded 0 events
+2021-02-05 11:17:56 21336 [Note] C:\Users\warri\Desktop\Test\TCO-Web-Tool\webtool/mysql/bin/mysqld_usbwv8.exe: ready for connections.
+Version: '5.6.13'  socket: ''  port: 3307  MySQL Community Server (GPL)

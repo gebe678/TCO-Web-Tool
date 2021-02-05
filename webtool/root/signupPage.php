@@ -94,7 +94,7 @@
 
 				<form class="login100-form validate-form" action="" method="post" name="signinForm" id="signinForm">
 					<span class="login100-form-title">
-						Member Signup
+						User Signup
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
