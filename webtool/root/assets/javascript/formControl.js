@@ -210,6 +210,20 @@ function submittedAjaxForm()
             console.log(data);
             let vehicleInformation = jQuery.parseJSON(data);
 
+            let vehicleLabelType = document.getElementById("vehicleGraphControl");
+            let vehicleLabelOutput = "";
+
+            console.log(vehicleLabelType.value);
+
+            if(vehicleLabelType.value === "depreciation")
+            {
+                vehicleLabelOutput = "Depreciation";
+            }
+            else if(vehicleLabelType.value === "vehiclePayment")
+            {
+                vehicleLabelOutput = "Payments";
+            }
+
             let totalVmt = vehicleInformation[9][0];
             let counter = 0;
             let startYear = 0;
@@ -386,7 +400,7 @@ function submittedAjaxForm()
             }
 
             //imageOverlayMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, bodyType.value);
-            fiveYearAverage(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData);
+            fiveYearAverage(vehicleLabelOutput, vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData);
 
             
             if(!showPowertrainGraph.checked)
@@ -582,20 +596,20 @@ function submittedAjaxForm()
 
             if(showPowertrainGraph.checked)
             {
-                powertrainGraph(pBody, pFinance, pFuel, pInsurance, pTax, pMaintenance, pRepair, pLabor, pOperational);
+                powertrainGraph(vehicleLabelOutput, pBody, pFinance, pFuel, pInsurance, pTax, pMaintenance, pRepair, pLabor, pOperational);
             }
 
             if(showModelYearGraph.checked)
             {
-                modelYearGraph(mBody, mFinance, mFuel, mInsurance, mTax, mMaintenance, mRepair, mLabor, mOperational);
+                modelYearGraph(vehicleLabelOutput, mBody, mFinance, mFuel, mInsurance, mTax, mMaintenance, mRepair, mLabor, mOperational);
             }
 
             if(showUsedVehicleGraph.checked)
             {
-                usedVehicleGraph(vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], uBody, uFinance, uFuel, uInsurance, uTax, uMaintenance, uRepair, uLabor, uOperational);
+                usedVehicleGraph(vehicleLabelOutput, vehicleInformation[0], vehicleInformation[1], vehicleInformation[2], vehicleInformation[3], vehicleInformation[4], vehicleInformation[5], vehicleInformation[6], vehicleInformation[7], vehicleInformation[8], uBody, uFinance, uFuel, uInsurance, uTax, uMaintenance, uRepair, uLabor, uOperational);
             }
 
-            vehicleGraphMain(vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);
+            vehicleGraphMain(vehicleLabelOutput, vehicleData, financingData, annualFuelData, insuranceData, taxData, maintenanceData, repairData, operationalData, laborData, vmtData);
         });
     });
 }

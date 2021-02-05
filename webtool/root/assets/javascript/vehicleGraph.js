@@ -1,7 +1,8 @@
 let bodyName = document.getElementById("vehicleBodyMenu");
 let powertrainName = document.getElementById("powertrainMenu");
 
-function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
+
+function fiveYearAverage(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
 {
   let pTitleName = document.getElementById("vehicleBodyMenu");
   let bTitleName = document.getElementById("powertrainMenu");
@@ -55,7 +56,7 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
         backgroundColor: ["#994d00", "#ff0000", "#ffaa00", "#9494b8", "#3333ff", "#66a3ff", "#c267F5", "#03fc3d", "#e1e1ea"],
         borderWidth: 0
       }],
-      labels: ["Depreciation", "Financing", "Fuel", "Insurance", "Maintenance", "Repair", "Operational", "Labor", "Taxes"],
+      labels: [vehicleLabelOutput, "Financing", "Fuel", "Insurance", "Maintenance", "Repair", "Operational", "Labor", "Taxes"],
     };
 
     piGraph = new Chart(canvas, {
@@ -164,7 +165,7 @@ function fiveYearAverage(vehicleBodyCost, financeCost, annualFuelCost, insurance
 //   })
 // }
 
-function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedLabor, usedOperational)
+function usedVehicleGraph(vehicleLabelOutput, vehicle, finance, fuel, insurance, taxes, maintenance, repair, operational, labor, usedVehicle, usedFinance, usedFuel, usedInsurance, usedTaxes, usedMaintenance, usedRepair, usedLabor, usedOperational)
 {
     $("#usedVehicleChart").remove();
     let first = document.querySelector(".first");
@@ -277,7 +278,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
           [
             {
               data: vehicleCost,
-              label: "Depreciation",
+              label: vehicleLabelOutput,
               backgroundColor: "#994d00",
             },
             {
@@ -358,7 +359,7 @@ function usedVehicleGraph(vehicle, finance, fuel, insurance, taxes, maintenance,
     });
 }
 
-function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
+function costByYear(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor)
 {
     let canvas = document.getElementById("vehicleGraph");
     let age = document.getElementById("usedVehicle");
@@ -431,7 +432,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
         [
           {
             data: vehicleBodyCosts,
-            label: "Depreciation",
+            label: vehicleLabelOutput,
             backgroundColor: "#994d00",
           },
           {
@@ -513,7 +514,7 @@ function costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost,
     });
 }
 
-function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt)
+function costByYearMPG(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt)
 {
     let canvas = document.getElementById("perMileGraph");
 
@@ -613,7 +614,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
             [
               {
                 data: vehicleBodyCosts,
-                label: "Depreciation",
+                label: vehicleLabelOutput,
                 backgroundColor: "#994d00",
               },
               {
@@ -695,7 +696,7 @@ function costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCo
         });
 }
 
-function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
+function powertrainGraph(vehicleLabelOutput, body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
 {
     $("#powertrainGraph").remove();
   
@@ -818,7 +819,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
         [
           {
               data: bodyCosts,
-              label: "Depreciation",
+              label: vehicleLabelOutput,
               backgroundColor: "#994d00",
           },
           {
@@ -901,7 +902,7 @@ function powertrainGraph(body, finance, fuel, insurance, tax, maintenance, repai
     });
 }
 
-function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
+function modelYearGraph(vehicleLabelOutput, body, finance, fuel, insurance, tax, maintenance, repair, labor, operational)
 {
     $("#modelYearGraph").remove();
 
@@ -1015,7 +1016,7 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
         [
           {
               data: bodyCosts,
-              label: "Depreciation",
+              label: vehicleLabelOutput,
               backgroundColor: "#994d00",
           },
           {
@@ -1098,7 +1099,7 @@ function modelYearGraph(body, finance, fuel, insurance, tax, maintenance, repair
     });
 }
 
-function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt)
+function vehicleGraphMain(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt)
 {
     $("#vehicleGraph").remove();
     $(".canvasContainer").append('<canvas id="vehicleGraph">canvas is not supported in your browser</canvas>');
@@ -1106,7 +1107,7 @@ function vehicleGraphMain(vehicleBodyCost, financeCost, annualFuelCost, insuranc
     $("#perMileGraph").remove();
     $(".canvasContainer").append("<canvas id='perMileGraph'>canvas is not supported in your browser</canvas>");
 
-    costByYear(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor);
-    costByYearMPG(vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt);
+    costByYear(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor);
+    costByYearMPG(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuelCost, insuranceCost, taxesAndFees, maintenance, repair, operational, labor, vmt);
     //tornadoChart();
 }

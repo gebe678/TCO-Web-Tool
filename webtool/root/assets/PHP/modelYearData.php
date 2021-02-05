@@ -127,6 +127,7 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
     $vehicleBody = $_POST["vehicleBody"];
     $technology = $_POST["technology"];
     $powertrainType = $_POST["powertrain"];
+    $powertrain = $powertrainType;
     $bevRange = $_POST["bevRange"];
     $markupFactor = $_POST["markupFactor"];
     $depreciationRate = $_POST["depreciationRate"];

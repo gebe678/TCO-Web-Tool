@@ -686,7 +686,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="vehicleGraphControl" title="Show vehicle payments in place of depreciation cost in the annual TCO">TCO Output Option<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
+                                            <label for="vehicleGraphControl" title="Show vehicle payments in place of depreciation cost in the annual TCO Graphs">TCO Output Option<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="vehicleGraphControl" class="selectMenu form-control"
@@ -913,7 +913,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="miscLaborCost" class="sliderLabel">Labor Cost $/Mile</label>
+                                        <label for="miscLaborCost" class="sliderLabel" title="Specify labor cost per mile">Labor Cost $/Mile<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         <input type="range" min="0" max="1.5" step=".01" value=".78" class="slider"
                                             name="miscLaborCost" id="miscLaborCost">
                                         <input type="number" min="0" max="1.5" step=".01" value=".78" class="outputText">
@@ -921,7 +921,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="chargeRate" title="select charging power for heavy duty electric vehicles. Affects charging downtime costs">Charge Rate, kw<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                            <label for="chargeRate" title="select charging power for heavy duty electric vehicles. Affects charging downtime costs">Charge Rate, kW<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="chargeRate" class="selectMenu form-control" id="chargeRate">
@@ -944,7 +944,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="averageDowntime" class="sliderLabel" title="Specify percentage of time annually where the vehicle is unproductive.">Average Downtime %</label>
+                                        <label for="averageDowntime" class="sliderLabel" title="Specify percentage of time annually where the vehicle is unproductive.">Average Downtime %<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
                                         <input type="range" min="0" max="20" step="1" value="10" class="slider"
                                             name="averageDowntime" id="averageDowntime">
                                         <input type="number" min="0" max="20" step="1" value="10" class="outputText">

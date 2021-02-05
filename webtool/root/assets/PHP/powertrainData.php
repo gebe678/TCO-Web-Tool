@@ -160,7 +160,7 @@ function calculateAdvancedExponentialDepreciationPowertrain($numYears, $powertra
 
     if($vehicleBody[0] === "L")
     {
-        $powertrain = $powertrain . "_Luxury";
+        $powertrainType = $powertrainType . "_Luxury";
     }
 
     if($_POST["APU"] === "true")
