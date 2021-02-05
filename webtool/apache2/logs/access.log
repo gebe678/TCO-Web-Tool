@@ -64,3 +64,5 @@
 127.0.0.1 - - [05/Feb/2021:11:26:52 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 4196
 127.0.0.1 - - [05/Feb/2021:11:27:21 -0500] "GET /assets/pi_graph_pictures/Luxury%20Midsize%20Car.jpg HTTP/1.1" 200 24557
 127.0.0.1 - - [05/Feb/2021:11:26:52 -0500] "POST /assets/PHP/processForm.php HTTP/1.1" 200 4196
+10.31.58.0 - - [05/Feb/2021:14:32:18 -0500] "GET / HTTP/1.1" 200 4305
+10.31.58.0 - - [05/Feb/2021:14:32:19 -0500] "GET /HNAP1/ HTTP/1.1" 404 204
