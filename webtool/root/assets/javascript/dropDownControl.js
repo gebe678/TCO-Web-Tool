@@ -803,9 +803,9 @@ function maxYear()
         if(vehicleMenu.selectedIndex > 9)
         {
             analysisWindow.max = 30;
-            analysisWindow.value = 30;
+            analysisWindow.value = 15;
             analysisNumber.max = 30;
-            analysisNumber.value = 30;
+            analysisNumber.value = 15;
 
             markupFactor.value = 1;
             markupFactorNumber.value = 1;
@@ -813,9 +813,9 @@ function maxYear()
         else
         {
             analysisWindow.max = 30;
-            analysisWindow.value = 30;
+            analysisWindow.value = 15;
             analysisNumber.max = 30;
-            analysisNumber.value = 30;
+            analysisNumber.value = 15;
 
             markupFactor.value = 1.5;
             markupFactorNumber.value = 1.5;

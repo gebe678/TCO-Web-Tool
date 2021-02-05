@@ -61,11 +61,11 @@
 
         if($_POST["vehicleClassSize"] === "LDV")
         {
-            $totalInsurance = calculateLDVInsurance(30, $insuranceLiability);
+            $totalInsurance = calculateLDVInsurance($numYears, $insuranceLiability);
         }
         else
         {
-            $totalInsurance = calcualteHDVInsurance(30);
+            $totalInsurance = calcualteHDVInsurance($numYears);
         }
 
         return $totalInsurance;

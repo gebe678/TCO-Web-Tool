@@ -549,7 +549,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="analysisWindow" class="sliderLabel" title="Specify length of ownership period.">Analysis Window<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
+                                        <label for="analysisWindow" class="sliderLabel" title="Specify years of ownership.">Analysis Window<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="5" max="30" value="15" class="slider"
                                             name="analysisWindow" id="analysisWindow">
                                         <input type="number" min="5" max="30" value="15" class="outputText"
@@ -565,7 +565,7 @@
                                     </div><!-- </inputContainer -->
 
                                     <div class="inputContainer form-group">
-                                        <label for="annualRegistration" class="sliderLabel" title="Specify annual registration fee">Annual Registration
+                                        <label for="annualRegistration" class="sliderLabel" title="Specify annual registration fee dollar amount">Annual Registration
                                             Fee<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="100" max="1000" value="268" class="slider"
                                             name="annualRegistration" id="annualRegistration">
@@ -658,7 +658,7 @@
                                     </div><!-- </dropDownMenu> -->
 
                                     <div class="inputContainer">
-                                        <label for="financeTerm" class="sliderLabel" id="financeTermLabel" title="Specify length of financing">Finance
+                                        <label for="financeTerm" class="sliderLabel" id="financeTermLabel" title="Specify years of financing">Finance
                                             Term<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="30" value="4" class="slider" name="financeTerm"
                                             id="financeTerm">
@@ -1074,7 +1074,7 @@
 
                 <p><a href="#">Link to documentation for calculations</a> | <button id="downloadData">Download Analysis Results</button> | <button id="downlaodAnalysisResults">Download Raw Data</button></p>
                 <a href="assets/CSV Tables.zip" style="display:none;"></a>
-                <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p>
+                <!-- <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p> -->
                 <img src="assets/page_pictures/tcoToolContributers.jpg" alt="Web Tool Contributers" style="width: 100%;">
 
             </div><!-- </col-lg-12> -->
