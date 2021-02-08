@@ -108,6 +108,48 @@ function insuranceUserDefined()
     })
 }
 
+function operationalUserDefined()
+{
+    let additionalOperational = document.getElementById("additionalOperational");
+    let avgDowntimePercent = document.getElementById("averageDowntimePercentContainer");
+
+    avgDowntimePercent.style.display = "none";
+
+    additionalOperational.addEventListener("change", function(){
+        if(additionalOperational.selectedIndex === 0)
+        {
+            avgDowntimePercent.style.display = "block";
+        }
+        else
+        {
+            avgDowntimePercent.style.display = "none";
+        }
+    });
+}
+
+function laborUserDefined()
+{
+    let additionalLaborCosts = document.getElementById("additionalLaborCosts");
+    let laborCostContainer = document.getElementById("laborCostContainer");
+    let chargeRateContainer = document.getElementById("chargeRateContainer");
+
+    laborCostContainer.style.display = "none";
+    chargeRateContainer.style.display = "none";
+
+    additionalLaborCosts.addEventListener("change", function(){
+        if(additionalLaborCosts.selectedIndex === 0)
+        {
+            laborCostContainer.style.display = "block";
+            chargeRateContainer.style.display = "block";
+        }
+        else
+        {
+            laborCostContainer.style.display = "none";
+            chargeRateContainer.style.display = "none";
+        }
+    });
+}
+
 function userDefinedMain()
 {
     vehicleUserDefined();
@@ -115,6 +157,8 @@ function userDefinedMain()
     fuelMPGUserDefined();
     depreciationUserDefined();
     insuranceUserDefined();
+    laborUserDefined();
+    operationalUserDefined();
 }
 
 userDefinedMain();

@@ -227,6 +227,7 @@ function submittedAjaxForm()
             let totalVmt = vehicleInformation[9][0];
             let counter = 0;
             let startYear = 0;
+            let tcoOutputOption = document.getElementById("vehicleGraphControl");
             if(age.checked)
             {
                 startYear = parseFloat(usedYear.value);
@@ -235,8 +236,16 @@ function submittedAjaxForm()
             for(let i = 0; i < 30; i++)
             {
                 year[i] = i + 1;
-                vehicleData[i] = vehicleInformation[0][i + startYear];
-                financingData[i] = vehicleInformation[1][i + startYear];
+                if(tcoOutputOption.selectedIndex === 0)
+                {
+                    vehicleData[i] = vehicleInformation[0][i + startYear];
+                }
+                else
+                {
+                    vehicleData[i] = vehicleInformation[0][i];
+                }
+                
+                financingData[i] = vehicleInformation[1][i];
                 annualFuelData[i] = vehicleInformation[2][i + startYear];
                 insuranceData[i] = vehicleInformation[3][i + startYear];
                 taxData[i] = parseFloat(vehicleInformation[4][i + startYear]);
