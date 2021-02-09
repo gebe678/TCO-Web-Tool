@@ -20,15 +20,16 @@ function main()
 
     checkForZero();
     setPurchaseCost();
-    submittedAjaxForm();
 
     downloadButton.addEventListener("click", function(){
         dataDownload = true;
+        submittedAjaxForm();
         submitButton.click();
     });
 
     shownSubmitButton.addEventListener("click", function(){
         dataDownlaod = false;
+        submittedAjaxForm();
         submitButton.click();
     });
 }
@@ -213,8 +214,6 @@ function submittedAjaxForm()
             let vehicleLabelType = document.getElementById("vehicleGraphControl");
             let vehicleLabelOutput = "";
 
-            console.log(vehicleLabelType.value);
-
             if(vehicleLabelType.value === "depreciation")
             {
                 vehicleLabelOutput = "Depreciation";
@@ -390,6 +389,7 @@ function submittedAjaxForm()
             if(dataDownload === true)
             {
                 link.click(); // This will download the data file named "my_data.csv".
+                dataDownload = false;
             }
 
             for(let i = startYear; i < 30; i++)
