@@ -659,7 +659,7 @@
 
                                     <div class="inputContainer">
                                         <label for="financeTerm" class="sliderLabel" id="financeTermLabel" title="Specify years of financing">Finance
-                                            Term /Year<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
+                                            Term, Year<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         <input type="range" min="0" max="30" value="4" class="slider" name="financeTerm"
                                             id="financeTerm">
                                         <input type="number" min="0" max="30" value="4" class="outputText"
@@ -1018,7 +1018,7 @@
 
                     </div> <!-- </row> -->
 
-                    <div class="row">
+                    <div class="row top-buffer">
 
                         <div class="col-lg-12">
 
@@ -1032,7 +1032,7 @@
 
                     </div> <!-- </row> -->
 
-                    <div class="row">
+                    <div class="row top-buffer">
 
                         <div class="col-lg-12">
 
@@ -1047,7 +1047,7 @@
                     </div> <!-- </div> -->
                     
 
-                    <div class="row">
+                    <div class="row top-buffer">
 
                         <div class="col-lg-12">
 
@@ -1077,7 +1077,7 @@
 
             <div class="col-lg-12">
 
-                <p><a href="#">Link to documentation for calculations</a> | <button id="downloadData">Download Analysis Results</button> | <button id="downlaodAnalysisResults">Download Raw Data</button></p>
+                <p><a href="assets/wordDocx/TCO_Report_energy_use_v20200824_sw.docx">Link to documentation for calculations</a> | <button id="downloadData">Download Analysis Results</button> | <button id="downlaodAnalysisResults">Download Raw Data</button></p>
                 <a href="assets/CSV Tables.zip" style="display:none;"></a>
                 <!-- <p>© 2021 National Technology and Engineering Solutions of Sandia, LLC.</p> -->
                 <p>The TCO analysis tool is a product of a multi-lab collaboration under EERE.</p>

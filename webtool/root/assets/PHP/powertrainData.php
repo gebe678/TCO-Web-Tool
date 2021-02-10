@@ -1462,6 +1462,12 @@ function calculateAdvancedExponentialDepreciationPowertrain($numYears, $powertra
                 $sum += $totalCost[$i];
             }
         }
+        $additionalLabor = $_POST["additionalLaborCosts"];
+
+        if($additionalLabor === "false")
+        {
+            $sum = 0;
+        }
 
         return $sum;
     }

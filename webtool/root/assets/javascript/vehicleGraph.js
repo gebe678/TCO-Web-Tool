@@ -338,7 +338,7 @@ function usedVehicleGraph(vehicleLabelOutput, vehicle, finance, fuel, insurance,
             scales:
             {
               xAxes: [{stacked: true, scaledLabel:{display:true, labelString: ""}, barPercentage: 0.2}],
-              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO: ($)"},
+              yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Average TCO ($)"},
               ticks:
               {
                 beginAtZero:true,
@@ -492,7 +492,7 @@ function costByYear(vehicleLabelOutput, vehicleBodyCost, financeCost, annualFuel
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Year Of Ownership"}}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost: ($)"}, 
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Annual Cost ($)"}, 
           
             ticks:
             {
@@ -674,7 +674,7 @@ function costByYearMPG(vehicleLabelOutput, vehicleBodyCost, financeCost, annualF
               scales:
               {
                 xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Miles Driven"}}],
-                yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile: ($)"},
+                yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Cost Per Mile ($)"},
 
                 ticks:
                 {
@@ -878,7 +878,7 @@ function powertrainGraph(vehicleLabelOutput, body, finance, fuel, insurance, tax
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Powertrain Type"}, barPercentage: 0.5}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"},
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost ($)"},
             ticks:
             {
               beginAtZero:true,
@@ -1075,7 +1075,7 @@ function modelYearGraph(vehicleLabelOutput, body, finance, fuel, insurance, tax,
           scales:
           {
             xAxes: [{stacked: true, scaleLabel:{display: true, labelString: "Model Year"}, barPercentage: 0.5}],
-            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost: ($)"},
+            yAxes: [{stacked: true, scaleLabel:{display: true, labelString: "5-yr Cost ($)"},
             ticks:
             {
               beginAtZero:true,

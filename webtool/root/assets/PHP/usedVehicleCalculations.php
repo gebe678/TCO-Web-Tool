@@ -1418,6 +1418,13 @@ function calculateAdvancedExponentialDepreciationUsed($numYears)
             }
         }
 
+        $additionalLabor = $_POST["additionalLaborCosts"];
+
+        if($additionalLabor === "false")
+        {
+            $sum = 0;
+        }
+
         return $sum;
     }
 

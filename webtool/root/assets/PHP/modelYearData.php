@@ -1404,6 +1404,13 @@ function calculateAdvancedExponentialDepreciationModelYear($numYears, $modelYear
             }
         }
 
+        $additionalLabor = $_POST["additionalLaborCosts"];
+
+        if($additionalLabor === "false")
+        {
+            $sum = 0;
+        }
+
         return $sum;
     }
 
