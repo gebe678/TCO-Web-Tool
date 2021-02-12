@@ -781,7 +781,7 @@
 
                                     <div class="dropDownMenu form-group">
                                         <div class="label">
-                                            <label for="busOccupancy" title="Select occupancy of Bus">Bus Occupancy:<img src="assets/page_pictures/infoCalloutBehavior.JPG"></label>
+                                            <label for="busOccupancy" title="Select occupancy of Bus">Bus Occupancy:<img src="assets/page_pictures/infoCalloutEconomic.JPG"></label>
                                         </div>
                                         <div class="border">
                                             <select name="busOccupancy" class="selectMenu form-control"
