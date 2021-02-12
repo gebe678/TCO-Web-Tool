@@ -2,3 +2,4 @@
 [Thu Feb 11 19:20:45.487966 2021] [mpm_winnt:notice] [pid 19996:tid 804] AH00456: Apache Lounge VC10 Server built: Jul 16 2013 11:15:41
 [Thu Feb 11 19:20:45.487966 2021] [core:notice] [pid 19996:tid 804] AH00094: Command line: 'C:\\Users\\warri\\Desktop\\Sandia Projects\\Sandia TCO Web Tool\\TCO-Web-Tool\\webtool/apache2/bin/httpd_usbwv8.exe -d C:/Users/warri/Desktop/Sandia Projects/Sandia TCO Web Tool/TCO-Web-Tool/webtool/apache2'
 [Thu Feb 11 19:20:45.517018 2021] [mpm_winnt:notice] [pid 19996:tid 804] AH00418: Parent: Created child process 20700
+[Thu Feb 11 19:20:47.423717 2021] [mpm_winnt:notice] [pid 20700:tid 680] AH00354: Child: Starting 64 worker threads.
